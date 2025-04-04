@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plano de Ação OPME</title>
+    <style>
+        body {
+            font-family: Verdana, sans-serif;
+            background-color: #013d19;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #f2f2f2;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: left;
+        }
+        h1, h2, h3 {
+            color: #013d19;
+        }
+        h1 {
+            font-size: 20px;
+            margin-top: 0;
+        }
+        h2 {
+            font-size: 18px;
+            border-bottom: 2px solid #ec7106;
+            padding-bottom: 5px;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        .highlight {
+            color: #ec7106;
+            font-weight: bold;
+        }
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            background-color: #ec7106;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            font-weight: bold;
+        }
+        .btn:hover {
+            background-color: #013d19;
+        }
+        .logo img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        textarea {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-top: 15px;
+            box-sizing: border-box;
+            font-family: Verdana, sans-serif;
+        }
+    </style>
+    <script>
+        function sendFeedback() {
+            var feedback = document.getElementById("feedbackText").value;
+            var subject = encodeURIComponent("Feedback Plano Ação OPME - Unihealth GV");
+            var body = encodeURIComponent(feedback);
+            window.location.href = "mailto:guilherme.thome@unihealthgv.org.br?subject=" + subject + "&body=" + body;
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+
+        <div class="logo">
+            <img src="https://i.imgur.com/Jk8AWJS.png" alt="Logo Unihealth">
+        </div>
+
+        <h1>Plano de Ação Estratégico para Gestão da Dispensação de OPMEs em Cenário de Negociação Contratual</h1>
+        <p><em>Hospital Unihealth – Comitê de Gestão Assistencial e Operacional Integrado</em></p>
+
+        <h2>Contextualização Estratégica</h2>
+        <p>Diante do cenário de negociação contratual habitualmente hostil com fornecedores de OPMEs (Órteses, Próteses e Materiais Especiais), identificou-se risco de reação adversa por parte de atores do corpo clínico, que, por passividade histórica, desconhecimento técnico ou vínculos indiretos com as empresas fornecedoras, podem vir a se posicionar como detratores das novas medidas institucionais. Este comportamento potencialmente compromete o ambiente cirúrgico, gera ruído na operação e fomenta narrativas distorcidas sobre o impacto das mudanças nos desfechos clínicos e operacionais.</p>
+
+        <h2>Objetivo Geral</h2>
+        <p>Blindar a operação hospitalar contra instabilidades decorrentes da readequação contratual com fornecedores de OPME, promovendo governança assistencial, reforço de narrativa institucional e controle de crises operacionais emergentes, assegurando alinhamento entre os pilares de custo-eficiência, segurança assistencial e sustentabilidade.</p>
+
+        <h2>Arquitetura do Plano de Ação</h2>
+        <ul>
+            <li>Eixo Operacional: Condução Contratual e Enfrentamento de Fornecedores.</li>
+            <li>Eixo Assistencial: Fortalecimento Clínico e Narrativa Institucional, dividido em fases:
+                <ul>
+                    <li>Pertinência Técnica (Premissa Estruturante)</li>
+                    <li>Sensibilização Médica Imediata (Engajamento Direto)</li>
+                    <li>Blitz Cirúrgica (Ação de Choque Tática)</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h2>Notas Finais</h2>
+        <p>Parte de estratégia ampliada de governança clínica. Comunicação diária e registrada entre áreas mandatória.</p>
+
+        <textarea id="feedbackText" placeholder="Adicione aqui suas considerações"></textarea>
+        <button class="btn" onclick="sendFeedback()">Enviar feedback por e-mail</button>
+
+    </div>
+</body>
+</html>
