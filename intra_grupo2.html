@@ -35,6 +35,38 @@
     ul {
       padding-left: 20px;
     }
+    .feedback-box {
+      margin-top: 40px;
+      padding: 15px;
+      background-color: #ffffff;
+      border: 1px solid #ccc;
+    }
+    .feedback-box h3 {
+      color: #e87722;
+      margin-bottom: 10px;
+    }
+    .feedback-box label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    .feedback-box textarea {
+      width: 100%;
+      height: 100px;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      resize: vertical;
+    }
+    .feedback-box button {
+      background-color: #e87722;
+      color: #ffffff;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+    .feedback-box button:hover {
+      background-color: #cc5f11;
+    }
   </style>
 </head>
 <body>
@@ -114,6 +146,15 @@
 
     <div class="footer">
       Documento interno - Estratégia Intra-Federativa Unimed Leste de Minas. Desenvolvido por Guilherme Thomé. Data: 11 de abril de 2025.
+    </div>
+
+    <div class="feedback-box">
+      <h3>Compartilhe seu feedback sobre este material</h3>
+      <form action="mailto:guilherme@guithome.com.br" method="post" enctype="text/plain">
+        <label for="feedback">Sua mensagem:</label>
+        <textarea id="feedback" name="feedback" placeholder="Escreva sua opinião aqui..."></textarea>
+        <button type="submit">Enviar por e-mail</button>
+      </form>
     </div>
   </div>
 </body>
