@@ -169,6 +169,9 @@ ul {
     display: block;
     width: 100%;
   }
+  .email-container {
+    flex-direction: column;
+  }
   .email-container input[type="email"] {
     width: 100%;
   }
