@@ -6,8 +6,8 @@
 }
 
 body {
-  font-family: Verdana, sans-serif;
-  background-color: #ffffff;
+  font-family: 'Roboto', Verdana, sans-serif;
+  background-color: #f8fafc;
   color: var(--text-color);
   margin: 0;
   padding: 20px;
@@ -20,6 +20,7 @@ body {
   padding: 30px;
   box-shadow: 0 0 15px rgba(0,0,0,0.1);
   border-radius: 10px;
+  animation: fadeIn 0.5s ease-in;
 }
 
 h1, h2 {
@@ -39,6 +40,13 @@ h1, h2 {
   margin: 10px 0;
   border: 1px solid #ddd;
   border-radius: 8px;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+}
+
+.box:focus {
+  outline: none;
+  border-color: var(--primary-color);
 }
 
 label {
@@ -81,12 +89,14 @@ textarea {
   resize: none;
   padding: 5px;
   border-radius: 5px;
-  font-family: Verdana;
+  font-family: 'Roboto', Verdana, sans-serif;
+  transition: background-color 0.2s, border-color 0.2s;
 }
 
 textarea:focus {
   outline: none;
   background-color: #f0f8ff;
+  border-color: var(--primary-color);
 }
 
 button {
@@ -96,13 +106,14 @@ button {
   padding: 12px 25px;
   cursor: pointer;
   margin-top: 20px;
-  font-family: Verdana;
+  font-family: 'Roboto', Verdana, sans-serif;
   border-radius: 8px;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, transform 0.2s;
 }
 
 button:hover {
   background-color: #154e77;
+  transform: translateY(-2px);
 }
 
 .footer {
@@ -140,16 +151,28 @@ ul {
   padding: 10px;
   border-radius: 8px;
   border: 1px solid #ddd;
-  font-family: Verdana;
+  font-family: 'Roboto', Verdana, sans-serif;
+  box-sizing: border-box;
 }
 
 .email-container button:hover {
   background-color: #28a745;
 }
 
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
 @media (max-width: 768px) {
   th, td {
     display: block;
+    width: 100%;
+  }
+  .email-container {
+    flex-direction: column;
+  }
+  .email-container input[type="email"] {
     width: 100%;
   }
 }
