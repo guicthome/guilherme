@@ -5,12 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Formulário RADAR³ para registro de avaliações">
   <title>RADAR³™ - Avaliação de Equipes</title>
-  <link rel="icon" href="https://i.imgur.com/yAUQciP.png" type="image/png">
+  <link rel="icon" type="image/png" sizes="40x40" href="ax_favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <meta name="theme-color" content="#196396">
 </head>
 <body>
-  <div class="container">
-    <img src="https://i.imgur.com/yAUQciP.png" class="logo" alt="AxiaCare Logo" onclick="location.href='https://axcare.com.br'">
+  <div id="radar-container" class="container">
+    <a href="https://axcare.com.br" target="_blank">
+      <img src="https://i.imgur.com/yAUQciP.png" class="logo" alt="AxiaCare Logo">
+    </a>
 
     <h1>RADAR³™</h1>
     <h2><span class="highlight-letter">R</span>evisão <span class="highlight-letter">Á</span>gil: <span class="highlight-letter">D</span>emandas, <span class="highlight-letter">A</span>ções <span class="highlight-letter">R</span>eflexões</h2>
@@ -25,7 +31,7 @@
       <label for="avaliador">Avaliador:</label>
       <input type="text" id="avaliador" class="box" placeholder="Informe o nome do avaliador">
 
-      <label for="periodicidade">Selecione a Periodicidade \"Ciclo RADAR³\":</label>
+      <label for="periodicidade">Selecione a Periodicidade "Ciclo RADAR³":</label>
       <select id="periodicidade" class="box">
         <option>Semanal</option>
         <option>Quinzenal</option>
@@ -67,6 +73,7 @@
       <div class="email-container">
         <input type="email" id="email" placeholder="Digite o e-mail" required>
         <button type="submit">Enviar Avaliação</button>
+        <button id="btnDownloadPdf">Download PDF</button>
       </div>
     </form>
 
@@ -77,7 +84,11 @@
     </div>
   </div>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <script src="script.js"></script>
-  <img src="https://i.imgur.com/csETwOT.png" style="position: fixed; bottom: 10px; right: 25px; width: 100px; height: auto;">
+  <a href="https://guithome.com.br" target="_blank">
+    <img src="https://i.imgur.com/csETwOT.png" style="position: fixed; bottom: 10px; right: 25px; width: 100px; height: auto;" alt="GuiThome logo">
+  </a>
 </body>
 </html>
