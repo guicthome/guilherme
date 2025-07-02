@@ -43,6 +43,40 @@ document.addEventListener('DOMContentLoaded', function() {
         .catch(err => console.error('Falha ao gerar PDF:', err));
     });
   }
+
+  function initPdfDownload() {
+    const btn = document.querySelector('#btnDownloadPdf');
+    const container = document.querySelector('#radar-container');
+
+    if (!btn || !container) return console.error('Botão ou container PDF não encontrados');
+
+    btn.addEventListener('click', function() {
+      const opt = {
+        margin:       [0.5, 0.5, 0.5, 0.5],
+        filename:     'RADAR3_Avaliacao_' + new Date().toISOString().slice(0,10) + '.pdf',
+        enableLinks:  true,
+        image:        { type: 'jpeg', quality: 0.98 },
+        html2canvas:  { scale: 2, backgroundColor: '#ffffff', scrollX: 0, scrollY: -window.scrollY },
+        jsPDF:        { unit: 'cm', format: 'a4', orientation: 'portrait' },
+        pagebreak:    { mode: 'css', before: '.page-break' }
+      };
+
+      html2pdf().set(opt).from(container)
+        .toPdf()
+        .get('pdf')
+        .then(pdf => {
+          const total = pdf.internal.getNumberOfPages();
+          for (let i = 1; i <= total; i++) {
+            pdf.setPage(i);
+            pdf.setFontSize(10);
+            pdf.setTextColor(150);
+            pdf.text(`Página ${i} / ${total}`, pdf.internal.pageSize.getWidth() / 2, pdf.internal.pageSize.getHeight() - 1, { align: 'center' });
+          }
+        })
+        .save()
+        .catch(err => console.error('Falha ao gerar PDF:', err));
+    });
+  }
 // Inicializa o EmailJS. Substitua 'YOUR_USER_ID' pelo ID gerado em sua conta.
 // Para mais detalhes veja https://www.emailjs.com/docs/sdk/installation/
 emailjs.init('YOUR_USER_ID');
