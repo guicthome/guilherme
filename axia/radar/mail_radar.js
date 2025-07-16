@@ -1,13 +1,6 @@
-// RADAR³ - mail_radar.js
-
 window.addEventListener('DOMContentLoaded', () => {
-  const button = document.createElement('button');
-  button.textContent = 'Enviar Avaliação por E-mail';
-  button.type = 'button';
-  button.className = 'btn-radar-mailto';
-
-  const emailContainer = document.querySelector('.email-container');
-  if (emailContainer) emailContainer.appendChild(button);
+  const button = document.querySelector('#emailRadar');
+  if (!button) return;
 
   button.addEventListener('click', () => {
     const destinatario = 'guilherme@axcare.com.br';
