@@ -2,7 +2,7 @@
 
 window.addEventListener('DOMContentLoaded', () => {
   const button = document.createElement('button');
-  button.textContent = 'Enviar RADAR³ por E-mail';
+  button.textContent = 'Enviar Avaliação por E-mail';
   button.type = 'button';
   button.className = 'btn-radar-mailto';
 
