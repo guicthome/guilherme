@@ -23,7 +23,7 @@ window.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    const destinatario = 'guilherme@axcare.com.br';
+    const destinatario = 'radar@axcare.com.br';
     const data = dataField.value;
     const equipe = document.getElementById('equipe').value.trim();
     const avaliador = document.getElementById('avaliador').value.trim();
@@ -32,7 +32,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const colA = Array.from(document.querySelectorAll('.group .column:first-child textarea'));
     const colE = Array.from(document.querySelectorAll('.group .column:last-child textarea'));
 
-    const assunto = `RADAR³ | ${equipe} | ${data}`;
+    const assunto = `Avaliação RADAR³ | ${equipe} | ${data}`;
     let corpo = `${assunto}\n${avaliador}\n\n`;
 
     // 4) Estrutura dos blocos, assumindo que cada coluna tem 15 textareas (5 grupos x 3 items)
