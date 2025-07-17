@@ -1,39 +1,65 @@
 window.addEventListener('DOMContentLoaded', () => {
+  // 1) Pre‑popular data com a data atual
+  const dataField = document.getElementById('dataAvaliacao');
+  if (dataField && !dataField.value) {
+    dataField.value = new Date().toISOString().slice(0, 10);
+  }
+
   const button = document.querySelector('#emailRadar');
   if (!button) return;
 
   button.addEventListener('click', () => {
+    // 2) Validação de campos obrigatórios
+    const requiredFields = [
+      { el: dataField, name: 'Data da Avaliação' },
+      { el: document.getElementById('equipe'), name: 'Equipe' },
+      { el: document.getElementById('avaliador'), name: 'Avaliador' },
+    ];
+    for (const field of requiredFields) {
+      if (!field.el.value.trim()) {
+        alert(`Por favor, preencha o campo: ${field.name}.`);
+        field.el.focus();
+        return;
+      }
+    }
+
     const destinatario = 'guilherme@axcare.com.br';
-    const data = document.getElementById('dataAvaliacao').value;
-    const equipe = document.getElementById('equipe').value;
-    const avaliador = document.getElementById('avaliador').value;
-    const textareas = Array.from(document.querySelectorAll('textarea'));
+    const data = dataField.value;
+    const equipe = document.getElementById('equipe').value.trim();
+    const avaliador = document.getElementById('avaliador').value.trim();
+
+    // 3) Pareamento exato: colunas A vs colunas E
+    const colA = Array.from(document.querySelectorAll('.group .column:first-child textarea'));
+    const colE = Array.from(document.querySelectorAll('.group .column:last-child textarea'));
 
     const assunto = `RADAR³ | ${equipe} | ${data}`;
     let corpo = `${assunto}\n${avaliador}\n\n`;
 
-    const blocos = [
-      { titulo: 'RELATOS RELEVANTES', base: 0 },
-      { titulo: 'ABERTOS IMPORTANTES', base: 6 },
-      { titulo: 'DIRECIONADORES DE IMPACTO', base: 12 },
-      { titulo: 'AGENDA E ARTICULAÇÕES', base: 18 },
-      { titulo: 'RISCOS E REFLEXÕES ESTRATÉGICAS', base: 24 },
+    // 4) Estrutura dos blocos, assumindo que cada coluna tem 15 textareas (5 grupos x 3 items)
+    const titulos = [
+      'RELATOS RELEVANTES',
+      'ABERTOS IMPORTANTES',
+      'DIRECIONADORES DE IMPACTO',
+      'AGENDA E ARTICULAÇÕES',
+      'RISCOS E REFLEXÕES ESTRATÉGICAS'
     ];
 
-    for (const bloco of blocos) {
-      corpo += `${bloco.titulo}:\n`;
+    for (let g = 0; g < titulos.length; g++) {
+      corpo += `${titulos[g]}:\n`;
       for (let i = 0; i < 3; i++) {
-        const idxA = bloco.base + i;
-        const idxE = bloco.base + i + 3;
-        const valA = textareas[idxA]?.value.trim() || '-';
-        const valE = textareas[idxE]?.value.trim() || '-';
-        corpo += `${idxA + 1}a - ${valA}\n`;
-        corpo += `${idxE + 1}e - ${valE}\n`;
+        const idx = g * 3 + i;
+        const valA = colA[idx]?.value.trim() || '-';
+        const valE = colE[idx]?.value.trim() || '-';
+        corpo += `${idx+1}a - ${valA}\n`;
+        corpo += `${idx+1}e - ${valE}\n`;
       }
       corpo += '\n';
     }
 
-    const mailtoLink = `mailto:${destinatario}?subject=${encodeURIComponent(assunto)}&body=${encodeURIComponent(corpo)}`;
+    // 5) Monta e abre mailto
+    const mailtoLink = `mailto:${destinatario}`
+      + `?subject=${encodeURIComponent(assunto)}`
+      + `&body=${encodeURIComponent(corpo)}`;
     window.location.href = mailtoLink;
   });
 });
