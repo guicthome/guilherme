@@ -1,5 +1,3 @@
-/* styles_radar.css - Novo layout RADAR³ com responsividade e refinamento visual */
-
 :root {
   --primary-color: #196396;
   --secondary-color: #eaf4fb;
@@ -10,7 +8,7 @@
 .logo {
   display: block;
   margin: 0 auto 20px auto;
-  max-width: 250px;
+  max-width: 180px;      /* ajustado para tamanho ideal */
   height: auto;
 }
 
@@ -94,9 +92,7 @@ label {
 
 textarea {
   width: 100%;
-  height: 60px;
   border: 1px solid #ccc;
-  resize: none;
   padding: 10px;
   border-radius: 6px;
   font-family: 'Roboto', Verdana, sans-serif;
@@ -152,5 +148,50 @@ button:hover {
   }
   .email-container button {
     width: 100%;
+  }
+}
+
+/* 1) Print optimization: mantém colunas lado-a-lado e limpa botões */
+@media print {
+  body {
+    background: #fff !important;
+    margin: 0;
+  }
+  .container {
+    box-shadow: none;
+    max-width: 100%;
+  }
+  .group {
+    flex-direction: row !important;
+  }
+  .email-container,
+  button {
+    display: none !important;
+  }
+  textarea {
+    border: none;
+    resize: none;
+    height: auto;
+  }
+}
+
+/* 2) Dark mode opcional */
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #121212;
+    color: #eee;
+  }
+  .container {
+    background: #1e1e1e;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  }
+  .column {
+    background: #2a2a2a;
+  }
+  label, .column h3 {
+    color: #a1caff;
+  }
+  button {
+    background-color: #30475e;
   }
 }
