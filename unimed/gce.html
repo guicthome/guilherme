@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Modelo HTML Unimed</title>
+<!--
+ Estrutura para ser replicada
+  -->
+<style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #f2f2f2; /* cor principal de fundo da Unimed */
+      font-family: Verdana, sans-serif;
+      color: #333; /* cor de textos da Unimed */
+    }
+    .main-container {
+      width: 100%;
+      max-width: 720px;
+      margin: 0 auto;
+      background-color: #ffffff; /* cor secundária de onco.html */
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .header {
+      background-color: #004E4C; /* cor de destaque Unimed */
+      padding: 0;
+      font-size: 12px;
+      color: white;
+      text-align: center;
+    }
+    .header img {
+      width: 100%;
+      display: block;
+    }
+    .tagline {
+      background: linear-gradient(#004E4C, #004E4C 60%, transparent);
+      padding: 5px 10px 12px;
+      font-size: 13px;
+      color: #8baf1f;
+      text-align: right;
+      font-family: inherit;
+      font-weight: 600;
+      margin: 0;
+    }
+    .content {
+      padding: 30px;
+    }
+    .content h1 {
+      font-size: 24px;
+      color: #004E4C;
+      margin-bottom: 10px;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.15);
+      border-bottom: 2px solid #006b68;
+      display: inline-block;
+      padding-bottom: 4px;
+    }
+    .content h2 {
+      font-size: 15px;
+      color: #005522; /* cor complementar de onco.html */
+      margin-top: 25px;
+      margin-bottom: 10px;
+    }
+    .content p {
+      font-size: 15px;
+      line-height: 1.6;
+      text-align: justify;
+    }
+    .instruction {
+      color: #005522;
+      font-weight: bold;
+      border-left: 4px solid #004E4C;
+      margin: 15px 0;
+      padding: 10px 15px;
+      background-color: #f7fbf9;
+    }
+    .section {
+      background-color: #f7fbf9;
+      border-left: 4px solid #004E4C;
+      padding: 15px 20px;
+      margin-top: 20px;
+      border-radius: 6px;
+    }
+    .section ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+    .section ul li {
+      margin-bottom: 10px;
+    }
+
+    /* secao-destaque */
+    #secao-destaque {
+      background-color: #fce0c5; /* tom laranja claro proximo ao #f47920 */
+      border-left-color: #f47920;
+    }
+    .footer {
+      margin-top: 20px;
+      text-align: center;
+      color: #555;
+      font-size: 0.9em;
+      border-top: 2px solid #006b68;
+      padding-top: 10px;
+      background-color: #f8f5f0;
+    }
+    .footer a {
+      color: #004E4C; /* cor de botões e links */
+      text-decoration: none;
+    }
+    .closing {
+      color: #004E4C;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 25px;
+      margin-bottom: 0;
+      font-size: 18px;
+      font-style: italic;
+      background-color: #f7fbf9;
+      padding: 10px;
+      border-top: 1px solid #006b68;
+    }
+    .feedback {
+      margin-top: 25px;
+    }
+    .feedback-label {
+      margin-bottom: 5px;
+      display: block;
+    }
+    .feedback textarea {
+      width: 100%;
+      height: 80px;
+      padding: 10px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      font-family: inherit;
+      box-sizing: border-box;
+      margin-bottom: 10px;
+    }
+    .btn-send {
+      background-color: #004E4C;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.1s;
+      display: block;
+      margin-top: 5px;
+    }
+    .btn-send:hover {
+      background-color: #8baf1f;
+    }
+    .btn-send:active {
+      transform: scale(0.95);
+    }
+  </style>
+</head>
+<body>
+<div class="main-container">
+<!-- cabecalho-area-setor: Novo cabeçalho com link e tagline -->
+<div class="header">
+<a href="https://www.unimed.coop.br/site/web/governadorvaladares" style="color:#888; text-decoration:underline;" target="_blank">
+<img alt="Unimed Governador Valadares" src="https://i.imgur.com/Z0Z9oVK.png" style="color:#888; text-decoration:underline;"/>
+</a>
+<p class="tagline" style="text-align:left; font-size:16px; color:#8baf1f; font-weight:bold;">Superintendência Médica / Escritório de Valor</p>
+</div>
+<div class="content">
+<h1>GCE | Continuidade do Cuidado e Atenção Domiciliar</h1>
+<!-- Corpo principal -->
+
+<h2>1. Escopo</h2>
+<ul>
+<li>Elevar qualidade e segurança do cuidado no domicílio.</li>
+<li>Reduzir reinternações e custos hospitalares evitáveis.</li>
+<li>Reforçar o posicionamento de mercado da Unimed GV como operadora orientada a valor.</li>
+</ul>
+<h2>2. Principais Achados e Oportunidades</h2>
+<table style="width:100%; border-collapse:collapse; font-size:14px;">
+<tr style="background:#f7fbf9;">
+<th style="border:1px solid #ddd; padding:6px;">Pilar</th>
+<th style="border:1px solid #ddd; padding:6px;">Situação Atual</th>
+<th style="border:1px solid #ddd; padding:6px;">Próxima Ação (90 d)</th>
+</tr>
+<tr>
+<td style="border:1px solid #ddd; padding:6px;">Processo de Alta</td>
+<td style="border:1px solid #ddd; padding:6px;">Comunicação tardia UTI ↔ Home Care; checklist inconsistente.</td>
+<td style="border:1px solid #ddd; padding:6px;">Protocolo “Alta Responsável” com aviso eletrônico 48 h e capacitação do cuidador.</td>
+</tr>
+<tr>
+<td style="border:1px solid #ddd; padding:6px;">Suprimentos 24 × 7</td>
+<td style="border:1px solid #ddd; padding:6px;">Sem ponto de apoio contínuo para medicamentos/insumos críticos.</td>
+<td style="border:1px solid #ddd; padding:6px;">Implantar Hub Assistencial 24 h (farmácia + call center + estoque compartilhado).</td>
+</tr>
+<tr>
+<td style="border:1px solid #ddd; padding:6px;">Protocolos Clínicos</td>
+<td style="border:1px solid #ddd; padding:6px;">POPs de eventos adversos e paliativos desatualizados.</td>
+<td style="border:1px solid #ddd; padding:6px;">Revisar/publicar POPs; atualizar regimento interno GCE.</td>
+</tr>
+<tr>
+<td style="border:1px solid #ddd; padding:6px;">Governança de Dados</td>
+<td style="border:1px solid #ddd; padding:6px;">Sem métrica de resolutividade no domicílio.</td>
+<td style="border:1px solid #ddd; padding:6px;">Dashboard com 3 KPIs: reinternação 30 d, satisfação familiar, casos resolvidos em casa.</td>
+</tr>
+<tr>
+<td style="border:1px solid #ddd; padding:6px;">Conformidade Regulatória</td>
+<td style="border:1px solid #ddd; padding:6px;">Aderência parcial à RN 465/21 e RDC 11/06.</td>
+<td style="border:1px solid #ddd; padding:6px;">Ajustar contratos/licenciamento; registrar Farmacêutico RT para maleta e demandas sinérgicas.</td>
+</tr>
+</table>
+<h2>3. Resultados Esperados</h2>
+<ul>
+<li>Alta planejada, orientação efetiva e suporte domiciliar ágil.</li>
+<li>Conformidade plena com ANS/Anvisa, mitigando passivos.</li>
+<li>Menor taxa de reinternação e uso racional de leitos.</li>
+<li>Reconhecimento pelo cuidado seguro focado em desfechos do paciente.</li>
+</ul>
+<h2>4. Indicadores‑chave (meta 6 meses)</h2>
+<ul>
+<li>Reinternação 30 d &lt; 1,5 %.</li>
+<li>Resolutividade de intercorrências ≥ 75 %.</li>
+<li>Satisfação família ≥ 85 % “ótimo/bom”.</li>
+</ul>
+<h2>5. Próximos Passos Imediatos (Kick‑off)</h2>
+<ul>
+<li>Designar <em>case manager</em> para transições UTI → Home Care.</li>
+<li>Validar business case do Hub 24 h e cronograma.</li>
+<li>Revisar contratos para incluir o fluxo do hub.</li>
+<li>Publicar POPs revisados e iniciar treinamentos.</li>
+<li>Ativar painel gerencial para acompanhamento GCE.</li>
+</ul>
+
+
+
+<!-- secao-destaque -->
+
+<!-- secao-duvidas-comentarios -->
+
+<!-- texto-assinatura -->
+
+</div>
+<!-- Rodapé -->
+<div class="footer" style="padding-top:5px; padding-bottom:10px;">
+<img alt="AxiaCare Logo" src="https://i.imgur.com/yAUQciP.png" style="width:180px; margin: 10px 0;"/>
+<p>AxView™ | Templates - Gestão e Consultoria em Saúde</p>
+<p>Dr. Guilherme Thomé | <a href="https://guithome.com.br" style="color:#888; text-decoration:underline;">guithome.com.br</a> | <a href="https://linkedin.com/in/guithome" style="color:#888; text-decoration:underline;">LinkedIn</a> | <a href="https://www.instagram.com/gui.thome/" style="color:#888; text-decoration:underline;">Instagram</a><br/>
+<a href="https://linktr.ee/gui.thome" style="color:#888; text-decoration:underline;">Conheça nossas soluções.</a> | <a href="https://www.axcare.com.br" style="color:#888; text-decoration:underline;">axcare.com.br</a> | <a href="https://www.medvalor.med.br" style="color:#888; text-decoration:underline;">medvalor.med.br</a><br/>
+      Copyright © 2025 AxiaCare | Todos os direitos reservados | Uma empresa GTCorp.</p>
+</div>
+</div>
+<img src="https://i.imgur.com/csETwOT.png" style="position: fixed; bottom: 10px; right: 25px; width: 100px; height: auto;"/>
+<script>
+    function sendFeedback() {
+      var texto = document.getElementById('feedbackText').value;
+      var body = encodeURIComponent(texto);
+      window.location.href = 'mailto:guilherme.thome@unimedgv.com.br?subject=Feedback%20Template&body=' + body;
+    }
+  </script>
+</body>
+</html>
