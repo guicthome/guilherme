@@ -5,11 +5,18 @@ window.addEventListener('DOMContentLoaded', () => {
     dataField.value = new Date().toISOString().slice(0, 10);
   }
 
+  // 2) Função utilitária para capturar blocos por aria-describedby
+  function getValuesById(descritor) {
+    const section = document.querySelectorAll(`textarea[aria-describedby="${descritor}"]`);
+    return Array.from(section).map(el => el.value.trim());
+  }
+
+  // 3) Ação ao clicar no botão
   const button = document.querySelector('#emailRadar');
   if (!button) return;
 
   button.addEventListener('click', () => {
-    // 2) Validação de campos obrigatórios
+    // 3.1) Validação de campos obrigatórios
     const requiredFields = [
       { el: dataField, name: 'Data da Avaliação' },
       { el: document.getElementById('equipe'), name: 'Equipe' },
@@ -23,43 +30,42 @@ window.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    const destinatario = 'radar@axcare.com.br';
-    const data = dataField.value;
-    const equipe = document.getElementById('equipe').value.trim();
-    const avaliador = document.getElementById('avaliador').value.trim();
-
-    // 3) Pareamento exato: colunas A vs colunas E
-    const colA = Array.from(document.querySelectorAll('.group .column:first-child textarea'));
-    const colE = Array.from(document.querySelectorAll('.group .column:last-child textarea'));
-
-    const assunto = `Avaliação RADAR³ | ${equipe} | ${data}`;
-    let corpo = `${assunto}\n${avaliador}\n\n`;
-
-    // 4) Estrutura dos blocos, assumindo que cada coluna tem 15 textareas (5 grupos x 3 items)
-    const titulos = [
-      'RELATOS RELEVANTES',
-      'ABERTOS IMPORTANTES',
-      'DIRECIONADORES DE IMPACTO',
-      'AGENDA E ARTICULAÇÕES',
-      'RISCOS E REFLEXÕES ESTRATÉGICAS'
-    ];
-
-    for (let g = 0; g < titulos.length; g++) {
-      corpo += `${titulos[g]}:\n`;
-      for (let i = 0; i < 3; i++) {
-        const idx = g * 3 + i;
-        const valA = colA[idx]?.value.trim() || '-';
-        const valE = colE[idx]?.value.trim() || '-';
-        corpo += `${idx+1}a - ${valA}\n`;
-        corpo += `${idx+1}e - ${valE}\n`;
+    // 3.2) Montagem do payload
+    const payload = {
+      nomeFormulario: 'RADAR',
+      data: dataField.value,
+      equipe: document.getElementById('equipe').value.trim(),
+      avaliador: document.getElementById('avaliador').value.trim(),
+      periodicidade: document.getElementById('periodicidade').value.trim(),
+      blocos: {
+        relatos: getValuesById('titulo-relatos'),
+        abertos: getValuesById('titulo-abertos'),
+        direcionadores: getValuesById('titulo-direcionadores'),
+        agenda: getValuesById('titulo-agenda'),
+        riscos: getValuesById('titulo-riscos'),
+        registros: getValuesById('titulo-registros'),
+        acoes: getValuesById('titulo-acoes'),
+        definicoes: getValuesById('titulo-definicoes'),
+        alinhamentos: getValuesById('titulo-alinhamentos'),
+        recomendacoes: getValuesById('titulo-recomendacoes'),
       }
-      corpo += '\n';
-    }
+    };
 
-    // 5) Monta e abre mailto
-    const mailtoLink = `mailto:${destinatario}`
-      + `?subject=${encodeURIComponent(assunto)}`
-      + `&body=${encodeURIComponent(corpo)}`;
-    window.location.href = mailtoLink;
+    // 3.3) Disparo do Webhook para o Make
+    fetch('https://hook.us2.make.com/z6mocqz18ikge52aeg88u7k90r3pekyr', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    })
+    .then(response => {
+      if (response.ok) {
+        alert('Avaliação enviada com sucesso à IA (RADAR³).');
+      } else {
+        alert('Erro no envio. Verifique sua conexão ou tente novamente.');
+      }
+    })
+    .catch(() => {
+      alert('Erro técnico ao enviar dados para o servidor.');
+    });
   });
 });
