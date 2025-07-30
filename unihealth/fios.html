@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 
   <meta property="og:title" content="Análise de Reajuste da Linha de Suturas">
-  <meta property="og:description" content="Relatório completo com gráficos, curva ABC e recomendações acerca da revisão Linha de Suturas.">
+  <meta property="og:description" content="Relatório completo com gráficos, curva ABC e recomendações apresentadas na Comissão de Farmácia e Terapêutica (CFT).">
   <meta property="og:image" content="https://i.imgur.com/ZOKRps9.png">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://www.axcare.com.br">
@@ -60,14 +61,56 @@
     .abc-table th:first-child, .abc-table td:first-child {
       text-align: left;
     }
-    .footer {
-      margin-top: 60px;
-      padding: 25px 15px;
-      background-color: #f8f5f0;
-      text-align: center;
-      font-family: Verdana, sans-serif;
-      border-top: 2px solid #006b68;
-    }
+    
+
+.footer {
+  background: #fdfaf5;
+  max-width: 680px;
+  margin: 60px auto 0 auto;
+  padding: 32px 16px;
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+  border-top: 2px solid #006b68;
+  border-radius: 0 0 8px 8px;
+}
+.footer-logo {
+  width: 120px;
+  margin: 0 auto 12px;
+}
+.footer-title {
+  font-size: 14px;
+  font-weight: bold;
+  color: #222;
+  margin-bottom: 10px;
+}
+
+.footer-links,
+.footer-social {
+  flex-wrap: wrap;
+  flex-direction: row !important;
+  justify-content: center;
+  gap: 6px;
+  font-size: 14px;
+}
+.footer-links a,
+.footer-social a {
+  white-space: nowrap;
+}
+
+.footer-links a, .footer-social a {
+  color: #004E4C;
+  text-decoration: none;
+}
+.footer-links .separator, .footer-social .separator {
+  color: #888;
+}
+.footer-copyright {
+  font-size: 12px;
+  color: #666;
+  margin-top: 16px;
+}
+
+
     .footer-logo {
       width: 140px;
       margin: 0 auto 10px auto;
@@ -79,15 +122,20 @@
       color: #333;
       margin: 10px 0 18px;
     }
-    .footer-links,
-    .footer-social {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 8px;
-      font-size: 14px;
-      margin-bottom: 10px;
-    }
+    
+.footer-links,
+.footer-social {
+  flex-wrap: wrap;
+  flex-direction: row !important;
+  justify-content: center;
+  gap: 6px;
+  font-size: 14px;
+}
+.footer-links a,
+.footer-social a {
+  white-space: nowrap;
+}
+
     .footer-links a,
     .footer-social a {
       color: #004E4C;
@@ -108,13 +156,105 @@
       margin: 32px auto 0;
       display: block;
     }
+
+@media screen and (max-width: 768px) {
+  .container {
+    width: 90% !important;
+    padding: 20px !important;
+  }
+  .abc-table {
+    font-size: 12px;
+  }
+  .abc-table th, .abc-table td {
+    padding: 4px 6px;
+  }
+  
+.footer-links,
+.footer-social {
+  flex-wrap: wrap;
+  flex-direction: row !important;
+  justify-content: center;
+  gap: 6px;
+  font-size: 14px;
+}
+.footer-links a,
+.footer-social a {
+  white-space: nowrap;
+}
+
+  .footer-logo {
+    width: 100px;
+  }
+  button#print-button {
+    width: 100%;
+  }
+  .logo-duo {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 12px !important;
+  }
+  .logo-duo img {
+    height: auto !important;
+    max-width: 70% !important;
+  }
+}
+
+
+/* Responsividade aprimorada */
+@media screen and (max-width: 768px) {
+  .container {
+    width: 95% !important;
+    padding: 20px !important;
+  }
+  .logo-duo {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 12px !important;
+  }
+  .logo-duo img {
+    max-width: 180px !important;
+    height: auto !important;
+  }
+  .abc-table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .abc-table {
+    min-width: 700px;
+  }
+  canvas {
+    margin-bottom: 24px !important;
+  }
+  
+.footer-links,
+.footer-social {
+  flex-wrap: wrap;
+  flex-direction: row !important;
+  justify-content: center;
+  gap: 6px;
+  font-size: 14px;
+}
+.footer-links a,
+.footer-social a {
+  white-space: nowrap;
+}
+
+  .footer-logo {
+    width: 100px !important;
+  }
+}
+
+
+
+}
+
 </style>
 </head>
 <body>
 <div class="container">
 
 
-<div style="background: #e0e0e0; padding: 12px 24px; border-radius: 8px 8px 0 0; display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px;">
+<div class="logo-duo" style="background: #e0e0e0; padding: 12px 24px; border-radius: 8px 8px 0 0; display: flex; justify-content: space-between; align-items: center; gap: 24px; margin-bottom: 32px;">
   <a href="https://axcare.com.br" target="_blank" style="display: block;">
     <img src="https://i.imgur.com/yAUQciP.png" alt="Logo AxiaCare" style="height: 60px;">
   </a>
@@ -125,7 +265,7 @@
 
   <h1>Análise de Reajuste da Linha de Suturas</h1>
   
-<p>Esta análise foi motivada pelo apontamento realizado durante a <strong>Comissão de Farmácia e Terapêutica (CFT)</strong>, 
+<p>Esta análise foi apresentada durante a <strong>Comissão de Farmácia e Terapêutica (CFT)</strong>, 
 com o objetivo de compreender o impacto orçamentário do reajuste de preços nas suturas absorvíveis, 
 especialmente diante da migração progressiva para a linha <em>Vicryl Plus</em>.</p>
 
@@ -137,6 +277,7 @@ especialmente diante da migração progressiva para a linha <em>Vicryl Plus</em>
   <canvas id="graficoDispersao" height="280"></canvas>
 
   <h2>Tabela Comparativa com Classificação ABC</h2>
+<div class="abc-table-wrapper">
   <table class="dataframe abc-table">
   <thead>
     <tr style="text-align: right;">
@@ -355,15 +496,16 @@ especialmente diante da migração progressiva para a linha <em>Vicryl Plus</em>
 </table>
 
   
+</div>
 <h2>Sugestões Estratégicas</h2>
 <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 12px;">
   <div style="background: #f2f8fc; border-left: 5px solid #196396; padding: 12px;">
-    <strong>1. Validar motivação da migração para Vicryl Plus:</strong><br>
-    Confirmar se há respaldo técnico-clínico para substituição das linhas tradicionais ou se a decisão é puramente comercial, podendo inclusive estar relacionado unicamente ao prestador.
+    <strong>1. Reavaliar condições contratuais com a Johnson & Johnson MedTech:</strong><br>
+    Via acordo Intra-Federativo Leste-Nordeste MG, explorar alternativas mais vantajosas de precificação para a linha de suturas.
   </div>
   <div style="background: #fef7ec; border-left: 5px solid #cc9a00; padding: 12px;">
-    <strong>2. Reavaliar condições contratuais com a Johnson & Johnson MedTech:</strong><br>
-    Via acordo Intra-Federativo Leste-Nordeste MG, explorar alternativas mais vantajosas de precificação para a linha de suturas.
+    <strong>2. Validar motivação da migração para Vicryl Plus:</strong><br>
+    Confirmar se há respaldo técnico-clínico para substituição das linhas tradicionais ou se a decisão é puramente comercial.
   </div>
 </div>
 <p style="margin-top:32px;">Atenciosamente,</p>
