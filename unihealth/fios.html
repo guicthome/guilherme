@@ -1,143 +1,344 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<title>Análise de Reajuste – Suturas Ethicon (CFT)</title>
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<link rel="preconnect" href="https://cdn.jsdelivr.net">
-<style>
-    body{margin:0;padding:0;background:#ffffff;font-family:"Aptos",Arial,sans-serif;font-size:14px;line-height:1.5;color:#000}
-    .wrapper{max-width:960px;margin:0 auto;padding:32px}
-    h1,h2{color:#196396;margin:0 0 16px;font-weight:600}
-    h3{margin:24px 0 8px;font-weight:600}
-    table{width:100%;border-collapse:collapse;font-size:13px}
-    th,td{padding:6px 8px;border:1px solid #ccc;text-align:right}
-    th:first-child,td:first-child{text-align:left}
-    .callout{background:#f2f2f2;padding:16px;margin-bottom:24px;border-left:6px solid #196396}
-    .small{font-size:12px;color:#555}
-    @media (max-width:600px){table,thead,tbody,tr,th,td{display:block}th{position:absolute;top:-9999px;left:-9999px}td{border:none;position:relative;padding-left:50%}td:before{position:absolute;left:8px;width:45%;white-space:nowrap}}
-</style>
-<!-- Chart.js CDN -->
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1"></script>
+  <meta charset="UTF-8">
+  <title>Relatório Estratégico – Fios Cirúrgicos (Curva ABC)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #fff;
+      color: #222;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 960px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+    h1 {
+      color: #196396;
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+    h2 {
+      color: #196396;
+      font-size: 20px;
+      margin-top: 40px;
+    }
+    .abc-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      font-size: 14px;
+    }
+    .abc-table th, .abc-table td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      text-align: right;
+    }
+    .abc-table th:first-child, .abc-table td:first-child {
+      text-align: left;
+    }
+    .footer {
+      margin-top: 60px;
+      padding: 25px 15px;
+      background-color: #f8f5f0;
+      text-align: center;
+      font-family: Verdana, sans-serif;
+      border-top: 2px solid #006b68;
+    }
+    .footer-logo {
+      width: 140px;
+      margin: 0 auto 10px auto;
+      display: block;
+    }
+    .footer-title {
+      font-size: 15px;
+      font-weight: bold;
+      color: #333;
+      margin: 10px 0 18px;
+    }
+    .footer-links,
+    .footer-social {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+    .footer-links a,
+    .footer-social a {
+      color: #004E4C;
+      text-decoration: none;
+    }
+    .footer-copyright {
+      font-size: 12px;
+      color: #555;
+    }
+  </style>
 </head>
 <body>
-<div class="wrapper">
-    <h1>Análise de reajuste da linha de suturas Ethicon</h1>
+<div class="container">
+  <h1>Relatório Estratégico – Reajuste e Curva ABC dos Fios Cirúrgicos</h1>
+  <p>Análise do impacto financeiro do reajuste de suturas absorvíveis com classificação por Curva ABC (método Pareto).</p>
 
-    <div class="callout">
-        <p><strong>Resumo executivo</strong></p>
-        <ul>
-            <li>Custo anual atual: R$ 174 795,30</li>
-            <li>Custo anual pós‑reajuste: R$ 218 194,39</li>
-            <li>Impacto financeiro: <strong>+ R$ 43 399,09</strong> (+ 24,83 %)</li>
-            <li>5 códigos concentram 71 % do aumento (vide gráfico 1)</li>
-            <li>Estoque médio geral: 437 dias; 6 códigos &lt; 90 dias, 3 códigos &gt; 2 anos</li>
-        </ul>
-    </div>
+  <h2>Gráfico 1 – Curva ABC (Pareto)</h2>
+  <canvas id="graficoABC" height="280"></canvas>
 
-    <h2>1. Impacto financeiro por código (top 10)</h2>
-    <canvas id="chartImpact" height="240"></canvas>
+  <h2>Gráfico 2 – Variação de Preço vs Consumo</h2>
+  <canvas id="graficoDispersao" height="280"></canvas>
 
-    <h2>2. Variação de preço versus consumo anual</h2>
-    <canvas id="chartScatter" height="260"></canvas>
+  <h2>Tabela Comparativa com Classificação ABC</h2>
+  <table class="dataframe abc-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Descrição do Fio</th>
+      <th>Consumo Anual</th>
+      <th>Preço Antigo (R$)</th>
+      <th>Preço Novo (R$)</th>
+      <th>Impacto Financeiro (R$)</th>
+      <th>Impacto Acumulado (R$)</th>
+      <th>% Acumulado</th>
+      <th>Classe ABC</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Catgut Cromado 1</td>
+      <td>1673</td>
+      <td>12.06</td>
+      <td>20.82</td>
+      <td>14655.48</td>
+      <td>14655.48</td>
+      <td>38.031973</td>
+      <td>A</td>
+    </tr>
+    <tr>
+      <td>Vicryl 1</td>
+      <td>2464</td>
+      <td>25.47</td>
+      <td>28.38</td>
+      <td>7170.24</td>
+      <td>21825.72</td>
+      <td>56.639236</td>
+      <td>A</td>
+    </tr>
+    <tr>
+      <td>Vicryl 1 (outra ref)</td>
+      <td>236</td>
+      <td>12.94</td>
+      <td>28.38</td>
+      <td>3643.84</td>
+      <td>25469.56</td>
+      <td>66.095250</td>
+      <td>A</td>
+    </tr>
+    <tr>
+      <td>Vicryl 2‑0</td>
+      <td>703</td>
+      <td>17.86</td>
+      <td>21.50</td>
+      <td>2558.92</td>
+      <td>28028.48</td>
+      <td>72.735822</td>
+      <td>A</td>
+    </tr>
+    <tr>
+      <td>Vicryl 3‑0</td>
+      <td>578</td>
+      <td>21.50</td>
+      <td>24.70</td>
+      <td>1849.60</td>
+      <td>29878.08</td>
+      <td>77.535661</td>
+      <td>A</td>
+    </tr>
+    <tr>
+      <td>Vicryl 2‑0 (ref 2)</td>
+      <td>564</td>
+      <td>20.00</td>
+      <td>22.90</td>
+      <td>1635.60</td>
+      <td>31513.68</td>
+      <td>81.780155</td>
+      <td>B</td>
+    </tr>
+    <tr>
+      <td>Vicryl 3‑0 (ref 2)</td>
+      <td>392</td>
+      <td>15.65</td>
+      <td>18.48</td>
+      <td>1109.36</td>
+      <td>32623.04</td>
+      <td>84.659020</td>
+      <td>B</td>
+    </tr>
+    <tr>
+      <td>Catgut Cromado 3‑0</td>
+      <td>174</td>
+      <td>12.14</td>
+      <td>18.48</td>
+      <td>1103.16</td>
+      <td>33726.20</td>
+      <td>87.521795</td>
+      <td>B</td>
+    </tr>
+    <tr>
+      <td>Vicryl 0</td>
+      <td>279</td>
+      <td>18.17</td>
+      <td>21.83</td>
+      <td>1021.14</td>
+      <td>34747.34</td>
+      <td>90.171723</td>
+      <td>B</td>
+    </tr>
+    <tr>
+      <td>Catgut Simples 4‑0</td>
+      <td>73</td>
+      <td>11.84</td>
+      <td>24.42</td>
+      <td>918.34</td>
+      <td>35665.68</td>
+      <td>92.554879</td>
+      <td>B</td>
+    </tr>
+    <tr>
+      <td>Vicryl 0 (ref 2)</td>
+      <td>68</td>
+      <td>8.91</td>
+      <td>19.11</td>
+      <td>693.60</td>
+      <td>36359.28</td>
+      <td>94.354818</td>
+      <td>B</td>
+    </tr>
+    <tr>
+      <td>Catgut Cromado 2‑0</td>
+      <td>32</td>
+      <td>4.59</td>
+      <td>20.82</td>
+      <td>519.36</td>
+      <td>36878.64</td>
+      <td>95.702593</td>
+      <td>C</td>
+    </tr>
+    <tr>
+      <td>Catgut Simples 2‑0</td>
+      <td>164</td>
+      <td>12.38</td>
+      <td>14.39</td>
+      <td>329.64</td>
+      <td>37208.28</td>
+      <td>96.558031</td>
+      <td>C</td>
+    </tr>
+    <tr>
+      <td>Vicryl 1 (ref 3)</td>
+      <td>619</td>
+      <td>20.33</td>
+      <td>20.82</td>
+      <td>303.31</td>
+      <td>37511.59</td>
+      <td>97.345141</td>
+      <td>C</td>
+    </tr>
+    <tr>
+      <td>Vicryl 3‑0 (ref 3)</td>
+      <td>137</td>
+      <td>21.70</td>
+      <td>23.76</td>
+      <td>282.22</td>
+      <td>37793.81</td>
+      <td>98.077521</td>
+      <td>C</td>
+    </tr>
+    <tr>
+      <td>Catgut Simples 3‑0</td>
+      <td>27</td>
+      <td>8.24</td>
+      <td>18.48</td>
+      <td>276.48</td>
+      <td>38070.29</td>
+      <td>98.795006</td>
+      <td>C</td>
+    </tr>
+    <tr>
+      <td>Catgut Cromado 4‑0</td>
+      <td>15</td>
+      <td>14.28</td>
+      <td>23.76</td>
+      <td>142.20</td>
+      <td>38212.49</td>
+      <td>99.164025</td>
+      <td>C</td>
+    </tr>
+    <tr>
+      <td>Caprofyl 1</td>
+      <td>49</td>
+      <td>10.70</td>
+      <td>13.50</td>
+      <td>137.20</td>
+      <td>38349.69</td>
+      <td>99.520068</td>
+      <td>C</td>
+    </tr>
+    <tr>
+      <td>Vicryl 0 (outra ref)</td>
+      <td>82</td>
+      <td>27.23</td>
+      <td>28.38</td>
+      <td>94.30</td>
+      <td>38443.99</td>
+      <td>99.764783</td>
+      <td>C</td>
+    </tr>
+    <tr>
+      <td>Vicryl 4‑0</td>
+      <td>44</td>
+      <td>21.70</td>
+      <td>23.76</td>
+      <td>90.64</td>
+      <td>38534.63</td>
+      <td>100.000000</td>
+      <td>C</td>
+    </tr>
+  </tbody>
+</table>
 
-    <h2>3. Detalhamento dos itens</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>ERP</th><th>Descrição antiga</th><th>Consumo (un)</th>
-                <th>Preço antigo (R$)</th><th>Preço novo (R$)</th>
-                <th>Δ %</th><th>Impacto anual (R$)</th>
-                <th>Estoque (un)</th><th>Dias</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- Os dados da tabela são inseridos via script para evitar duplicidade -->
-        </tbody>
-    </table>
-
-    <h2>4. Sugestões pontuais</h2>
-    <ul>
-        <li>Verificar com a <em>Johnson & Johnson MedTech</em> (via contrato Intra‑Federativa Leste‑Nordeste de MG) se a linha de suturas pode ser incluída em condições mais vantajosas.</li>
-        <li>Confirmar junto à J&amp;J se a migração de <em>Vicryl</em> e <em>Catgut</em> para <em>Vicryl Plus</em> é motivada por evidência clínica ou por política comercial do distribuidor / descontinuação de linha.</li>
-    </ul>
-
-    <p class="small">Fonte: planilha de consumo e preços apresentada na CFT (23/07) :contentReference[oaicite:3]{index=3}</p>
+  <h2>Sugestões Estratégicas</h2>
+  <ul>
+    <li>Verificar com a Johnson & Johnson MedTech (via contrato Intra-Federativa Leste-Nordeste MG) se a linha de suturas pode ser incluída em condições mais vantajosas.</li>
+    <li>Confirmar com a J&J se a migração de Vicryl e Catgut para Vicryl Plus é motivada por evidência clínica ou política comercial/distribuição.</li>
+  </ul>
 </div>
 
-<script>
-// ---------- Dados da planilha ----------
-const items = [
-{erp:2346,desc:"Catgut Cromado 1",cons:1673,old:12.06,new:20.82,stock:141,days:30},
-{erp:2397,desc:"Vicryl 0",cons:279,old:18.17,new:21.83,stock:76,days:98},
-{erp:2399,desc:"Vicryl 1",cons:2464,old:25.47,new:28.38,stock:676,days:99},
-{erp:2400,desc:"Vicryl 2‑0",cons:135,old:18.82,new:21.55,stock:74,days:197},
-{erp:2402,desc:"Vicryl 2‑0",cons:703,old:17.86,new:21.50,stock:143,days:73},
-{erp:2786,desc:"Vicryl 3‑0",cons:578,old:21.50,new:24.70,stock:96,days:60},
-{erp:2788,desc:"Catgut Simples 2‑0",cons:164,old:12.38,new:14.39,stock:29,days:64},
-{erp:2789,desc:"Catgut Simples 3‑0",cons:27,old:8.24,new:18.48,stock:312,days:4160},
-{erp:2790,desc:"Catgut Simples 4‑0",cons:73,old:11.84,new:24.42,stock:78,days:385},
-{erp:2791,desc:"Catgut Cromado 4‑0",cons:15,old:14.28,new:23.76,stock:60,days:1440},
-{erp:2793,desc:"Catgut Simples 2‑0",cons:889,old:12.44,new:14.39,stock:137,days:55},
-{erp:2795,desc:"Catgut Cromado 3‑0",cons:174,old:12.14,new:18.48,stock:59,days:122},
-{erp:2796,desc:"Catgut Cromado 4‑0",cons:212,old:10.73,new:23.76,stock:107,days:182},
-{erp:2936,desc:"Catgut Cromado 2‑0",cons:32,old:4.59,new:20.82,stock:82,days:923},
-{erp:3342,desc:"Vicryl 1",cons:236,old:12.94,new:28.38,stock:94,days:143},
-{erp:3343,desc:"Vicryl 0",cons:82,old:27.23,new:28.38,stock:75,days:329},
-{erp:3751,desc:"Vicryl 0",cons:68,old:8.91,new:19.11,stock:25,days:132},
-{erp:3753,desc:"Caprofyl 1",cons:49,old:10.70,new:13.50,stock:43,days:316},
-{erp:3786,desc:"Vicryl 1",cons:619,old:20.33,new:20.82,stock:149,days:87},
-{erp:3787,desc:"Vicryl 2‑0",cons:564,old:20.00,new:22.90,stock:182,days:116},
-{erp:3788,desc:"Vicryl 3‑0",cons:392,old:15.65,new:18.48,stock:193,days:177},
-{erp:8206,desc:"Vicryl 3‑0",cons:137,old:21.70,new:23.76,stock:105,days:276},
-{erp:8207,desc:"Vicryl 4‑0",cons:44,old:21.70,new:23.76,stock:73,days:597}
-];
+<div class="footer">
+  <img class="footer-logo" src="https://i.imgur.com/yAUQciP.png" alt="AxiaCare Logo">
+  <div class="footer-title">AxView™ | Templates - Gestão e Consultoria em Saúde</div>
+  <div class="footer-links">
+    <a href="https://linktr.ee/gui.thome">Conheça nossas soluções.</a>
+    <span class="separator">|</span>
+    <a href="https://www.axcare.com.br">axcare.com.br</a>
+    <span class="separator">|</span>
+    <a href="https://www.medvalor.med.br">medvalor.med.br</a>
+  </div>
+  <div class="footer-social">
+    <a href="https://guithome.com.br">guithome.com.br</a>
+    <span class="separator">|</span>
+    <a href="https://linkedin.com/in/guithome">LinkedIn</a>
+    <span class="separator">|</span>
+    <a href="https://www.instagram.com/gui.thome/">Instagram</a>
+  </div>
+  <div class="footer-copyright">
+    Copyright © 2025 AxiaCare | Todos os direitos reservados | Uma empresa GTCorp.
+  </div>
+</div>
 
-// ---------- Tabela ----------
-const tbody=document.querySelector("tbody");
-items.forEach(it=>{
-    const impact=(it.new-it.old)*it.cons;
-    const tr=document.createElement("tr");
-    tr.innerHTML=`<td>${it.erp}</td><td>${it.desc}</td><td>${it.cons}</td>
-                  <td>${it.old.toFixed(2)}</td><td>${it.new.toFixed(2)}</td>
-                  <td>${((it.new/it.old-1)*100).toFixed(2)}%</td>
-                  <td>${impact.toFixed(2)}</td><td>${it.stock??"-"}</td><td>${it.days??"-"}</td>`;
-    tbody.appendChild(tr);
-});
-
-// ---------- Gráfico 1: Top 10 impacto ----------
-const top10=[...items].map(it=>({code:it.erp,impact:(it.new-it.old)*it.cons}))
-    .sort((a,b)=>b.impact-a.impact).slice(0,10);
-new Chart(document.getElementById("chartImpact"),{
-    type:"bar",
-    data:{
-        labels:top10.map(i=>i.code),
-        datasets:[{label:"Impacto anual (R$)",data:top10.map(i=>i.impact),
-                   borderWidth:1}]
-    },
-    options:{plugins:{legend:{display:false}},
-             scales:{y:{beginAtZero:true,ticks:{callback:v=>'R$ '+v.toLocaleString()}}}}
-});
-
-// ---------- Gráfico 2: Variação x Consumo ----------
-const ctx2=document.getElementById("chartScatter");
-new Chart(ctx2,{
-    type:"scatter",
-    data:{
-        datasets:[{
-            label:"Itens",
-            data:items.map(i=>({x:i.cons,y:((i.new/i.old-1)*100)})),
-            pointRadius:5
-        }]
-    },
-    options:{
-        plugins:{legend:{display:false}},
-        scales:{
-            x:{title:{display:true,text:"Consumo anual (un)"}},
-            y:{title:{display:true,text:"Variação de preço (%)"}}
-        }
-    }
-});
-</script>
 </body>
 </html>
