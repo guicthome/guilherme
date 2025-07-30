@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Análise de Reajuste – Suturas Ethicon (CFT)</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<style>
+    body{margin:0;padding:0;background:#ffffff;font-family:"Aptos",Arial,sans-serif;font-size:14px;line-height:1.5;color:#000}
+    .wrapper{max-width:960px;margin:0 auto;padding:32px}
+    h1,h2{color:#196396;margin:0 0 16px;font-weight:600}
+    h3{margin:24px 0 8px;font-weight:600}
+    table{width:100%;border-collapse:collapse;font-size:13px}
+    th,td{padding:6px 8px;border:1px solid #ccc;text-align:right}
+    th:first-child,td:first-child{text-align:left}
+    .callout{background:#f2f2f2;padding:16px;margin-bottom:24px;border-left:6px solid #196396}
+    .small{font-size:12px;color:#555}
+    @media (max-width:600px){table,thead,tbody,tr,th,td{display:block}th{position:absolute;top:-9999px;left:-9999px}td{border:none;position:relative;padding-left:50%}td:before{position:absolute;left:8px;width:45%;white-space:nowrap}}
+</style>
+<!-- Chart.js CDN -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1"></script>
+</head>
+<body>
+<div class="wrapper">
+    <h1>Análise de reajuste da linha de suturas Ethicon</h1>
+
+    <div class="callout">
+        <p><strong>Resumo executivo</strong></p>
+        <ul>
+            <li>Custo anual atual: R$ 174 795,30</li>
+            <li>Custo anual pós‑reajuste: R$ 218 194,39</li>
+            <li>Impacto financeiro: <strong>+ R$ 43 399,09</strong> (+ 24,83 %)</li>
+            <li>5 códigos concentram 71 % do aumento (vide gráfico 1)</li>
+            <li>Estoque médio geral: 437 dias; 6 códigos &lt; 90 dias, 3 códigos &gt; 2 anos</li>
+        </ul>
+    </div>
+
+    <h2>1. Impacto financeiro por código (top 10)</h2>
+    <canvas id="chartImpact" height="240"></canvas>
+
+    <h2>2. Variação de preço versus consumo anual</h2>
+    <canvas id="chartScatter" height="260"></canvas>
+
+    <h2>3. Detalhamento dos itens</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ERP</th><th>Descrição antiga</th><th>Consumo (un)</th>
+                <th>Preço antigo (R$)</th><th>Preço novo (R$)</th>
+                <th>Δ %</th><th>Impacto anual (R$)</th>
+                <th>Estoque (un)</th><th>Dias</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Os dados da tabela são inseridos via script para evitar duplicidade -->
+        </tbody>
+    </table>
+
+    <h2>4. Sugestões pontuais</h2>
+    <ul>
+        <li>Verificar com a <em>Johnson & Johnson MedTech</em> (via contrato Intra‑Federativa Leste‑Nordeste de MG) se a linha de suturas pode ser incluída em condições mais vantajosas.</li>
+        <li>Confirmar junto à J&amp;J se a migração de <em>Vicryl</em> e <em>Catgut</em> para <em>Vicryl Plus</em> é motivada por evidência clínica ou por política comercial do distribuidor / descontinuação de linha.</li>
+    </ul>
+
+    <p class="small">Fonte: planilha de consumo e preços apresentada na CFT (23/07) :contentReference[oaicite:3]{index=3}</p>
+</div>
+
+<script>
+// ---------- Dados da planilha ----------
+const items = [
+{erp:2346,desc:"Catgut Cromado 1",cons:1673,old:12.06,new:20.82,stock:141,days:30},
+{erp:2397,desc:"Vicryl 0",cons:279,old:18.17,new:21.83,stock:76,days:98},
+{erp:2399,desc:"Vicryl 1",cons:2464,old:25.47,new:28.38,stock:676,days:99},
+{erp:2400,desc:"Vicryl 2‑0",cons:135,old:18.82,new:21.55,stock:74,days:197},
+{erp:2402,desc:"Vicryl 2‑0",cons:703,old:17.86,new:21.50,stock:143,days:73},
+{erp:2786,desc:"Vicryl 3‑0",cons:578,old:21.50,new:24.70,stock:96,days:60},
+{erp:2788,desc:"Catgut Simples 2‑0",cons:164,old:12.38,new:14.39,stock:29,days:64},
+{erp:2789,desc:"Catgut Simples 3‑0",cons:27,old:8.24,new:18.48,stock:312,days:4160},
+{erp:2790,desc:"Catgut Simples 4‑0",cons:73,old:11.84,new:24.42,stock:78,days:385},
+{erp:2791,desc:"Catgut Cromado 4‑0",cons:15,old:14.28,new:23.76,stock:60,days:1440},
+{erp:2793,desc:"Catgut Simples 2‑0",cons:889,old:12.44,new:14.39,stock:137,days:55},
+{erp:2795,desc:"Catgut Cromado 3‑0",cons:174,old:12.14,new:18.48,stock:59,days:122},
+{erp:2796,desc:"Catgut Cromado 4‑0",cons:212,old:10.73,new:23.76,stock:107,days:182},
+{erp:2936,desc:"Catgut Cromado 2‑0",cons:32,old:4.59,new:20.82,stock:82,days:923},
+{erp:3342,desc:"Vicryl 1",cons:236,old:12.94,new:28.38,stock:94,days:143},
+{erp:3343,desc:"Vicryl 0",cons:82,old:27.23,new:28.38,stock:75,days:329},
+{erp:3751,desc:"Vicryl 0",cons:68,old:8.91,new:19.11,stock:25,days:132},
+{erp:3753,desc:"Caprofyl 1",cons:49,old:10.70,new:13.50,stock:43,days:316},
+{erp:3786,desc:"Vicryl 1",cons:619,old:20.33,new:20.82,stock:149,days:87},
+{erp:3787,desc:"Vicryl 2‑0",cons:564,old:20.00,new:22.90,stock:182,days:116},
+{erp:3788,desc:"Vicryl 3‑0",cons:392,old:15.65,new:18.48,stock:193,days:177},
+{erp:8206,desc:"Vicryl 3‑0",cons:137,old:21.70,new:23.76,stock:105,days:276},
+{erp:8207,desc:"Vicryl 4‑0",cons:44,old:21.70,new:23.76,stock:73,days:597}
+];
+
+// ---------- Tabela ----------
+const tbody=document.querySelector("tbody");
+items.forEach(it=>{
+    const impact=(it.new-it.old)*it.cons;
+    const tr=document.createElement("tr");
+    tr.innerHTML=`<td>${it.erp}</td><td>${it.desc}</td><td>${it.cons}</td>
+                  <td>${it.old.toFixed(2)}</td><td>${it.new.toFixed(2)}</td>
+                  <td>${((it.new/it.old-1)*100).toFixed(2)}%</td>
+                  <td>${impact.toFixed(2)}</td><td>${it.stock??"-"}</td><td>${it.days??"-"}</td>`;
+    tbody.appendChild(tr);
+});
+
+// ---------- Gráfico 1: Top 10 impacto ----------
+const top10=[...items].map(it=>({code:it.erp,impact:(it.new-it.old)*it.cons}))
+    .sort((a,b)=>b.impact-a.impact).slice(0,10);
+new Chart(document.getElementById("chartImpact"),{
+    type:"bar",
+    data:{
+        labels:top10.map(i=>i.code),
+        datasets:[{label:"Impacto anual (R$)",data:top10.map(i=>i.impact),
+                   borderWidth:1}]
+    },
+    options:{plugins:{legend:{display:false}},
+             scales:{y:{beginAtZero:true,ticks:{callback:v=>'R$ '+v.toLocaleString()}}}}
+});
+
+// ---------- Gráfico 2: Variação x Consumo ----------
+const ctx2=document.getElementById("chartScatter");
+new Chart(ctx2,{
+    type:"scatter",
+    data:{
+        datasets:[{
+            label:"Itens",
+            data:items.map(i=>({x:i.cons,y:((i.new/i.old-1)*100)})),
+            pointRadius:5
+        }]
+    },
+    options:{
+        plugins:{legend:{display:false}},
+        scales:{
+            x:{title:{display:true,text:"Consumo anual (un)"}},
+            y:{title:{display:true,text:"Variação de preço (%)"}}
+        }
+    }
+});
+</script>
+</body>
+</html>
