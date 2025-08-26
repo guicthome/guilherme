@@ -4,10 +4,10 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>MedValor | Acesso a Conteúdos</title>
-  <meta name="description" content="Gate padrão MedValor: informe seu e‑mail para abrir automaticamente o conteúdo solicitado (lista de cursos, materiais e trilhas)." />
+  <meta name="description" content="Informe seu e‑mail e abriremos automaticamente o conteúdo solicitado. Gate padrão, replicável e responsivo da MedValor." />
   <style>
     :root{
-      /* Paleta institucional (kit de marca) */
+      /* Paleta institucional */
       --brand:#196396;   /* azul MedValor */
       --mint:#a6d8c0;    /* menta suave */
       --green:#a6fb90;   /* verde claro */
@@ -65,6 +65,15 @@
     .legal{ font-size:12px; color:#6d788a; margin-top:8px }
     .skip{ display:inline-block; margin-top:10px; font-size:13px; opacity:.85; text-decoration: underline }
 
+    /* Logo + responsividade extra */
+    .logo{height:22px; display:block; margin:0 0 8px; opacity:.95}
+    @media (max-width:520px){
+      .modal .panel{padding:20px 18px; border-radius:14px}
+      .row{gap:8px}
+      input[type="email"], button{height:48px; font-size:16px}
+    }
+    @media (max-width:360px){ .modal .panel{width:96vw} }
+
     body.lock{ overflow:hidden }
   </style>
 </head>
@@ -91,13 +100,14 @@
   <div class="overlay" id="overlay" aria-hidden="true"></div>
   <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
     <div class="panel" role="document">
+      <img src="https://i.imgur.com/NQYipnw.png" alt="MedValor" class="logo" id="mv-logo" />
       <h2 id="modal-title">Abrir conteúdo agora</h2>
       <p>Digite seu e‑mail para liberar o link. É simples e direto.</p>
       <form id="leadForm" novalidate>
         <div class="row">
           <label class="sr-only" for="email" style="position:absolute;left:-9999px">Seu e‑mail</label>
           <input id="email" name="email" type="email" placeholder="voce@exemplo.com" autocomplete="email" required />
-          <button id="submitBtn" type="submit">Receber e abrir</button>
+          <button id="submitBtn" type="submit">Abrir Link</button>
         </div>
         <input type="text" name="website" id="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;height:0;width:0;opacity:0" />
         <div class="msg" id="msg" role="status" aria-live="polite"></div>
@@ -109,14 +119,23 @@
 
 <script>
 (function(){
-  // ====== PARAMETRIZAÇÃO (reutilizável) ======
+  // ====== PARAMETRIZAÇÃO (replicável) ======
   const qs = new URLSearchParams(location.search);
-  const WEBHOOK_URL = qs.get('w') || 'https://hook.us2.make.com/wv7igcf7f1b2guv3bal4h8xjkcfeykx8'; // sobrescreva via ?w=
-  const REDIRECT_URL = qs.get('r') || 'https://hub.guithome.com.br/medvalor/cursosgratis.html'; // sobrescreva via ?r=
+  const WEBHOOK_URL = qs.get('w') || 'https://hook.make.com/SEU_WEBHOOK_AQUI';
+  const REDIRECT_URL = qs.get('r') || 'https://hub.guithome.com.br/medvalor/cursosgratis.html';
   const TITLE        = qs.get('t') || 'Abrir conteúdo agora';
   const DESC         = qs.get('d') || 'Digite seu e‑mail para liberar o link. É simples e direto.';
-  const CAMPAIGN_TAG = qs.get('tag') || 'MedValor_Content_Gate';
-  const ALLOW_SKIP   = qs.has('skip') ? (qs.get('skip')==='1') : false; // ?skip=1 libera continuar sem e‑mail
+  const BTN_LABEL    = qs.get('btn');
+  const LOGO_PARAM   = qs.get('logo');
+
+  // Código de campanha (padrão: AAA###-MM-YY)
+  const cBase = (qs.get('c') || '').toUpperCase();          // ex.: CUR001
+  const now   = new Date();
+  const mm    = String(now.getMonth()+1).padStart(2,'0');
+  const yy    = String(now.getFullYear()).slice(-2);
+  const CAMPAIGN_CODE = qs.get('cc') || (cBase ? `${cBase}-${mm}-${yy}` : `GEN000-${mm}-${yy}`);
+  const CAMPAIGN_TAG  = qs.get('tag') || 'MedValor_Content_Gate';
+
   const APPEND_UTM_TO_REDIRECT = true;
   const TIMEOUT_MS   = 4000;
 
@@ -131,10 +150,16 @@
   const msg = document.getElementById('msg');
   const submitBtn = document.getElementById('submitBtn');
   const skipLink = document.getElementById('skipLink');
+  const logoEl = document.getElementById('mv-logo');
 
-  // Títulos dinâmicos
+  // Títulos/descrições dinâmicos + botão + logo
   modalTitle.textContent = TITLE;
   modal.querySelector('p').textContent = DESC;
+  if (BTN_LABEL) submitBtn.textContent = BTN_LABEL;
+  if (logoEl){
+    if (LOGO_PARAM === '0') logoEl.remove();
+    else if (LOGO_PARAM) logoEl.src = LOGO_PARAM;
+  }
 
   // Abre modal ao carregar
   function openModal(){
@@ -146,14 +171,9 @@
   }
   openModal();
 
-  if(ALLOW_SKIP){
-    skipLink.style.display='inline-block';
-    skipLink.addEventListener('click', (e)=>{ e.preventDefault(); redirect(); });
-  }
-
-  // Acessibilidade: trava foco no modal e ignora ESC
+  // ====== Acessibilidade ======
   modal.addEventListener('keydown', function(e){
-    if(e.key === 'Escape'){ e.preventDefault(); }
+    if(e.key === 'Escape'){ e.preventDefault(); } // obrigatório: não fecha
     if(e.key !== 'Tab') return;
     const focusables = modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
     const first = focusables[0];
@@ -162,7 +182,7 @@
     else if(e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
   });
 
-  // Util
+  // ====== Util ======
   const emailRx = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
   function setStatus(text, type){ msg.textContent = text || ''; msg.className = 'msg' + (type ? ' ' + type : ''); }
   function disableForm(disabled){ submitBtn.disabled = disabled; emailInput.disabled = disabled; }
@@ -170,7 +190,7 @@
     const url = new URL(REDIRECT_URL, location.origin);
     if(APPEND_UTM_TO_REDIRECT){
       const utm = new URLSearchParams(location.search);
-      for(const [k,v] of utm.entries()) if(!['w','r','t','d','tag','skip'].includes(k)) url.searchParams.set(k,v);
+      for(const [k,v] of utm.entries()) if(!['w','r','t','d','btn','logo','c','cc','tag'].includes(k)) url.searchParams.set(k,v);
     }
     return url.toString();
   }
@@ -181,7 +201,7 @@
   }
   function saveLocal(email){ try{ localStorage.setItem('mv_email', email); }catch(_){ } }
 
-  // Envio
+  // ====== Envio ======
   form.addEventListener('submit', async function(e){
     e.preventDefault();
     if(hp.value){ return; } // bots
@@ -197,10 +217,12 @@
       email,
       ts: new Date().toISOString(),
       source: 'instagram',
+      campaign: CAMPAIGN_TAG,
+      campaign_code: CAMPAIGN_CODE,
       page: location.href,
       referrer: document.referrer || null,
       utm: Object.fromEntries(new URLSearchParams(location.search)),
-      context: { campaign: CAMPAIGN_TAG, brand: 'MedValor' }
+      context: { brand: 'MedValor' }
     };
 
     const controller = new AbortController();
