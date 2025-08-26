@@ -107,7 +107,7 @@
         <div class="row">
           <label class="sr-only" for="email" style="position:absolute;left:-9999px">Seu e‑mail</label>
           <input id="email" name="email" type="email" placeholder="voce@exemplo.com" autocomplete="email" required />
-          <button id="submitBtn" type="submit">Abrir Link</button>
+          <button id="submitBtn" type="submit">Acessar Agora<\/button>
         </div>
         <input type="text" name="website" id="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;height:0;width:0;opacity:0" />
         <div class="msg" id="msg" role="status" aria-live="polite"></div>
@@ -121,20 +121,16 @@
 (function(){
   // ====== PARAMETRIZAÇÃO (replicável) ======
   const qs = new URLSearchParams(location.search);
-  const WEBHOOK_URL = qs.get('w') || 'https://hook.us2.make.com/wv7igcf7f1b2guv3bal4h8xjkcfeykx8';
+  const WEBHOOK_URL = 'https:\/\/hook.us2.make.com\/wv7igcf7f1b2guv3bal4h8xjkcfeykx8';
   const REDIRECT_URL = qs.get('r') || 'https://hub.guithome.com.br/medvalor/cursosgratis.html';
   const TITLE        = qs.get('t') || 'Abrir conteúdo agora';
   const DESC         = qs.get('d') || 'Digite seu e‑mail para liberar o link. É simples e direto.';
-  const BTN_LABEL    = qs.get('btn');
   const LOGO_PARAM   = qs.get('logo');
 
-  // Código de campanha (padrão: AAA###-MM-YY)
-  const cBase = (qs.get('c') || '').toUpperCase();          // ex.: CUR001
-  const now   = new Date();
-  const mm    = String(now.getMonth()+1).padStart(2,'0');
-  const yy    = String(now.getFullYear()).slice(-2);
-  const CAMPAIGN_CODE = qs.get('cc') || (cBase ? `${cBase}-${mm}-${yy}` : `GEN000-${mm}-${yy}`);
-  const CAMPAIGN_TAG  = qs.get('tag') || 'MedValor_Content_Gate';
+  // ===== CAMPANHA (EDITE AQUI) =====
+  // Substitua o valor abaixo sempre que mudar a campanha. Formato: AAA###-MM-YY
+  const CAMPAIGN_CODE = 'CRU001-08-25';
+  const CAMPAIGN_TAG  = 'MedValor_Content_Gate';
 
   const APPEND_UTM_TO_REDIRECT = true;
   const TIMEOUT_MS   = 4000;
@@ -155,7 +151,6 @@
   // Títulos/descrições dinâmicos + botão + logo
   modalTitle.textContent = TITLE;
   modal.querySelector('p').textContent = DESC;
-  if (BTN_LABEL) submitBtn.textContent = BTN_LABEL;
   if (logoEl){
     if (LOGO_PARAM === '0') logoEl.remove();
     else if (LOGO_PARAM) logoEl.src = LOGO_PARAM;
@@ -190,7 +185,7 @@
     const url = new URL(REDIRECT_URL, location.origin);
     if(APPEND_UTM_TO_REDIRECT){
       const utm = new URLSearchParams(location.search);
-      for(const [k,v] of utm.entries()) if(!['w','r','t','d','btn','logo','c','cc','tag'].includes(k)) url.searchParams.set(k,v);
+      for(const [k,v] of utm.entries()) if(!['w','r','t','d','logo','tag'].includes(k)) url.searchParams.set(k,v);
     }
     return url.toString();
   }
