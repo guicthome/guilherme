@@ -208,17 +208,20 @@
     }
     disableForm(true); setStatus('Enviando…');
 
-    const payload = {
-      email,
-      ts: new Date().toISOString(),
-      source: 'instagram',
-      campaign: CAMPAIGN_TAG,
-      campaign_code: CAMPAIGN_CODE,
-      page: location.href,
-      referrer: document.referrer || null,
-      utm: Object.fromEntries(new URLSearchParams(location.search)),
-      context: { brand: 'MedValor' }
-    };
+const now = new Date(); // <- 1) crie uma única referência de tempo
+
+const payload = {
+  email,
+  ts: now.toISOString(), // UTC p/ auditoria
+  data_hora: now.toLocaleString('sv-SE', { timeZone: 'America/Sao_Paulo', hour12: false }), // YYYY-MM-DD HH:mm:ss
+  source: 'instagram',
+  campaign: CAMPAIGN_TAG,
+  campaign_code: CAMPAIGN_CODE,
+  page: location.href,
+  referrer: document.referrer || null,
+  utm: Object.fromEntries(new URLSearchParams(location.search)),
+  context: { brand: 'MedValor' }
+};
 
     const controller = new AbortController();
     const t = setTimeout(()=> controller.abort(), TIMEOUT_MS);
