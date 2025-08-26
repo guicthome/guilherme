@@ -106,10 +106,21 @@
       gap:12px;
       align-items:center;
     }
+    .course-info{
+      display:flex;
+      flex-direction:column;
+      gap:2px;
+    }
     .course-title{
       font-weight:700;
       color:#111827; /* quase preto */
       font-size:clamp(14px,2.1vw,18px);
+      margin:0;
+    }
+    .course-inst{
+      font-size:12px;
+      color:#4b5563; /* cinza mais escuro */
+      line-height:1.2;
       margin:0;
     }
 
@@ -174,7 +185,7 @@
     .footer-links a,.footer-social a{ color:#004E4C; text-decoration:none; padding:0 4px; }
     .footer-links a:hover,.footer-social a:hover{ color:#002c2a; text-decoration:underline; }
     .footer .separator{ color:#bbb; margin:0 4px; }
-    .footer-copyright{ margin-top:18px; font-size:11px; color:#999; }
+    .footeropyright{ margin-top:18px; font-size:11px; color:#999; }
 
     /* Responsividade */
     @media (max-width:540px){
@@ -200,7 +211,10 @@
     <!-- 1 -->
     <article class="course-card">
       <div class="course-head">
-        <p class="course-title">1. Inovação em saúde (Harvard)</p>
+        <div class="course-info">
+          <p class="course-title">1. Inovação em saúde</p>
+          <p class="course-inst">Harvard University</p>
+        </div>
         <a class="btn" href="https://pll.harvard.edu/course/innovating-health-care" target="_blank" rel="noopener">
           Acessar curso <span class="arrow">›</span>
         </a>
@@ -210,7 +224,10 @@
     <!-- 2 -->
     <article class="course-card">
       <div class="course-head">
-        <p class="course-title">2. Telessaúde (Stanford)</p>
+        <div class="course-info">
+          <p class="course-title">2. Telessaúde</p>
+          <p class="course-inst">Stanford University</p>
+        </div>
         <a class="btn" href="https://www.edx.org/learn/healthcare/stanford-university-telehealth-implementation-organizational-billing-reimbursement-and-legal-considerations?index=product&objectID=course-aadb214e-f5ba-4ee1-b485-e406d7e2e220&webview=false&campaign=Telehealth+Implementation%3A+Organizational%2C+Billing%2C+Reimbursement%2C+and+Legal+Considerations&source=edX&product_category=course&placement_url=https%3A%2F%2Fwww.edx.org%2Flearn%2Fmedicine" target="_blank" rel="noopener">
           Acessar curso <span class="arrow">›</span>
         </a>
@@ -220,7 +237,10 @@
     <!-- 3 -->
     <article class="course-card">
       <div class="course-head">
-        <p class="course-title">3. A economia dos serviços de saúde (Wharton)</p>
+        <div class="course-info">
+          <p class="course-title">3. A economia dos serviços de saúde</p>
+          <p class="course-inst">The Wharton School (University of Pennsylvania)</p>
+        </div>
         <a class="btn" href="https://www.coursera.org/learn/health-economics-us-healthcare-systems" target="_blank" rel="noopener">
           Acessar curso <span class="arrow">›</span>
         </a>
@@ -230,7 +250,10 @@
     <!-- 4 -->
     <article class="course-card">
       <div class="course-head">
-        <p class="course-title">4. Coordenação do cuidado (Einstein)</p>
+        <div class="course-info">
+          <p class="course-title">4. Coordenação do cuidado</p>
+          <p class="course-inst">Hospital Israelita Albert Einstein</p>
+        </div>
         <a class="btn" href="https://ensino.einstein.br/curso_gratuito_coordenacao_do_cuidado_desa_p14564/p?sku=7904&cidade=ead" target="_blank" rel="noopener">
           Acessar curso <span class="arrow">›</span>
         </a>
@@ -240,7 +263,10 @@
     <!-- 5 -->
     <article class="course-card">
       <div class="course-head">
-        <p class="course-title">5. Design thinking aplicado à saúde (FGV)</p>
+        <div class="course-info">
+          <p class="course-title">5. Design thinking aplicado à saúde</p>
+          <p class="course-inst">Fundação Getúlio Vargas</p>
+        </div>
         <a class="btn" href="https://educacao-executiva.fgv.br/cursos/online/curta-media-duracao-online/design-thinking-aplicado-area-da-saude" target="_blank" rel="noopener">
           Acessar curso <span class="arrow">›</span>
         </a>
@@ -250,7 +276,10 @@
     <!-- 6 -->
     <article class="course-card">
       <div class="course-head">
-        <p class="course-title">6. Avaliação da qualidade dos serviços de saúde (Northeastern)</p>
+        <div class="course-info">
+          <p class="course-title">6. Avaliação da qualidade dos serviços de saúde</p>
+          <p class="course-inst">Northeastern University</p>
+        </div>
         <a class="btn" href="https://www.coursera.org/learn/quality-of-healthcare?specialization=healthcare-trends-business-professionals" target="_blank" rel="noopener">
           Acessar curso <span class="arrow">›</span>
         </a>
@@ -260,7 +289,10 @@
     <!-- 7 -->
     <article class="course-card">
       <div class="course-head">
-        <p class="course-title">7. Inovação em saúde (FGV)</p>
+        <div class="course-info">
+          <p class="course-title">7. Inovação em saúde</p>
+          <p class="course-inst">Fundação Getúlio Vargas</p>
+        </div>
         <a class="btn" href="https://educacao-executiva.fgv.br/cursos/online/curta-media-duracao-online/inovacao-em-saude-propositos-e-desafios-nas-organizacoes" target="_blank" rel="noopener">
           Acessar curso <span class="arrow">›</span>
         </a>
