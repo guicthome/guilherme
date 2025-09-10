@@ -2,11 +2,12 @@
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Política de Privacidade – AxiaCare®</title>
   <meta name="description" content="Política de Privacidade da AxiaCare®, elaborada em conformidade com a LGPD (Lei nº 13.709/2018).">
   <meta name="author" content="AxiaCare®">
   <link rel="canonical" href="https://axcare.com.br/politica-de-privacidade">
+  <meta name="theme-color" content="#196396">
   <meta property="og:title" content="Política de Privacidade – AxiaCare®">
   <meta property="og:description" content="Política de Privacidade da AxiaCare®, em conformidade com a LGPD.">
   <meta property="og:type" content="website">
@@ -30,7 +31,7 @@
       --maxw:960px;
       --pad:24px;
 
-      --focus: 0 0 0 3px rgba(25,99,150,.25);
+      --focus:0 0 0 3px rgba(25,99,150,.25);
     }
 
     *{box-sizing:border-box}
@@ -41,7 +42,9 @@
       font-size:16px;
       line-height:1.6;
       color:var(--text);
-      background: linear-gradient(180deg, #ffffff 0%, var(--brand-off) 100%);
+      background:linear-gradient(180deg, #ffffff 0%, var(--brand-off) 100%);
+      padding-left: env(safe-area-inset-left);
+      padding-right: env(safe-area-inset-right);
     }
 
     .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
@@ -51,10 +54,11 @@
       border-bottom:1px solid rgba(0,0,0,.06);
       position:sticky; top:0; z-index:10;
       backdrop-filter:saturate(180%) blur(8px);
+      padding-top: env(safe-area-inset-top);
     }
     .wrap{max-width:var(--maxw); margin:0 auto; padding:12px var(--pad); display:flex; align-items:center; gap:16px}
     .brand{display:flex; align-items:center; gap:12px; text-decoration:none; color:inherit}
-    .brand img{height:56px; width:auto; display:block} /* Increased logo size */
+    .brand img{height:56px; width:auto; display:block} /* logo maior */
     .badge{
       margin-left:auto;
       display:inline-flex; align-items:center; gap:8px;
@@ -70,16 +74,16 @@
       background:var(--white);
       border:1px solid rgba(0,0,0,.06);
       border-radius:var(--radius);
-      padding:32px;
+      padding:clamp(20px, 4vw, 32px);
       box-shadow:var(--shadow);
     }
     .hero h1{
       margin:0 0 8px 0;
-      font-size:1.875rem;
+      font-size:clamp(1.5rem, 2.2vw + 1rem, 1.875rem);
       color:var(--brand-primary);
       line-height:1.3;
     }
-    .hero p{margin:0; color:var(--muted)}
+    .hero p{margin:0; color:var(--muted); font-size:clamp(.95rem, 1vw, 1rem)}
 
     .toc{
       margin:24px 0;
@@ -97,11 +101,11 @@
       background:var(--white);
       border:1px solid rgba(0,0,0,.06);
       border-radius:var(--radius);
-      padding:24px;
+      padding:clamp(16px, 3.2vw, 24px);
       margin:18px 0;
       box-shadow:var(--shadow);
     }
-    h2{font-size:1.375rem; margin:0 0 8px 0; color:var(--brand-dark)}
+    h2{font-size:clamp(1.15rem, 1.4vw + .8rem, 1.375rem); margin:0 0 8px 0; color:var(--brand-dark)}
     h3{font-size:1.05rem; margin:12px 0 6px 0; color:var(--brand-dark)}
     p{margin:0 0 10px 0}
     ul{margin:0 0 10px 18px}
@@ -110,7 +114,7 @@
 
     .note{
       border-left:4px solid var(--brand-primary);
-      background: #f0f7fb;
+      background:#f0f7fb;
       padding:12px 14px;
       border-radius:8px;
       color:var(--brand-dark);
@@ -131,6 +135,7 @@
       padding:12px 14px;
       border-bottom:1px solid rgba(0,0,0,.06);
       background:var(--white);
+      font-size:clamp(.92rem, 1vw, 1rem);
     }
     th{background:#f6f9fc; color:#334; font-weight:600}
     tr:last-child td{border-bottom:none}
@@ -153,8 +158,8 @@
 
     .btn-top{
       position:fixed; right:16px; bottom:16px;
-      background:var(--brand-primary); color:#fff; border:none; border-radius:999px; padding:10px 14px; cursor:pointer;
-      box-shadow:var(--shadow); display:none;
+      background:var(--brand-primary); color:#fff; border:none; border-radius:999px; padding:12px 16px; cursor:pointer;
+      box-shadow:var(--shadow); display:none; touch-action:manipulation;
     }
     .btn-top:focus{outline:none; box-shadow:var(--focus)}
     @media (prefers-reduced-motion:no-preference){
@@ -162,8 +167,13 @@
     }
     @media (max-width:760px){
       .wrap{padding:8px 16px}
-      .hero{padding:22px}
-      section.card{padding:18px}
+      .toc{padding:12px 14px}
+    }
+    @media (max-width:420px){
+      .wrap{gap:10px}
+      .brand img{height:48px}
+      main{margin:20px auto}
+      .btn-top{right:12px; bottom:12px}
     }
     @media print{
       header, .toc, .btn-top, .footer-line{display:none !important}
@@ -173,7 +183,6 @@
     }
   </style>
 
-  <!-- JSON-LD Schema for a Privacy Policy -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -378,7 +387,7 @@
 
     <section id="criancas" class="card" aria-labelledby="kids-title">
       <h2 id="kids-title">Crianças e adolescentes</h2>
-      <p>O tratamento de dados de crianças (até 12 anos incompletos) é realizado com consentimento dos pais ou responsáveis legais e no melhor interesse do menor, conforme a LGPD e o Estatuto da Criança e do Adolescente. Para adolescentes, observamos as hipóteses legais cabíveis e o princípio do melhor interesse.</p>
+      <p>Para fins desta Política, menores de 18 anos são representados pelos pais ou representantes legais. O tratamento de dados ocorre sempre no melhor interesse do menor, em conformidade com a LGPD e com o Estatuto da Criança e do Adolescente.</p>
     </section>
 
     <section id="decisoes" class="card" aria-labelledby="auto-title">
@@ -394,13 +403,12 @@
     <section id="contato" class="card" aria-labelledby="contact-title">
       <h2 id="contact-title">Canal de contato (DPO)</h2>
       <p>Para entrar em contato com o nosso DPO (Data Protection Officer), envie e-mail para: <a href="mailto:privacidade@axcare.com.br">privacidade@axcare.com.br</a>.</p>
-      <p class="small">Se preferir, você também pode registrar reclamação diretamente à ANPD – Autoridade Nacional de Proteção de Dados.</p>
     </section>
 
     <footer>
       <div class="footer-line"></div>
       <p>AxiaCare® – Todos os direitos reservados.</p>
-      <p class="small">Este documento foi inspirado nas melhores práticas do setor e em conformidade com a LGPD. Recomenda-se revisão jurídica para cenários específicos de contrato e operação.</p>
+      <p class="small">2025</p>
     </footer>
   </main>
 
