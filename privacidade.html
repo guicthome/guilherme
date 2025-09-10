@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Política de Privacidade – GuiThomé®</title>
+  <meta name="description" content="Política de Privacidade do site GuiThome®, em conformidade com a LGPD (Lei nº 13.709/2018).">
+  <meta name="author" content="GuiThome®">
+  <link rel="canonical" href="https://guithome.com.br/politica-de-privacidade">
+  <link rel="icon" href="https://guithome.com.br/favicon.ico">
+  <meta name="theme-color" content="#196396">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Política de Privacidade – GuiThomé®">
+  <meta property="og:description" content="Política de Privacidade do site GuiThome®, em conformidade com a LGPD.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://i.imgur.com/TKziJpD.png">
+  <meta property="og:site_name" content="GuiThome®">
+  <meta property="og:url" content="https://guithome.com.br/politica-de-privacidade">
+  <meta property="og:locale" content="pt_BR">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Política de Privacidade – GuiThomé®">
+  <meta name="twitter:description" content="Política de Privacidade do site GuiThome®, em conformidade com a LGPD.">
+  <meta name="twitter:image" content="https://i.imgur.com/TKziJpD.png">
+
+  <style>
+    :root{
+      --brand-primary:#196396;
+      --brand-accent:#23A6C0;     /* mix Axia (verde) + MV (laranja) em tom teal */
+      --brand-dark:#2d3445;
+      --brand-off:#f8f5f0;
+      --white:#ffffff;
+      --text:#1b1e24; --muted:#5b6470;
+      --radius:16px; --shadow:0 8px 24px rgba(0,0,0,.08);
+      --maxw:960px; --pad:24px; --focus:0 0 0 3px rgba(25,99,150,.25);
+    }
+
+    *{box-sizing:border-box} html,body{height:100%}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";font-size:16px;line-height:1.6;color:var(--text);background:linear-gradient(180deg,#fff 0%,var(--brand-off) 100%);padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-right)}
+    img{max-width:100%;height:auto;display:block}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+    header{background:var(--white);border-bottom:1px solid rgba(0,0,0,.06);position:sticky;top:0;z-index:10;backdrop-filter:saturate(180%) blur(8px);padding-top:env(safe-area-inset-top)}
+    .wrap{max-width:var(--maxw);margin:0 auto;padding:12px var(--pad);display:flex;align-items:center;gap:16px}
+    .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit}
+    .brand img{height:58px;width:auto}
+    .badge{margin-left:auto;display:inline-flex;align-items:center;gap:8px;font-size:.875rem;color:#0e4a56;
+           background:linear-gradient(180deg,#DAF5FA,#BEEAF2);padding:8px 12px;border-radius:999px;box-shadow:var(--shadow);
+           border:1px solid #9fd8e4;text-decoration:none}
+    .badge svg{height:16px;width:16px}
+    .badge svg path{stroke:#0e4a56}
+
+    main{max-width:var(--maxw);margin:32px auto;padding:0 var(--pad)}
+    .hero{background:var(--white);border:1px solid rgba(0,0,0,.06);border-radius:var(--radius);padding:clamp(20px,4vw,32px);box-shadow:var(--shadow)}
+    .hero h1{margin:0 0 8px 0;font-size:clamp(1.5rem,2.2vw + 1rem,1.875rem);color:var(--brand-primary);line-height:1.3}
+    .hero p{margin:0;color:var(--muted);font-size:clamp(.95rem,1vw,1rem)}
+
+    .toc{margin:24px 0;background:linear-gradient(180deg,#fff,#f7fbff);border:1px solid rgba(25,99,150,.12);border-radius:var(--radius);padding:16px 20px}
+    .toc h2{margin:0 0 8px 0;font-size:1.125rem;color:var(--brand-dark)}
+    .toc ol{margin:0;padding-left:20px}
+    a{color:var(--brand-primary);text-decoration:none}
+    a:hover{color:var(--brand-accent);text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:2px}
+
+    section.card{background:var(--white);border:1px solid rgba(0,0,0,.06);border-radius:var(--radius);padding:clamp(16px,3.2vw,24px);margin:18px 0;box-shadow:var(--shadow)}
+    h2{font-size:clamp(1.15rem,1.4vw + .8rem,1.375rem);margin:0 0 8px 0;color:var(--brand-dark)}
+    p{margin:0 0 10px 0} ul{margin:0 0 10px 18px} li{margin:6px 0}
+
+    .note{border-left:4px solid var(--brand-primary);background:linear-gradient(180deg,#fff,#ebfbff);padding:12px 14px;border-radius:8px;color:var(--brand-dark)}
+
+    table{width:100%;border-collapse:separate;border-spacing:0;margin:10px 0 0 0;border:1px solid rgba(0,0,0,.05);border-radius:12px;overflow:hidden}
+    th,td{text-align:left;vertical-align:top;padding:12px 14px;border-bottom:1px solid rgba(0,0,0,.06);background:var(--white);font-size:clamp(.92rem,1vw,1rem)}
+    th{background:#f6f9fc;color:#334;font-weight:600} tr:last-child td{border-bottom:none}
+
+    footer{margin:42px 0 24px;text-align:center}
+    .footer{background:#ffffff;border:1px solid rgba(0,0,0,.06);border-radius:14px;box-shadow:var(--shadow);display:flex;flex-direction:column;align-items:center;gap:8px;padding:16px}
+    .footer .brand-mini{display:flex;align-items:center;gap:10px}
+    .footer .brand-mini img{height:22px}
+    .footer .links{display:flex;gap:16px;flex-wrap:wrap;font-size:.92rem}
+    .footer .links a{color:var(--brand-primary)}
+    .footer .links a:hover{color:var(--brand-accent);text-decoration:underline;text-underline-offset:2px}
+    .small{font-size:.85rem;color:var(--muted)}
+
+    .btn-top{position:fixed;right:16px;bottom:16px;background:var(--brand-primary);color:#fff;border:none;border-radius:999px;padding:12px 16px;cursor:pointer;box-shadow:var(--shadow);display:none;touch-action:manipulation}
+    .btn-top:focus{outline:none;box-shadow:var(--focus)}
+    @media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+    @media (max-width:760px){.wrap{padding:8px 16px}.toc{padding:12px 14px}}
+    @media (max-width:420px){.wrap{gap:10px}.brand img{height:50px}main{margin:20px auto}.btn-top{right:12px;bottom:12px}}
+    @media print{header,.toc,.btn-top{display:none !important}body{background:#fff}.hero,section.card{box-shadow:none;border-color:#ddd}a{color:#000;text-decoration:underline}}
+  </style>
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebPage","name":"Política de Privacidade – GuiThome","about":{"@type":"Thing","name":"Política de Privacidade"},"publisher":{"@type":"Organization","name":"GuiThome"},"inLanguage":"pt-BR"}
+  </script>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <a class="brand" href="https://guithome.com.br" aria-label="GuiThome">
+        <img src="https://i.imgur.com/uXusAqJ.png" alt="GuiThome" decoding="async" fetchpriority="high">
+        <span class="sr-only">GuiThome®</span>
+      </a>
+      <a class="badge" href="https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm" target="_blank" rel="noopener noreferrer" title="Lei Geral de Proteção de Dados (LGPD)">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2l8 4v6c0 5-3.5 9.5-8 10-4.5-.5-8-5-8-10V6l8-4z" stroke="#0e4a56" stroke-width="1.5"/><path d="M9.5 12l2 2 4-4" stroke="#0e4a56" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> LGPD
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <div class="hero" role="banner">
+      <h1>Política de Privacidade</h1>
+      <p>Última atualização: 09/09/2025</p>
+      <p class="small">Esta página descreve como o site GuiThome® trata dados pessoais em conformidade com a Lei Geral de Proteção de Dados – LGPD (Lei nº 13.709/2018) e demais normas aplicáveis.</p>
+      <p class="small">Site: <a href="https://guithome.com.br" rel="noopener">guithome.com.br</a></p>
+    </div>
+
+    <nav class="toc" aria-label="Sumário">
+      <h2>Sumário</h2>
+      <ol>
+        <li><a href="#quem-somos">Quem somos e a quem se aplica</a></li>
+        <li><a href="#dados">Quais dados tratamos</a></li>
+        <li><a href="#finalidades">Finalidades e bases legais</a></li>
+        <li><a href="#cookies">Cookies e tecnologias similares</a></li>
+        <li><a href="#compartilhamento">Compartilhamento de dados</a></li>
+        <li><a href="#transferencias">Transferências internacionais</a></li>
+        <li><a href="#retencao">Retenção e descarte</a></li>
+        <li><a href="#seguranca">Segurança da informação</a></li>
+        <li><a href="#direitos">Direitos dos titulares</a></li>
+        <li><a href="#criancas">Crianças e adolescentes</a></li>
+        <li><a href="#decisoes">Decisões automatizadas e perfis</a></li>
+        <li><a href="#atualizacoes">Atualizações desta política</a></li>
+        <li><a href="#contato">Canal de contato (DPO)</a></li>
+      </ol>
+    </nav>
+
+    <!-- Conteúdo espelhado do modelo (ajuste textos conforme necessidade futura) -->
+    <section id="quem-somos" class="card"><h2>Quem somos e a quem se aplica</h2><p>Esta Política de Privacidade é aplicável às atividades do site GuiThome® (“GuiThome”, “nós”), na qualidade de controladora de dados pessoais quando define finalidades e meios do tratamento. Aplica-se a leitores/usuários do site e conteúdos, assinantes de newsletter, participantes de eventos e formulários de contato, parceiros, fornecedores e demais pessoas com quem interagimos.</p><p>Quando atuarmos em parceria com outras marcas, seguiremos os instrumentos contratuais aplicáveis; esta Política será complementar às políticas dos respectivos parceiros.</p></section>
+
+    <section id="dados" class="card"><h2>Quais dados tratamos</h2><p>Os dados tratados variam conforme o relacionamento e o contexto. Em linhas gerais, podemos tratar:</p><ul><li>Dados cadastrais e de contato: nome, e-mail, telefone, cargo, empresa.</li><li>Dados de autenticação e uso: registros de acesso, IP, identificadores de dispositivo, páginas visitadas, data e hora, cookies.</li><li>Interações com conteúdos e newsletters: inscrições, confirmações e métricas de engajamento.</li><li>Dados necessários para eventos e formulários de contato.</li></ul><p class="note">Coletamos dados diretamente do titular; de provedores de tecnologia (hospedagem, analytics e e-mail); de fontes públicas legítimas; e por cookies/tecnologias similares.</p></section>
+
+    <section id="finalidades" class="card"><h2>Finalidades e bases legais</h2><p>As finalidades e bases legais seguem o mesmo padrão adotado nos sites parceiros: relacionamento com usuários, envio de conteúdos (com opt-out), organização de eventos, segurança e cumprimento de obrigações legais, conforme arts. 7º e 11 da LGPD.</p></section>
+
+    <section id="cookies" class="card"><h2>Cookies e tecnologias similares</h2><p>Utilizamos cookies estritamente necessários, funcionais, analíticos e de marketing (apenas com consentimento). Você pode gerenciar permissões no banner de cookies (quando exibido) ou no seu navegador.</p></section>
+
+    <section id="compartilhamento" class="card"><h2>Compartilhamento de dados</h2><p>Podemos compartilhar dados com operadores (hospedagem, analytics, e-mail), parceiros de eventos e autoridades, quando exigido por lei, observando o princípio da necessidade.</p></section>
+
+    <section id="transferencias" class="card"><h2>Transferências internacionais</h2><p>Quando houver uso de serviços hospedados no exterior, adotamos salvaguardas previstas na LGPD, como cláusulas contratuais específicas e avaliação de nível de proteção do país destinatário.</p></section>
+
+    <section id="retencao" class="card"><h2>Retenção e descarte</h2><p>Conservamos os dados pelo tempo necessário ao cumprimento das finalidades informadas ou prazos legais/regulatórios, promovendo descarte seguro ou anonimização quando aplicável.</p></section>
+
+    <section id="seguranca" class="card"><h2>Segurança da informação</h2><p>Adotamos medidas técnicas e administrativas proporcionais ao risco, incluindo criptografia em trânsito (TLS), controles de acesso e registro de logs.</p></section>
+
+    <section id="direitos" class="card"><h2>Direitos dos titulares</h2><p>Você pode solicitar acesso, correção, portabilidade, anonimização/bloqueio/eliminação, informações sobre compartilhamentos, oposição/revogação de consentimento e revisão de decisões automatizadas, nos termos do art. 18 da LGPD.</p></section>
+
+    <section id="criancas" class="card"><h2>Crianças e adolescentes</h2><p>Para fins desta Política, menores de 18 anos são representados por pais ou representantes legais. O tratamento de dados de menores somente ocorre mediante base legal apropriada e no melhor interesse do menor.</p></section>
+
+    <section id="decisoes" class="card"><h2>Decisões automatizadas e perfis</h2><p>Não realizamos decisões exclusivamente automatizadas que produzam efeitos jurídicos ou afetem significativamente o titular sem possibilidade de revisão humana.</p></section>
+
+    <section id="atualizacoes" class="card"><h2>Atualizações desta política</h2><p>Esta Política poderá ser alterada para refletir mudanças legais e operacionais. A versão vigente indicará a data de última atualização.</p></section>
+
+    <section id="contato" class="card"><h2>Canal de contato (DPO)</h2><p>Para entrar em contato com o nosso DPO (Data Protection Officer), envie e-mail para: <a href="mailto:privacidade@guithome.com.br">privacidade@guithome.com.br</a>.</p></section>
+
+    <footer>
+      <div class="footer">
+        <div class="brand-mini">
+          <img src="https://i.imgur.com/uXusAqJ.png" alt="GuiThome">
+          <strong>GuiThome®</strong>
+        </div>
+        <div class="links">
+          <a href="https://guithome.com.br" rel="noopener">Site</a>
+          <span>•</span>
+          <a href="#topo" onclick="window.scrollTo({top:0,behavior:'smooth'})">Topo</a>
+          <span>•</span>
+          <a href="mailto:privacidade@guithome.com.br">DPO</a>
+        </div>
+        <div class="small">© 2025 GuiThomé®. Todos os direitos reservados.</div>
+      </div>
+    </footer>
+  </main>
+
+  <button class="btn-top" id="btnTop" aria-label="Voltar ao topo">Topo</button>
+  <script>
+    const btn=document.getElementById('btnTop');
+    const onScroll=()=>{btn.style.display=window.scrollY>320?'block':'none';};
+    window.addEventListener('scroll',onScroll);
+    btn.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+  </script>
+</body>
+</html>
