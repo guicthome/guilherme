@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Oncologia Oral – Amostra preliminar (AI) | Unimed GV</title>
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Oncologia Oral – Amostra preliminar (AI) | Unimed GV" />
+  <meta property="og:description" content="Amostra preliminar da análise por IA dos relatórios encaminhados pela autorização. Conteúdo consolidado por paciente (diagnóstico, terapia, justificativas e exames de suporte)." />
+  <meta property="og:image" content="https://i.imgur.com/dEhZugB.png" />
+  <meta property="og:url" content="https://hub.guithome.com.br/unimed/oncologia-oral-ai.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Unimed Governador Valadares" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Oncologia Oral – Amostra preliminar (AI) | Unimed GV">
+  <meta name="twitter:description" content="Amostra preliminar da análise por IA dos relatórios encaminhados pela autorização.">
+  <meta name="twitter:image" content="https://i.imgur.com/dEhZugB.png">
+  <meta name="twitter:url" content="https://hub.guithome.com.br/unimed/oncologia-oral-ai.html">
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --unimed-green:#004E4C;
+      --unimed-green-2:#006b68;
+      --unimed-accent:#8baf1f;
+      --paper:#ffffff;
+      --bg:#f2f2f2;
+      --ink:#333333;
+      --muted:#6b6b6b;
+      --chip:#f7fbf9;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      padding:0;
+      background-color:var(--bg);
+      font-family:Verdana, sans-serif;
+      color:var(--ink);
+    }
+    .main-container{
+      width:100%;
+      max-width:900px;
+      margin:0 auto 48px;
+      background-color:var(--paper);
+      border-radius:12px;
+      box-shadow:0 2px 10px rgba(0,0,0,.08);
+      overflow:hidden;
+    }
+    .header{
+      background-color:var(--unimed-green);
+      text-align:center;
+    }
+    .header img{
+      width:100%;
+      display:block;
+    }
+    .header-subtitle{
+      font-family:'Poppins','Trebuchet MS',sans-serif;
+      color:#fff;
+      text-align:center;
+      font-size:20px;
+      font-weight:600;
+      padding:14px 10px;
+      margin:0;
+      letter-spacing:.3px;
+      border-top:1px solid var(--unimed-green-2);
+      position:relative;
+      text-shadow:0 2px 4px rgba(0,0,0,.35);
+    }
+    .header-subtitle::after{
+      content:'';
+      position:absolute;
+      left:50%;
+      transform:translateX(-50%);
+      bottom:6px;
+      width:60%;
+      height:2px;
+      background:linear-gradient(90deg, var(--unimed-accent) 0%, #f0ff52 100%);
+      border-radius:2px;
+    }
+    .content{padding:22px}
+    .content h1{
+      font-size:24px;
+      color:var(--unimed-green);
+      border-bottom:2px solid var(--unimed-green-2);
+      padding-bottom:8px;
+      margin:0 0 10px 0;
+    }
+    .lead{
+      background:var(--chip);
+      border-left:4px solid var(--unimed-green);
+      padding:14px 16px;
+      border-radius:6px;
+      margin:12px 0 18px;
+      line-height:1.55;
+    }
+    .patient{
+      border:1px solid #e9efee;
+      border-radius:10px;
+      padding:16px;
+      margin:16px 0;
+      background:#fff;
+      box-shadow:0 1px 6px rgba(0,0,0,.04);
+    }
+    .patient h2{
+      font-size:18px;
+      color:#005522;
+      margin:0 0 10px 0;
+    }
+    .row{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+      margin:8px 0;
+    }
+    @media (max-width:720px){ .row{grid-template-columns:1fr} }
+    .block{
+      background:var(--chip);
+      border:1px solid #e9efee;
+      border-radius:8px;
+      padding:10px 12px;
+    }
+    .block h3{
+      margin:0 0 6px 0;
+      font-size:14px;
+      color:var(--unimed-green);
+      letter-spacing:.2px;
+    }
+    .kv{margin:2px 0; font-size:14px; line-height:1.5}
+    .muted{color:var(--muted)}
+    .footer{
+      margin-top:30px;
+      padding:24px 16px 28px;
+      background-color:#f8f5f0;
+      text-align:center;
+      border-top:2px solid var(--unimed-green-2);
+    }
+    .footer-logo{width:140px;margin:0 auto 10px;display:block}
+    .footer-title{font-size:15px;font-weight:bold;color:#333;margin:10px 0 12px}
+    .footer-links,.footer-social{
+      display:flex;flex-wrap:wrap;justify-content:center;gap:8px;font-size:14px;margin-bottom:8px
+    }
+    .footer a{color:var(--unimed-green);text-decoration:none}
+    .footer a:hover{text-decoration:underline}
+    .sep{color:#bbb}
+  </style>
+</head>
+<body>
+  <div class="main-container">
+    <div class="header">
+      <a href="https://www.unimed.coop.br/site/web/governadorvaladares" target="_blank" rel="noopener">
+        <img src="https://i.imgur.com/Z0Z9oVK.png" alt="Unimed Governador Valadares">
+      </a>
+      <p class="header-subtitle">Escritório de Valor em Saúde</p>
+    </div>
+
+    <div class="content">
+      <h1>Oncologia – Terapias Orais</h1>
+      <div class="lead">
+        Amostra preliminar da análise por IA dos relatórios encaminhados pela autorização. Conteúdo consolidado por paciente, mantendo integralmente os dados clínicos, terapias, justificativas e exames de suporte informados nos documentos recebidos.
+      </div>
+
+      <!-- Paciente 1 -->
+      <section class="patient">
+        <h2>1) Adelane Fernandes Malta</h2>
+        <div class="row">
+          <div class="block">
+            <h3>Identificação</h3>
+            <div class="kv">Médico: Dr. André Mendes de Vasconcellos (CRM-MG 40.459) – NEO</div>
+          </div>
+          <div class="block">
+            <h3>Diagnóstico</h3>
+            <div class="kv">Neoplasia em fase de radioterapia (sem CID explicitado nos docs).</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="block">
+            <h3>Terapia oral</h3>
+            <div class="kv">Temozolomida 130 mg/dia.</div>
+            <div class="kv">Posologia: 1x100 mg + 1x20 mg + 2x5 mg, 1h antes da radioterapia, em jejum, por 42 dias.</div>
+            <div class="kv">Total: 42 (100 mg) + 42 (20 mg) + 84 (5 mg).</div>
+          </div>
+          <div class="block">
+            <h3>Observações</h3>
+            <div class="kv">Reforçar antieméticos; evitar abrir/mastigar cápsulas.</div>
+          </div>
+        </div>
+        <div class="block">
+          <h3>Documentos de autorização</h3>
+          <div class="kv muted">Guias SP/SADT com solicitação de Temozolomida.</div>
+        </div>
+      </section>
+
+      <!-- Paciente 2 -->
+      <section class="patient">
+        <h2>2) Aline Pereira Costa</h2>
+        <div class="row">
+          <div class="block">
+            <h3>Identificação</h3>
+            <div class="kv">DN: 14/05/1980. Médica: Dra. Lorena Quaresma Pereira (CRM-MG 53443 / RQE 55263) – Oncoleste.</div>
+          </div>
+          <div class="block">
+            <h3>Diagnóstico</h3>
+            <div class="kv">Carcinoma seroso de alto grau de ovário – CID C56.</div>
+            <div class="kv">pT2N1bM0 (IIIA). Citorredução 12/11/2020; QT carboplatina/paclitaxel; progressão 2023 com metástases hepáticas ressecadas em 06/11/2023; seguimento sem evidência de doença.</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="block">
+            <h3>Terapia oral</h3>
+            <div class="kv">Olaparibe 150 mg.</div>
+            <div class="kv">Posologia: 2 comprimidos VO a cada 12 h, uso contínuo.</div>
+          </div>
+          <div class="block">
+            <h3>Exames/relatórios de suporte</h3>
+            <div class="kv">Anatomopatológico (24/11/2023): carcinoma invasivo pouco diferenciado em fígado e diafragma; infiltração linfovascular presente.</div>
+            <div class="kv">Genética (Fleury, 14/12/2023): BRCA1 c.1684del patogênica; GIS 62 (positivo).</div>
+          </div>
+        </div>
+        <div class="block">
+          <h3>Documentos de autorização</h3>
+          <div class="kv muted">Guias SP/SADT e Anexo de Quimioterapia com justificativa (BRCA+, manutenção com platina).</div>
+        </div>
+      </section>
+
+      <!-- Paciente 3 -->
+      <section class="patient">
+        <h2>3) Andrea Gomes de Oliveira Figueiredo</h2>
+        <div class="row">
+          <div class="block">
+            <h3>Identificação</h3>
+            <div class="kv">Médica: Dra. Ana Beatriz Rocha Coppoli (CRM-MG 32.876) – Oncoleste.</div>
+          </div>
+          <div class="block">
+            <h3>Diagnóstico</h3>
+            <div class="kv">Carcinoma de mama; histórico de carcinoma medular (1997) com metástase hepática em 2022.</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="block">
+            <h3>Terapia oral</h3>
+            <div class="kv">Exemestano 25 mg – 1 comprimido VO/dia. Quantidade: 3 caixas.</div>
+          </div>
+          <div class="block">
+            <h3>Documentos de autorização</h3>
+            <div class="kv muted">Guias SP/SADT e Anexo de Quimioterapia com CID C50 e solicitação de Exemestano.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Paciente 4 -->
+      <section class="patient">
+        <h2>4) Cleuza Israel</h2>
+        <div class="row">
+          <div class="block">
+            <h3>Identificação</h3>
+            <div class="kv">Médica: Dra. Ana Beatriz Rocha Coppoli (CRM-MG 32.876) – Oncoleste.</div>
+          </div>
+          <div class="block">
+            <h3>Diagnóstico</h3>
+            <div class="kv">Carcinoma invasor de mama – subtipo triplo negativo. Cirurgia (setorectomia) e QT prévia.</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="block">
+            <h3>Terapia oral</h3>
+            <div class="kv">Capecitabina 500 mg.</div>
+            <div class="kv">Posologia: 3 comp. manhã + 3 comp. noite por 14 dias (84 comp/ciclo).</div>
+          </div>
+          <div class="block">
+            <h3>Documentos de autorização</h3>
+            <div class="kv muted">Guias e Anexo de Quimioterapia descrevendo protocolo adjuvante com Capecitabina.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Paciente 5 -->
+      <section class="patient">
+        <h2>5) Dalmira Lima Costa Honorato</h2>
+        <div class="row">
+          <div class="block">
+            <h3>Identificação</h3>
+            <div class="kv">Médico: Dr. André Mendes de Vasconcellos (CRM-MG 40.459) – NEO.</div>
+          </div>
+          <div class="block">
+            <h3>Diagnóstico</h3>
+            <div class="kv">Carcinoma de mama (CID C50), estágio avançado, metástase pulmonar.</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="block">
+            <h3>Terapia oral</h3>
+            <div class="kv">Palbociclibe 75 mg – 1 cápsula/dia por 21 dias + pausa 7 dias (ciclo 28 dias). Quant.: 3 caixas.</div>
+          </div>
+          <div class="block">
+            <h3>Documentos de autorização</h3>
+            <div class="kv muted">Guias SP/SADT e Anexo de Quimioterapia solicitando Palbociclibe.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Paciente 6 -->
+      <section class="patient">
+        <h2>6) Deiwid Souza Mendes</h2>
+        <div class="row">
+          <div class="block">
+            <h3>Identificação</h3>
+            <div class="kv">Médico: Dr. Rodrigo Dutra Fontes (CRM-MG 38.281 / RQE 26.537) – NEO.</div>
+          </div>
+          <div class="block">
+            <h3>Diagnóstico</h3>
+            <div class="kv">Leucemia mieloide crônica (LMC).</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="block">
+            <h3>Terapia oral</h3>
+            <div class="kv">Dasatinibe 100 mg – 1 comp. VO/dia, uso contínuo (3 meses prescritos).</div>
+          </div>
+          <div class="block">
+            <h3>Documentos de autorização</h3>
+            <div class="kv muted">Guias de solicitação de quimioterapia com CID compatível.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Paciente 7 -->
+      <section class="patient">
+        <h2>7) Delio Silva</h2>
+        <div class="row">
+          <div class="block">
+            <h3>Identificação</h3>
+            <div class="kv">Médico: Dr. Guilherme de Matos Maia (CRM-MG 65.876) – Oncoleste.</div>
+          </div>
+          <div class="block">
+            <h3>Diagnóstico</h3>
+            <div class="kv">Adenocarcinoma de pulmão.</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="block">
+            <h3>Terapia oral</h3>
+            <div class="kv">Gefitinibe 250 mg – 1 comp. VO/dia. Quant.: 3 caixas.</div>
+          </div>
+          <div class="block">
+            <h3>Documentos de autorização</h3>
+            <div class="kv muted">Guia SP/SADT com diagnóstico pulmonar e prescrição de Gefitinibe.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Paciente 8 -->
+      <section class="patient">
+        <h2>8) Dyrce de Carvalho</h2>
+        <div class="row">
+          <div class="block">
+            <h3>Identificação</h3>
+            <div class="kv">Médica: Dra. Renata Alvarenga Brandão (CRM-MG 59.798) – NEO.</div>
+          </div>
+          <div class="block">
+            <h3>Diagnóstico</h3>
+            <div class="kv">Carcinoma de mama metastático (ósseo).</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="block">
+            <h3>Terapia oral</h3>
+            <div class="kv">Ribociclibe 200 mg – 3 comp./dia por 21 dias + pausa 7 (ciclo 28 dias), em combinação com Anastrozol 1 mg/dia.</div>
+          </div>
+          <div class="block">
+            <h3>Documentos de autorização</h3>
+            <div class="kv muted">Guias e Anexos com manutenção Ribociclibe + Anastrozol.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Paciente 9 -->
+      <section class="patient">
+        <h2>9) Edna Ciribelli Brasil Advíncula</h2>
+        <div class="row">
+          <div class="block">
+            <h3>Identificação</h3>
+            <div class="kv">Médicos: Dr. Célio Cardoso (CRM-MG 22.762) e Dr. Guilherme de Matos Maia (CRM-MG 65.876) – Oncoleste.</div>
+          </div>
+          <div class="block">
+            <h3>Diagnóstico</h3>
+            <div class="kv">Câncer de mama (2003) com recidiva (2009) e metástases óssea/pulmonar (2021); progressão em 2025 – CID C50.</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="block">
+            <h3>Terapia oral</h3>
+            <div class="kv">Ribociclibe 600 mg/dia (3x200 mg) – 21/7 (ciclo 28 dias), associado a Fulvestranto IM e Zometa EV.</div>
+          </div>
+          <div class="block">
+            <h3>Exames/relatórios de suporte</h3>
+            <div class="kv">TC tórax (26/08/2022): derrame pleural bilateral; infiltração pleural compatível com implante secundário.</div>
+            <div class="kv">TC abdome (26/08/2022): imagem adrenal E estável.</div>
+            <div class="kv">FISH (2022): HER2 negativo.</div>
+            <div class="kv">Parecer auditoria (2025): respaldo MONALEESA-3 para esquema Ribociclibe + Fulvestranto.</div>
+          </div>
+        </div>
+        <div class="block">
+          <h3>Documentos de autorização</h3>
+          <div class="kv muted">Guias SP/SADT e Anexo com histórico clínico e solicitação do esquema combinado.</div>
+        </div>
+      </section>
+
+      <!-- Paciente 10 -->
+      <section class="patient">
+        <h2>10) Inês Brando Arruda</h2>
+        <div class="row">
+          <div class="block">
+            <h3>Identificação</h3>
+            <div class="kv">Idade: 73 anos (DN 10/09/1951). Médica: Dra. Eusana Maria Lemes Milbratz (CRM-MG 24.063) – Oncoleste.</div>
+          </div>
+          <div class="block">
+            <h3>Diagnóstico</h3>
+            <div class="kv">Adenocarcinoma de pulmão não pequenas células – EGFR L858R.</div>
+            <div class="kv">Pós-segmentectomia (14/12/2022): IIIB, pT2bN2.</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="block">
+            <h3>Terapia oral</h3>
+            <div class="kv">Osimertinibe (Tagrisso) 80 mg/dia – adjuvante por até 3 anos (04/2023 a 04/2026).</div>
+          </div>
+          <div class="block">
+            <h3>Exames/relatórios de suporte</h3>
+            <div class="kv">AP pulmonar: adenocarcinoma invasivo acinar; pleura visceral comprometida; invasão vascular presente.</div>
+            <div class="kv">Molecular: EGFR L858R positivo; PD-L1 0%.</div>
+            <div class="kv">PET: negativo para metástases.</div>
+            <div class="kv">Relatório (30/06/2025): manutenção do Tagrisso por 3 anos (ADAURA).</div>
+          </div>
+        </div>
+        <div class="block">
+          <h3>Documentos de autorização</h3>
+          <div class="kv muted">Guia/Anexo com solicitação de Osimertinibe e justificativa baseada em evidências (ADAURA).</div>
+        </div>
+      </section>
+
+      <!-- Paciente 11 -->
+      <section class="patient">
+        <h2>11) Elaine Silva Santos Souza</h2>
+        <div class="row">
+          <div class="block">
+            <h3>Identificação</h3>
+            <div class="kv">Médico: Dr. Rodrigo Dutra Fontes (CRM-MG 38.281) – Doutor Especialista (Clínica Popular).</div>
+          </div>
+          <div class="block">
+            <h3>Diagnóstico</h3>
+            <div class="kv">Leucemia mieloide crônica (LMC).</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="block">
+            <h3>Terapia oral</h3>
+            <div class="kv">Mesilato de Imatinibe 400 mg – 1 comp. VO/dia, uso contínuo (prescrição válida por 3 meses).</div>
+          </div>
+          <div class="block">
+            <h3>Documentos de autorização</h3>
+            <div class="kv muted">Guia de quimioterapia compatível com LMC e prescrição em clínica popular.</div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <div class="footer">
+      <img class="footer-logo" src="https://i.imgur.com/yAUQciP.png" alt="AxiaCare Logo">
+      <div class="footer-title">AxView – Templates | Gestão e Consultoria em Saúde</div>
+      <div class="footer-links">
+        <a href="https://linktr.ee/gui.thome">Soluções</a><span class="sep">|</span>
+        <a href="https://www.axcare.com.br">axcare.com.br</a><span class="sep">|</span>
+        <a href="https://www.medvalor.med.br">medvalor.med.br</a>
+      </div>
+      <div class="footer-social">
+        <a href="https://guithome.com.br">guithome.com.br</a><span class="sep">|</span>
+        <a href="https://linkedin.com/in/guithome">LinkedIn</a><span class="sep">|</span>
+        <a href="https://www.instagram.com/gui.thome/">Instagram</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
