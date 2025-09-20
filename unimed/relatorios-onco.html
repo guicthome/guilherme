@@ -40,9 +40,7 @@
     .brand-mini strong{display:block;font-size:14px;color:#ffffff;font-family:'Poppins','Trebuchet MS',sans-serif}
     .logos{display:flex;gap:14px;align-items:center}
     .logos img{height:38px;display:block;filter:drop-shadow(0 1px 2px rgba(0,0,0,.2))}
-
     .divider{height:2px;background:var(--u-green-2);margin:8px -16px 0}
-
     .header-sub{
       margin:0;padding:12px 16px;color:#fff;font-family:'Poppins','Trebuchet MS',sans-serif;
       font-weight:600;letter-spacing:.3px;display:flex;align-items:center;gap:10px
@@ -106,16 +104,13 @@
     .kv{margin:2px 0;font-size:14px;line-height:1.5}
     .muted{color:var(--muted)}
 
-    /* Rodapé revisado */
-    .footer{padding:22px 16px 26px;background:#f8f5f0;border-top:2px solid var(--u-green-2)}
-    .fgrid{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center}
-    .flinks a{color:var(--u-green);text-decoration:none;margin-right:10px}
-    .flinks a:hover{text-decoration:underline}
-    .fsmall{font-size:12px;color:#8a8a8a;margin-top:6px}
-    .logos-foot{display:flex;gap:12px;align-items:center}
-    .logos-foot img{height:34px;display:block}
+    /* Add-bar para novos pacientes */
+    .addbar{display:flex;gap:8px;align-items:center;margin:6px 0 4px}
+    .addbar .btn{padding:8px 10px;border:1px dashed var(--u-green-2);background:#fff;color:var(--u-green);border-radius:8px;cursor:pointer}
+    .addbar .btn:hover{background:#f6faf9}
+    .addbar .mini{font-size:12px;color:var(--muted)}
 
-    /* Camada simples de “login” por e-mail (sensação de segurança) */
+    /* CAMADA DE LOGIN (UX) */
     #gate{
       position:fixed;inset:0;background:rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;
       backdrop-filter:saturate(120%) blur(2px);z-index:9999
@@ -129,14 +124,58 @@
     #gate input{width:100%;padding:10px 12px;border:1px solid #d9e4e3;border-radius:8px;margin:6px 0 10px}
     #gate .btn{width:100%;padding:10px 12px;border:1px solid var(--u-green-2);background:var(--u-green);color:#fff;border-radius:8px;cursor:pointer}
     #gate .btn:hover{filter:brightness(1.05)}
-    #gate .mini{font-size:12px;color:#8a8a8a;margin-top:6px}
     .hide{display:none}
 
-    /* Botão para adicionar rapidamente novos pacientes (client-side) */
-    .addbar{display:flex;gap:8px;align-items:center;margin:6px 0 4px}
-    .addbar .btn{padding:8px 10px;border:1px dashed var(--u-green-2);background:#fff;color:var(--u-green);border-radius:8px;cursor:pointer}
-    .addbar .btn:hover{background:#f6faf9}
-    .addbar .mini{font-size:12px;color:var(--muted)}
+    /* RODAPÉ no padrão solicitado */
+    .footer {
+      margin-top: 40px;
+      padding: 25px 15px;
+      background-color: #f8f5f0;
+      text-align: center;
+      font-family: Verdana, sans-serif;
+      border-top: 2px solid #006b68;
+    }
+    .footer-logo {
+      width: 140px;
+      margin: 0 auto 10px auto;
+      display: block;
+    }
+    .footer-title {
+      font-size: 15px;
+      font-weight: bold;
+      color: #333;
+      margin: 10px 0 18px;
+    }
+    .footer-links,
+    .footer-social {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+    .footer-links a,
+    .footer-social a {
+      color: #004E4C;
+      text-decoration: none;
+      position: relative;
+      padding: 0 4px;
+    }
+    .footer-links a:hover,
+    .footer-social a:hover {
+      color: #002c2a;
+      text-decoration: underline;
+    }
+    .footer .separator {
+      color: #bbb;
+      margin: 0 4px;
+    }
+    .footer-copyright {
+      margin-top: 18px;
+      font-size: 11px;
+      color: #999;
+    }
   </style>
 </head>
 <body>
@@ -146,9 +185,8 @@
     <div class="card">
       <h3>Acesso verificado</h3>
       <p>Insira seu e-mail corporativo para visualizar o painel.</p>
-      <input id="gateEmail" type="email" placeholder="nome@empresa.com.br" />
+      <input id="gateEmail" type="email" placeholder="seuemail@unimedgv.com.br" />
       <button class="btn" onclick="unlock()">Entrar</button>
-      <div class="mini">Dica: ajuste a regra de domínio no código (whitelist) conforme sua necessidade.</div>
     </div>
   </div>
 
@@ -487,32 +525,47 @@
           </div>
         </details>
       </template>
-
     </div>
 
-    <!-- Rodapé completo -->
+    <!-- RODAPÉ padrão solicitado -->
     <div class="footer">
-      <div class="fgrid">
-        <div>
-          <div class="flinks">
-            <a href="https://www.unimed.coop.br/site/web/governadorvaladares" target="_blank" rel="noopener">Unimed Governador Valadares</a>
-            <a href="mailto:contato@unimedgv.com.br">Contato</a>
-            <a href="#">Política de Privacidade</a>
-          </div>
-          <div class="fsmall">
-            Este painel é uma amostra preliminar e não substitui a análise clínica.
-            Última atualização: <span id="ts"></span>.
-          </div>
-        </div>
-        <div class="logos-foot">
-          <img src="https://i.imgur.com/6Ye2PA6.png" alt="EVS">
-          <img src="https://i.imgur.com/prZGWXK.png" alt="Unimed GV">
-        </div>
+      <img class="footer-logo" src="https://i.imgur.com/yAUQciP.png" alt="AxiaCare Logo">
+
+      <div class="footer-title">AxView™ | WebApp - Gestão e Consultoria em Saúde</div>
+
+      <div class="footer-links">
+        <a href="https://linktr.ee/gui.thome">Conheça nossas soluções.</a>
+        <span class="separator">|</span>
+        <a href="https://www.axcare.com.br">axcare.com.br</a>
+        <span class="separator">|</span>
+        <a href="https://www.medvalor.med.br">medvalor.med.br</a>
+      </div>
+
+      <div class="footer-social">
+        <a href="https://guithome.com.br">guithome.com.br</a>
+        <span class="separator">|</span>
+        <a href="https://linkedin.com/in/guithome">LinkedIn</a>
+        <span class="separator">|</span>
+        <a href="https://www.instagram.com/gui.thome/">Instagram</a>
+      </div>
+
+      <div class="footer-copyright">
+        Copyright © 2025 AxiaCare | Todos os direitos reservados | Uma empresa GTCorp.
       </div>
     </div>
   </div>
 
   <script>
+    // --------- Config ---------
+    const REPORT_ID = 'onco_oral_ai_v1';
+    const WEBHOOK_URL = 'https://hook.us2.make.com/zhy5v68dy5an4k5mekdsu3nzyx7qydea';
+    const ALLOWED_DOMAINS = [
+      'unimedgv.com.br',
+      'unimedgv.coop.br',
+      'unihealthgv.org.br',
+      'icds.org.br'
+    ];
+
     // Filtro por nome/termos
     function filterPatients(){
       const q = (document.getElementById('q').value || '').toLowerCase();
@@ -525,28 +578,49 @@
     function toggleAll(open){
       document.querySelectorAll('details.patient').forEach(d=>{ d.open = !!open; });
     }
-    // Timestamp rodapé
-    document.getElementById('ts').textContent = new Date().toLocaleString('pt-BR');
 
-    // “Login” simples por e-mail (apenas UX). Ajuste a whitelist abaixo.
-    const WHITELIST = ['unimed', 'unimedgv', 'evs']; // palavras aceitas no domínio
-    function unlock(){
+    // “Login” simples por e-mail com whitelist + envio ao webhook
+    function isAllowedEmail(email){
+      const okFormat = /^[^@\s]+@([^@\s]+\.)+[^@\s]+$/.test(email);
+      if(!okFormat) return false;
+      const domain = email.split('@')[1].toLowerCase();
+      return ALLOWED_DOMAINS.some(d => domain === d || domain.endsWith('.' + d));
+    }
+
+    async function unlock(){
       const input = document.getElementById('gateEmail');
-      const v = String(input.value||'').toLowerCase();
-      const okFormat = /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v);
-      const okDomain = WHITELIST.some(k => v.includes('@') && v.split('@')[1].includes(k));
-      if(okFormat && okDomain){
-        localStorage.setItem('ai_onco_email', v);
-        document.getElementById('gate').classList.add('hide');
-      }else{
-        input.focus();
-        input.select();
-        alert('Informe um e-mail corporativo válido (ajuste a whitelist no código, se necessário).');
+      const email = String(input.value||'').trim().toLowerCase();
+      if(!isAllowedEmail(email)){
+        input.focus(); input.select();
+        alert('E-mail não autorizado. Utilize seu e-mail corporativo.');
+        return;
+      }
+      // libera o painel
+      localStorage.setItem('ai_onco_email', email);
+      document.getElementById('gate').classList.add('hide');
+
+      // envia registro ao webhook (fire-and-forget)
+      const payload = {
+        report_id: REPORT_ID,
+        email,
+        datetime_iso: new Date().toISOString()
+      };
+      try{
+        await fetch(WEBHOOK_URL, {
+          method:'POST',
+          headers:{'Content-Type':'application/json'},
+          body: JSON.stringify(payload)
+        });
+      }catch(e){
+        // silencioso: não bloqueia o acesso se o webhook falhar
+        console.warn('Webhook falhou:', e);
       }
     }
+
+    // Restaura sessão se já validada
     (function boot(){
       const saved = localStorage.getItem('ai_onco_email');
-      if(saved && WHITELIST.some(k => saved.split('@')[1]?.includes(k))){
+      if(saved && isAllowedEmail(saved)){
         document.getElementById('gate').classList.add('hide');
       }
     })();
@@ -556,7 +630,6 @@
       const tpl = document.getElementById('patientTemplate');
       if(!tpl) return;
       const clone = tpl.content.firstElementChild.cloneNode(true);
-      // número sequencial
       const count = document.querySelectorAll('details.patient').length + 1;
       clone.querySelector('.pill').textContent = String(count);
       document.querySelector('.content').appendChild(clone);
