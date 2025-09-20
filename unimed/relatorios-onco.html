@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Oncologia – Terapias Orais | Amostra preliminar (IA) · Unimed GV</title>
+  <title>Oncologia – Terapias Orais | Amostra (IA) · Unimed GV</title>
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Oncologia – Terapias Orais | Amostra preliminar (IA) · Unimed GV" />
-  <meta property="og:description" content="Amostra preliminar da análise por IA dos relatórios encaminhados pela autorização. Conteúdo consolidado por paciente." />
-  <meta property="og:image" content="https://i.imgur.com/dEhZugB.png" />
+  <meta property="og:title" content="Oncologia – Terapias Orais | Amostra (IA) · Unimed GV" />
+  <meta property="og:description" content="Leitura óptica avançada por Inteligência Artificial aplicada aos documentos da autorização. Conteúdo consolidado por paciente." />
+  <meta property="og:image" content="https://i.imgur.com/prZGWXK.png" />
   <meta property="og:type" content="website" />
 
   <!-- Fonts -->
@@ -33,14 +33,22 @@
 
     .shell{max-width:980px;margin:0 auto 32px;background:var(--paper);border-radius:14px;box-shadow:0 2px 10px rgba(0,0,0,.08);overflow:hidden}
 
-    .header{background:var(--u-green);text-align:center}
-    .header img{width:100%;display:block}
+    /* Header enxuto e elegante */
+    .header{background:var(--u-green);padding:10px 16px}
+    .hgrid{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center}
+    .brand-mini{color:#e9f6f5;font-size:12px;line-height:1.35}
+    .brand-mini strong{display:block;font-size:14px;color:#ffffff;font-family:'Poppins','Trebuchet MS',sans-serif}
+    .logos{display:flex;gap:14px;align-items:center}
+    .logos img{height:38px;display:block;filter:drop-shadow(0 1px 2px rgba(0,0,0,.2))}
+
+    .divider{height:2px;background:var(--u-green-2);margin:8px -16px 0}
+
     .header-sub{
-      margin:0;padding:14px 10px;border-top:1px solid var(--u-green-2);
-      color:#fff;font-family:'Poppins','Trebuchet MS',sans-serif;font-weight:600;letter-spacing:.3px;position:relative
+      margin:0;padding:12px 16px;color:#fff;font-family:'Poppins','Trebuchet MS',sans-serif;
+      font-weight:600;letter-spacing:.3px;display:flex;align-items:center;gap:10px
     }
     .header-sub::after{
-      content:'';position:absolute;left:50%;transform:translateX(-50%);bottom:6px;width:60%;height:2px;
+      content:'';flex:1;height:2px;margin-left:10px;
       background:linear-gradient(90deg,var(--u-accent) 0%,#f0ff52 100%);border-radius:2px
     }
 
@@ -98,27 +106,73 @@
     .kv{margin:2px 0;font-size:14px;line-height:1.5}
     .muted{color:var(--muted)}
 
-    /* Footer */
-    .footer{padding:22px 16px 26px;background:#f8f5f0;border-top:2px solid var(--u-green-2);text-align:center}
-    .footer img{width:140px;display:block;margin:0 auto 8px}
-    .footer .links a{color:var(--u-green);text-decoration:none;margin:0 6px}
-    .footer .links a:hover{text-decoration:underline}
+    /* Rodapé revisado */
+    .footer{padding:22px 16px 26px;background:#f8f5f0;border-top:2px solid var(--u-green-2)}
+    .fgrid{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center}
+    .flinks a{color:var(--u-green);text-decoration:none;margin-right:10px}
+    .flinks a:hover{text-decoration:underline}
+    .fsmall{font-size:12px;color:#8a8a8a;margin-top:6px}
+    .logos-foot{display:flex;gap:12px;align-items:center}
+    .logos-foot img{height:34px;display:block}
+
+    /* Camada simples de “login” por e-mail (sensação de segurança) */
+    #gate{
+      position:fixed;inset:0;background:rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;
+      backdrop-filter:saturate(120%) blur(2px);z-index:9999
+    }
+    #gate .card{
+      width:min(92vw,420px);background:#fff;border-radius:12px;padding:18px;border:1px solid #e6efee;
+      box-shadow:0 8px 22px rgba(0,0,0,.18)
+    }
+    #gate h3{margin:0 0 8px 0;color:#083c3b;font-family:'Poppins','Trebuchet MS',sans-serif}
+    #gate p{margin:0 0 10px 0;color:#4b4b4b;font-size:14px;line-height:1.5}
+    #gate input{width:100%;padding:10px 12px;border:1px solid #d9e4e3;border-radius:8px;margin:6px 0 10px}
+    #gate .btn{width:100%;padding:10px 12px;border:1px solid var(--u-green-2);background:var(--u-green);color:#fff;border-radius:8px;cursor:pointer}
+    #gate .btn:hover{filter:brightness(1.05)}
+    #gate .mini{font-size:12px;color:#8a8a8a;margin-top:6px}
+    .hide{display:none}
+
+    /* Botão para adicionar rapidamente novos pacientes (client-side) */
+    .addbar{display:flex;gap:8px;align-items:center;margin:6px 0 4px}
+    .addbar .btn{padding:8px 10px;border:1px dashed var(--u-green-2);background:#fff;color:var(--u-green);border-radius:8px;cursor:pointer}
+    .addbar .btn:hover{background:#f6faf9}
+    .addbar .mini{font-size:12px;color:var(--muted)}
   </style>
 </head>
 <body>
+
+  <!-- GATE: “login” simples por e-mail corporativo -->
+  <div id="gate">
+    <div class="card">
+      <h3>Acesso verificado</h3>
+      <p>Insira seu e-mail corporativo para visualizar o painel.</p>
+      <input id="gateEmail" type="email" placeholder="nome@empresa.com.br" />
+      <button class="btn" onclick="unlock()">Entrar</button>
+      <div class="mini">Dica: ajuste a regra de domínio no código (whitelist) conforme sua necessidade.</div>
+    </div>
+  </div>
+
   <div class="shell">
+    <!-- Header novo -->
     <div class="header">
-      <a href="https://www.unimed.coop.br/site/web/governadorvaladares" target="_blank" rel="noopener">
-        <img src="https://i.imgur.com/Z0Z9oVK.png" alt="Unimed Governador Valadares">
-      </a>
-      <p class="header-sub">Escritório de Valor em Saúde</p>
+      <div class="hgrid">
+        <div class="brand-mini">
+          <strong>Escritório de Valor em Saúde</strong>
+          Guilherme Thomé · Superintendente Médico
+        </div>
+        <div class="logos">
+          <img src="https://i.imgur.com/6Ye2PA6.png" alt="EVS - Escritório de Valor">
+          <img src="https://i.imgur.com/prZGWXK.png" alt="Unimed Governador Valadares">
+        </div>
+      </div>
+      <div class="divider"></div>
+      <p class="header-sub">Leitura óptica avançada por Inteligência Artificial — Documentos da Autorização</p>
     </div>
 
     <div class="content">
       <h1 class="title">Oncologia – Terapias Orais</h1>
       <div class="notice">
-        Amostra preliminar da análise por IA dos relatórios encaminhados pela autorização.
-        O conteúdo abaixo mantém integralmente as informações consolidadas por paciente (diagnóstico, terapia, justificativas e exames de suporte).
+        Amostra preliminar gerada automaticamente a partir dos arquivos recebidos. As informações estão apresentadas por paciente (diagnóstico, terapia, justificativas e exames de suporte), preservando integralmente o conteúdo analisado.
       </div>
 
       <!-- Ferramentas -->
@@ -128,6 +182,12 @@
         <button class="btn" onclick="toggleAll(false)">Recolher todos</button>
       </div>
       <div class="hint">Dica: pesquise “olaparibe”, “C56”, “pulmão”, “ribociclibe” etc.</div>
+
+      <!-- Add patient (rápido) -->
+      <div class="addbar">
+        <button class="btn" onclick="addPatient()">Adicionar paciente (duplicar modelo)</button>
+        <span class="mini">Cria um bloco vazio no final para você preencher na sequência.</span>
+      </div>
 
       <!-- Paciente 1 -->
       <details class="patient" data-name="Adelane Fernandes Malta" data-text="neoplasia radioterapia temozolomida">
@@ -214,22 +274,10 @@
         </summary>
         <div class="body">
           <div class="grid">
-            <div class="card">
-              <h3>Identificação</h3>
-              <div class="kv">Médica: Dra. Ana Beatriz Rocha Coppoli (CRM-MG 32.876) – Oncoleste.</div>
-            </div>
-            <div class="card">
-              <h3>Diagnóstico</h3>
-              <div class="kv">Carcinoma de mama; histórico de carcinoma medular (1997) com metástase hepática em 2022.</div>
-            </div>
-            <div class="card">
-              <h3>Terapia oral</h3>
-              <div class="kv">Exemestano 25 mg – 1 comp. VO/dia. Quant.: 3 caixas.</div>
-            </div>
-            <div class="card">
-              <h3>Documentos</h3>
-              <div class="kv muted">Guias SP/SADT + Anexo de Quimioterapia (CID C50).</div>
-            </div>
+            <div class="card"><h3>Identificação</h3><div class="kv">Médica: Dra. Ana Beatriz Rocha Coppoli (CRM-MG 32.876) – Oncoleste.</div></div>
+            <div class="card"><h3>Diagnóstico</h3><div class="kv">Carcinoma de mama; histórico de carcinoma medular (1997) com metástase hepática em 2022.</div></div>
+            <div class="card"><h3>Terapia oral</h3><div class="kv">Exemestano 25 mg – 1 comp. VO/dia. Quant.: 3 caixas.</div></div>
+            <div class="card"><h3>Documentos</h3><div class="kv muted">Guias SP/SADT + Anexo de Quimioterapia (CID C50).</div></div>
           </div>
         </div>
       </details>
@@ -417,14 +465,49 @@
         </div>
       </details>
 
+      <!-- MODELO para adicionar novos pacientes rapidamente -->
+      <template id="patientTemplate">
+        <details class="patient" data-name="NOME DO PACIENTE" data-text="palavras-chave aqui">
+          <summary>
+            <div class="row-mini">
+              <span class="pill">#</span>
+              <span class="s1">NOME DO PACIENTE</span>
+              <span class="pill">MEDICAMENTO / DOSE</span>
+              <span class="s2">Diagnóstico resumido</span>
+            </div>
+            <i class="arrow"></i>
+          </summary>
+          <div class="body">
+            <div class="grid">
+              <div class="card"><h3>Identificação</h3><div class="kv">Preencha médico/CRM e instituição.</div></div>
+              <div class="card"><h3>Diagnóstico</h3><div class="kv">Preencha diagnóstico/CID/estadiamento.</div></div>
+              <div class="card"><h3>Terapia oral</h3><div class="kv">Preencha medicamento, posologia e quantidade.</div></div>
+              <div class="card"><h3>Exames/relatórios</h3><div class="kv">Resumos de AP/genética/imagem/justificativas.</div></div>
+            </div>
+          </div>
+        </details>
+      </template>
+
     </div>
 
+    <!-- Rodapé completo -->
     <div class="footer">
-      <img src="https://i.imgur.com/yAUQciP.png" alt="AxiaCare">
-      <div class="links">
-        <a href="https://linktr.ee/gui.thome">Soluções</a> |
-        <a href="https://www.axcare.com.br">axcare.com.br</a> |
-        <a href="https://www.medvalor.med.br">medvalor.med.br</a>
+      <div class="fgrid">
+        <div>
+          <div class="flinks">
+            <a href="https://www.unimed.coop.br/site/web/governadorvaladares" target="_blank" rel="noopener">Unimed Governador Valadares</a>
+            <a href="mailto:contato@unimedgv.com.br">Contato</a>
+            <a href="#">Política de Privacidade</a>
+          </div>
+          <div class="fsmall">
+            Este painel é uma amostra preliminar e não substitui a análise clínica.
+            Última atualização: <span id="ts"></span>.
+          </div>
+        </div>
+        <div class="logos-foot">
+          <img src="https://i.imgur.com/6Ye2PA6.png" alt="EVS">
+          <img src="https://i.imgur.com/prZGWXK.png" alt="Unimed GV">
+        </div>
       </div>
     </div>
   </div>
@@ -441,6 +524,44 @@
     // Expandir/Recolher todos
     function toggleAll(open){
       document.querySelectorAll('details.patient').forEach(d=>{ d.open = !!open; });
+    }
+    // Timestamp rodapé
+    document.getElementById('ts').textContent = new Date().toLocaleString('pt-BR');
+
+    // “Login” simples por e-mail (apenas UX). Ajuste a whitelist abaixo.
+    const WHITELIST = ['unimed', 'unimedgv', 'evs']; // palavras aceitas no domínio
+    function unlock(){
+      const input = document.getElementById('gateEmail');
+      const v = String(input.value||'').toLowerCase();
+      const okFormat = /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v);
+      const okDomain = WHITELIST.some(k => v.includes('@') && v.split('@')[1].includes(k));
+      if(okFormat && okDomain){
+        localStorage.setItem('ai_onco_email', v);
+        document.getElementById('gate').classList.add('hide');
+      }else{
+        input.focus();
+        input.select();
+        alert('Informe um e-mail corporativo válido (ajuste a whitelist no código, se necessário).');
+      }
+    }
+    (function boot(){
+      const saved = localStorage.getItem('ai_onco_email');
+      if(saved && WHITELIST.some(k => saved.split('@')[1]?.includes(k))){
+        document.getElementById('gate').classList.add('hide');
+      }
+    })();
+
+    // Adicionar rapidamente novo paciente duplicando o template
+    function addPatient(){
+      const tpl = document.getElementById('patientTemplate');
+      if(!tpl) return;
+      const clone = tpl.content.firstElementChild.cloneNode(true);
+      // número sequencial
+      const count = document.querySelectorAll('details.patient').length + 1;
+      clone.querySelector('.pill').textContent = String(count);
+      document.querySelector('.content').appendChild(clone);
+      clone.scrollIntoView({behavior:'smooth', block:'start'});
+      clone.open = true;
     }
   </script>
 </body>
