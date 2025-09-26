@@ -47,7 +47,26 @@
     .footer img{height:40px;margin-bottom:10px}
     .footer-title{font-weight:bold;color:#333;margin-bottom:6px}
     .footer-links,.footer-social{font-size:13px;margin:6px 0;color:#004E4C}
-  </style>
+  /* === Mobile-first enhancements === */
+@media (max-width: 640px){
+  .wrap{max-width:100%;padding:14px}
+  header{flex-direction:column;align-items:center;gap:8px;margin-bottom:14px}
+  .brand img{height:42px;width:auto}
+  .unit img{height:38px;width:auto}
+  h1{font-size:18px;text-align:center}
+  .sub{font-size:12px;text-align:center}
+  .grid{gap:12px}
+  .cols-2{grid-template-columns:1fr}
+  .card{padding:14px;border-radius:10px}
+  .kpi{font-size:18px}
+  .bar-row{font-size:13px}
+  .legend{font-size:11px}
+  /* Tables become horizontally scrollable without breaking layout */
+  table{display:block;overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch}
+  th,td{padding:8px 10px}
+  .footer img{height:36px}
+}
+</style>
 </head>
 <body>
   <div class="wrap">
