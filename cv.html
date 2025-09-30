@@ -21,15 +21,15 @@
   <!-- Favicon -->
   <link rel="icon" href="https://guithome.com.br/favicon.ico" />
 
-  <!-- Fonte editorial para os cards do “Sobre” -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <!-- Fonte editorial apenas para os cards do “Sobre” -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
 
   <style>
     :root{
       --azul:#196396; --aqua:#a6d8c0; --verde:#a6fb90; --branco:#ffffff; --grafite:#2d3445;
-      --off:#f8f5f0; --laranja:#ff8f00; --borda:#e8eaef; --texto:#1b1e24; --maxw:1080px;
+      --off:#f8f5f0; --borda:#e8eaef; --texto:#1b1e24; --maxw:1080px;
       --radius:18px; --shadow:0 10px 30px rgba(0,0,0,.06); --overlay:rgba(0,0,0,.6);
       --chip:#eaf3fb; --icon:16px;
     }
@@ -41,6 +41,7 @@
     /* Base */
     *,*::before,*::after{ box-sizing:border-box }
     html,body{ height:100% }
+    html, body { overflow-x:hidden; } /* nunca rolagem horizontal */
     body{
       margin:0; font-family:Aptos, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       color:var(--texto); background:linear-gradient(180deg,#fff 0%,#fafafa 100%);
@@ -49,8 +50,8 @@
     a{ color:var(--azul); text-decoration:none }
     a:hover{ text-decoration:underline }
 
-    h1{ font-size:2.2rem; font-weight:600; letter-spacing:.2px; margin:0; color:var(--azul) }
-    h1 .small{ font-size:67%; color:#6b7280; font-weight:500; margin-left:6px }
+    h1{ font-size:clamp(1.6rem, 2.2rem, 2.4rem); font-weight:600; letter-spacing:.2px; margin:0; color:var(--azul) }
+    h1 .small{ font-size:70%; color:#6b7280; font-weight:500; margin-left:6px }
     h2{ font-size:1.25rem; font-weight:800; margin:0 0 12px }
     p{ margin:0 0 12px }
     ul{ margin:8px 0 0 20px }
@@ -67,7 +68,7 @@
 
     /* Header */
     .header{ display:grid; grid-template-columns:auto 1fr; gap:18px; align-items:center; margin-bottom:18px }
-    .brand-frame{ width:270px; height:270px; border-radius:24px; overflow:hidden; position:relative }
+    .brand-frame{ width:270px; height:270px; border-radius:24px; overflow:hidden; position:relative; flex:0 0 auto }
     .brand-frame::after{ content:""; position:absolute; inset:0; box-shadow:0 0 0 2px var(--borda) inset; border-radius:24px }
     .brand-frame img{ width:100%; height:100%; object-fit:cover }
     .subtitle{ font-size:.95rem; color:#3a4452; opacity:.95 }
@@ -85,17 +86,17 @@
     .btn.ghost:hover{ background:#f1f5f9; border-color:#c8d6e5 }
     .btn:hover{ transform:translateY(-1px); box-shadow:0 6px 16px rgba(0,0,0,.08) }
     .btn img{ height:var(--icon); width:var(--icon); object-fit:contain }
-    #btnContato img{ filter:invert(1) } /* envelope branco apenas no CTA primário */
+    #btnContato img{ filter:invert(1) } /* envelope branco só no CTA primário */
 
-    .brandbar{ display:flex; gap:10px; align-items:center; margin-top:10px }
+    .brandbar{ display:flex; gap:10px; align-items:center; margin-top:10px; flex-wrap:wrap }
     .logo-pill{
       display:inline-flex; align-items:center; justify-content:center; height:40px; min-width:60px;
       padding:6px 12px; border:1px solid var(--borda); border-radius:12px; background:#fff;
       box-shadow:inset 0 1px 0 rgba(0,0,0,.02); transition:transform .1s ease;
     }
     .logo-pill:hover{ transform:translateY(-1px) }
-    .logo-pill.axia img{ height:36px }      /* proporção aprovada */
-    .logo-pill.medvalor img{ height:30px }  /* proporção aprovada */
+    .logo-pill.axia img{ height:36px }      /* proporções aprovadas */
+    .logo-pill.medvalor img{ height:30px }  /* proporções aprovadas */
 
     /* Timeline */
     .timeline{ position:relative; margin-top:8px }
@@ -112,7 +113,7 @@
     }
     .desc{ color:#196396; font-style:italic; font-size:.95rem; margin:8px 0 0 }
 
-    /* Sobre — carrossel de cards: Inter para leitura premium */
+    /* Sobre — carrossel de cards com Inter para leitura premium */
     #sobre .carousel{ position:relative }
     #sobre .slide{ font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif }
     .track{
@@ -122,7 +123,8 @@
     .slide{
       flex:0 0 86%; max-width:86%; scroll-snap-align:center; background:#fff;
       border:1px solid var(--borda); border-radius:14px; box-shadow:var(--shadow);
-      padding:18px; line-height:1.7; min-height:160px;
+      padding:18px; line-height:1.7; min-height:clamp(160px, 26vh, 260px);
+      display:flex; align-items:center; /* garante “altura equivalente” visual */
     }
     .slide p{ text-align:justify; margin:0; text-wrap:pretty; hyphens:auto }
     .nav-btn{
@@ -145,7 +147,7 @@
     .brand-divider img{ max-width:140px; height:auto; display:block }
 
     /* Linktree (apenas botão) */
-    #em-alta-btn .btn{ width:100%; justify-content:center; border:1px solid var(--azul) }
+    #em-alta-btn .btn{ width:100%; justify-content:center; border:1px solid var(--azul); font-weight:800; letter-spacing:.2px; border-radius:14px; padding:12px 16px }
     #em-alta-btn .btn:hover{ background:#f8fbff }
 
     /* Footer */
@@ -159,9 +161,9 @@
     .brands-col img:hover{ transform:scale(1.04) }
     .foot-note{ border-top:1px solid var(--borda); padding:12px 20px; text-align:center; color:#6b7280 }
 
-    /* Responsividade premium (mobile-first refinado) */
+    /* Responsividade aprimorada */
     @media (max-width:1200px){
-      .wrap{ padding:22px 16px }
+      .wrap{ padding:22px 16px; max-width:100% }
       .grid{ grid-template-columns:1fr; gap:18px }
       .header{ grid-template-columns:1fr; gap:12px }
       .brand-frame{ margin:0 auto }
@@ -181,12 +183,21 @@
       .wrap{ padding:16px 10px }
       .slide{ flex-basis:100%; max-width:100% }
     }
+
+    /* Overlay (Contato) */
+    .overlay{ display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:var(--overlay); align-items:center; justify-content:center; z-index:1000 }
+    .overlay.active{ display:flex }
+    .modal{ background:#fff; border-radius:16px; max-width:600px; width:90%; padding:24px; box-shadow:0 10px 30px rgba(0,0,0,.2) }
+    .modal h2{ margin-top:0; color:var(--azul) }
+    .modal .item{ display:flex; align-items:center; gap:10px; margin:10px 0 }
+    .modal .item img{ height:var(--icon); width:var(--icon) }
+    .close-btn{ margin-top:20px; padding:8px 14px; background:var(--azul); color:#fff; border:none; border-radius:8px; cursor:pointer }
   </style>
 </head>
 <body>
   <main class="wrap">
     <!-- HEADER -->
-    <section class="card header">
+    <section class="card header" aria-label="Cabeçalho">
       <div class="brand-frame"><img src="https://i.imgur.com/uXusAqJ.png" alt="Guilherme Thomé"/></div>
       <div>
         <h1>Guilherme Thomé<span class="small">, MD, MBA.</span></h1>
@@ -209,31 +220,31 @@
           </a>
         </div>
         <div class="brandbar" aria-label="Marcas">
-          <a class="logo-pill axia" href="https://axcare.com.br" target="_blank" rel="noopener" aria-label="AxiaCare">
-            <img src="https://i.imgur.com/yAUQciP.png" alt="AxiaCare">
-          </a>
-          <a class="logo-pill medvalor" href="https://medvalor.med.br" target="_blank" rel="noopener" aria-label="MedValor">
-            <img src="https://i.imgur.com/N0lXklP.png" alt="MedValor">
-          </a>
+          <a class="logo-pill axia" href="https://axcare.com.br" target="_blank" rel="noopener" aria-label="AxiaCare"><img src="https://i.imgur.com/yAUQciP.png" alt="AxiaCare"></a>
+          <a class="logo-pill medvalor" href="https://medvalor.med.br" target="_blank" rel="noopener" aria-label="MedValor"><img src="https://i.imgur.com/N0lXklP.png" alt="MedValor"></a>
         </div>
       </div>
     </section>
 
     <!-- GRID PRINCIPAL -->
-    <section class="grid">
+    <section class="grid" aria-label="Conteúdo principal">
       <!-- COLUNA ESQUERDA -->
       <div>
-        <!-- SOBRE (carrossel de cards com Inter) -->
-        <section class="card" id="sobre">
+        <!-- SOBRE (CARROSSEL DE CARDS) -->
+        <section class="card" id="sobre" aria-label="Sobre Guilherme Thomé">
           <h2>Sobre</h2>
-          <div class="carousel" aria-label="Sobre mim – carrossel">
+          <div class="carousel" aria-label="Carrossel de apresentação">
             <button class="nav-btn nav-prev" aria-label="Anterior">‹</button>
             <div class="track" id="aboutTrack">
               <article class="slide"><p>Atuo na interseção entre liderança executiva, negócios, VBHC e inovação, com foco em desfechos que importam para o paciente, eficiência operacional e inteligência de dados.</p></article>
-              <article class="slide"><p>Com formação médica em anestesiologia, destaquei-me na gestão de equipes e migrei para posições executivas, liderando inicialmente operações hospitalares e, em seguida, estratégias de alto impacto em operadoras, instituições filantrópicas e no ecossistema empresarial da saúde. Minha caminhada conecta de forma sinérgica governança clínica, gestão hospitalar e gestão de planos de saúde, sempre orientada a resultados sustentáveis e centrados no paciente.</p></article>
-              <article class="slide"><p>Hoje atuo como médico executivo e consultor. Tenho presença técnica no território como elo corporativo entre operadoras, filantropia, hospitais e rede prestadora, articulando e desenvolvendo frentes assistenciais. Fundador da AxiaCare® e da MedValor®, sou consultor e palestrante com soluções que unem tecnologia, analytics e educação executiva para transformar serviços de saúde e acelerar inovação.</p></article>
-              <article class="slide"><p>Minha formação e expertise abrangem Administração Hospitalar, Governança Clínica, Saúde Populacional e Saúde Baseada em Valor (VBHC). Nos últimos quatro anos, conduzi a implantação de governança clínica guiada por dados em hospital de alta complexidade, elevando a eficiência e a entrega de valor. Nesse período, liderei equipes e núcleos de experiência do paciente, inteligência de dados, desenvolvimento médico e segurança. Atuei em múltiplos ciclos de acreditação hospitalar e criei um projeto de medicina hospitalista de alta performance, que reduziu desperdícios em mais de 2.600 diárias/ano e ampliou o cuidado a centenas de pacientes em ambulatórios de egressos.</p></article>
-              <article class="slide"><p>Idealizei, escrevi e implementei uma estratégia completa de atenção à saúde para uma carteira de referência regional — modelo replicável, estruturado a partir da criação do Escritório de Valor em Saúde (EVS) e da integração entre unidade hospitalar, atenção ambulatorial, regulação e novos modelos de remuneração. O resultado foi impacto direto para milhares de pessoas em linhas de cuidado como idosos, neurodesenvolvimento infantil e terapias de alto custo, com economias anuais de milhões de reais. Nesse contexto, venho estruturando comitês técnicos nos segmentos de autismo e novos modelos de pagamento médico, projetando uma área de atuação que envolve diversos municípios no estado, reforçando a integração entre prática clínica, governança e sustentabilidade.</p></article>
+              <article class="slide"><p>Com formação médica em anestesiologia, destaquei-me na gestão de equipes e migrei para posições executivas, liderando inicialmente operações hospitalares e, em seguida, estratégias de alto impacto em operadoras, instituições filantrópicas e no ecossistema empresarial da saúde.</p></article>
+              <article class="slide"><p>Minha caminhada conecta de forma sinérgica governança clínica, gestão hospitalar e gestão de planos de saúde, sempre orientada a resultados sustentáveis e centrados no paciente.</p></article>
+              <article class="slide"><p>Hoje atuo como médico executivo e consultor. Tenho presença técnica no território como elo corporativo entre operadoras, filantropia, hospitais e rede prestadora, articulando e desenvolvendo frentes assistenciais.</p></article>
+              <article class="slide"><p>Fundador da AxiaCare® e da MedValor®, sou consultor e palestrante com soluções que unem tecnologia, analytics e educação executiva para transformar serviços de saúde e acelerar inovação.</p></article>
+              <article class="slide"><p>Nos últimos quatro anos, conduzi a implantação de governança clínica guiada por dados em hospital de alta complexidade, elevando a eficiência e a entrega de valor; liderei equipes e núcleos de experiência do paciente, inteligência de dados, desenvolvimento médico e segurança.</p></article>
+              <article class="slide"><p>Atuei em múltiplos ciclos de acreditação hospitalar e criei um projeto de medicina hospitalista de alta performance, que reduziu desperdícios em mais de 2.600 diárias/ano e ampliou o cuidado a centenas de pacientes em ambulatórios de egressos.</p></article>
+              <article class="slide"><p>Idealizei, escrevi e implementei estratégia completa e replicável a partir do Escritório de Valor em Saúde (EVS) e da integração entre unidade hospitalar, atenção ambulatorial, regulação e novos modelos de remuneração, com impacto direto para milhares de pessoas.</p></article>
+              <article class="slide"><p>As linhas de cuidado incluem idosos, neurodesenvolvimento infantil e terapias de alto custo, com economias anuais de milhões de reais; estruturo comitês técnicos e novos modelos de pagamento, reforçando a integração entre prática clínica, governança e sustentabilidade.</p></article>
               <article class="slide"><p>Meu propósito é claro: promover inovação, excelência operacional e valor sustentável para pacientes, organizações e sociedade.</p></article>
             </div>
             <button class="nav-btn nav-next" aria-label="Próximo">›</button>
@@ -241,8 +252,8 @@
           </div>
         </section>
 
-        <!-- EXPERIÊNCIA (sem “Colunista”; descrições azuis/itálico nos dois cargos atuais) -->
-        <section class="card" id="experiencia">
+        <!-- EXPERIÊNCIA (sem “Colunista”) -->
+        <section class="card" id="experiencia" aria-label="Experiência">
           <h2>Experiência</h2>
           <div class="timeline">
             <div class="item">
@@ -251,12 +262,14 @@
               <div class="meta">dez 2024 – atual</div>
               <p class="desc">Gestão do Provimento de Saúde, incluindo Rede Assistencial, Atenção Ambulatorial, Auditoria e Escritório de Valor em Saúde, com foco em eficiência, sustentabilidade e cuidado centrado no paciente.</p>
             </div>
+
             <div class="item">
               <div class="role">Superintendente Médico <span class="badge">Atual</span></div>
               <div class="org">ICDS (Unihealth)</div>
               <div class="meta">ago 2025 – atual • Regional Leste Nordeste, MG</div>
-              <p class="desc">Líder no Núcleo de Desenvolvimento e Relações Institucionais, focado em desenvolvimento organizacional, inovação aplicada e articulação estratégica entre contrato, operação e sistema. Atuação com presença técnica no território, servindo como elo corporativo e promovendo a integração entre hospital, operadora, filantropia e rede.</p>
+              <p class="desc">Líder no Núcleo de Desenvolvimento e Relações Institucionais, focado em desenvolvimento organizacional, inovação aplicada e articulação estratégica entre contrato, operação e sistema. Elo corporativo integrando hospital, operadora, filantropia e rede.</p>
             </div>
+
             <div class="item"><div class="role">Diretor Técnico – Unidade Hospitalar</div><div class="org">Unihealth (ICDS) – Gov. Valadares</div><div class="meta">dez 2024 – ago 2025</div></div>
             <div class="item"><div class="role">Superintendente Médico e Diretor Hospitalar</div><div class="org">Unimed Governador Valadares</div><div class="meta">ago 2024 – dez 2024</div></div>
             <div class="item"><div class="role">Assessor Médico Hospitalar e Diretor Técnico</div><div class="org">Unimed Governador Valadares</div><div class="meta">jan 2024 – ago 2024</div></div>
@@ -269,7 +282,7 @@
         </section>
 
         <!-- FORMAÇÃO -->
-        <section class="card" id="formacao">
+        <section class="card" id="formacao" aria-label="Formação acadêmica">
           <h2>Formação acadêmica</h2>
           <ul>
             <li>MBA Administração Hospitalar — Faculdade Unimed (jul 2023 – dez 2024)</li>
@@ -282,7 +295,7 @@
         </section>
 
         <!-- CERTIFICAÇÕES -->
-        <section class="card" id="certificacoes">
+        <section class="card" id="certificacoes" aria-label="Licenças e certificações">
           <h2>Licenças e certificações</h2>
           <ul>
             <li>VBHC Certified Yellow Belt™ — The Decision Institute (dez 2024)</li>
@@ -296,8 +309,8 @@
       </div>
 
       <!-- COLUNA DIREITA -->
-      <aside>
-        <section class="card" id="competencias">
+      <aside aria-label="Lateral">
+        <section class="card" id="competencias" aria-label="Competências">
           <h2>Competências</h2>
           <div class="tags">
             <div class="skill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8z"/></svg> VBHC</div>
@@ -338,12 +351,11 @@
     </section>
 
     <!-- FOOTER -->
-    <footer class="footer">
+    <footer class="footer" aria-label="Rodapé">
       <div class="footer-inner">
         <div class="brands-col">
           <h4>Marcas</h4>
           <a href="https://axcare.com.br" target="_blank" rel="noopener"><img src="https://i.imgur.com/yAUQciP.png" alt="AxiaCare" style="height:40px"></a>
-          <a href="https://medvalor.med.br" target="_blank" rel="noopener"><img src="https://i.imgur.com/N0lXklP.png" alt="MedValor" style="height:32px"></a>
         </div>
         <div>
           <h4>Links</h4>
@@ -351,10 +363,9 @@
           <p style="text-align:center"><a href="https://blog.guithome.com.br" target="_blank" rel="noopener">Blog</a></p>
           <p style="text-align:center"><a href="https://www.linkedin.com/in/gui-thome" target="_blank" rel="noopener">LinkedIn</a></p>
         </div>
-        <div>
-          <h4>Contato rápido</h4>
-          <p style="text-align:center"><a href="https://wa.me/5533999399959" target="_blank" rel="noopener">WhatsApp: (33) 99939-9959</a></p>
-          <p style="text-align:center"><a href="mailto:guilherme@guithome.com.br">guilherme@guithome.com.br</a></p>
+        <div class="brands-col">
+          <h4>&nbsp;</h4>
+          <a href="https://medvalor.med.br" target="_blank" rel="noopener"><img src="https://i.imgur.com/N0lXklP.png" alt="MedValor" style="height:32px"></a>
         </div>
       </div>
       <div class="foot-note">© 2025 GuiThomé®. Todos os direitos reservados.</div>
@@ -362,7 +373,7 @@
   </main>
 
   <!-- MODAL CONTATO -->
-  <div class="overlay" id="overlay">
+  <div class="overlay" id="overlay" aria-hidden="true">
     <div class="modal" role="dialog" aria-modal="true" aria-labelledby="ttlContato">
       <h2 id="ttlContato">Fale com Guilherme Thomé</h2>
       <div class="item"><img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt=""><a href="https://wa.me/5533999399959" target="_blank" rel="noopener">WhatsApp: (33) 99939-9959</a></div>
@@ -384,15 +395,15 @@
       const btn = document.getElementById('btnContato');
       const ov  = document.getElementById('overlay');
       const closeBtn = document.getElementById('closeContato');
-      function open(){ ov.classList.add('active'); }
-      function close(){ ov.classList.remove('active'); }
+      function open(){ ov.classList.add('active'); ov.setAttribute('aria-hidden','false'); }
+      function close(){ ov.classList.remove('active'); ov.setAttribute('aria-hidden','true'); }
       btn.addEventListener('click', open);
       closeBtn.addEventListener('click', close);
       ov.addEventListener('click', e=>{ if(e.target===ov) close(); });
       document.addEventListener('keydown', e=>{ if(e.key==='Escape') close(); });
     })();
 
-    // Carrossel "Sobre" — autoplay com pausa por interação (suave)
+    // Carrossel "Sobre" — autoplay + pausa por interação (suave)
     (function(){
       const track = document.getElementById('aboutTrack');
       const prev  = document.querySelector('.nav-prev');
