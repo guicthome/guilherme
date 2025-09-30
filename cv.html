@@ -21,7 +21,7 @@
   <!-- Favicon -->
   <link rel="icon" href="https://guithome.com.br/favicon.ico" />
 
-  <!-- Fonte editorial (apenas nos cards do “Sobre”) -->
+  <!-- Fonte editorial (apenas cards do “Sobre”) -->
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
@@ -41,7 +41,7 @@
     /* Base */
     *,*::before,*::after{ box-sizing:border-box }
     html,body{ height:100% }
-    html,body{ overflow-x:hidden } /* nunca barra horiz. */
+    html,body{ overflow-x:hidden } /* nunca barra horizontal */
     body{
       margin:0; font-family:Aptos, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       color:var(--texto); background:linear-gradient(180deg,#fff 0%,#fafafa 100%);
@@ -127,7 +127,6 @@
       padding:22px 20px; line-height:1.75; min-height:clamp(220px, 32vh, 360px);
       display:flex; align-items:center; position:relative;
     }
-    /* faixa sutil superior para elegância */
     .slide::before{
       content:""; position:absolute; left:0; right:0; top:0; height:6px;
       background:linear-gradient(90deg, var(--azul), #3ea3d3);
@@ -144,12 +143,6 @@
     .dot{ width:8px; height:8px; border-radius:999px; background:#cfd8e3; opacity:.95 }
     .dot.active{ background:var(--azul) }
 
-    /* Competências */
-    .tags{ display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:10px }
-    .skill{ display:flex; align-items:center; gap:8px; padding:10px; border:1px solid var(--borda); border-radius:12px; background:#fff; transition:box-shadow .12s ease }
-    .skill:hover{ box-shadow:0 6px 16px rgba(0,0,0,.06) }
-    .skill svg{ width:var(--icon); height:var(--icon); opacity:.9 }
-
     /* Sidebar */
     .brand-divider{ display:flex; align-items:center; justify-content:center; padding:18px }
     .brand-divider img{ max-width:140px; height:auto; display:block }
@@ -158,7 +151,7 @@
     #em-alta-btn .btn{ width:100%; justify-content:center; border:1px solid var(--azul); font-weight:800; letter-spacing:.2px; border-radius:14px; padding:12px 16px }
     #em-alta-btn .btn:hover{ background:#f8fbff }
 
-    /* Footer oficial */
+    /* Footer */
     footer{ margin-top:30px }
     .footer{ background:#fff; border-top:1px solid var(--borda) }
     .footer-inner{ max-width:var(--maxw); margin:0 auto; padding:22px 20px; display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px }
@@ -169,7 +162,7 @@
     .brands-col img:hover{ transform:scale(1.04) }
     .foot-note{ border-top:1px solid var(--borda); padding:12px 20px; text-align:center; color:#6b7280 }
 
-    /* Responsividade (premium) */
+    /* Responsividade */
     @media (max-width:1200px){
       .wrap{ padding:22px 16px; max-width:100% }
       .grid{ grid-template-columns:1fr; gap:18px }
@@ -191,6 +184,25 @@
       .wrap{ padding:16px 10px }
       .slide{ flex-basis:100%; max-width:100%; min-height:clamp(240px, 34vh, 380px) }
     }
+
+    /* Overlay/Modal — BLINDAGEM total para ícones não “vazarem” */
+    .overlay{
+      position:fixed; inset:0; z-index:9999; background:var(--overlay);
+      display:flex; align-items:center; justify-content:center;
+    }
+    .overlay:not(.active){ display:none !important; }
+    .overlay[aria-hidden="true"]{ display:none !important; } /* dupla garantia */
+
+    .modal{
+      background:#fff; border-radius:16px; max-width:600px; width:90%; padding:24px;
+      box-shadow:0 10px 30px rgba(0,0,0,.2);
+    }
+    .modal h2{ margin-top:0; color:var(--azul) }
+    .modal .item{ display:flex; align-items:center; gap:10px; margin:10px 0 }
+    .modal .item img{
+      width:20px; height:20px; object-fit:contain; flex:0 0 20px; display:inline-block;
+    }
+    .close-btn{ margin-top:20px; padding:8px 14px; background:var(--azul); color:#fff; border:none; border-radius:8px; cursor:pointer }
   </style>
 </head>
 <body>
@@ -247,7 +259,7 @@
           </div>
         </section>
 
-        <!-- EXPERIÊNCIA -->
+        <!-- EXPERIÊNCIA (sem “Colunista”) -->
         <section class="card" id="experiencia" aria-label="Experiência">
           <h2>Experiência</h2>
           <div class="timeline">
@@ -321,7 +333,7 @@
           <img src="https://i.imgur.com/JpYaFZl.png" alt="Logo Guilherme Thomé"/>
         </section>
 
-        <!-- Apenas botão Linktree -->
+        <!-- Linktree -->
         <section class="card" id="em-alta-btn">
           <a class="btn ghost" href="https://linktr.ee/gui.thome" target="_blank" rel="noopener">Veja o que está em alta</a>
         </section>
@@ -366,7 +378,7 @@
   </main>
 
   <!-- MODAL CONTATO -->
-  <div class="overlay" id="overlay" aria-hidden="true">
+  <div class="overlay" id="overlay" class="active" aria-hidden="true">
     <div class="modal" role="dialog" aria-modal="true" aria-labelledby="ttlContato">
       <h2 id="ttlContato">Fale com Guilherme Thomé</h2>
       <div class="item"><img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt=""><a href="https://wa.me/5533999399959" target="_blank" rel="noopener">WhatsApp: (33) 99939-9959</a></div>
@@ -383,20 +395,22 @@
   </div>
 
   <script>
-    // Modal Contato
+    // Modal Contato (blindado)
     (function(){
       const btn = document.getElementById('btnContato');
       const ov  = document.getElementById('overlay');
       const closeBtn = document.getElementById('closeContato');
       function open(){ ov.classList.add('active'); ov.setAttribute('aria-hidden','false'); }
       function close(){ ov.classList.remove('active'); ov.setAttribute('aria-hidden','true'); }
+      // inicia oculto
+      close();
       btn.addEventListener('click', open);
       closeBtn.addEventListener('click', close);
       ov.addEventListener('click', e=>{ if(e.target===ov) close(); });
       document.addEventListener('keydown', e=>{ if(e.key==='Escape') close(); });
     })();
 
-    // Carrossel "Sobre" — menos cards, dobro de conteúdo por card; autoplay com pausa por interação.
+    // Carrossel — menos cards, dobro de conteúdo, autoplay com pausa
     (function(){
       const track = document.getElementById('aboutTrack');
       const prev  = document.querySelector('.nav-prev');
@@ -404,7 +418,6 @@
       const dotsC = document.getElementById('aboutDots');
       const slides = Array.from(track.querySelectorAll('.slide'));
 
-      // Monta dots
       slides.forEach((_,i)=>{
         const d=document.createElement('div');
         d.className='dot'+(i===0?' active':'');
@@ -415,7 +428,7 @@
 
       function updateDots(i){ dots.forEach((d,idx)=>d.classList.toggle('active', idx===i)); }
       function indexFromScroll(){
-        const w = slides[0].clientWidth + 16; // gap
+        const w = slides[0].clientWidth + 16;
         return Math.round(track.scrollLeft / w);
       }
       function scrollToIndex(i,smooth){
@@ -428,7 +441,6 @@
       prev.addEventListener('click',()=>{ const i=Math.max(0,indexFromScroll()-1); scrollToIndex(i,true); restart(); });
       track.addEventListener('scroll',()=>{ clearTimeout(track._t); track._t=setTimeout(()=>updateDots(indexFromScroll()), 60); },{passive:true});
 
-      // autoplay com pausa por interação/visibilidade
       const INTERVAL=4400; let timer=null;
       function play(){ if(timer) return; timer=setInterval(()=>{ let i=indexFromScroll()+1; if(i>=slides.length) i=0; scrollToIndex(i,true); },INTERVAL); }
       function pause(){ if(timer){ clearInterval(timer); timer=null; } }
