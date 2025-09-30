@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Guilherme Thomé | Currículo Digital</title>
 
-  <!-- Metas -->
+  <!-- Metadados -->
   <meta name="description" content="Guilherme Thomé — médico executivo e consultor (VBHC, governança clínica, eficiência operacional, analytics)." />
   <meta name="author" content="Guilherme Thomé" />
   <meta name="theme-color" content="#196396" />
@@ -21,7 +21,7 @@
   <!-- Favicon -->
   <link rel="icon" href="https://guithome.com.br/favicon.ico" />
 
-  <!-- Fonte editorial apenas para os cards do “Sobre” -->
+  <!-- Fonte editorial (apenas nos cards do “Sobre”) -->
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
@@ -29,19 +29,19 @@
   <style>
     :root{
       --azul:#196396; --aqua:#a6d8c0; --verde:#a6fb90; --branco:#ffffff; --grafite:#2d3445;
-      --off:#f8f5f0; --borda:#e8eaef; --texto:#1b1e24; --maxw:1080px;
+      --off:#f6f7f9; --borda:#e6e9ef; --texto:#1b1e24; --maxw:1080px;
       --radius:18px; --shadow:0 10px 30px rgba(0,0,0,.06); --overlay:rgba(0,0,0,.6);
       --chip:#eaf3fb; --icon:16px;
     }
     @media (prefers-color-scheme: dark){
-      :root{ --branco:#0f141a; --texto:#e6e9ee; --borda:#1d2732; --off:#131a22; --grafite:#e6e9ee; --shadow:0 10px 30px rgba(0,0,0,.35); }
+      :root{ --branco:#0f141a; --texto:#e6e9ee; --borda:#1d2732; --off:#121820; --grafite:#e6e9ee; --shadow:0 10px 30px rgba(0,0,0,.36); }
       body{ background:linear-gradient(180deg,#0c1218 0%,#0a0f14 100%) }
     }
 
     /* Base */
     *,*::before,*::after{ box-sizing:border-box }
     html,body{ height:100% }
-    html, body { overflow-x:hidden; } /* nunca rolagem horizontal */
+    html,body{ overflow-x:hidden } /* nunca barra horiz. */
     body{
       margin:0; font-family:Aptos, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       color:var(--texto); background:linear-gradient(180deg,#fff 0%,#fafafa 100%);
@@ -50,7 +50,7 @@
     a{ color:var(--azul); text-decoration:none }
     a:hover{ text-decoration:underline }
 
-    h1{ font-size:clamp(1.6rem, 2.2rem, 2.4rem); font-weight:600; letter-spacing:.2px; margin:0; color:var(--azul) }
+    h1{ font-size:clamp(1.7rem,2.2rem,2.4rem); font-weight:600; letter-spacing:.2px; margin:0; color:var(--azul) }
     h1 .small{ font-size:70%; color:#6b7280; font-weight:500; margin-left:6px }
     h2{ font-size:1.25rem; font-weight:800; margin:0 0 12px }
     p{ margin:0 0 12px }
@@ -68,7 +68,7 @@
 
     /* Header */
     .header{ display:grid; grid-template-columns:auto 1fr; gap:18px; align-items:center; margin-bottom:18px }
-    .brand-frame{ width:270px; height:270px; border-radius:24px; overflow:hidden; position:relative; flex:0 0 auto }
+    .brand-frame{ width:270px; height:270px; border-radius:24px; overflow:hidden; position:relative; flex:0 0 auto; background:#fff }
     .brand-frame::after{ content:""; position:absolute; inset:0; box-shadow:0 0 0 2px var(--borda) inset; border-radius:24px }
     .brand-frame img{ width:100%; height:100%; object-fit:cover }
     .subtitle{ font-size:.95rem; color:#3a4452; opacity:.95 }
@@ -86,7 +86,7 @@
     .btn.ghost:hover{ background:#f1f5f9; border-color:#c8d6e5 }
     .btn:hover{ transform:translateY(-1px); box-shadow:0 6px 16px rgba(0,0,0,.08) }
     .btn img{ height:var(--icon); width:var(--icon); object-fit:contain }
-    #btnContato img{ filter:invert(1) } /* envelope branco só no CTA primário */
+    #btnContato img{ filter:invert(1) } /* envelope branco */
 
     .brandbar{ display:flex; gap:10px; align-items:center; margin-top:10px; flex-wrap:wrap }
     .logo-pill{
@@ -113,27 +113,35 @@
     }
     .desc{ color:#196396; font-style:italic; font-size:.95rem; margin:8px 0 0 }
 
-    /* Sobre — carrossel de cards com Inter para leitura premium */
+    /* SOBRE — carrossel (menos cards, dobro de texto por card) */
     #sobre .carousel{ position:relative }
     #sobre .slide{ font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif }
     .track{
-      display:flex; gap:14px; overflow-x:auto; scroll-snap-type:x mandatory;
-      padding-bottom:6px; scroll-behavior:smooth; -webkit-overflow-scrolling:touch; overscroll-behavior-x:contain;
+      display:flex; gap:16px; overflow-x:auto; scroll-snap-type:x mandatory;
+      padding-bottom:8px; scroll-behavior:smooth; -webkit-overflow-scrolling:touch; overscroll-behavior-x:contain;
     }
     .slide{
-      flex:0 0 86%; max-width:86%; scroll-snap-align:center; background:#fff;
-      border:1px solid var(--borda); border-radius:14px; box-shadow:var(--shadow);
-      padding:18px; line-height:1.7; min-height:clamp(160px, 26vh, 260px);
-      display:flex; align-items:center; /* garante “altura equivalente” visual */
+      flex:0 0 92%; max-width:92%; scroll-snap-align:center;
+      background:linear-gradient(180deg,#ffffff 0%, #fbfdff 100%);
+      border:1px solid var(--borda); border-radius:16px; box-shadow:var(--shadow);
+      padding:22px 20px; line-height:1.75; min-height:clamp(220px, 32vh, 360px);
+      display:flex; align-items:center; position:relative;
     }
-    .slide p{ text-align:justify; margin:0; text-wrap:pretty; hyphens:auto }
+    /* faixa sutil superior para elegância */
+    .slide::before{
+      content:""; position:absolute; left:0; right:0; top:0; height:6px;
+      background:linear-gradient(90deg, var(--azul), #3ea3d3);
+      border-top-left-radius:16px; border-top-right-radius:16px; opacity:.7;
+    }
+    .slide p{ text-align:justify; margin:0; text-wrap:pretty; hyphens:auto; font-size:clamp(.96rem, 1rem, 1.02rem) }
+
     .nav-btn{
       position:absolute; top:50%; transform:translateY(-50%); border:1px solid var(--borda); background:#fff;
-      border-radius:10px; padding:6px; box-shadow:0 6px 16px rgba(0,0,0,.06); cursor:pointer
+      border-radius:12px; padding:8px 10px; box-shadow:0 6px 16px rgba(0,0,0,.06); cursor:pointer
     }
-    .nav-prev{ left:-8px } .nav-next{ right:-8px }
-    .dots{ display:flex; gap:6px; justify-content:center; margin-top:8px }
-    .dot{ width:7px; height:7px; border-radius:999px; background:#cfd8e3; opacity:.9 }
+    .nav-prev{ left:-6px } .nav-next{ right:-6px }
+    .dots{ display:flex; gap:6px; justify-content:center; margin-top:10px }
+    .dot{ width:8px; height:8px; border-radius:999px; background:#cfd8e3; opacity:.95 }
     .dot.active{ background:var(--azul) }
 
     /* Competências */
@@ -150,7 +158,7 @@
     #em-alta-btn .btn{ width:100%; justify-content:center; border:1px solid var(--azul); font-weight:800; letter-spacing:.2px; border-radius:14px; padding:12px 16px }
     #em-alta-btn .btn:hover{ background:#f8fbff }
 
-    /* Footer */
+    /* Footer oficial */
     footer{ margin-top:30px }
     .footer{ background:#fff; border-top:1px solid var(--borda) }
     .footer-inner{ max-width:var(--maxw); margin:0 auto; padding:22px 20px; display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px }
@@ -161,7 +169,7 @@
     .brands-col img:hover{ transform:scale(1.04) }
     .foot-note{ border-top:1px solid var(--borda); padding:12px 20px; text-align:center; color:#6b7280 }
 
-    /* Responsividade aprimorada */
+    /* Responsividade (premium) */
     @media (max-width:1200px){
       .wrap{ padding:22px 16px; max-width:100% }
       .grid{ grid-template-columns:1fr; gap:18px }
@@ -173,7 +181,7 @@
       .card{ padding:18px }
       .cta-bar{ gap:8px }
       .btn{ width:calc(50% - 4px); justify-content:center }
-      .slide{ flex-basis:92%; max-width:92% }
+      .slide{ flex-basis:96%; max-width:96% }
       h1{ font-size:1.8rem }
     }
     @media (max-width:480px){
@@ -181,17 +189,8 @@
       h1{ font-size:1.6rem }
       .btn{ width:100% }
       .wrap{ padding:16px 10px }
-      .slide{ flex-basis:100%; max-width:100% }
+      .slide{ flex-basis:100%; max-width:100%; min-height:clamp(240px, 34vh, 380px) }
     }
-
-    /* Overlay (Contato) */
-    .overlay{ display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:var(--overlay); align-items:center; justify-content:center; z-index:1000 }
-    .overlay.active{ display:flex }
-    .modal{ background:#fff; border-radius:16px; max-width:600px; width:90%; padding:24px; box-shadow:0 10px 30px rgba(0,0,0,.2) }
-    .modal h2{ margin-top:0; color:var(--azul) }
-    .modal .item{ display:flex; align-items:center; gap:10px; margin:10px 0 }
-    .modal .item img{ height:var(--icon); width:var(--icon) }
-    .close-btn{ margin-top:20px; padding:8px 14px; background:var(--azul); color:#fff; border:none; border-radius:8px; cursor:pointer }
   </style>
 </head>
 <body>
@@ -230,29 +229,25 @@
     <section class="grid" aria-label="Conteúdo principal">
       <!-- COLUNA ESQUERDA -->
       <div>
-        <!-- SOBRE (CARROSSEL DE CARDS) -->
+        <!-- SOBRE (MENOS CARDS, DOBRO DE TEXTO POR CARD) -->
         <section class="card" id="sobre" aria-label="Sobre Guilherme Thomé">
           <h2>Sobre</h2>
           <div class="carousel" aria-label="Carrossel de apresentação">
             <button class="nav-btn nav-prev" aria-label="Anterior">‹</button>
             <div class="track" id="aboutTrack">
-              <article class="slide"><p>Atuo na interseção entre liderança executiva, negócios, VBHC e inovação, com foco em desfechos que importam para o paciente, eficiência operacional e inteligência de dados.</p></article>
-              <article class="slide"><p>Com formação médica em anestesiologia, destaquei-me na gestão de equipes e migrei para posições executivas, liderando inicialmente operações hospitalares e, em seguida, estratégias de alto impacto em operadoras, instituições filantrópicas e no ecossistema empresarial da saúde.</p></article>
-              <article class="slide"><p>Minha caminhada conecta de forma sinérgica governança clínica, gestão hospitalar e gestão de planos de saúde, sempre orientada a resultados sustentáveis e centrados no paciente.</p></article>
-              <article class="slide"><p>Hoje atuo como médico executivo e consultor. Tenho presença técnica no território como elo corporativo entre operadoras, filantropia, hospitais e rede prestadora, articulando e desenvolvendo frentes assistenciais.</p></article>
-              <article class="slide"><p>Fundador da AxiaCare® e da MedValor®, sou consultor e palestrante com soluções que unem tecnologia, analytics e educação executiva para transformar serviços de saúde e acelerar inovação.</p></article>
-              <article class="slide"><p>Nos últimos quatro anos, conduzi a implantação de governança clínica guiada por dados em hospital de alta complexidade, elevando a eficiência e a entrega de valor; liderei equipes e núcleos de experiência do paciente, inteligência de dados, desenvolvimento médico e segurança.</p></article>
-              <article class="slide"><p>Atuei em múltiplos ciclos de acreditação hospitalar e criei um projeto de medicina hospitalista de alta performance, que reduziu desperdícios em mais de 2.600 diárias/ano e ampliou o cuidado a centenas de pacientes em ambulatórios de egressos.</p></article>
-              <article class="slide"><p>Idealizei, escrevi e implementei estratégia completa e replicável a partir do Escritório de Valor em Saúde (EVS) e da integração entre unidade hospitalar, atenção ambulatorial, regulação e novos modelos de remuneração, com impacto direto para milhares de pessoas.</p></article>
-              <article class="slide"><p>As linhas de cuidado incluem idosos, neurodesenvolvimento infantil e terapias de alto custo, com economias anuais de milhões de reais; estruturo comitês técnicos e novos modelos de pagamento, reforçando a integração entre prática clínica, governança e sustentabilidade.</p></article>
-              <article class="slide"><p>Meu propósito é claro: promover inovação, excelência operacional e valor sustentável para pacientes, organizações e sociedade.</p></article>
+              <article class="slide"><p>Atuo na interseção entre liderança executiva, negócios, VBHC e inovação, com foco em desfechos que importam para o paciente, eficiência operacional e inteligência de dados. Com formação médica em anestesiologia, destaquei-me na gestão de equipes e migrei para posições executivas, liderando inicialmente operações hospitalares e, em seguida, estratégias de alto impacto em operadoras, instituições filantrópicas e no ecossistema empresarial da saúde.</p></article>
+              <article class="slide"><p>Minha caminhada conecta de forma sinérgica governança clínica, gestão hospitalar e gestão de planos de saúde, sempre orientada a resultados sustentáveis e centrados no paciente. Hoje atuo como médico executivo e consultor. Tenho presença técnica no território como elo corporativo entre operadoras, filantropia, hospitais e rede prestadora, articulando e desenvolvendo frentes assistenciais.</p></article>
+              <article class="slide"><p>Fundador da AxiaCare® e da MedValor®, sou consultor e palestrante com soluções que unem tecnologia, analytics e educação executiva para transformar serviços de saúde e acelerar inovação. Minha formação e expertise abrangem Administração Hospitalar, Governança Clínica, Saúde Populacional e Saúde Baseada em Valor (VBHC).</p></article>
+              <article class="slide"><p>Nos últimos quatro anos, conduzi a implantação de governança clínica guiada por dados em hospital de alta complexidade, elevando a eficiência e a entrega de valor; liderei equipes e núcleos de experiência do paciente, inteligência de dados, desenvolvimento médico e segurança. Atuei em múltiplos ciclos de acreditação hospitalar e criei um projeto de medicina hospitalista de alta performance, que reduziu desperdícios em mais de 2.600 diárias/ano e ampliou o cuidado a centenas de pacientes em ambulatórios de egressos.</p></article>
+              <article class="slide"><p>Idealizei, escrevi e implementei uma estratégia completa de atenção à saúde para uma carteira de referência regional — modelo replicável, estruturado a partir da criação do Escritório de Valor em Saúde (EVS) e da integração entre unidade hospitalar, atenção ambulatorial, regulação e novos modelos de remuneração. O resultado foi impacto direto para milhares de pessoas em linhas de cuidado como idosos, neurodesenvolvimento infantil e terapias de alto custo, com economias anuais de milhões de reais.</p></article>
+              <article class="slide"><p>Nesse contexto, venho estruturando comitês técnicos nos segmentos de autismo e novos modelos de pagamento médico, projetando uma área de atuação que envolve diversos municípios no estado, reforçando a integração entre prática clínica, governança e sustentabilidade. Meu propósito é claro: promover inovação, excelência operacional e valor sustentável para pacientes, organizações e sociedade.</p></article>
             </div>
             <button class="nav-btn nav-next" aria-label="Próximo">›</button>
             <div class="dots" id="aboutDots" aria-hidden="true"></div>
           </div>
         </section>
 
-        <!-- EXPERIÊNCIA (sem “Colunista”) -->
+        <!-- EXPERIÊNCIA -->
         <section class="card" id="experiencia" aria-label="Experiência">
           <h2>Experiência</h2>
           <div class="timeline">
@@ -262,14 +257,12 @@
               <div class="meta">dez 2024 – atual</div>
               <p class="desc">Gestão do Provimento de Saúde, incluindo Rede Assistencial, Atenção Ambulatorial, Auditoria e Escritório de Valor em Saúde, com foco em eficiência, sustentabilidade e cuidado centrado no paciente.</p>
             </div>
-
             <div class="item">
               <div class="role">Superintendente Médico <span class="badge">Atual</span></div>
               <div class="org">ICDS (Unihealth)</div>
               <div class="meta">ago 2025 – atual • Regional Leste Nordeste, MG</div>
               <p class="desc">Líder no Núcleo de Desenvolvimento e Relações Institucionais, focado em desenvolvimento organizacional, inovação aplicada e articulação estratégica entre contrato, operação e sistema. Elo corporativo integrando hospital, operadora, filantropia e rede.</p>
             </div>
-
             <div class="item"><div class="role">Diretor Técnico – Unidade Hospitalar</div><div class="org">Unihealth (ICDS) – Gov. Valadares</div><div class="meta">dez 2024 – ago 2025</div></div>
             <div class="item"><div class="role">Superintendente Médico e Diretor Hospitalar</div><div class="org">Unimed Governador Valadares</div><div class="meta">ago 2024 – dez 2024</div></div>
             <div class="item"><div class="role">Assessor Médico Hospitalar e Diretor Técnico</div><div class="org">Unimed Governador Valadares</div><div class="meta">jan 2024 – ago 2024</div></div>
@@ -403,7 +396,7 @@
       document.addEventListener('keydown', e=>{ if(e.key==='Escape') close(); });
     })();
 
-    // Carrossel "Sobre" — autoplay + pausa por interação (suave)
+    // Carrossel "Sobre" — menos cards, dobro de conteúdo por card; autoplay com pausa por interação.
     (function(){
       const track = document.getElementById('aboutTrack');
       const prev  = document.querySelector('.nav-prev');
@@ -422,11 +415,11 @@
 
       function updateDots(i){ dots.forEach((d,idx)=>d.classList.toggle('active', idx===i)); }
       function indexFromScroll(){
-        const w = slides[0].clientWidth + 14; // gap
+        const w = slides[0].clientWidth + 16; // gap
         return Math.round(track.scrollLeft / w);
       }
       function scrollToIndex(i,smooth){
-        const left = i * (slides[0].clientWidth + 14);
+        const left = i * (slides[0].clientWidth + 16);
         track.scrollTo({left, behavior: smooth? 'smooth':'instant'});
         updateDots(i);
       }
@@ -436,7 +429,7 @@
       track.addEventListener('scroll',()=>{ clearTimeout(track._t); track._t=setTimeout(()=>updateDots(indexFromScroll()), 60); },{passive:true});
 
       // autoplay com pausa por interação/visibilidade
-      const INTERVAL=4200; let timer=null;
+      const INTERVAL=4400; let timer=null;
       function play(){ if(timer) return; timer=setInterval(()=>{ let i=indexFromScroll()+1; if(i>=slides.length) i=0; scrollToIndex(i,true); },INTERVAL); }
       function pause(){ if(timer){ clearInterval(timer); timer=null; } }
       function restart(){ pause(); play(); }
