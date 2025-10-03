@@ -228,26 +228,7 @@
     }
     .desc{ color:#196396; font-style:italic; font-size:.95rem; margin:8px 0 0 }
 
-    /* Indicadores de Impacto */
-    .impact-metrics{
-      display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:12px; margin-top:16px;
-    }
-    .metric-card{
-      background:linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
-      border:1px solid #bae6fd; border-radius:12px; padding:16px;
-      text-align:center; position:relative; overflow:hidden;
-    }
-    .metric-card::before{
-      content:""; position:absolute; top:0; left:0; right:0; height:3px;
-      background:linear-gradient(90deg, var(--azul), #3ea3d3);
-    }
-    .metric-value{
-      font-size:2rem; font-weight:800; color:var(--azul);
-      font-family:"Inter", sans-serif; line-height:1;
-    }
-    .metric-label{
-      font-size:.85rem; color:#0c4a6e; margin-top:4px; font-weight:600;
-    }
+    /* Indicadores de Impacto - REMOVIDO */
 
     /* Carrossel */
     #sobre .carousel{ position:relative }
@@ -313,13 +294,17 @@
     /* Footer */
     footer{ margin-top:30px }
     .footer{ background:#fff; border-top:1px solid var(--borda) }
-    .footer-inner{ max-width:var(--maxw); margin:0 auto; padding:22px 20px; display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px }
-    .footer h4{ margin:0 0 8px; color:#196396; font-size:1rem; text-align:center }
+    .footer-inner{ 
+      max-width:var(--maxw); margin:0 auto; padding:22px 20px; 
+      display:flex; align-items:center; justify-content:center; gap:40px; flex-wrap:wrap;
+    }
+    .footer h4{ margin:0 0 12px; color:#196396; font-size:1rem; text-align:center }
     .footer a{ color:#196396 }
-    .brands-col{ display:flex; flex-direction:column; align-items:center; gap:10px }
+    .footer-links{ display:flex; flex-direction:column; gap:8px; }
+    .brands-col{ display:flex; align-items:center; gap:20px; }
     .brands-col img{ display:block; transition:transform .12s ease }
     .brands-col img:hover{ transform:scale(1.04) }
-    .foot-note{ border-top:1px solid var(--borda); padding:12px 20px; text-align:center; color:#6b7280 }
+    .foot-note{ border-top:1px solid var(--borda); padding:12px 20px; text-align:center; color:#6b7280; font-size:.9rem; }
 
     /* Overlay/Modal */
     .overlay{
@@ -343,21 +328,23 @@
 
     /* Modal Compartilhar */
     .share-grid{
-      display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:16px 0;
+      display:grid; grid-template-columns:1fr 1fr; gap:10px; margin:16px 0;
     }
     .share-btn{
-      padding:12px; border-radius:10px; border:1px solid var(--borda);
+      padding:10px 12px; border-radius:10px; border:1px solid var(--borda);
       background:var(--branco); cursor:pointer; transition:all .2s ease;
-      display:flex; align-items:center; gap:8px; font-weight:600;
+      display:flex; align-items:center; justify-content:center; gap:8px; 
+      font-weight:600; font-size:.9rem;
     }
     .share-btn:hover{ background:var(--chip); transform:translateY(-2px); box-shadow:0 4px 12px rgba(0,0,0,.08); }
-    .share-btn svg{ width:20px; height:20px; flex-shrink:0; }
+    .share-btn svg{ width:18px; height:18px; flex-shrink:0; }
     .qr-container{
-      text-align:center; padding:16px; background:var(--off); border-radius:12px; margin:16px 0;
+      text-align:center; padding:12px; background:var(--off); border-radius:12px; margin:16px 0;
     }
     #qrcode{ display:inline-block; }
+    #qrcode canvas, #qrcode img{ max-width:100% !important; height:auto !important; }
     .qr-instructions{
-      font-size:.85rem; color:#6b7280; margin-top:8px;
+      font-size:.82rem; color:#6b7280; margin-top:8px;
     }
 
     /* Mobile touch improvements */
@@ -379,28 +366,40 @@
       .brand-frame{ width:224px; height:224px }
       .card{ padding:18px }
       .cta-bar{ gap:8px }
-      .btn{ width:calc(50% - 4px); justify-content:center }
+      .btn{ width:calc(50% - 4px); justify-content:center; font-size:.85rem; padding:8px 10px; }
       .slide{ flex-basis:96%; max-width:96% }
       h1{ font-size:1.8rem }
-      .footer-inner{ grid-template-columns:1fr; gap:20px; }
       .theme-toggle, .back-to-top{ bottom:16px; right:16px; width:44px; height:44px; }
       .back-to-top{ bottom:72px; }
-      .breadcrumb-inner{ flex-direction:column; align-items:flex-start; }
-      .breadcrumb-actions{ width:100%; justify-content:stretch; }
-      .breadcrumb-btn{ flex:1; }
-      .share-grid{ grid-template-columns:1fr; }
-      .impact-metrics{ grid-template-columns:1fr; }
+      .breadcrumb-inner{ padding:10px 16px; gap:10px; }
+      .breadcrumb-nav{ gap:6px; font-size:.82rem; }
+      .breadcrumb-nav a{ padding:5px 10px; }
+      .breadcrumb-btn{ font-size:.82rem; padding:6px 12px; }
+      .share-grid{ gap:8px; }
+      .share-btn{ padding:8px 10px; font-size:.85rem; }
+      .modal{ padding:20px; }
+      .qr-container{ padding:10px; }
     }
     @media (max-width:480px){
-      body{ padding-top:80px; }
+      body{ padding-top:70px; }
       .brand-frame{ width:168px; height:168px }
-      h1{ font-size:1.6rem }
-      h2{ font-size:1.15rem; }
-      .btn{ width:100%; font-size:.92rem; }
+      h1{ font-size:1.5rem }
+      h2{ font-size:1.1rem; }
+      .btn{ width:100%; font-size:.88rem; padding:9px 12px; }
       .wrap{ padding:16px 10px }
-      .card{ padding:16px; margin-bottom:16px; }
-      .slide{ flex-basis:100%; max-width:100%; padding:18px; font-size:.94rem; }
+      .card{ padding:14px; margin-bottom:14px; }
+      .slide{ flex-basis:100%; max-width:100%; padding:16px; font-size:.93rem; }
       body{ font-size:15px; line-height:1.6; }
+      .breadcrumb-inner{ padding:8px 12px; flex-direction:column; align-items:stretch; gap:8px; }
+      .breadcrumb-nav{ justify-content:center; }
+      .breadcrumb-nav a{ font-size:.78rem; padding:4px 8px; }
+      .breadcrumb-btn{ width:100%; font-size:.88rem; }
+      .share-grid{ grid-template-columns:1fr; gap:8px; }
+      .share-btn{ font-size:.88rem; padding:10px; }
+      #qrcode{ transform:scale(0.85); }
+      .footer-inner{ flex-direction:column; gap:20px; padding:16px; }
+      .brands-col{ flex-direction:column; gap:12px; }
+      .footer-links a{ font-size:.9rem; }
     }
   </style>
 </head>
@@ -415,7 +414,7 @@
         <a href="#competencias">Competências</a>
       </div>
       <div class="breadcrumb-actions">
-        <button class="breadcrumb-btn" id="btnShare">📤 Compartilhar</button>
+        <button class="breadcrumb-btn" id="btnShare">Compartilhar</button>
       </div>
     </div>
   </nav>
@@ -490,46 +489,6 @@
               <div class="carousel-progress-bar" id="progressBar"></div>
             </div>
             <div class="dots" id="aboutDots" aria-hidden="true"></div>
-          </div>
-        </section>
-
-        <!-- INDICADORES DE IMPACTO -->
-        <section class="card" id="impacto" aria-label="Impacto e Resultados">
-          <h2>Impacto & Resultados</h2>
-          <div class="impact-metrics">
-            <div class="metric-card">
-              <div class="metric-value" data-target="2600">0</div>
-              <div class="metric-label">Diárias Economizadas/Ano</div>
-              <div class="metric-chart">
-                <div class="bar" style="height:60%"></div>
-                <div class="bar" style="height:75%"></div>
-                <div class="bar" style="height:85%"></div>
-                <div class="bar" style="height:100%"></div>
-                <div class="bar" style="height:90%"></div>
-              </div>
-            </div>
-            <div class="metric-card">
-              <div class="metric-value">R$ <span data-target="0">0</span>M+</div>
-              <div class="metric-label">Economias Anuais Geradas</div>
-              <div class="metric-chart">
-                <div class="bar" style="height:45%"></div>
-                <div class="bar" style="height:70%"></div>
-                <div class="bar" style="height:90%"></div>
-                <div class="bar" style="height:100%"></div>
-                <div class="bar" style="height:95%"></div>
-              </div>
-            </div>
-            <div class="metric-card">
-              <div class="metric-value"><span data-target="1000">0</span>+</div>
-              <div class="metric-label">Pacientes Impactados</div>
-              <div class="metric-chart">
-                <div class="bar" style="height:50%"></div>
-                <div class="bar" style="height:65%"></div>
-                <div class="bar" style="height:80%"></div>
-                <div class="bar" style="height:95%"></div>
-                <div class="bar" style="height:100%"></div>
-              </div>
-            </div>
           </div>
         </section>
 
@@ -633,16 +592,14 @@
     <footer class="footer" aria-label="Rodapé">
       <div class="footer-inner">
         <div class="brands-col">
-          <a href="https://axcare.com.br" target="_blank" rel="noopener"><img src="https://i.imgur.com/yAUQciP.png" alt="AxiaCare" style="height:40px" loading="lazy"></a>
+          <a href="https://axcare.com.br" target="_blank" rel="noopener"><img src="https://i.imgur.com/yAUQciP.png" alt="AxiaCare" style="height:36px" loading="lazy"></a>
+          <a href="https://medvalor.med.br" target="_blank" rel="noopener"><img src="https://i.imgur.com/N0lXklP.png" alt="MedValor" style="height:30px" loading="lazy"></a>
         </div>
-        <div>
+        <div class="footer-links">
           <h4>Links</h4>
-          <p style="text-align:center"><a href="https://www.guithome.com.br" target="_blank" rel="noopener">Site pessoal</a></p>
-          <p style="text-align:center"><a href="https://blog.guithome.com.br" target="_blank" rel="noopener">Blog</a></p>
-          <p style="text-align:center"><a href="https://www.linkedin.com/in/gui-thome" target="_blank" rel="noopener">LinkedIn</a></p>
-        </div>
-        <div class="brands-col">
-          <a href="https://medvalor.med.br" target="_blank" rel="noopener"><img src="https://i.imgur.com/N0lXklP.png" alt="MedValor" style="height:32px" loading="lazy"></a>
+          <a href="https://www.guithome.com.br" target="_blank" rel="noopener">Site pessoal</a>
+          <a href="https://blog.guithome.com.br" target="_blank" rel="noopener">Blog</a>
+          <a href="https://www.linkedin.com/in/gui-thome" target="_blank" rel="noopener">LinkedIn</a>
         </div>
       </div>
       <div class="foot-note">© 2025 Guilherme Thomé | Grupo CSV. Todos os direitos reservados.</div>
@@ -780,45 +737,8 @@
       });
     })();
 
-    // Animação de contadores
-    (function(){
-      const counters = document.querySelectorAll('[data-target]');
-      let animated = false;
-      
-      function animateCounters(){
-        if(animated) return;
-        
-        const observer = new IntersectionObserver((entries)=>{
-          entries.forEach(entry=>{
-            if(entry.isIntersecting && !animated){
-              animated = true;
-              counters.forEach(counter=>{
-                const target = +counter.getAttribute('data-target');
-                const duration = 2000;
-                const step = target / (duration / 16);
-                let current = 0;
-                
-                const timer = setInterval(()=>{
-                  current += step;
-                  if(current >= target){
-                    counter.textContent = target.toLocaleString('pt-BR');
-                    clearInterval(timer);
-                  } else {
-                    counter.textContent = Math.floor(current).toLocaleString('pt-BR');
-                  }
-                }, 16);
-              });
-            }
-          });
-        }, {threshold: 0.5});
-        
-        const impactSection = document.getElementById('impacto');
-        if(impactSection) observer.observe(impactSection);
-      }
-      
-      animateCounters();
-    })();
-
+    // Animação de contadores - REMOVIDO
+    
     // Modal Contato
     (function(){
       const btn = document.getElementById('btnContato');
