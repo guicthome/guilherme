@@ -168,7 +168,7 @@
         max-width: 90%;
         filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3));
         animation: float 3s ease-in-out infinite;
-        margin-bottom: 10px;
+        margin-bottom: 5px;
     }
 
     .hero-hub {
@@ -177,7 +177,7 @@
         letter-spacing: 10px;
         text-transform: uppercase;
         opacity: 1;
-        margin-bottom: 15px;
+        margin-bottom: 8px;
         font-family: 'Segoe UI', sans-serif;
         animation: glow 2s ease-in-out infinite;
     }
@@ -376,24 +376,24 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        min-height: 80px;
+        min-height: 100px;
         margin-bottom: 25px;
     }
 
     .brand-logo {
         max-width: 100%;
         height: auto;
-        max-height: 70px;
+        max-height: 90px;
         object-fit: contain;
         transition: transform 0.3s ease;
     }
 
     .brand-card.small .brand-logo {
-        max-height: 60px;
+        max-height: 80px;
     }
 
     .brand-card.small .brand-logo-container {
-        min-height: 70px;
+        min-height: 90px;
         margin-bottom: 20px;
     }
 
@@ -498,8 +498,8 @@
     .cv-badge-icon {
         width: 18px;
         height: 18px;
-        border-radius: 3px;
         transition: transform 0.3s ease;
+        fill: currentColor;
     }
 
     .cv-badge a:hover {
@@ -624,13 +624,13 @@
 
         .hero-logo {
             width: 160px;
-            margin-bottom: 8px;
+            margin-bottom: 3px;
         }
 
         .hero-hub {
             font-size: 14px;
             letter-spacing: 6px;
-            margin-bottom: 10px;
+            margin-bottom: 6px;
         }
 
         .hero-title {
@@ -701,20 +701,20 @@
         }
 
         .brand-logo-container {
-            min-height: 60px;
+            min-height: 70px;
             margin-bottom: 20px;
         }
 
         .brand-logo {
-            max-height: 55px;
+            max-height: 65px;
         }
 
         .brand-card.small .brand-logo {
-            max-height: 50px;
+            max-height: 60px;
         }
 
         .brand-card.small .brand-logo-container {
-            min-height: 55px;
+            min-height: 65px;
             margin-bottom: 18px;
         }
 
@@ -741,8 +741,8 @@
         }
 
         .cv-badge-icon {
-            width: 16px;
-            height: 16px;
+            width: 15px;
+            height: 15px;
         }
 
         .footer {
@@ -796,8 +796,8 @@
         }
 
         .cv-badge-icon {
-            width: 14px;
-            height: 14px;
+            width: 13px;
+            height: 13px;
         }
     }
 </style>
@@ -821,7 +821,9 @@
     <!-- Badge CV Flutuante -->
     <div class="cv-badge">
         <a href="https://hub.guithome.com.br/cv" aria-label="Ver Currículo">
-            <img src="https://guithome.com.br/favicon.ico" alt="" class="cv-badge-icon">
+            <svg class="cv-badge-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+            </svg>
             CV
         </a>
     </div>
