@@ -24,7 +24,10 @@
   <!-- Fonte editorial -->
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+
+  <!-- QR Code Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
   <!-- Schema.org JSON-LD -->
   <script type="application/ld+json">
@@ -38,21 +41,7 @@
     "sameAs": [
       "https://www.linkedin.com/in/gui-thome",
       "https://blog.guithome.com.br"
-    ],
-    "alumniOf": [
-      {
-        "@type": "EducationalOrganization",
-        "name": "Faculdade Unimed"
-      },
-      {
-        "@type": "EducationalOrganization",
-        "name": "Universidade Federal de Juiz de Fora"
-      }
-    ],
-    "worksFor": {
-      "@type": "Organization",
-      "name": "Unimed Governador Valadares"
-    }
+    ]
   }
   </script>
 
@@ -88,6 +77,7 @@
       margin:0; font-family:Aptos, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       color:var(--texto); background:linear-gradient(180deg,#fff 0%,#fafafa 100%);
       -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+      padding-top:60px; /* espaço para breadcrumb */
     }
     
     img { display: block; max-width: 100%; height: auto; }
@@ -100,6 +90,40 @@
     h2{ font-size:1.25rem; font-weight:800; margin:0 0 12px }
     p{ margin:0 0 12px }
     ul{ margin:8px 0 0 20px }
+
+    /* Breadcrumb Navigation */
+    .breadcrumb{
+      position:fixed; top:0; left:0; right:0; z-index:999;
+      background:var(--branco); border-bottom:1px solid var(--borda);
+      box-shadow:0 2px 8px rgba(0,0,0,.04);
+      opacity:0; pointer-events:none; transition:all .3s ease;
+      backdrop-filter:blur(10px); background:rgba(255,255,255,.95);
+    }
+    [data-theme="dark"] .breadcrumb{ background:rgba(15,20,26,.95); }
+    .breadcrumb.visible{ opacity:1; pointer-events:all; }
+    .breadcrumb-inner{
+      max-width:var(--maxw); margin:0 auto; padding:12px 20px;
+      display:flex; align-items:center; justify-content:space-between; gap:16px;
+    }
+    .breadcrumb-nav{
+      display:flex; gap:8px; align-items:center; flex-wrap:wrap;
+    }
+    .breadcrumb-nav a{
+      padding:6px 12px; border-radius:8px; font-size:.88rem; font-weight:600;
+      color:var(--texto); transition:all .2s ease;
+    }
+    .breadcrumb-nav a:hover{
+      background:var(--chip); text-decoration:none;
+    }
+    .breadcrumb-actions{
+      display:flex; gap:8px; align-items:center;
+    }
+    .breadcrumb-btn{
+      padding:6px 12px; border-radius:8px; font-size:.85rem; font-weight:600;
+      background:var(--azul); color:#fff; border:none; cursor:pointer;
+      transition:all .2s ease; white-space:nowrap;
+    }
+    .breadcrumb-btn:hover{ background:#154e75; transform:translateY(-1px); }
 
     .wrap{ max-width:var(--maxw); margin:0 auto; padding:28px 20px }
     
@@ -148,6 +172,8 @@
     .btn.primary:hover{ background:#154e75; border-color:#154e75 }
     .btn.ghost{ background:#fff; color:var(--azul) }
     .btn.ghost:hover{ background:#f1f5f9; border-color:#c8d6e5 }
+    .btn.success{ background:#10b981; color:#fff; border-color:#10b981; }
+    .btn.success:hover{ background:#059669; border-color:#059669; }
     .btn:hover{ transform:translateY(-1px); box-shadow:0 6px 16px rgba(0,0,0,.08) }
     .btn img{ height:var(--icon); width:var(--icon); object-fit:contain }
     #btnContato img{ filter:invert(1) }
@@ -201,6 +227,27 @@
       border:1px solid #cfe5da; box-shadow:0 3px 8px rgba(0,0,0,.06)
     }
     .desc{ color:#196396; font-style:italic; font-size:.95rem; margin:8px 0 0 }
+
+    /* Indicadores de Impacto */
+    .impact-metrics{
+      display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:12px; margin-top:16px;
+    }
+    .metric-card{
+      background:linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+      border:1px solid #bae6fd; border-radius:12px; padding:16px;
+      text-align:center; position:relative; overflow:hidden;
+    }
+    .metric-card::before{
+      content:""; position:absolute; top:0; left:0; right:0; height:3px;
+      background:linear-gradient(90deg, var(--azul), #3ea3d3);
+    }
+    .metric-value{
+      font-size:2rem; font-weight:800; color:var(--azul);
+      font-family:"Inter", sans-serif; line-height:1;
+    }
+    .metric-label{
+      font-size:.85rem; color:#0c4a6e; margin-top:4px; font-weight:600;
+    }
 
     /* Carrossel */
     #sobre .carousel{ position:relative }
@@ -294,6 +341,25 @@
     .close-btn{ margin-top:20px; padding:8px 14px; background:var(--azul); color:#fff; border:none; border-radius:8px; cursor:pointer; min-height:44px; }
     .close-btn:hover{ background:#154e75; }
 
+    /* Modal Compartilhar */
+    .share-grid{
+      display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:16px 0;
+    }
+    .share-btn{
+      padding:12px; border-radius:10px; border:1px solid var(--borda);
+      background:var(--branco); cursor:pointer; transition:all .2s ease;
+      display:flex; align-items:center; gap:8px; font-weight:600;
+    }
+    .share-btn:hover{ background:var(--chip); transform:translateY(-2px); box-shadow:0 4px 12px rgba(0,0,0,.08); }
+    .share-btn svg{ width:20px; height:20px; flex-shrink:0; }
+    .qr-container{
+      text-align:center; padding:16px; background:var(--off); border-radius:12px; margin:16px 0;
+    }
+    #qrcode{ display:inline-block; }
+    .qr-instructions{
+      font-size:.85rem; color:#6b7280; margin-top:8px;
+    }
+
     /* Mobile touch improvements */
     @media (hover: none) and (pointer: coarse) {
       * { -webkit-tap-highlight-color: transparent; }
@@ -319,8 +385,14 @@
       .footer-inner{ grid-template-columns:1fr; gap:20px; }
       .theme-toggle, .back-to-top{ bottom:16px; right:16px; width:44px; height:44px; }
       .back-to-top{ bottom:72px; }
+      .breadcrumb-inner{ flex-direction:column; align-items:flex-start; }
+      .breadcrumb-actions{ width:100%; justify-content:stretch; }
+      .breadcrumb-btn{ flex:1; }
+      .share-grid{ grid-template-columns:1fr; }
+      .impact-metrics{ grid-template-columns:1fr; }
     }
     @media (max-width:480px){
+      body{ padding-top:80px; }
       .brand-frame{ width:168px; height:168px }
       h1{ font-size:1.6rem }
       h2{ font-size:1.15rem; }
@@ -333,6 +405,21 @@
   </style>
 </head>
 <body>
+  <!-- Breadcrumb Navigation -->
+  <nav class="breadcrumb" id="breadcrumb">
+    <div class="breadcrumb-inner">
+      <div class="breadcrumb-nav">
+        <a href="#sobre">Sobre</a>
+        <a href="#experiencia">Experiência</a>
+        <a href="#formacao">Formação</a>
+        <a href="#competencias">Competências</a>
+      </div>
+      <div class="breadcrumb-actions">
+        <button class="breadcrumb-btn" id="btnShare">📤 Compartilhar</button>
+      </div>
+    </div>
+  </nav>
+
   <!-- Dark mode toggle -->
   <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema">
     <svg id="iconSun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -403,6 +490,25 @@
               <div class="carousel-progress-bar" id="progressBar"></div>
             </div>
             <div class="dots" id="aboutDots" aria-hidden="true"></div>
+          </div>
+        </section>
+
+        <!-- INDICADORES DE IMPACTO -->
+        <section class="card" id="impacto" aria-label="Impacto e Resultados">
+          <h2>Impacto & Resultados</h2>
+          <div class="impact-metrics">
+            <div class="metric-card">
+              <div class="metric-value" data-target="2600">0</div>
+              <div class="metric-label">Diárias Economizadas/Ano</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-value">R$ <span data-target="0">0</span>M+</div>
+              <div class="metric-label">Economias Anuais Geradas</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-value"><span data-target="1000">0</span>+</div>
+              <div class="metric-label">Pacientes Impactados</div>
+            </div>
           </div>
         </section>
 
@@ -539,6 +645,52 @@
     </div>
   </div>
 
+  <!-- MODAL COMPARTILHAR -->
+  <div class="overlay" id="overlayShare" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="ttlShare">
+      <h2 id="ttlShare">Compartilhar Currículo</h2>
+      
+      <div class="share-grid">
+        <button class="share-btn" id="shareWhatsApp">
+          <svg viewBox="0 0 24 24" fill="#25D366" stroke="none">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          WhatsApp
+        </button>
+        
+        <button class="share-btn" id="shareEmail">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+          E-mail
+        </button>
+        
+        <button class="share-btn" id="shareLinkedIn">
+          <svg viewBox="0 0 24 24" fill="#0A66C2" stroke="none">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+          </svg>
+          LinkedIn
+        </button>
+        
+        <button class="share-btn" id="copyLink">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+          </svg>
+          Copiar Link
+        </button>
+      </div>
+
+      <div class="qr-container">
+        <div id="qrcode"></div>
+        <p class="qr-instructions">Escaneie o QR Code para acessar este currículo</p>
+      </div>
+
+      <button class="close-btn" id="closeShare" type="button">Fechar</button>
+    </div>
+  </div>
+
   <script>
     // Dark mode toggle
     (function(){
@@ -547,7 +699,6 @@
       const iconMoon = document.getElementById('iconMoon');
       const html = document.documentElement;
       
-      // Carregar preferência salva
       const savedTheme = localStorage.getItem('theme');
       const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
       
@@ -578,6 +729,19 @@
       });
     })();
 
+    // Breadcrumb Navigation
+    (function(){
+      const breadcrumb = document.getElementById('breadcrumb');
+      
+      window.addEventListener('scroll', ()=>{
+        if(window.scrollY > 200){
+          breadcrumb.classList.add('visible');
+        } else {
+          breadcrumb.classList.remove('visible');
+        }
+      }, {passive:true});
+    })();
+
     // Botão voltar ao topo
     (function(){
       const btn = document.getElementById('backToTop');
@@ -593,6 +757,45 @@
       btn.addEventListener('click', ()=>{
         window.scrollTo({top:0, behavior:'smooth'});
       });
+    })();
+
+    // Animação de contadores
+    (function(){
+      const counters = document.querySelectorAll('[data-target]');
+      let animated = false;
+      
+      function animateCounters(){
+        if(animated) return;
+        
+        const observer = new IntersectionObserver((entries)=>{
+          entries.forEach(entry=>{
+            if(entry.isIntersecting && !animated){
+              animated = true;
+              counters.forEach(counter=>{
+                const target = +counter.getAttribute('data-target');
+                const duration = 2000;
+                const step = target / (duration / 16);
+                let current = 0;
+                
+                const timer = setInterval(()=>{
+                  current += step;
+                  if(current >= target){
+                    counter.textContent = target.toLocaleString('pt-BR');
+                    clearInterval(timer);
+                  } else {
+                    counter.textContent = Math.floor(current).toLocaleString('pt-BR');
+                  }
+                }, 16);
+              });
+            }
+          });
+        }, {threshold: 0.5});
+        
+        const impactSection = document.getElementById('impacto');
+        if(impactSection) observer.observe(impactSection);
+      }
+      
+      animateCounters();
     })();
 
     // Modal Contato
@@ -622,6 +825,88 @@
       document.addEventListener('keydown', e=>{ if(e.key==='Escape') close(); });
     })();
 
+    // Modal Compartilhar com QR Code
+    (function(){
+      const btnShare = document.getElementById('btnShare');
+      const overlayShare = document.getElementById('overlayShare');
+      const closeShare = document.getElementById('closeShare');
+      const qrcodeDiv = document.getElementById('qrcode');
+      
+      const pageURL = window.location.href;
+      let qrGenerated = false;
+      
+      function open(){
+        overlayShare.classList.add('active');
+        overlayShare.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        
+        // Gerar QR Code apenas uma vez
+        if(!qrGenerated && typeof QRCode !== 'undefined'){
+          qrcodeDiv.innerHTML = '';
+          new QRCode(qrcodeDiv, {
+            text: pageURL,
+            width: 200,
+            height: 200,
+            colorDark: '#196396',
+            colorLight: '#ffffff',
+            correctLevel: QRCode.CorrectLevel.H
+          });
+          qrGenerated = true;
+        }
+        
+        closeShare.focus();
+      }
+      
+      function close(){
+        overlayShare.classList.remove('active');
+        overlayShare.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        btnShare.focus();
+      }
+      
+      close();
+      btnShare.addEventListener('click', open);
+      closeShare.addEventListener('click', close);
+      overlayShare.addEventListener('click', e=>{ if(e.target===overlayShare) close(); });
+      
+      // Compartilhar WhatsApp
+      document.getElementById('shareWhatsApp').addEventListener('click', ()=>{
+        const text = encodeURIComponent('Confira o currículo de Guilherme Thomé: ' + pageURL);
+        window.open('https://wa.me/?text=' + text, '_blank');
+      });
+      
+      // Compartilhar Email
+      document.getElementById('shareEmail').addEventListener('click', ()=>{
+        const subject = encodeURIComponent('Currículo - Guilherme Thomé');
+        const body = encodeURIComponent('Olá,\n\nGostaria de compartilhar o currículo de Guilherme Thomé:\n\n' + pageURL + '\n\nAtenciosamente.');
+        window.location.href = 'mailto:?subject=' + subject + '&body=' + body;
+      });
+      
+      // Compartilhar LinkedIn
+      document.getElementById('shareLinkedIn').addEventListener('click', ()=>{
+        const url = encodeURIComponent(pageURL);
+        window.open('https://www.linkedin.com/sharing/share-offsite/?url=' + url, '_blank');
+      });
+      
+      // Copiar Link
+      document.getElementById('copyLink').addEventListener('click', ()=>{
+        navigator.clipboard.writeText(pageURL).then(()=>{
+          const btn = document.getElementById('copyLink');
+          const originalText = btn.innerHTML;
+          btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Copiado!';
+          btn.style.background = '#10b981';
+          btn.style.color = '#fff';
+          setTimeout(()=>{
+            btn.innerHTML = originalText;
+            btn.style.background = '';
+            btn.style.color = '';
+          }, 2000);
+        });
+      });
+      
+      document.addEventListener('keydown', e=>{ if(e.key==='Escape') close(); });
+    })();
+
     // Carrossel "Sobre"
     (function(){
       const track = document.getElementById('aboutTrack');
@@ -631,7 +916,6 @@
       const progressBar = document.getElementById('progressBar');
       const slides = Array.from(track.querySelectorAll('.slide'));
 
-      // Dots
       slides.forEach((_,i)=>{
         const d=document.createElement('div');
         d.className='dot'+(i===0?' active':'');
@@ -642,7 +926,6 @@
 
       function updateDots(i){ 
         dots.forEach((d,idx)=>d.classList.toggle('active', idx===i)); 
-        // Atualizar progress bar
         const progress = ((i + 1) / slides.length) * 100;
         progressBar.style.width = progress + '%';
       }
@@ -662,7 +945,6 @@
       prev.addEventListener('click',()=>{ const i=Math.max(0,indexFromScroll()-1); scrollToIndex(i,true); restart(); });
       track.addEventListener('scroll',()=>{ clearTimeout(track._t); track._t=setTimeout(()=>updateDots(indexFromScroll()), 60); },{passive:true});
 
-      // Touch gestures
       let startX = 0;
       track.addEventListener('touchstart', e => {
         startX = e.touches[0].clientX;
@@ -682,7 +964,6 @@
         }
       }, {passive:true});
 
-      // Autoplay
       const INTERVAL=4400; let timer=null;
       function play(){ if(timer) return; timer=setInterval(()=>{ let i=indexFromScroll()+1; if(i>=slides.length) i=0; scrollToIndex(i,true); },INTERVAL); }
       function pause(){ if(timer){ clearInterval(timer); timer=null; } }
@@ -693,7 +974,7 @@
       document.addEventListener('visibilitychange',()=>{ document.hidden? pause(): play(); });
 
       play();
-      updateDots(0); // inicializar progress bar
+      updateDots(0);
     })();
   </script>
 </body>
