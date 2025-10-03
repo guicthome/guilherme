@@ -155,22 +155,33 @@
         max-width: 90%;
         filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3));
         animation: float 3s ease-in-out infinite;
-        margin-bottom: 30px;
+        margin-bottom: 20px;
+    }
+
+    .hero-hub {
+        font-size: 16px;
+        font-weight: 600;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        opacity: 0.7;
+        margin-bottom: 15px;
+        font-family: 'Segoe UI', sans-serif;
     }
 
     .hero-title {
-        font-size: 48px;
+        font-size: 56px;
         font-weight: 900;
         margin-bottom: 15px;
         text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-        letter-spacing: -1px;
-        line-height: 1.1;
+        letter-spacing: -1.5px;
+        line-height: 1.2;
+        color: white;
     }
 
     .hero-subtitle {
-        font-size: 20px;
+        font-size: 18px;
         font-weight: 400;
-        opacity: 0.95;
+        opacity: 0.85;
         margin-bottom: 20px;
         text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
     }
@@ -527,8 +538,19 @@
     }
 
     @media (max-width: 768px) {
+        .hero-hub {
+            font-size: 13px;
+            letter-spacing: 3px;
+            margin-bottom: 12px;
+        }
+
         .hero-title {
-            font-size: 32px;
+            font-size: 38px;
+            letter-spacing: -1px;
+        }
+
+        .hero-subtitle {
+            font-size: 15px;
         }
 
         .hero-subtitle {
@@ -581,9 +603,10 @@
 
     <div class="main-content">
         <header class="hero" role="banner">
-            <img src="https://i.imgur.com/JpYaFZl.png" alt="Logo Guilherme Thomé" class="hero-logo">
-            <h1 class="hero-title">Hub Gestão em Saúde Inteligente</h1>
-            <p class="hero-subtitle">Selecione a empresa</p>
+            <img src="https://i.imgur.com/IdefdhS.png" alt="Logo Guilherme Thomé" class="hero-logo">
+            <div class="hero-hub">Hub</div>
+            <h1 class="hero-title">Gestão em Saúde<br>Inteligente</h1>
+            <p class="hero-subtitle">Repositório Central de Documentos e Ferramentas</p>
         </header>
 
         <section class="stats" aria-label="Estatísticas do hub">
