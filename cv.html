@@ -53,19 +53,51 @@
       --chip:#eaf3fb; --icon:16px;
     }
     
-    /* Dark mode */
+    /* Dark mode - CORES CORRIGIDAS */
     [data-theme="dark"] {
-      --branco:#0f141a; --texto:#e6e9ee; --borda:#1d2732; --off:#121820; 
-      --grafite:#e6e9ee; --shadow:0 10px 30px rgba(0,0,0,.36);
+      --branco:#1a1f28; --texto:#e8eaed; --borda:#2d3544; --off:#151a22; 
+      --grafite:#e8eaed; --shadow:0 10px 30px rgba(0,0,0,.5);
+      --chip:#1e3a52; --azul:#4a9fd8;
     }
-    [data-theme="dark"] body{ background:linear-gradient(180deg,#0c1218 0%,#0a0f14 100%) }
+    [data-theme="dark"] body{ background:linear-gradient(180deg,#0f1419 0%,#0a0d12 100%) }
+    [data-theme="dark"] .card{ background:#1a1f28; border-color:#2d3544; }
+    [data-theme="dark"] .slide{ background:linear-gradient(180deg,#1a1f28 0%, #1e232d 100%); border-color:#2d3544; }
+    [data-theme="dark"] .footer{ background:#1a1f28; border-color:#2d3544; }
+    [data-theme="dark"] .btn.ghost{ background:#1e232d; color:#4a9fd8; border-color:#2d3544; }
+    [data-theme="dark"] .btn.ghost:hover{ background:#252b38; border-color:#3d4658; }
+    [data-theme="dark"] .logo-pill{ background:#1e232d; border-color:#2d3544; }
+    [data-theme="dark"] .skill{ background:#1e3a52; border-color:#2d4a66; color:#7db4e0; }
+    [data-theme="dark"] .skill:hover{ background:#234561; }
+    [data-theme="dark"] .badge{ background:linear-gradient(180deg,#2d5a45,#1e4733); color:#8fcea8; border-color:#2d5a45; }
+    [data-theme="dark"] .nav-btn{ background:#1e232d; border-color:#2d3544; }
+    [data-theme="dark"] .nav-btn:hover{ background:#252b38; }
+    [data-theme="dark"] .dot{ background:#3d4658; }
+    [data-theme="dark"] .dot.active{ background:#4a9fd8; }
+    [data-theme="dark"] .share-btn{ background:#1e232d; border-color:#2d3544; }
+    [data-theme="dark"] .share-btn:hover{ background:#252b38; }
+    [data-theme="dark"] .modal{ background:#1a1f28; }
+    [data-theme="dark"] .qr-container{ background:#151a22; }
     
     @media (prefers-color-scheme: dark){
       :root:not([data-theme="light"]){ 
-        --branco:#0f141a; --texto:#e6e9ee; --borda:#1d2732; --off:#121820; 
-        --grafite:#e6e9ee; --shadow:0 10px 30px rgba(0,0,0,.36);
+        --branco:#1a1f28; --texto:#e8eaed; --borda:#2d3544; --off:#151a22; 
+        --grafite:#e8eaed; --shadow:0 10px 30px rgba(0,0,0,.5);
+        --chip:#1e3a52; --azul:#4a9fd8;
       }
-      body:not([data-theme="light"]){ background:linear-gradient(180deg,#0c1218 0%,#0a0f14 100%) }
+      body:not([data-theme="light"]){ background:linear-gradient(180deg,#0f1419 0%,#0a0d12 100%) }
+      .card:not([data-theme="light"]){ background:#1a1f28; border-color:#2d3544; }
+      .slide:not([data-theme="light"]){ background:linear-gradient(180deg,#1a1f28 0%, #1e232d 100%); border-color:#2d3544; }
+      .footer:not([data-theme="light"]){ background:#1a1f28; border-color:#2d3544; }
+      .btn.ghost:not([data-theme="light"]){ background:#1e232d; color:#4a9fd8; border-color:#2d3544; }
+      .logo-pill:not([data-theme="light"]){ background:#1e232d; border-color:#2d3544; }
+      .skill:not([data-theme="light"]){ background:#1e3a52; border-color:#2d4a66; color:#7db4e0; }
+      .badge:not([data-theme="light"]){ background:linear-gradient(180deg,#2d5a45,#1e4733); color:#8fcea8; border-color:#2d5a45; }
+      .nav-btn:not([data-theme="light"]){ background:#1e232d; border-color:#2d3544; }
+      .dot:not([data-theme="light"]){ background:#3d4658; }
+      .dot.active:not([data-theme="light"]){ background:#4a9fd8; }
+      .share-btn:not([data-theme="light"]){ background:#1e232d; border-color:#2d3544; }
+      .modal:not([data-theme="light"]){ background:#1a1f28; }
+      .qr-container:not([data-theme="light"]){ background:#151a22; }
     }
 
     /* Base */
@@ -77,7 +109,7 @@
       margin:0; font-family:Aptos, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       color:var(--texto); background:linear-gradient(180deg,#fff 0%,#fafafa 100%);
       -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
-      padding-top:60px; /* espaço para breadcrumb */
+      padding-top:60px;
     }
     
     img { display: block; max-width: 100%; height: auto; }
@@ -99,7 +131,7 @@
       opacity:0; pointer-events:none; transition:all .3s ease;
       backdrop-filter:blur(10px); background:rgba(255,255,255,.95);
     }
-    [data-theme="dark"] .breadcrumb{ background:rgba(15,20,26,.95); }
+    [data-theme="dark"] .breadcrumb{ background:rgba(26,31,40,.95); }
     .breadcrumb.visible{ opacity:1; pointer-events:all; }
     .breadcrumb-inner{
       max-width:var(--maxw); margin:0 auto; padding:12px 20px;
@@ -213,24 +245,22 @@
     .back-to-top:hover{ transform:scale(1.1) translateY(-2px); box-shadow:0 6px 16px rgba(0,0,0,.2); }
     .back-to-top svg{ width:22px; height:22px; color:var(--azul); }
 
-    /* Timeline */
+    /* Timeline - AJUSTADA PARA MOBILE */
     .timeline{ position:relative; margin-top:8px }
     .timeline::before{ content:""; position:absolute; left:11px; top:0; bottom:0; width:2px; background:var(--borda) }
-    .item{ position:relative; padding-left:32px; margin:18px 0 }
+    .item{ position:relative; padding-left:32px; margin:18px 0; word-wrap:break-word; }
     .item::before{ content:""; position:absolute; left:6px; top:6px; width:12px; height:12px; border-radius:50%; background:var(--azul); box-shadow:0 0 0 3px #e8f1f9 }
-    .role{ font-weight:800 }
-    .org{ color:#2d3445 }
-    .meta{ font-size:.9rem; color:#5d6372 }
+    .role{ font-weight:800; line-height:1.4; }
+    .org{ color:#2d3445; word-wrap:break-word; }
+    .meta{ font-size:.9rem; color:#5d6372; line-height:1.4; }
     .badge{
       display:inline-block; vertical-align:middle; margin-left:8px; padding:4px 10px; border-radius:999px;
       font-size:.72rem; font-weight:800; background:linear-gradient(180deg,#bfe5d7,#a6d8c0); color:#0b3b57;
       border:1px solid #cfe5da; box-shadow:0 3px 8px rgba(0,0,0,.06)
     }
-    .desc{ color:#196396; font-style:italic; font-size:.95rem; margin:8px 0 0 }
+    .desc{ color:#196396; font-style:italic; font-size:.95rem; margin:8px 0 0; line-height:1.5; }
 
-    /* Indicadores de Impacto - REMOVIDO */
-
-    /* Carrossel */
+    /* Carrossel - MELHORADO PARA MOBILE */
     #sobre .carousel{ position:relative }
     #sobre .slide{ font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif }
     .track{
@@ -241,7 +271,8 @@
       flex:0 0 min(92%, 520px); max-width:min(92%, 520px); scroll-snap-align:center;
       background:linear-gradient(180deg,#ffffff 0%, #fbfdff 100%);
       border:1px solid var(--borda); border-radius:16px; box-shadow:var(--shadow);
-      padding:22px 20px; line-height:1.75; min-height:clamp(240px, 34vh, 380px);
+      padding:22px 20px; line-height:1.75; 
+      min-height:clamp(280px, 38vh, 420px);
       display:flex; align-items:center; position:relative;
     }
     .slide::before{
@@ -249,12 +280,12 @@
       background:linear-gradient(90deg, var(--azul), #3ea3d3);
       border-top-left-radius:16px; border-top-right-radius:16px; opacity:.7;
     }
-    .slide p{ text-align:justify; margin:0; text-wrap:pretty; hyphens:auto; font-size:clamp(.96rem, 1rem, 1.02rem) }
+    .slide p{ text-align:justify; margin:0; text-wrap:pretty; hyphens:auto; font-size:clamp(.96rem, 1rem, 1.02rem); line-height:1.7; }
 
     .nav-btn{
       position:absolute; top:50%; transform:translateY(-50%); border:1px solid var(--borda); background:#fff;
       border-radius:12px; padding:8px 10px; box-shadow:0 6px 16px rgba(0,0,0,.06); cursor:pointer;
-      transition: all .2s ease;
+      transition: all .2s ease; z-index:10;
     }
     .nav-btn:hover{ background:#f8f9fa; }
     .nav-prev{ left:-6px } .nav-next{ right:-6px }
@@ -291,20 +322,28 @@
     #em-alta-btn .btn{ width:100%; justify-content:center; border:1px solid var(--azul); font-weight:800; letter-spacing:.2px; border-radius:14px; padding:12px 16px }
     #em-alta-btn .btn:hover{ background:#f8fbff }
 
-    /* Footer */
+    /* Footer - REDESENHADO E MELHORADO */
     footer{ margin-top:30px }
-    .footer{ background:#fff; border-top:1px solid var(--borda) }
+    .footer{ background:var(--branco); border-top:1px solid var(--borda); }
     .footer-inner{ 
-      max-width:var(--maxw); margin:0 auto; padding:22px 20px; 
-      display:flex; align-items:center; justify-content:center; gap:40px; flex-wrap:wrap;
+      max-width:var(--maxw); margin:0 auto; padding:32px 20px; 
+      display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:32px;
     }
-    .footer h4{ margin:0 0 12px; color:#196396; font-size:1rem; text-align:center }
-    .footer a{ color:#196396 }
-    .footer-links{ display:flex; flex-direction:column; gap:8px; }
-    .brands-col{ display:flex; align-items:center; gap:20px; }
-    .brands-col img{ display:block; transition:transform .12s ease }
-    .brands-col img:hover{ transform:scale(1.04) }
-    .foot-note{ border-top:1px solid var(--borda); padding:12px 20px; text-align:center; color:#6b7280; font-size:.9rem; }
+    .footer-section{ display:flex; flex-direction:column; gap:12px; }
+    .footer-section h4{ margin:0 0 8px; color:var(--azul); font-size:1rem; font-weight:700; }
+    .footer-section a{ 
+      color:var(--texto); display:flex; align-items:center; gap:8px; 
+      transition:all .2s ease; padding:4px 0;
+    }
+    .footer-section a:hover{ color:var(--azul); text-decoration:none; transform:translateX(4px); }
+    .brands-footer{ display:flex; gap:16px; flex-wrap:wrap; align-items:center; }
+    .brands-footer a{ display:block; transition:transform .2s ease; }
+    .brands-footer a:hover{ transform:scale(1.05); }
+    .brands-footer img{ height:32px; display:block; }
+    .foot-note{ 
+      border-top:1px solid var(--borda); padding:20px; text-align:center; 
+      color:#6b7280; font-size:.9rem; background:var(--off);
+    }
 
     /* Overlay/Modal */
     .overlay{
@@ -355,20 +394,41 @@
       }
     }
 
-    /* Responsividade */
+    /* Responsividade - MUITO MELHORADA */
     @media (max-width:1200px){
       .wrap{ padding:22px 16px; max-width:100% }
       .grid{ grid-template-columns:1fr; gap:18px }
       .header{ grid-template-columns:1fr; gap:12px }
       .brand-frame{ margin:0 auto }
     }
+    
     @media (max-width:768px){
       .brand-frame{ width:224px; height:224px }
       .card{ padding:18px }
       .cta-bar{ gap:8px }
       .btn{ width:calc(50% - 4px); justify-content:center; font-size:.85rem; padding:8px 10px; }
-      .slide{ flex-basis:96%; max-width:96% }
+      
+      /* Carrossel mobile - AJUSTADO */
+      .slide{ 
+        flex:0 0 94%; max-width:94%; 
+        min-height:clamp(320px, 42vh, 480px);
+        padding:20px 16px;
+      }
+      .slide p{ font-size:.95rem; line-height:1.65; }
+      
+      /* Timeline mobile - SEM CORTES */
+      .timeline{ margin-right:0; padding-right:0; }
+      .item{ padding-left:28px; margin:16px 0; }
+      .item::before{ left:5px; width:10px; height:10px; }
+      .timeline::before{ left:9px; }
+      .role{ font-size:.95rem; }
+      .org{ font-size:.9rem; }
+      .meta{ font-size:.85rem; }
+      .desc{ font-size:.9rem; }
+      
       h1{ font-size:1.8rem }
+      h2{ font-size:1.15rem; }
+      
       .theme-toggle, .back-to-top{ bottom:16px; right:16px; width:44px; height:44px; }
       .back-to-top{ bottom:72px; }
       .breadcrumb-inner{ padding:10px 16px; gap:10px; }
@@ -379,27 +439,59 @@
       .share-btn{ padding:8px 10px; font-size:.85rem; }
       .modal{ padding:20px; }
       .qr-container{ padding:10px; }
+      
+      /* Footer mobile */
+      .footer-inner{ grid-template-columns:1fr; gap:24px; padding:24px 20px; }
+      .brands-footer{ justify-content:center; }
     }
+    
     @media (max-width:480px){
-      body{ padding-top:70px; }
+      body{ padding-top:70px; font-size:15px; line-height:1.6; }
       .brand-frame{ width:168px; height:168px }
       h1{ font-size:1.5rem }
-      h2{ font-size:1.1rem; }
+      h2{ font-size:1.05rem; }
       .btn{ width:100%; font-size:.88rem; padding:9px 12px; }
       .wrap{ padding:16px 10px }
       .card{ padding:14px; margin-bottom:14px; }
-      .slide{ flex-basis:100%; max-width:100%; padding:16px; font-size:.93rem; }
-      body{ font-size:15px; line-height:1.6; }
+      
+      /* Carrossel mobile pequeno - OTIMIZADO */
+      .slide{ 
+        flex:0 0 96%; max-width:96%; 
+        padding:18px 14px;
+        min-height:clamp(340px, 45vh, 520px);
+      }
+      .slide p{ font-size:.92rem; line-height:1.6; }
+      .nav-btn{ display:none; } /* Remove setas em telas pequenas */
+      
+      /* Timeline mobile pequeno - OTIMIZADA */
+      .item{ padding-left:24px; margin:14px 0; }
+      .item::before{ left:4px; width:8px; height:8px; }
+      .timeline::before{ left:7px; }
+      .role{ font-size:.92rem; line-height:1.3; }
+      .org{ font-size:.88rem; }
+      .meta{ font-size:.82rem; }
+      .desc{ font-size:.88rem; line-height:1.4; }
+      .badge{ font-size:.7rem; padding:3px 8px; margin-left:4px; }
+      
+      /* Listas mobile - SEM CORTES */
+      ul{ margin:8px 0 0 16px; padding-left:0; }
+      ul li{ margin-bottom:8px; font-size:.92rem; line-height:1.5; word-wrap:break-word; }
+      
       .breadcrumb-inner{ padding:8px 12px; flex-direction:column; align-items:stretch; gap:8px; }
-      .breadcrumb-nav{ justify-content:center; }
+      .breadcrumb-nav{ justify-content:center; flex-wrap:wrap; }
       .breadcrumb-nav a{ font-size:.78rem; padding:4px 8px; }
       .breadcrumb-btn{ width:100%; font-size:.88rem; }
       .share-grid{ grid-template-columns:1fr; gap:8px; }
       .share-btn{ font-size:.88rem; padding:10px; }
       #qrcode{ transform:scale(0.85); }
-      .footer-inner{ flex-direction:column; gap:20px; padding:16px; }
-      .brands-col{ flex-direction:column; gap:12px; }
-      .footer-links a{ font-size:.9rem; }
+      
+      /* Footer mobile pequeno - MELHORADO */
+      .footer-inner{ padding:20px 16px; gap:20px; }
+      .footer-section h4{ font-size:.95rem; }
+      .footer-section a{ font-size:.9rem; }
+      .brands-footer{ flex-direction:column; gap:12px; }
+      .brands-footer img{ height:28px; }
+      .foot-note{ padding:16px; font-size:.85rem; }
     }
   </style>
 </head>
@@ -588,18 +680,42 @@
       </aside>
     </section>
 
-    <!-- FOOTER -->
+    <!-- FOOTER REDESENHADO -->
     <footer class="footer" aria-label="Rodapé">
       <div class="footer-inner">
-        <div class="brands-col">
-          <a href="https://axcare.com.br" target="_blank" rel="noopener"><img src="https://i.imgur.com/yAUQciP.png" alt="AxiaCare" style="height:36px" loading="lazy"></a>
-          <a href="https://medvalor.med.br" target="_blank" rel="noopener"><img src="https://i.imgur.com/N0lXklP.png" alt="MedValor" style="height:30px" loading="lazy"></a>
+        <div class="footer-section">
+          <h4>Navegação</h4>
+          <a href="#sobre">Sobre</a>
+          <a href="#experiencia">Experiência</a>
+          <a href="#formacao">Formação</a>
+          <a href="#competencias">Competências</a>
         </div>
-        <div class="footer-links">
-          <h4>Links</h4>
-          <a href="https://www.guithome.com.br" target="_blank" rel="noopener">Site pessoal</a>
+        
+        <div class="footer-section">
+          <h4>Links Externos</h4>
+          <a href="https://www.guithome.com.br" target="_blank" rel="noopener">Site Pessoal</a>
           <a href="https://blog.guithome.com.br" target="_blank" rel="noopener">Blog</a>
           <a href="https://www.linkedin.com/in/gui-thome" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://linktr.ee/gui.thome" target="_blank" rel="noopener">Linktree</a>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Projetos</h4>
+          <div class="brands-footer">
+            <a href="https://axcare.com.br" target="_blank" rel="noopener">
+              <img src="https://i.imgur.com/yAUQciP.png" alt="AxiaCare" loading="lazy">
+            </a>
+            <a href="https://medvalor.med.br" target="_blank" rel="noopener">
+              <img src="https://i.imgur.com/N0lXklP.png" alt="MedValor" loading="lazy">
+            </a>
+          </div>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Privacidade</h4>
+          <a href="https://hub.guithome.com.br/privacidade.html" target="_blank" rel="noopener">Guilherme Thomé</a>
+          <a href="https://hub.guithome.com.br/axia/privacidade.html" target="_blank" rel="noopener">AxiaCare®</a>
+          <a href="https://hub.guithome.com.br/medvalor/privacidade.html" target="_blank" rel="noopener">MedValor®</a>
         </div>
       </div>
       <div class="foot-note">© 2025 Guilherme Thomé | Grupo CSV. Todos os direitos reservados.</div>
@@ -737,8 +853,6 @@
       });
     })();
 
-    // Animação de contadores - REMOVIDO
-    
     // Modal Contato
     (function(){
       const btn = document.getElementById('btnContato');
@@ -781,7 +895,6 @@
         overlayShare.setAttribute('aria-hidden', 'false');
         document.body.style.overflow = 'hidden';
         
-        // Gerar QR Code apenas uma vez
         if(!qrGenerated && typeof QRCode !== 'undefined'){
           qrcodeDiv.innerHTML = '';
           new QRCode(qrcodeDiv, {
@@ -810,26 +923,22 @@
       closeShare.addEventListener('click', close);
       overlayShare.addEventListener('click', e=>{ if(e.target===overlayShare) close(); });
       
-      // Compartilhar WhatsApp
       document.getElementById('shareWhatsApp').addEventListener('click', ()=>{
         const text = encodeURIComponent('Confira o currículo de Guilherme Thomé: ' + pageURL);
         window.open('https://wa.me/?text=' + text, '_blank');
       });
       
-      // Compartilhar Email
       document.getElementById('shareEmail').addEventListener('click', ()=>{
         const subject = encodeURIComponent('Currículo - Guilherme Thomé');
         const body = encodeURIComponent('Olá,\n\nGostaria de compartilhar o currículo de Guilherme Thomé:\n\n' + pageURL + '\n\nAtenciosamente.');
         window.location.href = 'mailto:?subject=' + subject + '&body=' + body;
       });
       
-      // Compartilhar LinkedIn
       document.getElementById('shareLinkedIn').addEventListener('click', ()=>{
         const url = encodeURIComponent(pageURL);
         window.open('https://www.linkedin.com/sharing/share-offsite/?url=' + url, '_blank');
       });
       
-      // Copiar Link
       document.getElementById('copyLink').addEventListener('click', ()=>{
         navigator.clipboard.writeText(pageURL).then(()=>{
           const btn = document.getElementById('copyLink');
