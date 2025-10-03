@@ -72,10 +72,23 @@
 
     @keyframes glow {
         0%, 100% {
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.8),
+                         0 0 40px rgba(255, 255, 255, 0.5),
+                         0 2px 10px rgba(0, 0, 0, 0.3);
         }
         50% {
-            box-shadow: 0 0 40px rgba(255, 255, 255, 0.6);
+            text-shadow: 0 0 30px rgba(255, 255, 255, 1),
+                         0 0 60px rgba(255, 255, 255, 0.7),
+                         0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+    }
+
+    @keyframes pulse {
+        0%, 100% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.05);
         }
     }
 
@@ -146,7 +159,7 @@
 
     .hero {
         text-align: center;
-        padding: 40px 20px 20px;
+        padding: 40px 20px 15px;
         animation: fadeInUp 0.8s ease-out;
     }
 
@@ -155,17 +168,18 @@
         max-width: 90%;
         filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3));
         animation: float 3s ease-in-out infinite;
-        margin-bottom: 20px;
+        margin-bottom: 10px;
     }
 
     .hero-hub {
         font-size: 20px;
-        font-weight: 600;
-        letter-spacing: 6px;
+        font-weight: 900;
+        letter-spacing: 10px;
         text-transform: uppercase;
-        opacity: 0.75;
-        margin-bottom: 18px;
+        opacity: 1;
+        margin-bottom: 15px;
         font-family: 'Segoe UI', sans-serif;
+        animation: glow 2s ease-in-out infinite;
     }
 
     .hero-title {
@@ -186,12 +200,77 @@
         text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
     }
 
-    .hero-description {
-        font-size: 16px;
-        opacity: 0.85;
+    .stats {
         max-width: 600px;
-        margin: 0 auto 40px;
-        line-height: 1.6;
+        margin: 0 auto 30px;
+        animation: fadeInUp 1s ease-out 0.8s both;
+    }
+
+    .stats-card {
+        background: rgba(255, 255, 255, 0.12);
+        backdrop-filter: blur(10px);
+        padding: 20px 30px;
+        border-radius: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+        flex-wrap: wrap;
+    }
+
+    .stat-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .stat-number {
+        font-size: 28px;
+        font-weight: 900;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .stat-label {
+        font-size: 14px;
+        opacity: 0.9;
+        font-weight: 600;
+    }
+
+    .stat-separator {
+        opacity: 0.3;
+        font-size: 20px;
+    }
+
+    .date-display {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 24px;
+        font-weight: 900;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .date-day {
+        font-size: 28px;
+        letter-spacing: -1px;
+    }
+
+    .date-separator {
+        opacity: 0.5;
+        font-size: 16px;
+    }
+
+    .date-month {
+        font-size: 24px;
+        text-transform: uppercase;
+        font-weight: 700;
+    }
+
+    .date-year {
+        font-size: 20px;
+        opacity: 0.9;
+        font-weight: 600;
     }
 
     .ecosystem {
@@ -202,19 +281,10 @@
         width: 100%;
     }
 
-    .ecosystem-title {
-        text-align: center;
-        font-size: 32px;
-        font-weight: 800;
-        margin-bottom: 50px;
-        text-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
-        animation: fadeInUp 1s ease-out 0.3s both;
-    }
-
     .brands-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 30px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
         margin-bottom: 40px;
     }
 
@@ -230,28 +300,24 @@
         position: relative;
         overflow: hidden;
         animation: fadeInUp 1s ease-out both;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 320px;
+    }
+
+    .brand-card.small {
+        padding: 30px 20px;
+    }
+
+    .brand-card.full-width {
+        grid-column: 1 / -1;
     }
 
     .brand-card:nth-child(1) { animation-delay: 0.4s; }
     .brand-card:nth-child(2) { animation-delay: 0.5s; }
     .brand-card:nth-child(3) { animation-delay: 0.6s; }
     .brand-card:nth-child(4) { animation-delay: 0.7s; }
-
-    .brand-card::after {
-        content: '';
-        position: absolute;
-        top: -50%;
-        left: -50%;
-        width: 200%;
-        height: 200%;
-        background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
-        transform: scale(0);
-        transition: transform 0.6s ease;
-    }
-
-    .brand-card:hover::after {
-        transform: scale(1);
-    }
 
     .brand-card::before {
         content: '';
@@ -284,62 +350,77 @@
         transform: scaleX(1);
     }
 
+    .brand-card::after {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+        transform: scale(0);
+        transition: transform 0.6s ease;
+    }
+
+    .brand-card:hover::after {
+        transform: scale(1);
+    }
+
     .brand-card:hover {
         transform: translateY(-15px) scale(1.02);
         box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
         border-color: rgba(255, 255, 255, 0.6);
     }
 
-    .brand-logo {
-        width: 100%;
-        max-width: 240px;
-        height: auto;
+    .brand-logo-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 80px;
         margin-bottom: 25px;
+    }
+
+    .brand-logo {
+        max-width: 100%;
+        height: auto;
+        max-height: 70px;
+        object-fit: contain;
         transition: transform 0.3s ease;
+    }
+
+    .brand-card.small .brand-logo {
+        max-height: 60px;
+    }
+
+    .brand-card.small .brand-logo-container {
+        min-height: 70px;
+        margin-bottom: 20px;
     }
 
     .brand-card:hover .brand-logo {
         transform: scale(1.1);
     }
 
-    .brand-name {
-        font-size: 22px;
-        font-weight: 800;
-        margin-bottom: 10px;
-    }
-
-    .brand-axia .brand-name {
-        color: #196396;
-    }
-
-    .brand-medvalor .brand-name {
-        color: #196396;
-    }
-
-    .brand-unimed .brand-name {
-        color: #00995d;
-    }
-
-    .brand-unihealth .brand-name {
-        color: #013d19;
-    }
-
     .brand-description {
         font-size: 14px;
         color: #64748b;
         margin-bottom: 25px;
-        line-height: 1.5;
+        line-height: 1.6;
+        flex-grow: 1;
     }
 
     .brand-button {
         display: inline-block;
-        padding: 14px 32px;
+        width: 100%;
+        padding: 16px 24px;
         color: white;
         text-decoration: none;
         border-radius: 12px;
-        font-weight: 700;
+        font-weight: 600;
         font-size: 15px;
+        text-align: center;
         transition: all 0.3s ease;
+        margin-top: auto;
     }
 
     .btn-axia {
@@ -386,68 +467,52 @@
         background: linear-gradient(135deg, #ec7106 0%, #013d19 100%);
     }
 
-    .stats {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 20px;
-        max-width: 900px;
-        margin: 0 auto 40px;
-        animation: fadeInUp 1s ease-out 0.8s both;
+    /* Badge CV Flutuante */
+    .cv-badge {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 1000;
+        animation: fadeInUp 1.2s ease-out 1s both;
     }
 
-    .stat-box {
-        background: rgba(255, 255, 255, 0.15);
-        backdrop-filter: blur(10px);
-        padding: 25px;
-        border-radius: 16px;
-        text-align: center;
-        border: 1px solid rgba(255, 255, 255, 0.2);
-    }
-
-    .stat-number {
-        font-size: 36px;
-        font-weight: 900;
-        margin-bottom: 8px;
-        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-    }
-
-    .stat-label {
-        font-size: 14px;
-        opacity: 0.9;
-        font-weight: 600;
-    }
-
-    .date-display {
-        display: flex;
+    .cv-badge a {
+        display: inline-flex;
         align-items: center;
         justify-content: center;
         gap: 8px;
-        font-size: 28px;
-        font-weight: 900;
-        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-        margin-bottom: 8px;
-    }
-
-    .date-day {
-        font-size: 36px;
-        letter-spacing: -1px;
-    }
-
-    .date-separator {
-        opacity: 0.5;
-        font-size: 20px;
-    }
-
-    .date-month {
-        font-size: 28px;
-        text-transform: uppercase;
+        padding: 10px 20px;
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(10px);
+        border: 2px solid rgba(25, 99, 150, 0.3);
+        border-radius: 50px;
+        color: #196396;
+        text-decoration: none;
         font-weight: 700;
+        font-size: 13px;
+        letter-spacing: 1px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
     }
 
-    .date-year {
-        font-size: 24px;
-        opacity: 0.9;
-        font-weight: 600;
+    .cv-badge-icon {
+        width: 18px;
+        height: 18px;
+        border-radius: 3px;
+        transition: transform 0.3s ease;
+    }
+
+    .cv-badge a:hover {
+        background: linear-gradient(135deg, #196396 0%, #1e3a8a 100%);
+        color: white;
+        border-color: rgba(255, 255, 255, 0.4);
+        transform: scale(1.1);
+        box-shadow: 0 6px 25px rgba(25, 99, 150, 0.4);
+        animation: pulse 1s ease infinite;
+    }
+
+    .cv-badge a:hover .cv-badge-icon {
+        transform: rotate(360deg);
     }
 
     .footer {
@@ -468,6 +533,16 @@
         font-size: 18px;
         font-weight: 700;
         margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .footer-favicon {
+        width: 24px;
+        height: 24px;
+        border-radius: 4px;
     }
 
     .footer-links {
@@ -498,6 +573,12 @@
         font-size: 12px;
         opacity: 0.7;
         margin-top: 15px;
+        line-height: 1.6;
+    }
+
+    .footer-copyright-line {
+        display: block;
+        margin-top: 4px;
     }
 
     .back-to-top {
@@ -528,7 +609,6 @@
     .back-to-top:hover {
         transform: translateY(-5px);
         box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
-        animation: glow 1.5s ease-in-out infinite;
     }
 
     .back-to-top svg {
@@ -537,144 +617,187 @@
         fill: white;
     }
 
-    .cv-button {
-        position: fixed;
-        top: 30px;
-        right: 30px;
-        width: 48px;
-        height: 48px;
-        background: rgba(255, 255, 255, 0.08);
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.15);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        z-index: 1000;
-        text-decoration: none;
-        color: white;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-        animation: fadeInUp 1s ease-out 1.2s both;
-        position: relative;
-    }
-
-    .cv-button::before {
-        content: 'Currículo';
-        position: absolute;
-        right: 60px;
-        background: rgba(0, 0, 0, 0.85);
-        backdrop-filter: blur(10px);
-        padding: 8px 14px;
-        border-radius: 8px;
-        font-size: 13px;
-        font-weight: 500;
-        white-space: nowrap;
-        opacity: 0;
-        visibility: hidden;
-        transition: all 0.3s ease;
-        pointer-events: none;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    }
-
-    .cv-button:hover::before {
-        opacity: 1;
-        visibility: visible;
-        right: 65px;
-    }
-
-    .cv-button:hover {
-        background: rgba(255, 255, 255, 0.15);
-        border-color: rgba(255, 255, 255, 0.3);
-        transform: scale(1.08);
-        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
-    }
-
-    .cv-button svg {
-        width: 22px;
-        height: 22px;
-        fill: white;
-        opacity: 0.9;
-        transition: opacity 0.3s ease;
-    }
-
-    .cv-button:hover svg {
-        opacity: 1;
-    }
-
-    .cv-label {
-        display: none;
-    }
-
     @media (max-width: 768px) {
+        .hero {
+            padding: 15px 15px 10px;
+        }
+
+        .hero-logo {
+            width: 160px;
+            margin-bottom: 8px;
+        }
+
         .hero-hub {
-            font-size: 15px;
-            letter-spacing: 4px;
-            margin-bottom: 14px;
+            font-size: 14px;
+            letter-spacing: 6px;
+            margin-bottom: 10px;
         }
 
         .hero-title {
-            font-size: 38px;
-            letter-spacing: -1px;
+            font-size: 28px;
+            letter-spacing: -0.5px;
+            margin-bottom: 10px;
         }
 
         .hero-subtitle {
-            font-size: 15px;
+            font-size: 13px;
+            margin-bottom: 15px;
         }
 
-        .cv-button {
-            top: 20px;
-            right: 20px;
-            width: 44px;
-            height: 44px;
+        .stats-card {
+            flex-direction: column;
+            gap: 12px;
+            padding: 15px 20px;
         }
 
-        .cv-button svg {
-            width: 20px;
-            height: 20px;
+        .stat-item {
+            gap: 6px;
         }
 
-        .cv-button::before {
+        .stat-number {
+            font-size: 22px;
+        }
+
+        .stat-label {
             font-size: 12px;
-            padding: 6px 12px;
         }
 
-        .back-to-top {
-            bottom: 20px;
-            right: 20px;
-            width: 45px;
-            height: 45px;
+        .stat-separator {
+            display: none;
         }
 
-        .hero-subtitle {
+        .date-display {
+            gap: 4px;
+        }
+
+        .date-day {
+            font-size: 22px;
+        }
+
+        .date-month {
             font-size: 18px;
         }
 
-        .hero-description {
-            font-size: 14px;
+        .date-year {
+            font-size: 16px;
         }
 
-        .ecosystem-title {
-            font-size: 24px;
-            margin-bottom: 30px;
+        .ecosystem {
+            padding: 10px;
         }
 
         .brands-grid {
             grid-template-columns: 1fr;
-            gap: 20px;
-        }
-
-        .stats {
-            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
         }
 
         .brand-card {
             padding: 30px 20px;
+            min-height: 280px;
         }
 
-        .hero-logo {
-            width: 240px;
+        .brand-card.small {
+            padding: 25px 20px;
+        }
+
+        .brand-logo-container {
+            min-height: 60px;
+            margin-bottom: 20px;
+        }
+
+        .brand-logo {
+            max-height: 55px;
+        }
+
+        .brand-card.small .brand-logo {
+            max-height: 50px;
+        }
+
+        .brand-card.small .brand-logo-container {
+            min-height: 55px;
+            margin-bottom: 18px;
+        }
+
+        .brand-description {
+            font-size: 13px;
+            margin-bottom: 20px;
+        }
+
+        .brand-button {
+            padding: 14px 20px;
+            font-size: 14px;
+        }
+
+        /* Badge CV Mobile */
+        .cv-badge {
+            top: 15px;
+            right: 15px;
+        }
+
+        .cv-badge a {
+            padding: 8px 16px;
+            font-size: 12px;
+            gap: 6px;
+        }
+
+        .cv-badge-icon {
+            width: 16px;
+            height: 16px;
+        }
+
+        .footer {
+            padding: 25px 15px;
+        }
+
+        .footer-title {
+            font-size: 16px;
+        }
+
+        .footer-favicon {
+            width: 20px;
+            height: 20px;
+        }
+
+        .footer-links {
+            font-size: 13px;
+            gap: 10px;
+        }
+
+        .footer-copyright {
+            font-size: 11px;
+        }
+
+        .back-to-top {
+            bottom: 15px;
+            right: 15px;
+            width: 42px;
+            height: 42px;
+        }
+    }
+
+    /* Ajuste fino para telas muito pequenas */
+    @media (max-width: 380px) {
+        .hero-title {
+            font-size: 24px;
+        }
+
+        .hero-subtitle {
+            font-size: 12px;
+        }
+
+        .brand-card {
+            padding: 25px 15px;
+        }
+
+        .cv-badge a {
+            padding: 7px 14px;
+            font-size: 11px;
+            gap: 5px;
+        }
+
+        .cv-badge-icon {
+            width: 14px;
+            height: 14px;
         }
     }
 </style>
@@ -695,6 +818,14 @@
         <div class="particle"></div>
     </div>
 
+    <!-- Badge CV Flutuante -->
+    <div class="cv-badge">
+        <a href="https://hub.guithome.com.br/cv" aria-label="Ver Currículo">
+            <img src="https://guithome.com.br/favicon.ico" alt="" class="cv-badge-icon">
+            CV
+        </a>
+    </div>
+
     <div class="main-content">
         <header class="hero" role="banner">
             <img src="https://i.imgur.com/IdefdhS.png" alt="Logo Guilherme Thomé" class="hero-logo">
@@ -704,52 +835,59 @@
         </header>
 
         <section class="stats" aria-label="Estatísticas do hub">
-            <div class="stat-box">
-                <div class="stat-number">4</div>
-                <div class="stat-label">Empresas</div>
-            </div>
-            <div class="stat-box">
-                <div class="stat-number">20+</div>
-                <div class="stat-label">Links Ativos</div>
-            </div>
-            <div class="stat-box stat-date">
-                <div class="date-display">
-                    <span class="date-day">03</span>
-                    <span class="date-separator">•</span>
-                    <span class="date-month">Out</span>
-                    <span class="date-separator">•</span>
-                    <span class="date-year">2025</span>
+            <div class="stats-card">
+                <div class="stat-item">
+                    <span class="stat-number">4</span>
+                    <span class="stat-label">Empresas</span>
                 </div>
-                <div class="stat-label">Última Atualização</div>
+                <span class="stat-separator">•</span>
+                <div class="stat-item">
+                    <span class="stat-number">20+</span>
+                    <span class="stat-label">Links Ativos</span>
+                </div>
+                <span class="stat-separator">•</span>
+                <div class="stat-item">
+                    <div class="date-display">
+                        <span class="date-day">03</span>
+                        <span class="date-separator">•</span>
+                        <span class="date-month">Out</span>
+                        <span class="date-separator">•</span>
+                        <span class="date-year">2025</span>
+                    </div>
+                </div>
             </div>
         </section>
 
         <main class="ecosystem" role="main">
             <nav class="brands-grid" aria-label="Navegação entre empresas">
-                <article class="brand-card brand-axia">
-                    <img src="https://i.imgur.com/yAUQciP.png" alt="Logo AxiaCare" class="brand-logo">
-                    <h3 class="brand-name">AxiaCare</h3>
+                <article class="brand-card brand-axia small">
+                    <div class="brand-logo-container">
+                        <img src="https://i.imgur.com/yAUQciP.png" alt="Logo AxiaCare" class="brand-logo">
+                    </div>
                     <p class="brand-description">Consultoria estratégica e ferramentas profissionais para gestão em saúde de alto impacto.</p>
-                    <a href="index1.html" class="brand-button btn-axia" aria-label="Acessar hub da AxiaCare">Acessar</a>
+                    <a href="http://hub.guithome.com.br/axia/index1.html" class="brand-button btn-axia" aria-label="Acessar hub da AxiaCare">Acessar</a>
                 </article>
 
-                <article class="brand-card brand-medvalor">
-                    <img src="https://i.imgur.com/T5Tv5nG.png" alt="Logo MedValor" class="brand-logo">
-                    <h3 class="brand-name">MedValor</h3>
+                <article class="brand-card brand-medvalor small">
+                    <div class="brand-logo-container">
+                        <img src="https://i.imgur.com/T5Tv5nG.png" alt="Logo MedValor" class="brand-logo">
+                    </div>
                     <p class="brand-description">Educação continuada e capacitação profissional para líderes em gestão de saúde.</p>
-                    <a href="index2.html" class="brand-button btn-medvalor" aria-label="Acessar hub da MedValor">Acessar</a>
+                    <a href="http://hub.guithome.com.br/medvalor/index2.html" class="brand-button btn-medvalor" aria-label="Acessar hub da MedValor">Acessar</a>
                 </article>
 
-                <article class="brand-card brand-unimed">
-                    <img src="https://i.imgur.com/prZGWXK.png" alt="Logo Unimed Governador Valadares" class="brand-logo">
-                    <h3 class="brand-name">Unimed GV</h3>
+                <article class="brand-card brand-unimed full-width">
+                    <div class="brand-logo-container">
+                        <img src="https://i.imgur.com/prZGWXK.png" alt="Logo Unimed Governador Valadares" class="brand-logo">
+                    </div>
                     <p class="brand-description">Projetos especiais e verticais de cuidado para saúde suplementar de excelência.</p>
                     <a href="index3.html" class="brand-button btn-unimed" aria-label="Acessar hub da Unimed GV">Acessar</a>
                 </article>
 
-                <article class="brand-card brand-unihealth">
-                    <img src="https://i.imgur.com/XouXBck.png" alt="Logo Unihealth" class="brand-logo">
-                    <h3 class="brand-name">Unihealth</h3>
+                <article class="brand-card brand-unihealth full-width">
+                    <div class="brand-logo-container">
+                        <img src="https://i.imgur.com/XouXBck.png" alt="Logo Unihealth" class="brand-logo">
+                    </div>
                     <p class="brand-description">Gestão operacional e análise preditiva para hospitais de alta complexidade.</p>
                     <a href="index4.html" class="brand-button btn-unihealth" aria-label="Acessar hub da Unihealth">Acessar</a>
                 </article>
@@ -758,7 +896,10 @@
 
         <footer class="footer" role="contentinfo">
             <div class="footer-content">
-                <div class="footer-title">Dr. Guilherme Thomé</div>
+                <div class="footer-title">
+                    <img src="https://guithome.com.br/favicon.ico" alt="Favicon" class="footer-favicon">
+                    Dr. Guilherme Thomé
+                </div>
                 <nav class="footer-links" aria-label="Links de redes sociais e sites">
                     <a href="https://guithome.com.br" aria-label="Site pessoal Guilherme Thomé">guithome.com.br</a>
                     <a href="https://linkedin.com/in/guithome" aria-label="LinkedIn Guilherme Thomé">LinkedIn</a>
@@ -768,19 +909,12 @@
                     <a href="https://www.medvalor.med.br" aria-label="Site MedValor">medvalor.med.br</a>
                 </nav>
                 <div class="footer-copyright">
-                    Copyright © 2025 AxiaCare | Todos os direitos reservados | Uma empresa do Grupo CSV
+                    Copyright © 2025 AxiaCare | Todos os direitos reservados
+                    <span class="footer-copyright-line">Uma empresa do Grupo CSV</span>
                 </div>
             </div>
         </footer>
     </div>
-
-    <!-- Botão Currículo -->
-    <a href="http://hub.guithome.com.br/cv.html" class="cv-button" target="_blank" aria-label="Acessar currículo">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-            <path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zM6 20V4h7v5h5v11H6zm2-8h8v2H8v-2zm0 4h5v2H8v-2zm0-8h3v2H8V8z"/>
-        </svg>
-        <span class="cv-label">Currículo</span>
-    </a>
 
     <!-- Botão voltar ao topo -->
     <button class="back-to-top" id="backToTop" aria-label="Voltar ao topo da página">
