@@ -307,6 +307,15 @@
         min-height: 320px;
     }
 
+    .brand-card-link {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+        text-decoration: none;
+        color: inherit;
+    }
+
     .brand-card.small {
         padding: 30px 20px;
     }
@@ -422,6 +431,7 @@
         text-align: center;
         transition: all 0.3s ease;
         margin-top: auto;
+        pointer-events: none;
     }
 
     .btn-axia {
@@ -865,35 +875,43 @@
         <main class="ecosystem" role="main">
             <nav class="brands-grid" aria-label="Navegação entre empresas">
                 <article class="brand-card brand-axia small">
-                    <div class="brand-logo-container">
-                        <img src="https://i.imgur.com/yAUQciP.png" alt="Logo AxiaCare" class="brand-logo">
-                    </div>
-                    <p class="brand-description">Consultoria estratégica e ferramentas profissionais para gestão em saúde de alto impacto.</p>
-                    <a href="http://hub.guithome.com.br/axia/index1.html" class="brand-button btn-axia" aria-label="Acessar hub da AxiaCare">Acessar</a>
+                    <a href="https://hub.guithome.com.br/axia/index1.html" class="brand-card-link" aria-label="Acessar hub da AxiaCare">
+                        <div class="brand-logo-container">
+                            <img src="https://i.imgur.com/yAUQciP.png" alt="Logo AxiaCare" class="brand-logo">
+                        </div>
+                        <p class="brand-description">Consultoria estratégica e ferramentas profissionais para gestão em saúde de alto impacto.</p>
+                        <span class="brand-button btn-axia">Acessar</span>
+                    </a>
                 </article>
 
                 <article class="brand-card brand-medvalor small">
-                    <div class="brand-logo-container">
-                        <img src="https://i.imgur.com/T5Tv5nG.png" alt="Logo MedValor" class="brand-logo">
-                    </div>
-                    <p class="brand-description">Educação continuada e capacitação profissional para líderes em gestão de saúde.</p>
-                    <a href="http://hub.guithome.com.br/medvalor/index2.html" class="brand-button btn-medvalor" aria-label="Acessar hub da MedValor">Acessar</a>
+                    <a href="https://hub.guithome.com.br/medvalor/index2.html" class="brand-card-link" aria-label="Acessar hub da MedValor">
+                        <div class="brand-logo-container">
+                            <img src="https://i.imgur.com/T5Tv5nG.png" alt="Logo MedValor" class="brand-logo">
+                        </div>
+                        <p class="brand-description">Educação continuada e capacitação profissional para líderes em gestão de saúde.</p>
+                        <span class="brand-button btn-medvalor">Acessar</span>
+                    </a>
                 </article>
 
                 <article class="brand-card brand-unimed full-width">
-                    <div class="brand-logo-container">
-                        <img src="https://i.imgur.com/prZGWXK.png" alt="Logo Unimed Governador Valadares" class="brand-logo">
-                    </div>
-                    <p class="brand-description">Projetos especiais e verticais de cuidado para saúde suplementar de excelência.</p>
-                    <a href="index3.html" class="brand-button btn-unimed" aria-label="Acessar hub da Unimed GV">Acessar</a>
+                    <a href="https://hub.guithome.com.br/unimed/index3.html" class="brand-card-link" aria-label="Acessar hub da Unimed GV">
+                        <div class="brand-logo-container">
+                            <img src="https://i.imgur.com/prZGWXK.png" alt="Logo Unimed Governador Valadares" class="brand-logo">
+                        </div>
+                        <p class="brand-description">Projetos especiais e verticais de cuidado para saúde suplementar de excelência.</p>
+                        <span class="brand-button btn-unimed">Acessar</span>
+                    </a>
                 </article>
 
                 <article class="brand-card brand-unihealth full-width">
-                    <div class="brand-logo-container">
-                        <img src="https://i.imgur.com/XouXBck.png" alt="Logo Unihealth" class="brand-logo">
-                    </div>
-                    <p class="brand-description">Gestão operacional e análise preditiva para hospitais de alta complexidade.</p>
-                    <a href="index4.html" class="brand-button btn-unihealth" aria-label="Acessar hub da Unihealth">Acessar</a>
+                    <a href="https://hub.guithome.com.br/unihealth/index4.html" class="brand-card-link" aria-label="Acessar hub da Unihealth">
+                        <div class="brand-logo-container">
+                            <img src="https://i.imgur.com/XouXBck.png" alt="Logo Unihealth" class="brand-logo">
+                        </div>
+                        <p class="brand-description">Gestão operacional e análise preditiva para hospitais de alta complexidade.</p>
+                        <span class="brand-button btn-unihealth">Acessar</span>
+                    </a>
                 </article>
             </nav>
         </main>
