@@ -1,1031 +1,1023 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Guilherme Thomé | Currículo Digital</title>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5,viewport-fit=cover"/>
+<title>Guilherme Thomé | Currículo Digital</title>
+<meta name="description" content="Guilherme Thomé — médico executivo e consultor (VBHC, governança clínica, eficiência operacional, analytics)."/>
+<meta name="author" content="Guilherme Thomé"/>
+<meta name="theme-color" content="#196396"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="Guilherme Thomé | Currículo Digital"/>
+<meta property="og:description" content="Médico Executivo e Consultor | VBHC | Governança clínica | Inovação e eficiência operacional."/>
+<meta property="og:image" content="https://i.imgur.com/TKziJpD.png"/>
+<link rel="icon" href="https://guithome.com.br/favicon.ico"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<style>
+/* ========== Tokens ========== */
+:root{
+  --azul:#196396;
+  --branco:#fff;
+  --grafite:#2d3445;
+  --borda:#e6e9ef;
+  --texto:#1b1e24;
+  --maxw:1080px;
+  --radius:18px;
+  --shadow:0 10px 30px rgba(0,0,0,.06);
+  --overlay:rgba(0,0,0,.6);
+  --chip:#eaf3fb;
+  --safe-top:env(safe-area-inset-top,0px);
+  --safe-bottom:env(safe-area-inset-bottom,0px);
+}
 
-  <!-- Metadados -->
-  <meta name="description" content="Guilherme Thomé — médico executivo e consultor (VBHC, governança clínica, eficiência operacional, analytics)." />
-  <meta name="author" content="Guilherme Thomé" />
-  <meta name="theme-color" content="#196396" />
+[data-theme="dark"]{
+  --branco:#0f141a;
+  --texto:#e6e9ee;
+  --borda:#1d2732;
+  --shadow:0 10px 30px rgba(0,0,0,.36);
+  --chip:#1a2632;
+}
 
-  <!-- Open Graph / Twitter -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Guilherme Thomé | Currículo Digital" />
-  <meta property="og:description" content="Médico Executivo e Consultor | VBHC | Governança clínica | Inovação e eficiência operacional." />
-  <meta property="og:image" content="https://i.imgur.com/TKziJpD.png" />
-  <meta property="og:url" content="https://www.guithome.com.br" />
-  <meta name="twitter:card" content="summary_large_image" />
+[data-theme="dark"] body{
+  background:linear-gradient(180deg,#0c1218 0%,#0a0f14 100%);
+}
 
-  <!-- Favicon -->
-  <link rel="icon" href="https://guithome.com.br/favicon.ico" />
+[data-theme="dark"] .breadcrumb{
+  background:rgba(15,20,26,.95) !important;
+}
 
-  <!-- Fonte editorial -->
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+[data-theme="dark"] .slide{
+  background:linear-gradient(180deg,#0f141a 0%,#121821 100%) !important;
+}
 
-  <!-- QR Code Library -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+[data-theme="dark"] .logo-pill,
+[data-theme="dark"] .btn.ghost{
+  background:var(--branco);
+  border-color:var(--borda);
+}
 
-  <!-- Schema.org JSON-LD -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Guilherme Thomé",
-    "jobTitle": "Médico Executivo e Consultor | Especialista em VBHC",
-    "description": "Superintendente Unimed / ICDS | Founder AxiaCare® & MedValor®",
-    "url": "https://www.guithome.com.br",
-    "sameAs": [
-      "https://www.linkedin.com/in/gui-thome",
-      "https://blog.guithome.com.br"
-    ]
+[data-theme="dark"] .nav-btn{
+  background:var(--branco);
+  border-color:var(--borda);
+}
+
+[data-theme="dark"] .share-btn{
+  background:var(--branco);
+  border-color:var(--borda);
+}
+
+[data-theme="dark"] .footer{
+  background:var(--branco);
+}
+
+[data-theme="dark"] .qr-container{
+  background:#1a2632;
+}
+
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --branco:#0f141a;
+    --texto:#e6e9ee;
+    --borda:#1d2732;
+    --shadow:0 10px 30px rgba(0,0,0,.36);
+    --chip:#1a2632;
   }
-  </script>
+  body:not([data-theme="light"]){
+    background:linear-gradient(180deg,#0c1218 0%,#0a0f14 100%);
+  }
+}
 
-  <style>
-    :root{
-      --azul:#196396; --aqua:#a6d8c0; --verde:#a6fb90; --branco:#ffffff; --grafite:#2d3445;
-      --off:#f6f7f9; --borda:#e6e9ef; --texto:#1b1e24; --maxw:1080px;
-      --radius:18px; --shadow:0 10px 30px rgba(0,0,0,.06); --overlay:rgba(0,0,0,.6);
-      --chip:#eaf3fb; --icon:16px;
-    }
-    
-    /* Dark mode - CORES CORRIGIDAS */
-    [data-theme="dark"] {
-      --branco:#1a1f28; --texto:#e8eaed; --borda:#2d3544; --off:#151a22; 
-      --grafite:#e8eaed; --shadow:0 10px 30px rgba(0,0,0,.5);
-      --chip:#1e3a52; --azul:#4a9fd8;
-    }
-    [data-theme="dark"] body{ background:linear-gradient(180deg,#0f1419 0%,#0a0d12 100%) }
-    [data-theme="dark"] .card{ background:#1a1f28; border-color:#2d3544; }
-    [data-theme="dark"] .slide{ background:linear-gradient(180deg,#1a1f28 0%, #1e232d 100%); border-color:#2d3544; }
-    [data-theme="dark"] .footer{ background:#1a1f28; border-color:#2d3544; }
-    [data-theme="dark"] .btn.ghost{ background:#1e232d; color:#4a9fd8; border-color:#2d3544; }
-    [data-theme="dark"] .btn.ghost:hover{ background:#252b38; border-color:#3d4658; }
-    [data-theme="dark"] .logo-pill{ background:#1e232d; border-color:#2d3544; }
-    [data-theme="dark"] .skill{ background:#1e3a52; border-color:#2d4a66; color:#7db4e0; }
-    [data-theme="dark"] .skill:hover{ background:#234561; }
-    [data-theme="dark"] .badge{ background:linear-gradient(180deg,#2d5a45,#1e4733); color:#8fcea8; border-color:#2d5a45; }
-    [data-theme="dark"] .nav-btn{ background:#1e232d; border-color:#2d3544; }
-    [data-theme="dark"] .nav-btn:hover{ background:#252b38; }
-    [data-theme="dark"] .dot{ background:#3d4658; }
-    [data-theme="dark"] .dot.active{ background:#4a9fd8; }
-    [data-theme="dark"] .share-btn{ background:#1e232d; border-color:#2d3544; }
-    [data-theme="dark"] .share-btn:hover{ background:#252b38; }
-    [data-theme="dark"] .modal{ background:#1a1f28; }
-    [data-theme="dark"] .qr-container{ background:#151a22; }
-    
-    @media (prefers-color-scheme: dark){
-      :root:not([data-theme="light"]){ 
-        --branco:#1a1f28; --texto:#e8eaed; --borda:#2d3544; --off:#151a22; 
-        --grafite:#e8eaed; --shadow:0 10px 30px rgba(0,0,0,.5);
-        --chip:#1e3a52; --azul:#4a9fd8;
-      }
-      body:not([data-theme="light"]){ background:linear-gradient(180deg,#0f1419 0%,#0a0d12 100%) }
-      .card:not([data-theme="light"]){ background:#1a1f28; border-color:#2d3544; }
-      .slide:not([data-theme="light"]){ background:linear-gradient(180deg,#1a1f28 0%, #1e232d 100%); border-color:#2d3544; }
-      .footer:not([data-theme="light"]){ background:#1a1f28; border-color:#2d3544; }
-      .btn.ghost:not([data-theme="light"]){ background:#1e232d; color:#4a9fd8; border-color:#2d3544; }
-      .logo-pill:not([data-theme="light"]){ background:#1e232d; border-color:#2d3544; }
-      .skill:not([data-theme="light"]){ background:#1e3a52; border-color:#2d4a66; color:#7db4e0; }
-      .badge:not([data-theme="light"]){ background:linear-gradient(180deg,#2d5a45,#1e4733); color:#8fcea8; border-color:#2d5a45; }
-      .nav-btn:not([data-theme="light"]){ background:#1e232d; border-color:#2d3544; }
-      .dot:not([data-theme="light"]){ background:#3d4658; }
-      .dot.active:not([data-theme="light"]){ background:#4a9fd8; }
-      .share-btn:not([data-theme="light"]){ background:#1e232d; border-color:#2d3544; }
-      .modal:not([data-theme="light"]){ background:#1a1f28; }
-      .qr-container:not([data-theme="light"]){ background:#151a22; }
-    }
+/* ========== Resets e bases ========== */
+*,*::before,*::after{box-sizing:border-box}
+img,svg,video,canvas,audio,iframe,embed,object{max-width:100%;height:auto}
+html{height:100%;scroll-behavior:smooth;overflow-x:hidden;width:100%;position:relative}
+body{
+  min-height:100%;
+  overflow-x:hidden;
+  width:100%;
+  margin:0;
+  padding:calc(60px + var(--safe-top)) 0 0 0;
+  font-family:Aptos,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  color:var(--texto);
+  background:linear-gradient(180deg,#fff 0%,#fafafa 100%);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  font-size:16px;
+  line-height:1.6;
+  position:relative;
+}
 
-    /* Base */
-    *,*::before,*::after{ box-sizing:border-box }
-    html{ height:100%; scroll-behavior:smooth; }
-    body{ min-height:100%; }
-    html,body{ overflow-x:hidden }
-    body{
-      margin:0; font-family:Aptos, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      color:var(--texto); background:linear-gradient(180deg,#fff 0%,#fafafa 100%);
-      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
-      padding-top:60px;
-    }
-    
-    img { display: block; max-width: 100%; height: auto; }
-    
-    a{ color:var(--azul); text-decoration:none }
-    a:hover{ text-decoration:underline }
+/* evita qualquer bleed lateral em mobile */
+body, main, .wrap, .card, .grid, .track, .slide { max-width:100%; }
 
-    h1{ font-size:clamp(1.7rem,2.2rem,2.4rem); font-weight:600; letter-spacing:.2px; margin:0; color:var(--azul) }
-    h1 .small{ font-size:70%; color:#6b7280; font-weight:500; margin-left:6px }
-    h2{ font-size:1.25rem; font-weight:800; margin:0 0 12px }
-    p{ margin:0 0 12px }
-    ul{ margin:8px 0 0 20px }
+/* links e headings */
+a{color:var(--azul);text-decoration:none;word-wrap:break-word;overflow-wrap:break-word}
+a:hover{text-decoration:underline}
 
-    /* Breadcrumb Navigation */
-    .breadcrumb{
-      position:fixed; top:0; left:0; right:0; z-index:999;
-      background:var(--branco); border-bottom:1px solid var(--borda);
-      box-shadow:0 2px 8px rgba(0,0,0,.04);
-      opacity:0; pointer-events:none; transition:all .3s ease;
-      backdrop-filter:blur(10px); background:rgba(255,255,255,.95);
-    }
-    [data-theme="dark"] .breadcrumb{ background:rgba(26,31,40,.95); }
-    .breadcrumb.visible{ opacity:1; pointer-events:all; }
-    .breadcrumb-inner{
-      max-width:var(--maxw); margin:0 auto; padding:12px 20px;
-      display:flex; align-items:center; justify-content:space-between; gap:16px;
-    }
-    .breadcrumb-nav{
-      display:flex; gap:8px; align-items:center; flex-wrap:wrap;
-    }
-    .breadcrumb-nav a{
-      padding:6px 12px; border-radius:8px; font-size:.88rem; font-weight:600;
-      color:var(--texto); transition:all .2s ease;
-    }
-    .breadcrumb-nav a:hover{
-      background:var(--chip); text-decoration:none;
-    }
-    .breadcrumb-actions{
-      display:flex; gap:8px; align-items:center;
-    }
-    .breadcrumb-btn{
-      padding:6px 12px; border-radius:8px; font-size:.85rem; font-weight:600;
-      background:var(--azul); color:#fff; border:none; cursor:pointer;
-      transition:all .2s ease; white-space:nowrap;
-    }
-    .breadcrumb-btn:hover{ background:#154e75; transform:translateY(-1px); }
+h1{
+  font-size:clamp(1.4rem,5vw,2.4rem);
+  font-weight:600;
+  letter-spacing:.2px;
+  margin:0;
+  color:var(--azul);
+  line-height:1.2;
+  word-wrap:break-word;
+  overflow-wrap:break-word;
+}
+h1 .small{font-size:clamp(.85rem,3vw,1.4rem);color:#6b7280;font-weight:500;display:inline-block;margin-left:4px}
+h2{font-size:clamp(1rem,3.5vw,1.25rem);font-weight:800;margin:0 0 12px;word-wrap:break-word;line-height:1.3}
+p{margin:0 0 12px;word-wrap:break-word;overflow-wrap:break-word}
+ul{margin:8px 0 0 20px;word-wrap:break-word}
 
-    .wrap{ max-width:var(--maxw); margin:0 auto; padding:28px 20px }
-    
-    /* Animação de entrada */
-    .card{
-      background:var(--branco); border:1px solid var(--borda); border-radius:var(--radius);
-      box-shadow:var(--shadow); padding:22px; margin-bottom:20px;
-      transition:transform .12s ease, box-shadow .15s ease, background .2s ease, border-color .2s ease;
-      animation: fadeInUp 0.6s ease-out backwards;
-    }
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .card:nth-child(1){ animation-delay: 0.05s; }
-    .card:nth-child(2){ animation-delay: 0.1s; }
-    .card:nth-child(3){ animation-delay: 0.15s; }
-    .card:nth-child(4){ animation-delay: 0.2s; }
-    .card:nth-child(5){ animation-delay: 0.25s; }
-    .card:nth-child(6){ animation-delay: 0.3s; }
-    
-    .card:hover{ transform:translateY(-1px); box-shadow:0 12px 30px rgba(0,0,0,.08) }
+/* container */
+.wrap{
+  max-width:var(--maxw);
+  margin:0 auto;
+  padding:clamp(12px,4vw,28px) clamp(10px,3vw,20px);
+  width:100%;
+}
 
-    .grid{ display:grid; grid-template-columns:2fr 1fr; gap:22px; margin-top:16px }
+/* card */
+.card{
+  background:var(--branco);
+  border:1px solid var(--borda);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:clamp(12px,3vw,22px);
+  margin-bottom:clamp(12px,3vw,20px);
+  width:100%;
+  transition:transform .12s ease,box-shadow .15s ease;
+  animation:fadeInUp .6s ease-out backwards;
+  overflow:hidden; /* garante sem overflow em mobile */
+}
+@keyframes fadeInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+.card:hover{transform:translateY(-1px);box-shadow:0 12px 30px rgba(0,0,0,.08)}
 
-    /* Header */
-    .header{ display:grid; grid-template-columns:auto 1fr; gap:18px; align-items:center; margin-bottom:18px }
-    .brand-frame{ 
-      width:270px; height:270px; border-radius:24px; overflow:hidden; 
-      position:relative; flex:0 0 auto; background:#fff;
-      aspect-ratio: 1/1;
-    }
-    .brand-frame::after{ content:""; position:absolute; inset:0; box-shadow:0 0 0 2px var(--borda) inset; border-radius:24px }
-    .brand-frame img{ width:100%; height:100%; object-fit:cover }
-    .subtitle{ font-size:.95rem; color:#3a4452; opacity:.95 }
-    .subtitle .line{ display:block }
+/* grid principal: 2 colunas apenas em telas grandes */
+.grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:clamp(12px,3vw,22px);
+  margin-top:16px;
+  width:100%;
+}
+@media (min-width:980px){
+  .grid{grid-template-columns:2fr 1fr}
+}
 
-    .cta-bar{ display:flex; flex-wrap:wrap; gap:10px; margin-top:10px }
-    .btn{
-      display:inline-flex; align-items:center; gap:8px; padding:10px 14px; border-radius:12px;
-      border:1px solid var(--azul); font-weight:700; cursor:pointer;
-      transition:background .2s ease, transform .08s ease, box-shadow .12s ease, border-color .12s ease;
-      min-height: 44px;
-    }
-    .btn.primary{ background:var(--azul); color:#fff }
-    .btn.primary:hover{ background:#154e75; border-color:#154e75 }
-    .btn.ghost{ background:#fff; color:var(--azul) }
-    .btn.ghost:hover{ background:#f1f5f9; border-color:#c8d6e5 }
-    .btn.success{ background:#10b981; color:#fff; border-color:#10b981; }
-    .btn.success:hover{ background:#059669; border-color:#059669; }
-    .btn:hover{ transform:translateY(-1px); box-shadow:0 6px 16px rgba(0,0,0,.08) }
-    .btn img{ height:var(--icon); width:var(--icon); object-fit:contain }
-    #btnContato img{ filter:invert(1) }
+/* header */
+.header{
+  display:grid;
+  grid-template-columns:auto 1fr;
+  gap:clamp(12px,3vw,18px);
+  align-items:center;
+  margin-bottom:18px;
+  width:100%;
+}
+@media (max-width:767px){
+  .header{grid-template-columns:1fr;text-align:center}
+  .header > div{display:flex;flex-direction:column;align-items:center}
+}
 
-    .brandbar{ display:flex; gap:10px; align-items:center; margin-top:10px; flex-wrap:wrap }
-    .logo-pill{
-      display:inline-flex; align-items:center; justify-content:center; height:40px; min-width:60px;
-      padding:6px 12px; border:1px solid var(--borda); border-radius:12px; background:#fff;
-      box-shadow:inset 0 1px 0 rgba(0,0,0,.02); transition:transform .1s ease;
-    }
-    .logo-pill:hover{ transform:translateY(-1px) }
-    .logo-pill.axia img{ height:36px }
-    .logo-pill.medvalor img{ height:30px }
+.brand-frame{
+  width:clamp(120px,25vw,270px);
+  height:clamp(120px,25vw,270px);
+  border-radius:24px;overflow:hidden;position:relative;flex-shrink:0;background:#fff;aspect-ratio:1/1
+}
+.brand-frame::after{content:"";position:absolute;inset:0;box-shadow:0 0 0 2px var(--borda) inset;border-radius:24px}
+.brand-frame img{width:100%;height:100%;object-fit:cover}
 
-    /* Dark mode toggle */
-    .theme-toggle{
-      position:fixed; bottom:24px; right:24px; z-index:1000;
-      width:48px; height:48px; border-radius:50%;
-      background:var(--azul); border:2px solid var(--borda);
-      box-shadow:0 4px 12px rgba(0,0,0,.15);
-      cursor:pointer; display:flex; align-items:center; justify-content:center;
-      transition:all .2s ease;
-    }
-    .theme-toggle:hover{ transform:scale(1.1); box-shadow:0 6px 16px rgba(0,0,0,.2); }
-    .theme-toggle svg{ width:22px; height:22px; color:#fff; }
+.subtitle{font-size:clamp(.8rem,2.5vw,.95rem);color:#3a4452;opacity:.95;line-height:1.4}
+.subtitle .line{display:block;margin:2px 0}
 
-    /* Botão voltar ao topo */
-    .back-to-top{
-      position:fixed; bottom:84px; right:24px; z-index:1000;
-      width:48px; height:48px; border-radius:50%;
-      background:var(--branco); border:2px solid var(--borda);
-      box-shadow:0 4px 12px rgba(0,0,0,.15);
-      cursor:pointer; display:flex; align-items:center; justify-content:center;
-      transition:all .2s ease; opacity:0; pointer-events:none;
-    }
-    .back-to-top.visible{ opacity:1; pointer-events:all; }
-    .back-to-top:hover{ transform:scale(1.1) translateY(-2px); box-shadow:0 6px 16px rgba(0,0,0,.2); }
-    .back-to-top svg{ width:22px; height:22px; color:var(--azul); }
+/* CTA */
+.cta-bar{display:flex;flex-wrap:wrap;gap:clamp(6px,2vw,10px);margin-top:10px;width:100%}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:6px;
+  padding:clamp(8px,2vw,10px) clamp(10px,2.5vw,14px);
+  border-radius:12px;border:1px solid var(--azul);
+  font-weight:700;cursor:pointer;transition:all .2s ease;min-height:44px;
+  font-size:clamp(.78rem,2.2vw,.95rem);white-space:nowrap;text-decoration:none
+}
+.btn.primary{background:var(--azul);color:#fff}
+.btn.primary:hover{background:#154e75;border-color:#154e75;text-decoration:none}
+.btn.ghost{background:#fff;color:var(--azul)}
+.btn.ghost:hover{background:#f1f5f9;border-color:#c8d6e5;text-decoration:none}
+.btn:hover{transform:translateY(-1px);box-shadow:0 6px 16px rgba(0,0,0,.08)}
+.btn img{height:clamp(13px,3vw,16px);width:clamp(13px,3vw,16px);object-fit:contain;flex-shrink:0}
+#btnContato img{filter:invert(1)}
+@media (max-width:767px){.btn{width:100%}.cta-bar{justify-content:center}}
 
-    /* Timeline - AJUSTADA PARA MOBILE */
-    .timeline{ position:relative; margin-top:8px }
-    .timeline::before{ content:""; position:absolute; left:11px; top:0; bottom:0; width:2px; background:var(--borda) }
-    .item{ position:relative; padding-left:32px; margin:18px 0; word-wrap:break-word; }
-    .item::before{ content:""; position:absolute; left:6px; top:6px; width:12px; height:12px; border-radius:50%; background:var(--azul); box-shadow:0 0 0 3px #e8f1f9 }
-    .role{ font-weight:800; line-height:1.4; }
-    .org{ color:#2d3445; word-wrap:break-word; }
-    .meta{ font-size:.9rem; color:#5d6372; line-height:1.4; }
-    .badge{
-      display:inline-block; vertical-align:middle; margin-left:8px; padding:4px 10px; border-radius:999px;
-      font-size:.72rem; font-weight:800; background:linear-gradient(180deg,#bfe5d7,#a6d8c0); color:#0b3b57;
-      border:1px solid #cfe5da; box-shadow:0 3px 8px rgba(0,0,0,.06)
-    }
-    .desc{ color:#196396; font-style:italic; font-size:.95rem; margin:8px 0 0; line-height:1.5; }
+.brandbar{display:flex;gap:clamp(6px,2vw,10px);align-items:center;margin-top:10px;flex-wrap:wrap;width:100%}
+.logo-pill{
+  display:inline-flex;align-items:center;justify-content:center;height:clamp(36px,8vw,40px);
+  min-width:60px;padding:6px 12px;border:1px solid var(--borda);border-radius:12px;background:#fff;
+  box-shadow:inset 0 1px 0 rgba(0,0,0,.02);transition:transform .1s ease
+}
+.logo-pill:hover{transform:translateY(-1px);text-decoration:none}
+.logo-pill.axia img{height:clamp(30px,7vw,36px)}
+.logo-pill.medvalor img{height:clamp(26px,6vw,30px)}
+@media (max-width:767px){.brandbar{justify-content:center}}
 
-    /* Carrossel - MELHORADO PARA MOBILE */
-    #sobre .carousel{ position:relative }
-    #sobre .slide{ font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif }
-    .track{
-      display:flex; gap:16px; overflow-x:auto; scroll-snap-type:x mandatory;
-      padding-bottom:8px; scroll-behavior:smooth; -webkit-overflow-scrolling:touch; overscroll-behavior-x:contain;
-    }
-    .slide{
-      flex:0 0 min(92%, 520px); max-width:min(92%, 520px); scroll-snap-align:center;
-      background:linear-gradient(180deg,#ffffff 0%, #fbfdff 100%);
-      border:1px solid var(--borda); border-radius:16px; box-shadow:var(--shadow);
-      padding:22px 20px; line-height:1.75; 
-      min-height:clamp(280px, 38vh, 420px);
-      display:flex; align-items:center; position:relative;
-    }
-    .slide::before{
-      content:""; position:absolute; left:0; right:0; top:0; height:6px;
-      background:linear-gradient(90deg, var(--azul), #3ea3d3);
-      border-top-left-radius:16px; border-top-right-radius:16px; opacity:.7;
-    }
-    .slide p{ text-align:justify; margin:0; text-wrap:pretty; hyphens:auto; font-size:clamp(.96rem, 1rem, 1.02rem); line-height:1.7; }
+/* breadcrumb */
+.breadcrumb{
+  position:fixed;top:0;left:0;right:0;z-index:999;width:100%;
+  background:rgba(255,255,255,.95);border-bottom:1px solid var(--borda);
+  box-shadow:0 2px 8px rgba(0,0,0,.04);opacity:0;pointer-events:none;transition:all .3s ease;
+  backdrop-filter:blur(10px)
+}
+.breadcrumb.visible{opacity:1;pointer-events:all}
+.breadcrumb-inner{
+  max-width:var(--maxw);margin:0 auto;padding:clamp(8px,2vw,12px) clamp(10px,3vw,20px);
+  width:100%;display:flex;align-items:center;justify-content:space-between;gap:clamp(8px,2vw,12px);flex-wrap:wrap
+}
+.breadcrumb-nav{display:flex;gap:clamp(4px,1.5vw,8px);align-items:center;flex-wrap:wrap}
+.breadcrumb-nav a{
+  padding:clamp(4px,1.5vw,6px) clamp(8px,2vw,12px);border-radius:8px;
+  font-size:clamp(.72rem,2vw,.88rem);font-weight:600;color:var(--texto);transition:all .2s ease;white-space:nowrap
+}
+.breadcrumb-nav a:hover{background:var(--chip);text-decoration:none}
+.breadcrumb-btn{
+  padding:clamp(4px,1.5vw,6px) clamp(8px,2vw,12px);border-radius:8px;
+  font-size:clamp(.72rem,2vw,.88rem);font-weight:600;background:var(--azul);color:#fff;border:none;cursor:pointer;transition:all .2s ease;white-space:nowrap
+}
+.breadcrumb-btn:hover{background:#154e75;transform:translateY(-1px)}
+@media (max-width:767px){
+  .breadcrumb-inner{flex-direction:column;align-items:stretch}
+  .breadcrumb-nav{justify-content:center}
+  .breadcrumb-btn{width:100%}
+}
 
-    .nav-btn{
-      position:absolute; top:50%; transform:translateY(-50%); border:1px solid var(--borda); background:#fff;
-      border-radius:12px; padding:8px 10px; box-shadow:0 6px 16px rgba(0,0,0,.06); cursor:pointer;
-      transition: all .2s ease; z-index:10;
-    }
-    .nav-btn:hover{ background:#f8f9fa; }
-    .nav-prev{ left:-6px } .nav-next{ right:-6px }
-    
-    /* Progress bar carrossel */
-    .carousel-progress{
-      width:100%; height:4px; background:var(--borda); border-radius:2px; margin-top:12px; overflow:hidden;
-    }
-    .carousel-progress-bar{
-      height:100%; background:var(--azul); border-radius:2px; transition:width .3s ease;
-    }
-    
-    .dots{ display:flex; gap:6px; justify-content:center; margin-top:10px }
-    .dot{ width:8px; height:8px; border-radius:999px; background:#cfd8e3; opacity:.95; cursor:pointer; transition:all .2s ease; }
-    .dot:hover{ background:#8a9ab3; }
-    .dot.active{ background:var(--azul) }
+/* FABs */
+.theme-toggle,.back-to-top{
+  position:fixed;bottom:calc(clamp(16px,4vw,24px) + var(--safe-bottom));right:clamp(16px,4vw,24px);
+  z-index:1000;width:clamp(42px,10vw,48px);height:clamp(42px,10vw,48px);border-radius:50%;
+  background:var(--azul);border:2px solid var(--borda);box-shadow:0 4px 12px rgba(0,0,0,.15);
+  cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s ease
+}
+.theme-toggle:hover,.back-to-top:hover{transform:scale(1.1);box-shadow:0 6px 16px rgba(0,0,0,.2)}
+.theme-toggle svg,.back-to-top svg{width:clamp(18px,4vw,22px);height:clamp(18px,4vw,22px)}
+.theme-toggle svg{color:#fff}
+.back-to-top{bottom:calc(clamp(68px,16vw,84px) + var(--safe-bottom));background:var(--branco);opacity:0;pointer-events:none}
+.back-to-top.visible{opacity:1;pointer-events:all}
+.back-to-top svg{color:var(--azul)}
 
-    /* Competências */
-    .tags{ display:flex; flex-wrap:wrap; gap:8px; margin-top:4px }
-    .skill{
-      display:inline-flex; align-items:center; gap:6px; padding:8px 12px;
-      background:var(--chip); border:1px solid #d0e4f7; border-radius:10px;
-      font-size:.88rem; font-weight:600; color:#196396;
-      transition:all .2s ease;
-    }
-    .skill:hover{ background:#d9eafc; transform:translateY(-1px); }
-    .skill svg{ width:16px; height:16px; flex-shrink:0; }
+/* timeline */
+.timeline{position:relative;margin-top:8px}
+.timeline::before{content:"";position:absolute;left:11px;top:0;bottom:0;width:2px;background:var(--borda)}
+.item{position:relative;padding-left:clamp(26px,6vw,32px);margin:clamp(14px,3vw,18px) 0}
+.item::before{
+  content:"";position:absolute;left:6px;top:6px;width:clamp(10px,2.5vw,12px);height:clamp(10px,2.5vw,12px);
+  border-radius:50%;background:var(--azul);box-shadow:0 0 0 3px #e8f1f9
+}
+.role{font-weight:800;font-size:clamp(.88rem,2.5vw,1rem)}
+.org{color:#2d3445;font-size:clamp(.85rem,2.3vw,.95rem)}
+.meta{font-size:clamp(.78rem,2vw,.9rem);color:#5d6372}
+.badge{
+  display:inline-block;vertical-align:middle;margin-left:clamp(4px,1.5vw,8px);
+  padding:clamp(3px,1vw,4px) clamp(6px,2vw,10px);border-radius:999px;
+  font-size:clamp(.68rem,1.8vw,.72rem);font-weight:800;background:linear-gradient(180deg,#bfe5d7,#a6d8c0);
+  color:#0b3b57;border:1px solid #cfe5da;box-shadow:0 3px 8px rgba(0,0,0,.06)
+}
+.desc{color:#196396;font-style:italic;font-size:clamp(.82rem,2vw,.95rem);margin:8px 0 0}
 
-    /* Sidebar */
-    .brand-divider{ display:flex; align-items:center; justify-content:center; padding:18px }
-    .brand-divider img{ max-width:140px; height:auto; display:block }
+/* carousel */
+#sobre .carousel{position:relative;width:100%}
+#sobre .slide{font-family:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
 
-    /* Linktree */
-    #em-alta-btn .btn{ width:100%; justify-content:center; border:1px solid var(--azul); font-weight:800; letter-spacing:.2px; border-radius:14px; padding:12px 16px }
-    #em-alta-btn .btn:hover{ background:#f8fbff }
+.track{
+  display:flex;gap:clamp(12px,3vw,16px);
+  overflow-x:auto;overflow-y:hidden;
+  scroll-snap-type:x mandatory;scroll-snap-stop:always;
+  padding:0 2px 8px 2px; /* leve respiro nas laterais pra não cortar sombra */
+  -webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;width:100%
+}
+.track::-webkit-scrollbar{height:6px}
+.track::-webkit-scrollbar-thumb{background:#d9e1ea;border-radius:10px}
 
-    /* Footer - REDESENHADO E MELHORADO */
-    footer{ margin-top:30px }
-    .footer{ background:var(--branco); border-top:1px solid var(--borda); }
-    .footer-inner{ 
-      max-width:var(--maxw); margin:0 auto; padding:32px 20px; 
-      display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:32px;
-    }
-    .footer-section{ display:flex; flex-direction:column; gap:12px; }
-    .footer-section h4{ margin:0 0 8px; color:var(--azul); font-size:1rem; font-weight:700; }
-    .footer-section a{ 
-      color:var(--texto); display:flex; align-items:center; gap:8px; 
-      transition:all .2s ease; padding:4px 0;
-    }
-    .footer-section a:hover{ color:var(--azul); text-decoration:none; transform:translateX(4px); }
-    .brands-footer{ display:flex; gap:16px; flex-wrap:wrap; align-items:center; }
-    .brands-footer a{ display:block; transition:transform .2s ease; }
-    .brands-footer a:hover{ transform:scale(1.05); }
-    .brands-footer img{ height:32px; display:block; }
-    .foot-note{ 
-      border-top:1px solid var(--borda); padding:20px; text-align:center; 
-      color:#6b7280; font-size:.9rem; background:var(--off);
-    }
+.slide{
+  flex:0 0 92%;
+  max-width:92%;
+  scroll-snap-align:start;
+  background:linear-gradient(180deg,#fff 0%,#fbfdff 100%);
+  border:1px solid var(--borda);border-radius:16px;box-shadow:var(--shadow);
+  padding:clamp(14px,3.5vw,22px) clamp(14px,3.5vw,20px);
+  line-height:1.75;min-height:clamp(200px,30vh,380px);
+  display:flex;align-items:center;position:relative
+}
+@media (min-width:600px){.slide{flex-basis:86%;max-width:86%}}
+@media (min-width:1024px){.slide{flex-basis:520px;max-width:520px}}
+.slide::before{
+  content:"";position:absolute;left:0;right:0;top:0;height:6px;
+  background:linear-gradient(90deg,var(--azul),#3ea3d3);border-top-left-radius:16px;border-top-right-radius:16px;opacity:.7
+}
+.slide p{text-align:justify;margin:0;hyphens:auto;font-size:clamp(.9rem,2.3vw,1rem)}
 
-    /* Overlay/Modal */
-    .overlay{
-      position:fixed; inset:0; z-index:9999; background:var(--overlay);
-      display:flex; align-items:center; justify-content:center;
-    }
-    .overlay:not(.active){ display:none !important; }
-    .overlay[aria-hidden="true"]{ display:none !important; }
+.nav-btn{
+  position:absolute;top:50%;transform:translateY(-50%);
+  border:1px solid var(--borda);background:#fff;border-radius:12px;
+  padding:clamp(6px,2vw,10px) clamp(8px,2.5vw,12px);
+  box-shadow:0 6px 16px rgba(0,0,0,.06);cursor:pointer;transition:all .2s ease;
+  font-size:clamp(1.1rem,3vw,1.4rem);line-height:1;z-index:10;display:flex;align-items:center;justify-content:center;
+  min-width:clamp(32px,8vw,38px);min-height:clamp(32px,8vw,38px)
+}
+.nav-btn:hover{background:#f8f9fa}
+.nav-prev{left:4px}
+.nav-next{right:4px}
+/* evita que os botões cubram o texto em telas muito estreitas */
+@media (max-width:380px){
+  .nav-btn{opacity:.85}
+}
 
-    .modal{
-      background:var(--branco); border-radius:16px; max-width:600px; width:90%; padding:24px;
-      box-shadow:0 10px 30px rgba(0,0,0,.2); max-height:90vh; overflow-y:auto;
-    }
-    .modal h2{ margin-top:0; color:var(--azul) }
-    .modal .item{ display:flex; align-items:center; gap:10px; margin:10px 0 }
-    .modal .item img{
-      width:20px; height:20px; object-fit:contain; flex:0 0 20px; display:inline-block;
-    }
-    .close-btn{ margin-top:20px; padding:8px 14px; background:var(--azul); color:#fff; border:none; border-radius:8px; cursor:pointer; min-height:44px; }
-    .close-btn:hover{ background:#154e75; }
+.carousel-progress{width:100%;height:4px;background:var(--borda);border-radius:2px;margin-top:12px;overflow:hidden}
+.carousel-progress-bar{height:100%;background:var(--azul);border-radius:2px;transition:width .3s ease}
 
-    /* Modal Compartilhar */
-    .share-grid{
-      display:grid; grid-template-columns:1fr 1fr; gap:10px; margin:16px 0;
-    }
-    .share-btn{
-      padding:10px 12px; border-radius:10px; border:1px solid var(--borda);
-      background:var(--branco); cursor:pointer; transition:all .2s ease;
-      display:flex; align-items:center; justify-content:center; gap:8px; 
-      font-weight:600; font-size:.9rem;
-    }
-    .share-btn:hover{ background:var(--chip); transform:translateY(-2px); box-shadow:0 4px 12px rgba(0,0,0,.08); }
-    .share-btn svg{ width:18px; height:18px; flex-shrink:0; }
-    .qr-container{
-      text-align:center; padding:12px; background:var(--off); border-radius:12px; margin:16px 0;
-    }
-    #qrcode{ display:inline-block; }
-    #qrcode canvas, #qrcode img{ max-width:100% !important; height:auto !important; }
-    .qr-instructions{
-      font-size:.82rem; color:#6b7280; margin-top:8px;
-    }
+.dots{display:flex;gap:clamp(4px,1.5vw,6px);justify-content:center;margin-top:10px;flex-wrap:wrap}
+.dot{width:8px;height:8px;border-radius:999px;background:#cfd8e3;opacity:.95;cursor:pointer;transition:all .2s ease}
+.dot:hover{background:#8a9ab3}
+.dot.active{background:var(--azul)}
 
-    /* Mobile touch improvements */
-    @media (hover: none) and (pointer: coarse) {
-      * { -webkit-tap-highlight-color: transparent; }
-      .btn, .logo-pill, .nav-btn, .dot { 
-        transition: all .2s cubic-bezier(.4,0,.2,1); 
-      }
-    }
+/* chips */
+.tags{display:flex;flex-wrap:wrap;gap:clamp(6px,1.5vw,8px);margin-top:4px}
+.skill{
+  display:inline-flex;align-items:center;gap:clamp(4px,1.5vw,6px);
+  padding:clamp(6px,1.8vw,8px) clamp(8px,2.5vw,12px);
+  background:var(--chip);border:1px solid #d0e4f7;border-radius:10px;
+  font-size:clamp(.75rem,2vw,.88rem);font-weight:600;color:#196396;transition:all .2s ease;white-space:nowrap
+}
+.skill:hover{background:#d9eafc;transform:translateY(-1px)}
+.skill svg{width:clamp(13px,3vw,16px);height:clamp(13px,3vw,16px);flex-shrink:0}
 
-    /* Responsividade - MUITO MELHORADA */
-    @media (max-width:1200px){
-      .wrap{ padding:22px 16px; max-width:100% }
-      .grid{ grid-template-columns:1fr; gap:18px }
-      .header{ grid-template-columns:1fr; gap:12px }
-      .brand-frame{ margin:0 auto }
-    }
-    
-    @media (max-width:768px){
-      .brand-frame{ width:224px; height:224px }
-      .card{ padding:18px }
-      .cta-bar{ gap:8px }
-      .btn{ width:calc(50% - 4px); justify-content:center; font-size:.85rem; padding:8px 10px; }
-      
-      /* Carrossel mobile - AJUSTADO */
-      .slide{ 
-        flex:0 0 94%; max-width:94%; 
-        min-height:clamp(320px, 42vh, 480px);
-        padding:20px 16px;
-      }
-      .slide p{ font-size:.95rem; line-height:1.65; }
-      
-      /* Timeline mobile - SEM CORTES */
-      .timeline{ margin-right:0; padding-right:0; }
-      .item{ padding-left:28px; margin:16px 0; }
-      .item::before{ left:5px; width:10px; height:10px; }
-      .timeline::before{ left:9px; }
-      .role{ font-size:.95rem; }
-      .org{ font-size:.9rem; }
-      .meta{ font-size:.85rem; }
-      .desc{ font-size:.9rem; }
-      
-      h1{ font-size:1.8rem }
-      h2{ font-size:1.15rem; }
-      
-      .theme-toggle, .back-to-top{ bottom:16px; right:16px; width:44px; height:44px; }
-      .back-to-top{ bottom:72px; }
-      .breadcrumb-inner{ padding:10px 16px; gap:10px; }
-      .breadcrumb-nav{ gap:6px; font-size:.82rem; }
-      .breadcrumb-nav a{ padding:5px 10px; }
-      .breadcrumb-btn{ font-size:.82rem; padding:6px 12px; }
-      .share-grid{ gap:8px; }
-      .share-btn{ padding:8px 10px; font-size:.85rem; }
-      .modal{ padding:20px; }
-      .qr-container{ padding:10px; }
-      
-      /* Footer mobile */
-      .footer-inner{ grid-template-columns:1fr; gap:24px; padding:24px 20px; }
-      .brands-footer{ justify-content:center; }
-    }
-    
-    @media (max-width:480px){
-      body{ padding-top:70px; font-size:15px; line-height:1.6; }
-      .brand-frame{ width:168px; height:168px }
-      h1{ font-size:1.5rem }
-      h2{ font-size:1.05rem; }
-      .btn{ width:100%; font-size:.88rem; padding:9px 12px; }
-      .wrap{ padding:16px 10px }
-      .card{ padding:14px; margin-bottom:14px; }
-      
-      /* Carrossel mobile pequeno - OTIMIZADO */
-      .slide{ 
-        flex:0 0 96%; max-width:96%; 
-        padding:18px 14px;
-        min-height:clamp(340px, 45vh, 520px);
-      }
-      .slide p{ font-size:.92rem; line-height:1.6; }
-      .nav-btn{ display:none; } /* Remove setas em telas pequenas */
-      
-      /* Timeline mobile pequeno - OTIMIZADA */
-      .item{ padding-left:24px; margin:14px 0; }
-      .item::before{ left:4px; width:8px; height:8px; }
-      .timeline::before{ left:7px; }
-      .role{ font-size:.92rem; line-height:1.3; }
-      .org{ font-size:.88rem; }
-      .meta{ font-size:.82rem; }
-      .desc{ font-size:.88rem; line-height:1.4; }
-      .badge{ font-size:.7rem; padding:3px 8px; margin-left:4px; }
-      
-      /* Listas mobile - SEM CORTES */
-      ul{ margin:8px 0 0 16px; padding-left:0; }
-      ul li{ margin-bottom:8px; font-size:.92rem; line-height:1.5; word-wrap:break-word; }
-      
-      .breadcrumb-inner{ padding:8px 12px; flex-direction:column; align-items:stretch; gap:8px; }
-      .breadcrumb-nav{ justify-content:center; flex-wrap:wrap; }
-      .breadcrumb-nav a{ font-size:.78rem; padding:4px 8px; }
-      .breadcrumb-btn{ width:100%; font-size:.88rem; }
-      .share-grid{ grid-template-columns:1fr; gap:8px; }
-      .share-btn{ font-size:.88rem; padding:10px; }
-      #qrcode{ transform:scale(0.85); }
-      
-      /* Footer mobile pequeno - MELHORADO */
-      .footer-inner{ padding:20px 16px; gap:20px; }
-      .footer-section h4{ font-size:.95rem; }
-      .footer-section a{ font-size:.9rem; }
-      .brands-footer{ flex-direction:column; gap:12px; }
-      .brands-footer img{ height:28px; }
-      .foot-note{ padding:16px; font-size:.85rem; }
-    }
-  </style>
+/* separador de marca */
+.brand-divider{display:flex;align-items:center;justify-content:center;padding:clamp(12px,3vw,18px)}
+.brand-divider img{max-width:clamp(100px,30vw,140px);height:auto}
+
+/* botão em alta */
+#em-alta-btn .btn{
+  width:100%;justify-content:center;border:1px solid var(--azul);
+  font-weight:800;letter-spacing:.2px;border-radius:14px;
+  padding:clamp(10px,2.5vw,12px) clamp(12px,3vw,16px)
+}
+#em-alta-btn .btn:hover{background:#f8fbff}
+
+/* rodapé */
+footer{margin-top:clamp(20px,5vw,30px)}
+.footer{background:#fff;border-top:1px solid var(--borda)}
+.footer-inner{
+  max-width:var(--maxw);margin:0 auto;padding:clamp(12px,3vw,22px) clamp(10px,3vw,20px);
+  display:flex;align-items:center;justify-content:center;gap:clamp(14px,4vw,40px);flex-wrap:wrap
+}
+.footer h4{margin:0 0 12px;color:#196396;font-size:clamp(.9rem,2.5vw,1rem);text-align:center}
+.footer a{color:#196396}
+.footer-links{display:flex;flex-direction:column;gap:8px}
+.brands-col{display:flex;align-items:center;gap:clamp(10px,3vw,20px);flex-wrap:wrap;justify-content:center}
+.brands-col img{transition:transform .12s ease;max-height:clamp(26px,5vw,36px);height:auto;width:auto}
+.brands-col img:hover{transform:scale(1.04)}
+.foot-note{border-top:1px solid var(--borda);padding:clamp(8px,2vw,12px) clamp(10px,3vw,20px);text-align:center;color:#6b7280;font-size:clamp(.72rem,2vw,.9rem)}
+
+/* overlays */
+.overlay{
+  position:fixed;inset:0;z-index:9999;background:var(--overlay);
+  display:flex;align-items:center;justify-content:center;padding:clamp(10px,3vw,20px)
+}
+.overlay:not(.active), .overlay[aria-hidden="true"]{display:none!important}
+.modal{
+  background:var(--branco);border-radius:16px;max-width:min(600px,92vw);width:100%;
+  padding:clamp(14px,3.5vw,24px);box-shadow:0 10px 30px rgba(0,0,0,.2);
+  max-height:85vh;overflow-y:auto
+}
+.modal h2{margin-top:0;color:var(--azul);font-size:clamp(1.05rem,3vw,1.3rem)}
+.modal .item{display:flex;align-items:center;gap:clamp(8px,2vw,10px);margin:clamp(8px,2vw,10px) 0}
+.modal .item a{min-width:0;flex:1}
+.modal .item img{width:clamp(18px,4vw,20px);height:clamp(18px,4vw,20px);object-fit:contain}
+.close-btn{
+  margin-top:clamp(16px,3vw,20px);padding:clamp(8px,2vw,10px) clamp(12px,3vw,14px);
+  background:var(--azul);color:#fff;border:none;border-radius:8px;cursor:pointer;min-height:44px;
+  font-size:clamp(.8rem,2vw,.95rem);width:100%;font-weight:600
+}
+.close-btn:hover{background:#154e75}
+
+.share-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(8px,2vw,10px);margin:clamp(12px,3vw,16px) 0}
+@media (max-width:520px){.share-grid{grid-template-columns:1fr}}
+.share-btn{
+  padding:clamp(8px,2vw,10px) clamp(10px,2.5vw,12px);border-radius:10px;border:1px solid var(--borda);
+  background:var(--branco);cursor:pointer;transition:all .2s ease;display:flex;align-items:center;justify-content:center;
+  gap:clamp(6px,1.5vw,8px);font-weight:600;font-size:clamp(.78rem,2vw,.9rem);min-height:44px
+}
+.share-btn:hover{background:var(--chip);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.08)}
+.share-btn svg{width:clamp(16px,4vw,18px);height:clamp(16px,4vw,18px)}
+.qr-container{text-align:center;padding:clamp(10px,2.5vw,12px);background:#f6f7f9;border-radius:12px;margin:clamp(12px,3vw,16px) 0}
+#qrcode{display:inline-block;max-width:100%}
+#qrcode canvas,#qrcode img{max-width:100%!important;height:auto!important}
+.qr-instructions{font-size:clamp(.74rem,2vw,.82rem);color:#6b7280;margin-top:8px}
+
+/* otimizações mobile landscape */
+@media (max-height:500px) and (orientation:landscape){
+  body{padding-top:clamp(45px,10vh,50px)}
+  .slide{min-height:clamp(140px,25vh,180px);padding:clamp(10px,2vh,14px)}
+}
+
+/* Mobile portrait refinado */
+@media (max-width:767px){
+  body{padding-top:calc(clamp(55px,12vw,65px) + var(--safe-top))}
+  .slide{flex-basis:95%;max-width:95%}
+  .footer-inner{flex-direction:column}
+  .brands-col{flex-direction:column}
+  .tags{justify-content:center}
+  #em-alta-btn{text-align:center}
+}
+
+/* foco visível acessível */
+:focus-visible{outline:2px solid var(--azul);outline-offset:2px}
+
+/* toque agradável */
+@media (hover:none) and (pointer:coarse){*{-webkit-tap-highlight-color:transparent}}
+</style>
 </head>
 <body>
-  <!-- Breadcrumb Navigation -->
-  <nav class="breadcrumb" id="breadcrumb">
-    <div class="breadcrumb-inner">
-      <div class="breadcrumb-nav">
-        <a href="#sobre">Sobre</a>
-        <a href="#experiencia">Experiência</a>
-        <a href="#formacao">Formação</a>
-        <a href="#competencias">Competências</a>
-      </div>
-      <div class="breadcrumb-actions">
-        <button class="breadcrumb-btn" id="btnShare">Compartilhar</button>
-      </div>
+<nav class="breadcrumb" id="breadcrumb">
+  <div class="breadcrumb-inner">
+    <div class="breadcrumb-nav">
+      <a href="#sobre">Sobre</a>
+      <a href="#experiencia">Experiência</a>
+      <a href="#formacao">Formação</a>
+      <a href="#competencias">Competências</a>
     </div>
-  </nav>
-
-  <!-- Dark mode toggle -->
-  <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema">
-    <svg id="iconSun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-    </svg>
-    <svg id="iconMoon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none">
-      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-    </svg>
-  </button>
-
-  <!-- Botão voltar ao topo -->
-  <button class="back-to-top" id="backToTop" aria-label="Voltar ao topo">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <polyline points="18 15 12 9 6 15"/>
-    </svg>
-  </button>
-
-  <main class="wrap">
-    <!-- HEADER -->
-    <section class="card header" aria-label="Cabeçalho">
-      <div class="brand-frame"><img src="https://i.imgur.com/uXusAqJ.png" alt="Guilherme Thomé" loading="lazy"/></div>
-      <div>
-        <h1>Guilherme Thomé<span class="small">, MD, MBA.</span></h1>
-        <p class="subtitle">
-          <span class="line">Médico Executivo e Consultor | Especialista em VBHC</span>
-          <span class="line">Superintendente Unimed / ICDS | Founder AxiaCare® & MedValor®</span>
-        </p>
-        <div class="cta-bar">
-          <button class="btn primary" id="btnContato" type="button">
-            <img src="https://cdn-icons-png.flaticon.com/512/542/542689.png" alt="" loading="lazy">Contato
-          </button>
-          <a class="btn ghost" href="https://www.linkedin.com/in/gui-thome" target="_blank" rel="noopener">
-            <img src="https://cdn-icons-png.flaticon.com/256/174/174857.png" alt="" loading="lazy">LinkedIn
-          </a>
-          <a class="btn ghost" href="https://www.guithome.com.br" target="_blank" rel="noopener">
-            <img src="https://guithome.com.br/favicon.ico" alt="" loading="lazy">Site pessoal
-          </a>
-          <a class="btn ghost" href="https://blog.guithome.com.br" target="_blank" rel="noopener">
-            <img src="https://i.imgur.com/7wYpSaD.png" alt="" loading="lazy">Blog
-          </a>
-        </div>
-        <div class="brandbar" aria-label="Marcas">
-          <a class="logo-pill axia" href="https://axcare.com.br" target="_blank" rel="noopener" aria-label="AxiaCare"><img src="https://i.imgur.com/yAUQciP.png" alt="AxiaCare" loading="lazy"></a>
-          <a class="logo-pill medvalor" href="https://medvalor.med.br" target="_blank" rel="noopener" aria-label="MedValor"><img src="https://i.imgur.com/N0lXklP.png" alt="MedValor" loading="lazy"></a>
-        </div>
-      </div>
-    </section>
-
-    <!-- GRID PRINCIPAL -->
-    <section class="grid" aria-label="Conteúdo principal">
-      <!-- COLUNA ESQUERDA -->
-      <div>
-        <!-- SOBRE -->
-        <section class="card" id="sobre" aria-label="Sobre Guilherme Thomé">
-          <h2>Sobre</h2>
-          <div class="carousel" aria-label="Carrossel de apresentação">
-            <button class="nav-btn nav-prev" aria-label="Anterior">‹</button>
-            <div class="track" id="aboutTrack">
-              <article class="slide"><p>Atuo na interseção entre liderança executiva, negócios, VBHC e inovação, com foco em desfechos que importam para o paciente, eficiência operacional e inteligência de dados. Com formação médica em anestesiologia, destaquei-me na gestão de equipes e migrei para posições executivas, liderando inicialmente operações hospitalares e, em seguida, estratégias de alto impacto em operadoras, instituições filantrópicas e no ecossistema empresarial da saúde.</p></article>
-              <article class="slide"><p>Minha caminhada conecta de forma sinérgica governança clínica, gestão hospitalar e gestão de planos de saúde, sempre orientada a resultados sustentáveis e centrados no paciente. Hoje atuo como médico executivo e consultor. Tenho presença técnica no território como elo corporativo entre operadoras, filantropia, hospitais e rede prestadora, articulando e desenvolvendo frentes assistenciais.</p></article>
-              <article class="slide"><p>Fundador da AxiaCare® e da MedValor®, sou consultor e palestrante com soluções que unem tecnologia, analytics e educação executiva para transformar serviços de saúde e acelerar inovação. Minha formação e expertise abrangem Administração Hospitalar, Governança Clínica, Saúde Populacional e Saúde Baseada em Valor (VBHC).</p></article>
-              <article class="slide"><p>Nos últimos quatro anos, conduzi a implantação de governança clínica guiada por dados em hospital de alta complexidade, elevando a eficiência e a entrega de valor; liderei equipes e núcleos de experiência do paciente, inteligência de dados, desenvolvimento médico e segurança. Atuei em múltiplos ciclos de acreditação hospitalar e criei um projeto de medicina hospitalista de alta performance, que reduziu desperdícios em mais de 2.600 diárias/ano e ampliou o cuidado a centenas de pacientes em ambulatórios de egressos.</p></article>
-              <article class="slide"><p>Idealizei, escrevi e implementei uma estratégia completa de atenção à saúde para uma carteira de referência regional — modelo replicável, estruturado a partir da criação do Escritório de Valor em Saúde (EVS) e da integração entre unidade hospitalar, atenção ambulatorial, regulação e novos modelos de remuneração. O resultado foi impacto direto para milhares de pessoas em linhas de cuidado como idosos, neurodesenvolvimento infantil e terapias de alto custo, com economias anuais de milhões de reais.</p></article>
-              <article class="slide"><p>Nesse contexto, venho estruturando comitês técnicos nos segmentos de autismo e novos modelos de pagamento médico, projetando uma área de atuação que envolve diversos municípios no estado, reforçando a integração entre prática clínica, governança e sustentabilidade. Meu propósito é claro: promover inovação, excelência operacional e valor sustentável para pacientes, organizações e sociedade.</p></article>
-            </div>
-            <button class="nav-btn nav-next" aria-label="Próximo">›</button>
-            <div class="carousel-progress">
-              <div class="carousel-progress-bar" id="progressBar"></div>
-            </div>
-            <div class="dots" id="aboutDots" aria-hidden="true"></div>
-          </div>
-        </section>
-
-        <!-- EXPERIÊNCIA -->
-        <section class="card" id="experiencia" aria-label="Experiência">
-          <h2>Experiência</h2>
-          <div class="timeline">
-            <div class="item">
-              <div class="role">Superintendente Médico (Provimento de Saúde) e Líder do EVS <span class="badge">Atual</span></div>
-              <div class="org">Unimed Governador Valadares</div>
-              <div class="meta">dez 2024 – atual</div>
-              <p class="desc">Gestão do Provimento de Saúde, incluindo Rede Assistencial, Atenção Ambulatorial, Auditoria e Escritório de Valor em Saúde, com foco em eficiência, sustentabilidade e cuidado centrado no paciente.</p>
-            </div>
-            <div class="item">
-              <div class="role">Superintendente Médico <span class="badge">Atual</span></div>
-              <div class="org">ICDS (Unihealth)</div>
-              <div class="meta">ago 2025 – atual • Regional Leste Nordeste, MG</div>
-              <p class="desc">Líder no Núcleo de Desenvolvimento e Relações Institucionais, focado em desenvolvimento organizacional, inovação aplicada e articulação estratégica entre contrato, operação e sistema. Elo corporativo integrando hospital, operadora, filantropia e rede.</p>
-            </div>
-            <div class="item"><div class="role">Diretor Técnico – Unidade Hospitalar</div><div class="org">Unihealth (ICDS) – Gov. Valadares</div><div class="meta">dez 2024 – ago 2025</div></div>
-            <div class="item"><div class="role">Superintendente Médico e Diretor Hospitalar</div><div class="org">Unimed Governador Valadares</div><div class="meta">ago 2024 – dez 2024</div></div>
-            <div class="item"><div class="role">Assessor Médico Hospitalar e Diretor Técnico</div><div class="org">Unimed Governador Valadares</div><div class="meta">jan 2024 – ago 2024</div></div>
-            <div class="item"><div class="role">Diretor Técnico</div><div class="org">Unimed Governador Valadares</div><div class="meta">jan 2022 – fev 2024</div></div>
-            <div class="item"><div class="role">Coordenador de Anestesiologia / Centro Cirúrgico</div><div class="org">Unimed Governador Valadares</div><div class="meta">jan 2018 – mar 2022</div></div>
-            <div class="item"><div class="role">Médico Anestesiologista</div><div class="org">Unimed Governador Valadares</div><div class="meta">dez 2017 – jan 2018</div></div>
-            <div class="item"><div class="role">Founder <span class="badge">Atual</span></div><div class="org">AxiaCare®</div><div class="meta">jan 2024 – atual</div></div>
-            <div class="item"><div class="role">Founder <span class="badge">Atual</span></div><div class="org">MedValor®</div><div class="meta">jan 2024 – atual</div></div>
-          </div>
-        </section>
-
-        <!-- FORMAÇÃO -->
-        <section class="card" id="formacao" aria-label="Formação acadêmica">
-          <h2>Formação acadêmica</h2>
-          <ul>
-            <li>MBA Administração Hospitalar — Faculdade Unimed (jul 2023 – dez 2024)</li>
-            <li>MBA Gestão, Tecnologia e Inovação em Saúde — Pontifícia Universidade Católica do Paraná (dez 2024 – dez 2025)</li>
-            <li>MBA Gestão de Qualidade e Acreditação em Saúde — Faculdade Unimed (jan 2023 – jun 2024)</li>
-            <li>MBA Gestão de Serviços de Saúde — UniAmérica (nov 2021 – jan 2023)</li>
-            <li>Residência Médica em Anestesiologia — Universidade Federal de Juiz de Fora (2015 – 2018)</li>
-            <li>Graduação em Medicina — Faculdade de Ciências Médicas e da Saúde de Juiz de Fora (SUPREMA – FCMS/JF) (2009 – 2014)</li>
-          </ul>
-        </section>
-
-        <!-- CERTIFICAÇÕES -->
-        <section class="card" id="certificacoes" aria-label="Licenças e certificações">
-          <h2>Licenças e certificações</h2>
-          <ul>
-            <li>VBHC Certified Yellow Belt™ — The Decision Institute (dez 2024)</li>
-            <li>VMP Green Belt™ — IBRAVS (ago 2025)<br><small style="color:#6b7280">Value Management Professional | Instituto Brasileiro de Valor em Saúde</small></li>
-            <li>Certificado em Legislação e Regulação em Saúde/LGPD/Compliance — PUCPR (jan 2025)</li>
-            <li>Governança Clínica Baseada em Valor — ONA (mar 2025)</li>
-            <li>Preparação de Avaliadores do Sistema Brasileiro de Acreditação — ONA (fev 2025)</li>
-            <li>Modelos de Remuneração Baseada em Valor — Faculdade Unimed (nov 2025)</li>
-          </ul>
-        </section>
-      </div>
-
-      <!-- COLUNA DIREITA -->
-      <aside aria-label="Lateral">
-        <section class="card" id="competencias" aria-label="Competências">
-          <h2>Competências</h2>
-          <div class="tags">
-            <div class="skill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8z"/></svg> VBHC</div>
-            <div class="skill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><rect x="3" y="4" width="18" height="14" rx="2"/></svg> Governança Clínica</div>
-            <div class="skill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M8 10h8M12 7v6M9 10h6"/></svg> Gestão Hospitalar</div>
-            <div class="skill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg> Saúde Suplementar</div>
-            <div class="skill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 13l3 3 7-7"/></svg> Analytics em Saúde</div>
-            <div class="skill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M8.5 12.5L7 21l5-2 5 2-1.5-8.5"/></svg> Acreditação</div>
-            <div class="skill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3 7h7l-5.5 4 2 7L12 17l-6.5 3 2-7L2 9h7z"/></svg> Liderança</div>
-            <div class="skill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v7"/><path d="M9 6h6"/><path d="M5 20h14"/></svg> Inovação em Saúde</div>
-          </div>
-        </section>
-
-        <section class="card brand-divider">
-          <img src="https://i.imgur.com/JpYaFZl.png" alt="Logo Guilherme Thomé" loading="lazy"/>
-        </section>
-
-        <!-- Linktree -->
-        <section class="card" id="em-alta-btn">
-          <a class="btn ghost" href="https://linktr.ee/gui.thome" target="_blank" rel="noopener">Veja o que está em alta</a>
-        </section>
-
-        <section class="card" id="contato">
-          <h2>Contato</h2>
-          <p>E-mail: <a href="mailto:guilherme@guithome.com.br">guilherme@guithome.com.br</a></p>
-          <p>Site: <a href="https://www.guithome.com.br" target="_blank" rel="noopener">guithome.com.br</a></p>
-          <p>Blog: <a href="https://blog.guithome.com.br" target="_blank" rel="noopener">blog.guithome.com.br</a></p>
-          <p>LinkedIn: <a href="https://www.linkedin.com/in/gui-thome" target="_blank" rel="noopener">linkedin.com/in/gui-thome</a></p>
-        </section>
-
-        <section class="card" id="links">
-          <h2>Políticas de privacidade</h2>
-          <p><a href="https://hub.guithome.com.br/privacidade.html" target="_blank" rel="noopener">Guilherme Thomé</a> <span style="color:#6b7280;font-style:italic;font-size:.95em">(Grupo CSV)</span></p>
-          <p><a href="https://hub.guithome.com.br/axia/privacidade.html" target="_blank" rel="noopener">AxiaCare®</a></p>
-          <p><a href="https://hub.guithome.com.br/medvalor/privacidade.html" target="_blank" rel="noopener">MedValor®</a></p>
-        </section>
-      </aside>
-    </section>
-
-    <!-- FOOTER REDESENHADO -->
-    <footer class="footer" aria-label="Rodapé">
-      <div class="footer-inner">
-        <div class="footer-section">
-          <h4>Navegação</h4>
-          <a href="#sobre">Sobre</a>
-          <a href="#experiencia">Experiência</a>
-          <a href="#formacao">Formação</a>
-          <a href="#competencias">Competências</a>
-        </div>
-        
-        <div class="footer-section">
-          <h4>Links Externos</h4>
-          <a href="https://www.guithome.com.br" target="_blank" rel="noopener">Site Pessoal</a>
-          <a href="https://blog.guithome.com.br" target="_blank" rel="noopener">Blog</a>
-          <a href="https://www.linkedin.com/in/gui-thome" target="_blank" rel="noopener">LinkedIn</a>
-          <a href="https://linktr.ee/gui.thome" target="_blank" rel="noopener">Linktree</a>
-        </div>
-        
-        <div class="footer-section">
-          <h4>Projetos</h4>
-          <div class="brands-footer">
-            <a href="https://axcare.com.br" target="_blank" rel="noopener">
-              <img src="https://i.imgur.com/yAUQciP.png" alt="AxiaCare" loading="lazy">
-            </a>
-            <a href="https://medvalor.med.br" target="_blank" rel="noopener">
-              <img src="https://i.imgur.com/N0lXklP.png" alt="MedValor" loading="lazy">
-            </a>
-          </div>
-        </div>
-        
-        <div class="footer-section">
-          <h4>Privacidade</h4>
-          <a href="https://hub.guithome.com.br/privacidade.html" target="_blank" rel="noopener">Guilherme Thomé</a>
-          <a href="https://hub.guithome.com.br/axia/privacidade.html" target="_blank" rel="noopener">AxiaCare®</a>
-          <a href="https://hub.guithome.com.br/medvalor/privacidade.html" target="_blank" rel="noopener">MedValor®</a>
-        </div>
-      </div>
-      <div class="foot-note">© 2025 Guilherme Thomé | Grupo CSV. Todos os direitos reservados.</div>
-    </footer>
-  </main>
-
-  <!-- MODAL CONTATO -->
-  <div class="overlay" id="overlay" aria-hidden="true">
-    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="ttlContato">
-      <h2 id="ttlContato">Fale com Guilherme Thomé</h2>
-      <div class="item"><img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="" loading="lazy"><a href="https://wa.me/5533999399959" target="_blank" rel="noopener">WhatsApp: (33) 99939-9959</a></div>
-      <div class="item"><img src="https://cdn-icons-png.flaticon.com/512/561/561127.png" alt="" loading="lazy"><a href="mailto:guilherme@guithome.com.br">guilherme@guithome.com.br</a></div>
-      <div class="item"><img src="https://cdn-icons-png.flaticon.com/512/561/561127.png" alt="" loading="lazy"><a href="mailto:guilherme@axcare.com.br">guilherme@axcare.com.br</a></div>
-      <div class="item"><img src="https://cdn-icons-png.flaticon.com/512/561/561127.png" alt="" loading="lazy"><a href="mailto:guilherme@medvalor.com.br">guilherme@medvalor.com.br</a></div>
-      <div class="item"><img src="https://cdn-icons-png.flaticon.com/512/561/561127.png" alt="" loading="lazy"><a href="mailto:guilherme.thome@unimedgv.coop.br">guilherme.thome@unimedgv.coop.br</a></div>
-      <div class="item"><img src="https://cdn-icons-png.flaticon.com/512/561/561127.png" alt="" loading="lazy"><a href="mailto:guilherme.thome@unihealthgv.org.br">guilherme.thome@unihealthgv.org.br</a></div>
-      <div class="item"><img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="" loading="lazy"><a href="https://www.linkedin.com/in/gui-thome" target="_blank" rel="noopener">linkedin.com/in/gui-thome</a></div>
-      <div class="item"><img src="https://guithome.com.br/favicon.ico" alt="" loading="lazy"><a href="https://www.guithome.com.br" target="_blank" rel="noopener">guithome.com.br</a></div>
-      <div class="item"><img src="https://i.imgur.com/7wYpSaD.png" alt="" loading="lazy"><a href="https://blog.guithome.com.br" target="_blank" rel="noopener">blog.guithome.com.br</a></div>
-      <button class="close-btn" id="closeContato" type="button">Fechar</button>
-    </div>
+    <button class="breadcrumb-btn" id="btnShare">Compartilhar</button>
   </div>
+</nav>
 
-  <!-- MODAL COMPARTILHAR -->
-  <div class="overlay" id="overlayShare" aria-hidden="true">
-    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="ttlShare">
-      <h2 id="ttlShare">Compartilhar Currículo</h2>
-      
-      <div class="share-grid">
-        <button class="share-btn" id="shareWhatsApp">
-          <svg viewBox="0 0 24 24" fill="#25D366" stroke="none">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-          </svg>
-          WhatsApp
+<button class="theme-toggle" id="themeToggle" aria-label="Alternar tema">
+  <svg id="iconSun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="5"/>
+    <line x1="12" y1="1" x2="12" y2="3"/>
+    <line x1="12" y1="21" x2="12" y2="23"/>
+    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+    <line x1="1" y1="12" x2="3" y2="12"/>
+    <line x1="21" y1="12" x2="23" y2="12"/>
+    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+  </svg>
+  <svg id="iconMoon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none">
+    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+  </svg>
+</button>
+
+<button class="back-to-top" id="backToTop" aria-label="Voltar ao topo">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="18 15 12 9 6 15"/>
+  </svg>
+</button>
+
+<main class="wrap">
+  <section class="card header">
+    <div class="brand-frame">
+      <img src="https://i.imgur.com/uXusAqJ.png" alt="Guilherme Thomé" loading="lazy"/>
+    </div>
+    <div>
+      <h1>Guilherme Thomé<span class="small">, MD, MBA.</span></h1>
+      <p class="subtitle">
+        <span class="line">Médico Executivo e Consultor | Especialista em VBHC</span>
+        <span class="line">Superintendente Unimed / ICDS | Founder AxiaCare & MedValor</span>
+      </p>
+      <div class="cta-bar">
+        <button class="btn primary" id="btnContato">
+          <img src="https://cdn-icons-png.flaticon.com/512/542/542689.png" alt="" loading="lazy">
+          Contato
         </button>
-        
-        <button class="share-btn" id="shareEmail">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-            <polyline points="22,6 12,13 2,6"/>
-          </svg>
-          E-mail
-        </button>
-        
-        <button class="share-btn" id="shareLinkedIn">
-          <svg viewBox="0 0 24 24" fill="#0A66C2" stroke="none">
-            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-          </svg>
+        <a class="btn ghost" href="https://www.linkedin.com/in/gui-thome" target="_blank" rel="noopener">
+          <img src="https://cdn-icons-png.flaticon.com/256/174/174857.png" alt="" loading="lazy">
           LinkedIn
-        </button>
-        
-        <button class="share-btn" id="copyLink">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
-            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
-          </svg>
-          Copiar Link
-        </button>
+        </a>
+        <a class="btn ghost" href="https://www.guithome.com.br" target="_blank" rel="noopener">
+          <img src="https://guithome.com.br/favicon.ico" alt="" loading="lazy">
+          Site pessoal
+        </a>
+        <a class="btn ghost" href="https://blog.guithome.com.br" target="_blank" rel="noopener">
+          <img src="https://i.imgur.com/7wYpSaD.png" alt="" loading="lazy">
+          Blog
+        </a>
       </div>
-
-      <div class="qr-container">
-        <div id="qrcode"></div>
-        <p class="qr-instructions">Escaneie o QR Code para acessar este currículo</p>
+      <div class="brandbar">
+        <a class="logo-pill axia" href="https://axcare.com.br" target="_blank" rel="noopener">
+          <img src="https://i.imgur.com/yAUQciP.png" alt="AxiaCare" loading="lazy">
+        </a>
+        <a class="logo-pill medvalor" href="https://medvalor.med.br" target="_blank" rel="noopener">
+          <img src="https://i.imgur.com/N0lXklP.png" alt="MedValor" loading="lazy">
+        </a>
       </div>
-
-      <button class="close-btn" id="closeShare" type="button">Fechar</button>
     </div>
+  </section>
+
+  <section class="grid">
+    <div>
+      <section class="card" id="sobre">
+        <h2>Sobre</h2>
+        <div class="carousel">
+          <button class="nav-btn nav-prev" aria-label="Anterior">‹</button>
+          <div class="track" id="aboutTrack">
+            <article class="slide">
+              <p>Atuo na interseção entre liderança executiva, negócios, VBHC e inovação, com foco em desfechos que importam para o paciente, eficiência operacional e inteligência de dados. Com formação médica em anestesiologia, destaquei-me na gestão de equipes e migrei para posições executivas, liderando inicialmente operações hospitalares e, em seguida, estratégias de alto impacto em operadoras, instituições filantrópicas e no ecossistema empresarial da saúde.</p>
+            </article>
+            <article class="slide">
+              <p>Minha caminhada conecta de forma sinérgica governança clínica, gestão hospitalar e gestão de planos de saúde, sempre orientada a resultados sustentáveis e centrados no paciente. Hoje atuo como médico executivo e consultor. Tenho presença técnica no território como elo corporativo entre operadoras, filantropia, hospitais e rede prestadora, articulando e desenvolvendo frentes assistenciais.</p>
+            </article>
+            <article class="slide">
+              <p>Fundador da AxiaCare e da MedValor, sou consultor e palestrante com soluções que unem tecnologia, analytics e educação executiva para transformar serviços de saúde e acelerar inovação. Minha formação e expertise abrangem Administração Hospitalar, Governança Clínica, Saúde Populacional e Saúde Baseada em Valor (VBHC).</p>
+            </article>
+            <article class="slide">
+              <p>Nos últimos quatro anos, conduzi a implantação de governança clínica guiada por dados em hospital de alta complexidade, elevando a eficiência e a entrega de valor; liderei equipes e núcleos de experiência do paciente, inteligência de dados, desenvolvimento médico e segurança. Atuei em múltiplos ciclos de acreditação hospitalar e criei um projeto de medicina hospitalista de alta performance, que reduziu desperdícios em mais de 2.600 diárias/ano e ampliou o cuidado a centenas de pacientes em ambulatórios de egressos.</p>
+            </article>
+            <article class="slide">
+              <p>Idealizei, escrevi e implementei uma estratégia completa de atenção à saúde para uma carteira de referência regional — modelo replicável, estruturado a partir da criação do Escritório de Valor em Saúde (EVS) e da integração entre unidade hospitalar, atenção ambulatorial, regulação e novos modelos de remuneração. O resultado foi impacto direto para milhares de pessoas em linhas de cuidado como idosos, neurodesenvolvimento infantil e terapias de alto custo, com economias anuais de milhões de reais.</p>
+            </article>
+            <article class="slide">
+              <p>Nesse contexto, venho estruturando comitês técnicos nos segmentos de autismo e novos modelos de pagamento médico, projetando uma área de atuação que envolve diversos municípios no estado, reforçando a integração entre prática clínica, governança e sustentabilidade. Meu propósito é claro: promover inovação, excelência operacional e valor sustentável para pacientes, organizações e sociedade.</p>
+            </article>
+          </div>
+          <button class="nav-btn nav-next" aria-label="Próximo">›</button>
+          <div class="carousel-progress">
+            <div class="carousel-progress-bar" id="progressBar"></div>
+          </div>
+          <div class="dots" id="aboutDots"></div>
+        </div>
+      </section>
+
+      <section class="card" id="experiencia">
+        <h2>Experiência</h2>
+        <div class="timeline">
+          <div class="item">
+            <div class="role">Superintendente Médico (Provimento de Saúde) e Líder do EVS <span class="badge">Atual</span></div>
+            <div class="org">Unimed Governador Valadares</div>
+            <div class="meta">dez 2024 – atual</div>
+            <p class="desc">Gestão do Provimento de Saúde, incluindo Rede Assistencial, Atenção Ambulatorial, Auditoria e Escritório de Valor em Saúde, com foco em eficiência, sustentabilidade e cuidado centrado no paciente.</p>
+          </div>
+          <div class="item">
+            <div class="role">Superintendente Médico <span class="badge">Atual</span></div>
+            <div class="org">ICDS (Unihealth)</div>
+            <div class="meta">ago 2025 – atual • Regional Leste Nordeste, MG</div>
+            <p class="desc">Líder no Núcleo de Desenvolvimento e Relações Institucionais, focado em desenvolvimento organizacional, inovação aplicada e articulação estratégica entre contrato, operação e sistema. Elo corporativo integrando hospital, operadora, filantropia e rede.</p>
+          </div>
+          <div class="item">
+            <div class="role">Diretor Técnico – Unidade Hospitalar</div>
+            <div class="org">Unihealth (ICDS) – Gov. Valadares</div>
+            <div class="meta">dez 2024 – ago 2025</div>
+          </div>
+          <div class="item">
+            <div class="role">Superintendente Médico e Diretor Hospitalar</div>
+            <div class="org">Unimed Governador Valadares</div>
+            <div class="meta">ago 2024 – dez 2024</div>
+          </div>
+          <div class="item">
+            <div class="role">Assessor Médico Hospitalar e Diretor Técnico</div>
+            <div class="org">Unimed Governador Valadares</div>
+            <div class="meta">jan 2024 – ago 2024</div>
+          </div>
+          <div class="item">
+            <div class="role">Diretor Técnico</div>
+            <div class="org">Unimed Governador Valadares</div>
+            <div class="meta">jan 2022 – fev 2024</div>
+          </div>
+          <div class="item">
+            <div class="role">Coordenador de Anestesiologia / Centro Cirúrgico</div>
+            <div class="org">Unimed Governador Valadares</div>
+            <div class="meta">jan 2018 – mar 2022</div>
+          </div>
+          <div class="item">
+            <div class="role">Médico Anestesiologista</div>
+            <div class="org">Unimed Governador Valadares</div>
+            <div class="meta">dez 2017 – jan 2018</div>
+          </div>
+          <div class="item">
+            <div class="role">Founder <span class="badge">Atual</span></div>
+            <div class="org">AxiaCare</div>
+            <div class="meta">jan 2024 – atual</div>
+          </div>
+          <div class="item">
+            <div class="role">Founder <span class="badge">Atual</span></div>
+            <div class="org">MedValor</div>
+            <div class="meta">jan 2024 – atual</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card" id="formacao">
+        <h2>Formação acadêmica</h2>
+        <ul>
+          <li>MBA Administração Hospitalar — Faculdade Unimed (jul 2023 – dez 2024)</li>
+          <li>MBA Gestão, Tecnologia e Inovação em Saúde — Pontifícia Universidade Católica do Paraná (dez 2024 – dez 2025)</li>
+          <li>MBA Gestão de Qualidade e Acreditação em Saúde — Faculdade Unimed (jan 2023 – jun 2024)</li>
+          <li>MBA Gestão de Serviços de Saúde — UniAmérica (nov 2021 – jan 2023)</li>
+          <li>Residência Médica em Anestesiologia — Universidade Federal de Juiz de Fora (2015 – 2018)</li>
+          <li>Graduação em Medicina — Faculdade de Ciências Médicas e da Saúde de Juiz de Fora (SUPREMA – FCMS/JF) (2009 – 2014)</li>
+        </ul>
+      </section>
+
+      <section class="card" id="certificacoes">
+        <h2>Licenças e certificações</h2>
+        <ul>
+          <li>VBHC Certified Yellow Belt™ — The Decision Institute (dez 2024)</li>
+          <li>VMP Green Belt™ — IBRAVS (ago 2025)<br><small style="color:#6b7280">Value Management Professional | Instituto Brasileiro de Valor em Saúde</small></li>
+          <li>Certificado em Legislação e Regulação em Saúde/LGPD/Compliance — PUCPR (jan 2025)</li>
+          <li>Governança Clínica Baseada em Valor — ONA (mar 2025)</li>
+          <li>Preparação de Avaliadores do Sistema Brasileiro de Acreditação — ONA (fev 2025)</li>
+          <li>Modelos de Remuneração Baseada em Valor — Faculdade Unimed (nov 2025)</li>
+        </ul>
+      </section>
+    </div>
+
+    <aside>
+      <section class="card" id="competencias">
+        <h2>Competências</h2>
+        <div class="tags">
+          <div class="skill">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8z"/>
+            </svg>
+            VBHC
+          </div>
+          <div class="skill">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 12l2 2 4-4"/>
+              <rect x="3" y="4" width="18" height="14" rx="2"/>
+            </svg>
+            Governança Clínica
+          </div>
+          <div class="skill">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="4" width="18" height="16" rx="2"/>
+              <path d="M8 10h8M12 7v6M9 10h6"/>
+            </svg>
+            Gestão Hospitalar
+          </div>
+          <div class="skill">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+            Saúde Suplementar
+          </div>
+          <div class="skill">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 3v18h18"/>
+              <path d="M7 13l3 3 7-7"/>
+            </svg>
+            Analytics em Saúde
+          </div>
+          <div class="skill">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="8" r="4"/>
+              <path d="M8.5 12.5L7 21l5-2 5 2-1.5-8.5"/>
+            </svg>
+            Acreditação
+          </div>
+          <div class="skill">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2l3 7h7l-5.5 4 2 7L12 17l-6.5 3 2-7L2 9h7z"/>
+            </svg>
+            Liderança
+          </div>
+          <div class="skill">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2v7"/>
+              <path d="M9 6h6"/>
+              <path d="M5 20h14"/>
+            </svg>
+            Inovação em Saúde
+          </div>
+        </div>
+      </section>
+
+      <section class="card brand-divider">
+        <img src="https://i.imgur.com/JpYaFZl.png" alt="Logo Guilherme Thomé" loading="lazy"/>
+      </section>
+
+      <section class="card" id="em-alta-btn">
+        <a class="btn ghost" href="https://linktr.ee/gui.thome" target="_blank" rel="noopener">
+          Veja o que está em alta
+        </a>
+      </section>
+
+      <section class="card" id="contato">
+        <h2>Contato</h2>
+        <p>E-mail: <a href="mailto:guilherme@guithome.com.br">guilherme@guithome.com.br</a></p>
+        <p>Site: <a href="https://www.guithome.com.br" target="_blank" rel="noopener">guithome.com.br</a></p>
+        <p>Blog: <a href="https://blog.guithome.com.br" target="_blank" rel="noopener">blog.guithome.com.br</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/gui-thome" target="_blank" rel="noopener">linkedin.com/in/gui-thome</a></p>
+      </section>
+
+      <section class="card" id="links">
+        <h2>Políticas de privacidade</h2>
+        <p><a href="https://hub.guithome.com.br/privacidade.html" target="_blank" rel="noopener">Guilherme Thomé</a> <span style="color:#6b7280;font-style:italic;font-size:.95em">(Grupo CSV)</span></p>
+        <p><a href="https://hub.guithome.com.br/axia/privacidade.html" target="_blank" rel="noopener">AxiaCare</a></p>
+        <p><a href="https://hub.guithome.com.br/medvalor/privacidade.html" target="_blank" rel="noopener">MedValor</a></p>
+      </section>
+    </aside>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="brands-col">
+        <a href="https://axcare.com.br" target="_blank" rel="noopener">
+          <img src="https://i.imgur.com/yAUQciP.png" alt="AxiaCare" loading="lazy">
+        </a>
+        <a href="https://medvalor.med.br" target="_blank" rel="noopener">
+          <img src="https://i.imgur.com/N0lXklP.png" alt="MedValor" loading="lazy">
+        </a>
+      </div>
+      <div class="footer-links">
+        <h4>Links</h4>
+        <a href="https://www.guithome.com.br" target="_blank" rel="noopener">Site pessoal</a>
+        <a href="https://blog.guithome.com.br" target="_blank" rel="noopener">Blog</a>
+        <a href="https://www.linkedin.com/in/gui-thome" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+    <div class="foot-note">© 2025 Guilherme Thomé | Grupo CSV. Todos os direitos reservados.</div>
+  </footer>
+</main>
+
+<div class="overlay" id="overlay" aria-hidden="true">
+  <div class="modal">
+    <h2>Fale com Guilherme Thomé</h2>
+    <div class="item">
+      <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="" loading="lazy">
+      <a href="https://wa.me/5533999399959" target="_blank" rel="noopener">WhatsApp: (33) 99939-9959</a>
+    </div>
+    <div class="item">
+      <img src="https://cdn-icons-png.flaticon.com/512/561/561127.png" alt="" loading="lazy">
+      <a href="mailto:guilherme@guithome.com.br">guilherme@guithome.com.br</a>
+    </div>
+    <div class="item">
+      <img src="https://cdn-icons-png.flaticon.com/512/561/561127.png" alt="" loading="lazy">
+      <a href="mailto:guilherme@axcare.com.br">guilherme@axcare.com.br</a>
+    </div>
+    <div class="item">
+      <img src="https://cdn-icons-png.flaticon.com/512/561/561127.png" alt="" loading="lazy">
+      <a href="mailto:guilherme@medvalor.com.br">guilherme@medvalor.com.br</a>
+    </div>
+    <div class="item">
+      <img src="https://cdn-icons-png.flaticon.com/512/561/561127.png" alt="" loading="lazy">
+      <a href="mailto:guilherme.thome@unimedgv.coop.br">guilherme.thome@unimedgv.coop.br</a>
+    </div>
+    <div class="item">
+      <img src="https://cdn-icons-png.flaticon.com/512/561/561127.png" alt="" loading="lazy">
+      <a href="mailto:guilherme.thome@unihealthgv.org.br">guilherme.thome@unihealthgv.org.br</a>
+    </div>
+    <div class="item">
+      <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="" loading="lazy">
+      <a href="https://www.linkedin.com/in/gui-thome" target="_blank" rel="noopener">linkedin.com/in/gui-thome</a>
+    </div>
+    <div class="item">
+      <img src="https://guithome.com.br/favicon.ico" alt="" loading="lazy">
+      <a href="https://www.guithome.com.br" target="_blank" rel="noopener">guithome.com.br</a>
+    </div>
+    <div class="item">
+      <img src="https://i.imgur.com/7wYpSaD.png" alt="" loading="lazy">
+      <a href="https://blog.guithome.com.br" target="_blank" rel="noopener">blog.guithome.com.br</a>
+    </div>
+    <button class="close-btn" id="closeContato">Fechar</button>
   </div>
+</div>
 
-  <script>
-    // Dark mode toggle
-    (function(){
-      const toggle = document.getElementById('themeToggle');
-      const iconSun = document.getElementById('iconSun');
-      const iconMoon = document.getElementById('iconMoon');
-      const html = document.documentElement;
-      
-      const savedTheme = localStorage.getItem('theme');
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      
-      if(savedTheme){
-        html.setAttribute('data-theme', savedTheme);
-        updateIcon(savedTheme);
-      } else if(prefersDark){
-        html.setAttribute('data-theme', 'dark');
-        updateIcon('dark');
-      }
-      
-      function updateIcon(theme){
-        if(theme === 'dark'){
-          iconSun.style.display = 'none';
-          iconMoon.style.display = 'block';
-        } else {
-          iconSun.style.display = 'block';
-          iconMoon.style.display = 'none';
-        }
-      }
-      
-      toggle.addEventListener('click', ()=>{
-        const currentTheme = html.getAttribute('data-theme');
-        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-        html.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
-        updateIcon(newTheme);
-      });
-    })();
+<div class="overlay" id="overlayShare" aria-hidden="true">
+  <div class="modal">
+    <h2>Compartilhar Currículo</h2>
+    <div class="share-grid">
+      <button class="share-btn" id="shareWhatsApp">
+        <svg viewBox="0 0 24 24" fill="#25D366" stroke="none">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        WhatsApp
+      </button>
+      <button class="share-btn" id="shareEmail">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+          <polyline points="22,6 12,13 2,6"/>
+        </svg>
+        E-mail
+      </button>
+      <button class="share-btn" id="shareLinkedIn">
+        <svg viewBox="0 0 24 24" fill="#0A66C2" stroke="none">
+          <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+        </svg>
+        LinkedIn
+      </button>
+      <button class="share-btn" id="copyLink">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+          <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+        </svg>
+        Copiar Link
+      </button>
+    </div>
+    <div class="qr-container">
+      <div id="qrcode"></div>
+      <p class="qr-instructions">Escaneie o QR Code para acessar este currículo</p>
+    </div>
+    <button class="close-btn" id="closeShare">Fechar</button>
+  </div>
+</div>
 
-    // Breadcrumb Navigation
-    (function(){
-      const breadcrumb = document.getElementById('breadcrumb');
-      
-      window.addEventListener('scroll', ()=>{
-        if(window.scrollY > 200){
-          breadcrumb.classList.add('visible');
-        } else {
-          breadcrumb.classList.remove('visible');
-        }
-      }, {passive:true});
-    })();
+<script>
+/* ===== Tema ===== */
+(function(){
+  const toggle = document.getElementById('themeToggle');
+  const sunIcon = document.getElementById('iconSun');
+  const moonIcon = document.getElementById('iconMoon');
+  const html = document.documentElement;
+  const savedTheme = localStorage.getItem('theme');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  if (savedTheme){ html.setAttribute('data-theme', savedTheme); updateIcons(savedTheme); }
+  else if (prefersDark){ html.setAttribute('data-theme', 'dark'); updateIcons('dark'); }
+  else { updateIcons('light'); }
+  function updateIcons(theme){ if(theme==='dark'){sunIcon.style.display='none';moonIcon.style.display='block';}else{sunIcon.style.display='block';moonIcon.style.display='none';} }
+  toggle.addEventListener('click', () => {
+    const current = html.getAttribute('data-theme'); const next = current==='dark'?'light':'dark';
+    html.setAttribute('data-theme', next); localStorage.setItem('theme', next); updateIcons(next);
+  });
+})();
 
-    // Botão voltar ao topo
-    (function(){
-      const btn = document.getElementById('backToTop');
-      
-      window.addEventListener('scroll', ()=>{
-        if(window.scrollY > 300){
-          btn.classList.add('visible');
-        } else {
-          btn.classList.remove('visible');
-        }
-      }, {passive:true});
-      
-      btn.addEventListener('click', ()=>{
-        window.scrollTo({top:0, behavior:'smooth'});
-      });
-    })();
+/* ===== Breadcrumb ===== */
+(function(){
+  const breadcrumb = document.getElementById('breadcrumb');
+  const onScroll = () => { breadcrumb.classList.toggle('visible', window.scrollY > 200); };
+  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+})();
 
-    // Modal Contato
-    (function(){
-      const btn = document.getElementById('btnContato');
-      const ov  = document.getElementById('overlay');
-      const closeBtn = document.getElementById('closeContato');
-      
-      function open(){ 
-        ov.classList.add('active'); 
-        ov.setAttribute('aria-hidden','false');
-        document.body.style.overflow = 'hidden';
-        closeBtn.focus();
-      }
-      
-      function close(){ 
-        ov.classList.remove('active'); 
-        ov.setAttribute('aria-hidden','true');
-        document.body.style.overflow = '';
-        btn.focus();
-      }
-      
-      close();
-      btn.addEventListener('click', open);
-      closeBtn.addEventListener('click', close);
-      ov.addEventListener('click', e=>{ if(e.target===ov) close(); });
-      document.addEventListener('keydown', e=>{ if(e.key==='Escape') close(); });
-    })();
+/* ===== Back to Top ===== */
+(function(){
+  const btn = document.getElementById('backToTop');
+  const onScroll = () => { btn.classList.toggle('visible', window.scrollY > 300); };
+  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+  btn.addEventListener('click', () => window.scrollTo({top: 0, behavior: 'smooth'}));
+})();
 
-    // Modal Compartilhar com QR Code
-    (function(){
-      const btnShare = document.getElementById('btnShare');
-      const overlayShare = document.getElementById('overlayShare');
-      const closeShare = document.getElementById('closeShare');
-      const qrcodeDiv = document.getElementById('qrcode');
-      
-      const pageURL = window.location.href;
-      let qrGenerated = false;
-      
-      function open(){
-        overlayShare.classList.add('active');
-        overlayShare.setAttribute('aria-hidden', 'false');
-        document.body.style.overflow = 'hidden';
-        
-        if(!qrGenerated && typeof QRCode !== 'undefined'){
-          qrcodeDiv.innerHTML = '';
-          new QRCode(qrcodeDiv, {
-            text: pageURL,
-            width: 200,
-            height: 200,
-            colorDark: '#196396',
-            colorLight: '#ffffff',
-            correctLevel: QRCode.CorrectLevel.H
-          });
-          qrGenerated = true;
-        }
-        
-        closeShare.focus();
-      }
-      
-      function close(){
-        overlayShare.classList.remove('active');
-        overlayShare.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = '';
-        btnShare.focus();
-      }
-      
-      close();
-      btnShare.addEventListener('click', open);
-      closeShare.addEventListener('click', close);
-      overlayShare.addEventListener('click', e=>{ if(e.target===overlayShare) close(); });
-      
-      document.getElementById('shareWhatsApp').addEventListener('click', ()=>{
-        const text = encodeURIComponent('Confira o currículo de Guilherme Thomé: ' + pageURL);
-        window.open('https://wa.me/?text=' + text, '_blank');
-      });
-      
-      document.getElementById('shareEmail').addEventListener('click', ()=>{
-        const subject = encodeURIComponent('Currículo - Guilherme Thomé');
-        const body = encodeURIComponent('Olá,\n\nGostaria de compartilhar o currículo de Guilherme Thomé:\n\n' + pageURL + '\n\nAtenciosamente.');
-        window.location.href = 'mailto:?subject=' + subject + '&body=' + body;
-      });
-      
-      document.getElementById('shareLinkedIn').addEventListener('click', ()=>{
-        const url = encodeURIComponent(pageURL);
-        window.open('https://www.linkedin.com/sharing/share-offsite/?url=' + url, '_blank');
-      });
-      
-      document.getElementById('copyLink').addEventListener('click', ()=>{
-        navigator.clipboard.writeText(pageURL).then(()=>{
-          const btn = document.getElementById('copyLink');
-          const originalText = btn.innerHTML;
-          btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Copiado!';
-          btn.style.background = '#10b981';
-          btn.style.color = '#fff';
-          setTimeout(()=>{
-            btn.innerHTML = originalText;
-            btn.style.background = '';
-            btn.style.color = '';
-          }, 2000);
-        });
-      });
-      
-      document.addEventListener('keydown', e=>{ if(e.key==='Escape') close(); });
-    })();
+/* ===== Modal Contato ===== */
+(function(){
+  const btnOpen = document.getElementById('btnContato');
+  const overlay = document.getElementById('overlay');
+  const btnClose = document.getElementById('closeContato');
+  function openModal(){ overlay.classList.add('active'); overlay.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; btnClose.focus(); }
+  function closeModal(){ overlay.classList.remove('active'); overlay.setAttribute('aria-hidden','true'); document.body.style.overflow=''; btnOpen.focus(); }
+  closeModal();
+  btnOpen.addEventListener('click', openModal);
+  btnClose.addEventListener('click', closeModal);
+  overlay.addEventListener('click', e => { if(e.target===overlay) closeModal(); });
+  document.addEventListener('keydown', e => { if(e.key==='Escape' && overlay.classList.contains('active')) closeModal(); });
+})();
 
-    // Carrossel "Sobre"
-    (function(){
-      const track = document.getElementById('aboutTrack');
-      const prev  = document.querySelector('.nav-prev');
-      const next  = document.querySelector('.nav-next');
-      const dotsC = document.getElementById('aboutDots');
-      const progressBar = document.getElementById('progressBar');
-      const slides = Array.from(track.querySelectorAll('.slide'));
+/* ===== Modal Share ===== */
+(function(){
+  const btnOpen = document.getElementById('btnShare');
+  const overlay = document.getElementById('overlayShare');
+  const btnClose = document.getElementById('closeShare');
+  const qrcodeDiv = document.getElementById('qrcode');
+  const currentURL = window.location.href;
+  let qrGenerated = false;
+  function openModal(){
+    overlay.classList.add('active'); overlay.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden';
+    if (!qrGenerated && typeof QRCode!=='undefined'){
+      qrcodeDiv.innerHTML=''; new QRCode(qrcodeDiv,{text:currentURL,width:200,height:200,colorDark:'#196396',colorLight:'#ffffff',correctLevel:QRCode.CorrectLevel.H}); qrGenerated=true;
+    }
+    btnClose.focus();
+  }
+  function closeModal(){ overlay.classList.remove('active'); overlay.setAttribute('aria-hidden','true'); document.body.style.overflow=''; btnOpen.focus(); }
+  closeModal();
+  btnOpen.addEventListener('click', openModal);
+  btnClose.addEventListener('click', closeModal);
+  overlay.addEventListener('click', e => { if(e.target===overlay) closeModal(); });
+  document.getElementById('shareWhatsApp').addEventListener('click', () => {
+    const text = encodeURIComponent('Confira o currículo de Guilherme Thomé: ' + currentURL);
+    window.open('https://wa.me/?text=' + text, '_blank');
+  });
+  document.getElementById('shareEmail').addEventListener('click', () => {
+    const subject = encodeURIComponent('Currículo - Guilherme Thomé');
+    const body = encodeURIComponent('Olá,\n\nGostaria de compartilhar o currículo de Guilherme Thomé:\n\n' + currentURL + '\n\nAtenciosamente.');
+    window.location.href = 'mailto:?subject=' + subject + '&body=' + body;
+  });
+  document.getElementById('shareLinkedIn').addEventListener('click', () => {
+    const url = encodeURIComponent(currentURL);
+    window.open('https://www.linkedin.com/sharing/share-offsite/?url=' + url, '_blank');
+  });
+  document.getElementById('copyLink').addEventListener('click', () => {
+    const btn = document.getElementById('copyLink');
+    navigator.clipboard.writeText(currentURL).then(() => {
+      const originalHTML = btn.innerHTML;
+      btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Copiado!';
+      btn.style.background='#10b981'; btn.style.color='#fff';
+      setTimeout(()=>{ btn.innerHTML=originalHTML; btn.style.background=''; btn.style.color=''; }, 2000);
+    });
+  });
+  document.addEventListener('keydown', e => { if(e.key==='Escape' && overlay.classList.contains('active')) closeModal(); });
+})();
 
-      slides.forEach((_,i)=>{
-        const d=document.createElement('div');
-        d.className='dot'+(i===0?' active':'');
-        d.addEventListener('click',()=>scrollToIndex(i,true));
-        dotsC.appendChild(d);
-      });
-      const dots=[...dotsC.children];
+/* ===== Carousel responsivo, sem cortes ===== */
+(function(){
+  const track = document.getElementById('aboutTrack');
+  const prevBtn = document.querySelector('.nav-prev');
+  const nextBtn = document.querySelector('.nav-next');
+  const dotsContainer = document.getElementById('aboutDots');
+  const progressBar = document.getElementById('progressBar');
+  const slides = Array.from(track.querySelectorAll('.slide'));
 
-      function updateDots(i){ 
-        dots.forEach((d,idx)=>d.classList.toggle('active', idx===i)); 
-        const progress = ((i + 1) / slides.length) * 100;
-        progressBar.style.width = progress + '%';
-      }
-      
-      function indexFromScroll(){
-        const w = slides[0].clientWidth + 16;
-        return Math.round(track.scrollLeft / w);
-      }
-      
-      function scrollToIndex(i,smooth){
-        const left = i * (slides[0].clientWidth + 16);
-        track.scrollTo({left, behavior: smooth? 'smooth':'instant'});
-        updateDots(i);
-      }
+  /* cria dots */
+  slides.forEach((_, i) => {
+    const dot = document.createElement('button');
+    dot.type='button'; dot.className='dot' + (i===0?' active':'');
+    dot.setAttribute('aria-label','Ir para slide ' + (i+1));
+    dot.addEventListener('click', () => scrollToIndex(i, true));
+    dotsContainer.appendChild(dot);
+  });
+  const dots = Array.from(dotsContainer.children);
 
-      next.addEventListener('click',()=>{ const i=Math.min(slides.length-1,indexFromScroll()+1); scrollToIndex(i,true); restart(); });
-      prev.addEventListener('click',()=>{ const i=Math.max(0,indexFromScroll()-1); scrollToIndex(i,true); restart(); });
-      track.addEventListener('scroll',()=>{ clearTimeout(track._t); track._t=setTimeout(()=>updateDots(indexFromScroll()), 60); },{passive:true});
+  function updateUI(index){
+    dots.forEach((d,i)=>d.classList.toggle('active', i===index));
+    const pct = ((index+1)/slides.length)*100;
+    progressBar.style.width = pct + '%';
+  }
 
-      let startX = 0;
-      track.addEventListener('touchstart', e => {
-        startX = e.touches[0].clientX;
-      }, {passive:true});
-      
-      track.addEventListener('touchend', e => {
-        const diff = startX - e.changedTouches[0].clientX;
-        if(Math.abs(diff) > 50) {
-          if(diff > 0) {
-            const i = Math.min(slides.length-1, indexFromScroll()+1);
-            scrollToIndex(i, true);
-          } else {
-            const i = Math.max(0, indexFromScroll()-1);
-            scrollToIndex(i, true);
-          }
-          restart();
-        }
-      }, {passive:true});
+  /* encontra o índice do slide mais central na viewport do track */
+  function currentIndex(){
+    const trackRect = track.getBoundingClientRect();
+    let bestIndex = 0, bestDist = Infinity;
+    slides.forEach((slide, i) => {
+      const r = slide.getBoundingClientRect();
+      const slideCenter = r.left + r.width/2;
+      const trackCenter = trackRect.left + trackRect.width/2;
+      const dist = Math.abs(slideCenter - trackCenter);
+      if (dist < bestDist){ bestDist = dist; bestIndex = i; }
+    });
+    return bestIndex;
+  }
 
-      const INTERVAL=4400; let timer=null;
-      function play(){ if(timer) return; timer=setInterval(()=>{ let i=indexFromScroll()+1; if(i>=slides.length) i=0; scrollToIndex(i,true); },INTERVAL); }
-      function pause(){ if(timer){ clearInterval(timer); timer=null; } }
-      function restart(){ pause(); play(); }
-      
-      ['pointerdown','touchstart','mouseenter','focusin'].forEach(ev=>track.addEventListener(ev,pause,{passive:true}));
-      ['pointerup','touchend','mouseleave','focusout'].forEach(ev=>track.addEventListener(ev,play,{passive:true}));
-      document.addEventListener('visibilitychange',()=>{ document.hidden? pause(): play(); });
+  function scrollToIndex(i, smooth){
+    const target = slides[i];
+    if (!target) return;
+    const behavior = smooth ? 'smooth' : 'auto';
+    target.scrollIntoView({behavior, inline:'start', block:'nearest'});
+    updateUI(i);
+  }
 
-      play();
-      updateDots(0);
-    })();
-  </script>
+  function go(step){
+    const i = currentIndex();
+    const next = Math.min(Math.max(i + step, 0), slides.length - 1);
+    scrollToIndex(next, true);
+    resetAutoplay();
+  }
+
+  nextBtn.addEventListener('click', ()=>go(1));
+  prevBtn.addEventListener('click', ()=>go(-1));
+
+  /* observa o slide central para atualizar dots com mais precisão durante rolagem manual */
+  let scrollTO=null;
+  track.addEventListener('scroll', () => {
+    if (scrollTO) cancelAnimationFrame(scrollTO);
+    scrollTO = requestAnimationFrame(()=>{ updateUI(currentIndex()); });
+  }, {passive:true});
+
+  /* gestos */
+  let startX=0, startY=0, isScrolling=false;
+  track.addEventListener('touchstart', e => { startX=e.touches[0].clientX; startY=e.touches[0].clientY; isScrolling=false; }, {passive:true});
+  track.addEventListener('touchmove', e => {
+    const dx=Math.abs(e.touches[0].clientX - startX);
+    const dy=Math.abs(e.touches[0].clientY - startY);
+    isScrolling = dy > dx; /* permite scroll vertical da página */
+  }, {passive:true});
+  track.addEventListener('touchend', e => {
+    if (isScrolling) return;
+    const diff = startX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50){ go(diff>0 ? 1 : -1); }
+  }, {passive:true});
+
+  /* autoplay pausado em interação/aba oculta */
+  const AUTOPLAY=4400; let timer=null;
+  function startAutoplay(){ if (timer) return; timer = setInterval(()=>{ const i=currentIndex(); const n=(i+1)%slides.length; scrollToIndex(n,true); }, AUTOPLAY); }
+  function stopAutoplay(){ if(!timer) return; clearInterval(timer); timer=null; }
+  function resetAutoplay(){ stopAutoplay(); startAutoplay(); }
+  ['pointerdown','touchstart','mouseenter','focusin'].forEach(ev => track.addEventListener(ev, stopAutoplay, {passive:true}));
+  ['pointerup','touchend','mouseleave','focusout'].forEach(ev => track.addEventListener(ev, startAutoplay, {passive:true}));
+  document.addEventListener('visibilitychange', ()=>{ document.hidden ? stopAutoplay() : startAutoplay(); });
+
+  /* resize: garante que o alinhamento permaneça perfeito ao mudar largura */
+  const ro = new ResizeObserver(()=>{ scrollToIndex(currentIndex(), false); });
+  ro.observe(track);
+
+  /* init */
+  startAutoplay();
+  updateUI(0);
+})();
+
+/* ===== Hardening: evita scroll lateral por qualquer elemento acidental ===== */
+(function(){
+  const clampScroll = () => { if (document.documentElement.scrollLeft !== 0) document.documentElement.scrollLeft = 0; };
+  window.addEventListener('scroll', clampScroll, {passive:true});
+})();
+</script>
 </body>
 </html>
