@@ -77,6 +77,9 @@
     [data-theme="dark"] .share-btn:hover{ background:#252b38; }
     [data-theme="dark"] .modal{ background:#1a1f28; }
     [data-theme="dark"] .qr-container{ background:#151a22; }
+    [data-theme="dark"] .footer{ background:#1a1f28; border-color:#2d3544; }
+    [data-theme="dark"] .foot-note{ background:#151a22; color:#8a92a3; }
+    [data-theme="dark"] .foot-note .company{ color:#c5cad5; }
     
     @media (prefers-color-scheme: dark){
       :root:not([data-theme="light"]){ 
@@ -98,6 +101,24 @@
       .share-btn:not([data-theme="light"]){ background:#1e232d; border-color:#2d3544; }
       .modal:not([data-theme="light"]){ background:#1a1f28; }
       .qr-container:not([data-theme="light"]){ background:#151a22; }
+      .footer:not([data-theme="light"]){ background:#1a1f28; border-color:#2d3544; }
+      .foot-note:not([data-theme="light"]){ background:#151a22; color:#8a92a3; }
+      .foot-note .company:not([data-theme="light"]){ color:#c5cad5; }
+      .brands-footer a:not([data-theme="light"]){
+        background:linear-gradient(135deg, #1e232d 0%, #232930 100%);
+        border-color:#2d3544;
+        box-shadow:0 2px 8px rgba(0,0,0,.3), inset 0 1px 0 rgba(255,255,255,.03);
+      }
+      .brands-footer a:hover:not([data-theme="light"]){
+        box-shadow:0 8px 24px rgba(0,0,0,.4), 0 4px 12px rgba(74,159,216,.15), inset 0 1px 0 rgba(255,255,255,.05);
+        border-color:#3d4a5f;
+      }
+      .brands-footer img:not([data-theme="light"]){ 
+        filter:drop-shadow(0 1px 3px rgba(0,0,0,.4)) brightness(.92) contrast(1.1);
+      }
+      .brands-footer a:hover img:not([data-theme="light"]){ 
+        filter:drop-shadow(0 2px 6px rgba(74,159,216,.3)) brightness(1.05) contrast(1.15);
+      }
     }
 
     /* Base */
@@ -326,24 +347,82 @@
     footer{ margin-top:30px }
     .footer{ background:var(--branco); border-top:1px solid var(--borda); }
     .footer-inner{ 
-      max-width:var(--maxw); margin:0 auto; padding:32px 20px; 
-      display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:32px;
+      max-width:var(--maxw); margin:0 auto; padding:40px 20px; 
+      display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:40px;
     }
-    .footer-section{ display:flex; flex-direction:column; gap:12px; }
-    .footer-section h4{ margin:0 0 8px; color:var(--azul); font-size:1rem; font-weight:700; }
+    .footer-section{ display:flex; flex-direction:column; gap:14px; }
+    .footer-section h4{ margin:0 0 8px; color:var(--azul); font-size:1.05rem; font-weight:700; }
+    .footer-section.brands-section{ align-items:center; }
+    .footer-section.brands-section h4{ text-align:center; margin-bottom:4px; }
     .footer-section a{ 
       color:var(--texto); display:flex; align-items:center; gap:8px; 
-      transition:all .2s ease; padding:4px 0;
+      transition:all .2s ease; padding:4px 0; font-size:.95rem;
+      opacity:.85;
     }
-    .footer-section a:hover{ color:var(--azul); text-decoration:none; transform:translateX(4px); }
-    .brands-footer{ display:flex; gap:16px; flex-wrap:wrap; align-items:center; }
-    .brands-footer a{ display:block; transition:transform .2s ease; }
-    .brands-footer a:hover{ transform:scale(1.05); }
-    .brands-footer img{ height:32px; display:block; }
+    .footer-section a:hover{ color:var(--azul); text-decoration:none; transform:translateX(4px); opacity:1; }
+    
+    /* Logos empilhadas verticalmente - DESIGN PREMIUM COM EFEITOS PROFISSIONAIS */
+    .brands-footer{ 
+      display:flex; flex-direction:column; gap:24px; align-items:center; 
+      padding:16px 0; width:100%;
+    }
+    .brands-footer a{ 
+      display:flex; align-items:center; justify-content:center;
+      padding:16px 24px; border-radius:12px; 
+      background:linear-gradient(135deg, var(--off) 0%, var(--branco) 100%);
+      border:1px solid var(--borda);
+      box-shadow:0 2px 8px rgba(0,0,0,.04), inset 0 1px 0 rgba(255,255,255,.8);
+      transition:all .35s cubic-bezier(.4,0,.2,1); 
+      position:relative; overflow:hidden; min-width:180px;
+    }
+    .brands-footer a::before{
+      content:''; position:absolute; inset:0; 
+      background:linear-gradient(135deg, rgba(25,99,150,.03) 0%, rgba(25,99,150,.08) 100%);
+      opacity:0; transition:opacity .35s ease;
+    }
+    .brands-footer a:hover::before{ opacity:1; }
+    .brands-footer a:hover{ 
+      transform:translateY(-4px) scale(1.02); 
+      box-shadow:0 8px 24px rgba(25,99,150,.15), 0 4px 12px rgba(0,0,0,.08), inset 0 1px 0 rgba(255,255,255,.9);
+      border-color:#b8d4e8;
+    }
+    .brands-footer img{ 
+      height:44px; display:block; position:relative; z-index:1;
+      filter:drop-shadow(0 1px 2px rgba(0,0,0,.1)) brightness(1.02) contrast(1.05);
+      transition:all .35s cubic-bezier(.4,0,.2,1);
+    }
+    .brands-footer a:hover img{ 
+      filter:drop-shadow(0 2px 4px rgba(25,99,150,.2)) brightness(1.08) contrast(1.1);
+      transform:scale(1.05);
+    }
+    
+    /* Dark mode para logos - EFEITOS REFINADOS */
+    [data-theme="dark"] .brands-footer a{
+      background:linear-gradient(135deg, #1e232d 0%, #232930 100%);
+      border-color:#2d3544;
+      box-shadow:0 2px 8px rgba(0,0,0,.3), inset 0 1px 0 rgba(255,255,255,.03);
+    }
+    [data-theme="dark"] .brands-footer a::before{
+      background:linear-gradient(135deg, rgba(74,159,216,.05) 0%, rgba(74,159,216,.12) 100%);
+    }
+    [data-theme="dark"] .brands-footer a:hover{
+      box-shadow:0 8px 24px rgba(0,0,0,.4), 0 4px 12px rgba(74,159,216,.15), inset 0 1px 0 rgba(255,255,255,.05);
+      border-color:#3d4a5f;
+    }
+    [data-theme="dark"] .brands-footer img{ 
+      filter:drop-shadow(0 1px 3px rgba(0,0,0,.4)) brightness(.92) contrast(1.1);
+    }
+    [data-theme="dark"] .brands-footer a:hover img{ 
+      filter:drop-shadow(0 2px 6px rgba(74,159,216,.3)) brightness(1.05) contrast(1.15);
+    }
+    
+    /* Copyright com duas linhas - ELEGANTE */
     .foot-note{ 
-      border-top:1px solid var(--borda); padding:20px; text-align:center; 
-      color:#6b7280; font-size:.9rem; background:var(--off);
+      border-top:1px solid var(--borda); padding:24px 20px; text-align:center; 
+      color:#6b7280; font-size:.92rem; background:var(--off); line-height:1.65;
     }
+    .foot-note .company{ display:block; font-weight:500; color:var(--texto); margin-bottom:2px; }
+    .foot-note .rights{ display:block; font-size:.88rem; opacity:.85; }
 
     /* Overlay/Modal */
     .overlay{
@@ -396,15 +475,18 @@
 
     /* Responsividade - MUITO MELHORADA */
     @media (max-width:1200px){
-      .wrap{ padding:22px 16px; max-width:100% }
+      .wrap{ padding:22px 16px; max-width:100%; overflow-x:hidden; }
       .grid{ grid-template-columns:1fr; gap:18px }
       .header{ grid-template-columns:1fr; gap:12px }
       .brand-frame{ margin:0 auto }
     }
     
     @media (max-width:768px){
+      body{ overflow-x:hidden; }
+      .wrap{ padding:18px 12px; overflow-x:hidden; }
+      .card{ padding:18px 14px; overflow-x:hidden; }
+      
       .brand-frame{ width:224px; height:224px }
-      .card{ padding:18px }
       .cta-bar{ gap:8px }
       .btn{ width:calc(50% - 4px); justify-content:center; font-size:.85rem; padding:8px 10px; }
       
@@ -417,17 +499,17 @@
       .slide p{ font-size:.95rem; line-height:1.65; }
       
       /* Timeline mobile - SEM CORTES */
-      .timeline{ margin-right:0; padding-right:0; }
-      .item{ padding-left:28px; margin:16px 0; }
+      .timeline{ margin-right:0; padding-right:4px; overflow-x:hidden; }
+      .item{ padding-left:28px; padding-right:4px; margin:16px 0; overflow-x:hidden; }
       .item::before{ left:5px; width:10px; height:10px; }
       .timeline::before{ left:9px; }
-      .role{ font-size:.95rem; }
-      .org{ font-size:.9rem; }
-      .meta{ font-size:.85rem; }
-      .desc{ font-size:.9rem; }
+      .role{ font-size:.95rem; line-height:1.4; word-break:break-word; }
+      .org{ font-size:.9rem; word-break:break-word; }
+      .meta{ font-size:.85rem; word-break:break-word; }
+      .desc{ font-size:.9rem; line-height:1.5; word-break:break-word; }
       
-      h1{ font-size:1.8rem }
-      h2{ font-size:1.15rem; }
+      h1{ font-size:1.8rem; word-break:break-word; }
+      h2{ font-size:1.15rem; word-break:break-word; }
       
       .theme-toggle, .back-to-top{ bottom:16px; right:16px; width:44px; height:44px; }
       .back-to-top{ bottom:72px; }
@@ -437,22 +519,26 @@
       .breadcrumb-btn{ font-size:.82rem; padding:6px 12px; }
       .share-grid{ gap:8px; }
       .share-btn{ padding:8px 10px; font-size:.85rem; }
-      .modal{ padding:20px; }
+      .modal{ padding:20px; max-width:calc(100% - 32px); }
       .qr-container{ padding:10px; }
       
       /* Footer mobile */
-      .footer-inner{ grid-template-columns:1fr; gap:24px; padding:24px 20px; }
-      .brands-footer{ justify-content:center; }
+      .footer-inner{ grid-template-columns:1fr; gap:32px; padding:32px 20px; }
+      .brands-footer{ gap:20px; }
+      .brands-footer a{ min-width:160px; padding:14px 20px; }
+      .brands-footer img{ height:42px; }
+      .foot-note{ padding:20px 16px; }
     }
     
     @media (max-width:480px){
-      body{ padding-top:70px; font-size:15px; line-height:1.6; }
+      body{ padding-top:70px; font-size:15px; line-height:1.6; overflow-x:hidden; }
+      .wrap{ padding:16px 8px; overflow-x:hidden; }
+      .card{ padding:14px 12px; margin-bottom:14px; overflow-x:hidden; }
+      
       .brand-frame{ width:168px; height:168px }
-      h1{ font-size:1.5rem }
-      h2{ font-size:1.05rem; }
+      h1{ font-size:1.5rem; word-break:break-word; }
+      h2{ font-size:1.05rem; word-break:break-word; }
       .btn{ width:100%; font-size:.88rem; padding:9px 12px; }
-      .wrap{ padding:16px 10px }
-      .card{ padding:14px; margin-bottom:14px; }
       
       /* Carrossel mobile pequeno - OTIMIZADO */
       .slide{ 
@@ -460,24 +546,25 @@
         padding:18px 14px;
         min-height:clamp(340px, 45vh, 520px);
       }
-      .slide p{ font-size:.92rem; line-height:1.6; }
+      .slide p{ font-size:.92rem; line-height:1.6; word-break:break-word; }
       .nav-btn{ display:none; } /* Remove setas em telas pequenas */
       
-      /* Timeline mobile pequeno - OTIMIZADA */
-      .item{ padding-left:24px; margin:14px 0; }
+      /* Timeline mobile pequeno - OTIMIZADA SEM CORTES */
+      .timeline{ padding-right:2px; overflow-x:hidden; }
+      .item{ padding-left:24px; padding-right:2px; margin:14px 0; overflow-x:hidden; }
       .item::before{ left:4px; width:8px; height:8px; }
       .timeline::before{ left:7px; }
-      .role{ font-size:.92rem; line-height:1.3; }
-      .org{ font-size:.88rem; }
-      .meta{ font-size:.82rem; }
-      .desc{ font-size:.88rem; line-height:1.4; }
-      .badge{ font-size:.7rem; padding:3px 8px; margin-left:4px; }
+      .role{ font-size:.92rem; line-height:1.35; word-break:break-word; overflow-wrap:break-word; }
+      .org{ font-size:.88rem; word-break:break-word; overflow-wrap:break-word; }
+      .meta{ font-size:.82rem; word-break:break-word; overflow-wrap:break-word; }
+      .desc{ font-size:.88rem; line-height:1.4; word-break:break-word; overflow-wrap:break-word; }
+      .badge{ font-size:.7rem; padding:3px 8px; margin-left:4px; display:inline-block; }
       
       /* Listas mobile - SEM CORTES */
-      ul{ margin:8px 0 0 16px; padding-left:0; }
-      ul li{ margin-bottom:8px; font-size:.92rem; line-height:1.5; word-wrap:break-word; }
+      ul{ margin:8px 0 0 14px; padding-left:4px; overflow-x:hidden; }
+      ul li{ margin-bottom:8px; font-size:.92rem; line-height:1.5; word-break:break-word; overflow-wrap:break-word; padding-right:2px; }
       
-      .breadcrumb-inner{ padding:8px 12px; flex-direction:column; align-items:stretch; gap:8px; }
+      .breadcrumb-inner{ padding:8px 10px; flex-direction:column; align-items:stretch; gap:8px; }
       .breadcrumb-nav{ justify-content:center; flex-wrap:wrap; }
       .breadcrumb-nav a{ font-size:.78rem; padding:4px 8px; }
       .breadcrumb-btn{ width:100%; font-size:.88rem; }
@@ -486,12 +573,16 @@
       #qrcode{ transform:scale(0.85); }
       
       /* Footer mobile pequeno - MELHORADO */
-      .footer-inner{ padding:20px 16px; gap:20px; }
-      .footer-section h4{ font-size:.95rem; }
-      .footer-section a{ font-size:.9rem; }
-      .brands-footer{ flex-direction:column; gap:12px; }
-      .brands-footer img{ height:28px; }
-      .foot-note{ padding:16px; font-size:.85rem; }
+      .footer-inner{ padding:28px 16px; gap:28px; }
+      .footer-section{ overflow-x:hidden; }
+      .footer-section h4{ font-size:1rem; word-break:break-word; }
+      .footer-section a{ font-size:.92rem; word-break:break-word; }
+      .brands-footer{ gap:18px; }
+      .brands-footer a{ min-width:150px; padding:12px 18px; }
+      .brands-footer img{ height:40px; }
+      .foot-note{ padding:20px 12px; }
+      .foot-note .company{ font-size:.9rem; }
+      .foot-note .rights{ font-size:.85rem; }
     }
   </style>
 </head>
@@ -699,14 +790,14 @@
           <a href="https://linktr.ee/gui.thome" target="_blank" rel="noopener">Linktree</a>
         </div>
         
-        <div class="footer-section">
-          <h4>Projetos</h4>
+        <div class="footer-section brands-section">
+          <h4>Empresas</h4>
           <div class="brands-footer">
             <a href="https://axcare.com.br" target="_blank" rel="noopener">
-              <img src="https://i.imgur.com/yAUQciP.png" alt="AxiaCare" loading="lazy">
+              <img src="https://raw.githubusercontent.com/guicthome/guilherme/f83c9dd8dd59f27a78cbd0f7df147943d9ca096b/logo_axia.png" alt="AxiaCare" loading="lazy">
             </a>
             <a href="https://medvalor.med.br" target="_blank" rel="noopener">
-              <img src="https://i.imgur.com/N0lXklP.png" alt="MedValor" loading="lazy">
+              <img src="https://raw.githubusercontent.com/guicthome/guilherme/f83c9dd8dd59f27a78cbd0f7df147943d9ca096b/logo_medvalor.png" alt="MedValor" loading="lazy">
             </a>
           </div>
         </div>
@@ -718,7 +809,10 @@
           <a href="https://hub.guithome.com.br/medvalor/privacidade.html" target="_blank" rel="noopener">MedValor®</a>
         </div>
       </div>
-      <div class="foot-note">© 2025 Guilherme Thomé | Grupo CSV. Todos os direitos reservados.</div>
+      <div class="foot-note">
+        <span class="company">© 2025 Guilherme Thomé | Grupo CSV</span>
+        <span class="rights">Todos os direitos reservados.</span>
+      </div>
     </footer>
   </main>
 
