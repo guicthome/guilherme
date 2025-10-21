@@ -157,8 +157,8 @@ window.translations = {
       title: "Guilherme Thomé | Digital Resume"
     },
     subtitle: {
-      line1: "Medical Executive & Consultant | VBHC Specialist",
-      line2: "Medical Superintendent Unimed / ICDS | Founder AxiaCare® & MedValor®"
+      line1: "Chief Medical Officer & Consultant | VBHC Specialist",
+      line2: "CMO Unimed / ICDS | Founder AxiaCare® & MedValor®"
     },
     nav: {
       about: "About",
@@ -196,44 +196,44 @@ window.translations = {
       slide2: "My journey synergistically connects clinical governance, hospital management and health plan management, always oriented towards sustainable and patient-centered results. Today I work as a medical executive and consultant. I have a technical presence in the territory as a corporate link between operators, philanthropy, hospitals and the provider network, articulating and developing care fronts.",
       slide3: "Founder of AxiaCare® and MedValor®, I am a consultant and speaker with solutions that combine technology, analytics and executive education to transform healthcare services and accelerate innovation. My background and expertise span Hospital Administration, Clinical Governance, Population Health and Value-Based Healthcare (VBHC).",
       slide4: "In the last four years, I led the implementation of data-driven clinical governance in a high-complexity hospital, increasing efficiency and value delivery; I led teams and centers for patient experience, data intelligence, medical development and safety. I participated in multiple hospital accreditation cycles and created a high-performance hospitalist medicine project, which reduced waste by more than 2,600 days/year and expanded care to hundreds of patients in outpatient clinics.",
-      slide5: "I conceived, wrote and implemented a complete healthcare strategy for a regional reference portfolio — a replicable model, structured from the creation of the Health Value Office (HVO) and the integration between hospital unit, outpatient care, regulation and new remuneration models. The result was a direct impact for thousands of people in lines of care such as the elderly, child neurodevelopment and high-cost therapies, with annual savings of millions of reais.",
+      slide5: "I conceived, wrote and implemented a complete healthcare strategy for a regional reference portfolio — a replicable model, structured from the creation of the Value Management Office (VMO) and the integration between hospital unit, outpatient care, regulation and new remuneration models. The result was a direct impact for thousands of people in lines of care such as the elderly, child neurodevelopment and high-cost therapies, with annual savings of millions of reais.",
       slide6: "In this context, I have been structuring technical committees in the autism and new physician payment models segments, designing an area of operation that involves several municipalities in the state, reinforcing the integration between clinical practice, governance and sustainability. My purpose is clear: to promote innovation, operational excellence and sustainable value for patients, organizations and society."
     },
     experience: [
       {
-        role: "Medical Superintendent (Healthcare Delivery) & HVO Leader",
+        role: "Chief Medical Officer (Healthcare Operations) & VMO Leader",
         company: "Unimed Governador Valadares",
         period: "Dec 2024 – present",
-        description: "Management of Healthcare Delivery, including Care Network, Outpatient Care, Audit and Health Value Office, with focus on efficiency, sustainability and patient-centered care.",
+        description: "Management of Healthcare Operations, including Provider Network, Ambulatory Care, Audit and Value Management Office (VMO), focusing on efficiency, sustainability and patient-centered care.",
         current: true
       },
       {
-        role: "Medical Superintendent",
+        role: "Chief Medical Officer",
         company: "ICDS (Unihealth)",
         period: "Aug 2025 – present • Northeast East Region, MG",
         description: "Leader in the Development and Institutional Relations Center, focused on organizational development, applied innovation and strategic articulation between contract, operation and system. Corporate link integrating hospital, operator, philanthropy and network.",
         current: true
       },
       {
-        role: "Technical Director – Hospital Unit",
+        role: "Medical Director – Hospital Unit",
         company: "Unihealth (ICDS) – Gov. Valadares",
         period: "Dec 2024 – Aug 2025",
         current: false
       },
       {
-        role: "Medical Superintendent & Hospital Director",
+        role: "Chief Medical Officer & Hospital Director",
         company: "Unimed Governador Valadares",
         period: "Aug 2024 – Dec 2024",
         current: false
       },
       {
-        role: "Hospital Medical Advisor & Technical Director",
+        role: "Hospital Medical Advisor & Medical Director",
         company: "Unimed Governador Valadares",
         period: "Jan 2024 – Aug 2024",
         current: false
       },
       {
-        role: "Technical Director",
+        role: "Medical Director",
         company: "Unimed Governador Valadares",
         period: "Jan 2022 – Feb 2024",
         current: false
@@ -273,7 +273,7 @@ window.translations = {
     ],
     certifications: [
       "VBHC Certified Yellow Belt™ — The Decision Institute (Dec 2024)",
-      "VMP Green Belt™ — IBRAVS (Aug 2025) • Value Management Professional | Brazilian Institute of Value in Healthcare",
+      "VMP Green Belt™ — IBRAVS (Aug 2025) • Value Management Professional | Brazilian Institute of Value-Based Healthcare",
       "Certificate in Healthcare Legislation and Regulation/LGPD/Compliance — PUCPR (Jan 2025)",
       "Value-Based Clinical Governance — ONA (Mar 2025)",
       "Preparation of Evaluators of the Brazilian Accreditation System — ONA (Feb 2025)",
@@ -283,7 +283,7 @@ window.translations = {
       "VBHC",
       "Clinical Governance",
       "Hospital Management",
-      "Supplementary Health",
+      "Managed Care",
       "Healthcare Analytics",
       "Accreditation",
       "Leadership",
