@@ -600,7 +600,7 @@
       .foot-note .rights{ font-size:.85rem; }
     }
 
-    /* PDF STYLES - COMPLETAMENTE OCULTO NO NAVEGADOR */
+    /* PDF STYLES - LAYOUT PROFISSIONAL EQUILIBRADO */
     #pdf-template{ display:none !important; }
     
     @media print {
@@ -632,7 +632,7 @@
       /* Configuração das páginas */
       @page { 
         size: A4 portrait; 
-        margin: 18mm 15mm;
+        margin: 20mm 18mm;
       }
       
       .pdf-page {
@@ -648,51 +648,58 @@
         page-break-after: avoid; 
       }
       
-      /* Header PDF */
+      /* ============================================
+         HEADER PROFISSIONAL - CENTRALIZADO
+         ============================================ */
       .pdf-header {
         display: flex;
-        gap: 24px;
-        margin-bottom: 24px;
-        align-items: flex-start;
-        border-bottom: 4px solid #196396;
-        padding-bottom: 20px;
-        background: linear-gradient(to right, #f8fbff 0%, #ffffff 100%);
-        padding: 18px;
-        border-radius: 8px 8px 0 0;
+        gap: 20px;
+        margin-bottom: 20px;
+        align-items: center;
+        padding-bottom: 16px;
+        border-bottom: 3px solid #196396;
+        background: linear-gradient(135deg, #f8fbff 0%, #ffffff 100%);
+        padding: 16px 20px;
+        border-radius: 8px;
       }
       
       .pdf-photo {
-        width: 110px;
-        height: 110px;
+        width: 90px;
+        height: 90px;
         border-radius: 50%;
         object-fit: cover;
-        border: 4px solid #196396;
-        box-shadow: 0 4px 12px rgba(25, 99, 150, 0.2);
+        border: 3px solid #196396;
+        box-shadow: 0 4px 12px rgba(25, 99, 150, 0.25);
+        flex-shrink: 0;
+      }
+      
+      .pdf-title {
+        flex: 1;
       }
       
       .pdf-title h1 {
-        font-size: 26px;
+        font-size: 22px;
         color: #196396;
-        margin: 0 0 10px 0;
+        margin: 0 0 6px 0;
         font-weight: 700;
-        letter-spacing: 0.3px;
+        line-height: 1.2;
       }
       
       .pdf-title p {
-        font-size: 13.5px;
+        font-size: 11.5px;
         color: #2d3445;
         margin: 0;
-        line-height: 1.6;
+        line-height: 1.5;
         font-weight: 500;
       }
       
       .pdf-contact {
-        font-size: 11px;
+        font-size: 9.5px;
         color: #5d6372;
-        margin-top: 12px;
-        padding-top: 10px;
+        margin-top: 8px;
+        padding-top: 8px;
         border-top: 1px solid #e6e9ef;
-        line-height: 1.7;
+        line-height: 1.5;
       }
       
       .pdf-contact strong {
@@ -700,47 +707,54 @@
         font-weight: 600;
       }
       
-      /* Seções PDF */
+      /* ============================================
+         SEÇÕES COM HIERARQUIA CLARA
+         ============================================ */
       .pdf-section {
-        margin-bottom: 22px;
+        margin-bottom: 16px;
         page-break-inside: avoid;
       }
       
       .pdf-section h2 {
-        font-size: 17px;
+        font-size: 14px;
         color: #196396;
-        margin: 0 0 14px 0;
+        margin: 0 0 10px 0;
         font-weight: 700;
         border-bottom: 2px solid #196396;
-        padding-bottom: 6px;
-        position: relative;
+        padding-bottom: 4px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
       }
       
-      .pdf-section h2::after {
-        content: '';
-        position: absolute;
-        bottom: -2px;
-        left: 0;
-        width: 60px;
-        height: 2px;
-        background: #a6d8c0;
-      }
-      
-      .pdf-section p, .pdf-section li {
-        font-size: 11.5px;
-        line-height: 1.7;
+      .pdf-section p {
+        font-size: 10px;
+        line-height: 1.6;
         color: #1b1e24;
-        margin: 0 0 10px 0;
+        margin: 0 0 8px 0;
         text-align: justify;
       }
       
       .pdf-section ul {
         margin: 0;
-        padding-left: 20px;
+        padding-left: 16px;
+        list-style: none;
       }
       
       .pdf-section li {
-        margin-bottom: 8px;
+        font-size: 9.5px;
+        line-height: 1.5;
+        color: #1b1e24;
+        margin-bottom: 6px;
+        padding-left: 12px;
+        position: relative;
+      }
+      
+      .pdf-section li::before {
+        content: '▪';
+        position: absolute;
+        left: 0;
+        color: #196396;
+        font-weight: bold;
       }
       
       .pdf-section li strong {
@@ -748,76 +762,80 @@
         font-weight: 600;
       }
       
-      /* Timeline PDF */
+      /* ============================================
+         TIMELINE COMPACTA E ELEGANTE
+         ============================================ */
       .pdf-timeline-item {
-        margin-bottom: 16px;
-        padding-left: 16px;
-        border-left: 4px solid #196396;
+        margin-bottom: 12px;
+        padding-left: 14px;
+        border-left: 3px solid #196396;
         position: relative;
-        padding-top: 4px;
-        padding-bottom: 4px;
+        padding-top: 2px;
+        padding-bottom: 2px;
       }
       
       .pdf-timeline-item::before {
         content: '';
         position: absolute;
-        left: -8px;
-        top: 8px;
-        width: 12px;
-        height: 12px;
+        left: -7px;
+        top: 5px;
+        width: 10px;
+        height: 10px;
         border-radius: 50%;
         background: #196396;
         border: 2px solid #fff;
-        box-shadow: 0 0 0 2px #196396;
+        box-shadow: 0 0 0 1px #196396;
       }
       
       .pdf-timeline-item .role {
-        font-size: 12.5px;
+        font-size: 10.5px;
         font-weight: 700;
         color: #196396;
-        margin: 0 0 5px 0;
-        line-height: 1.4;
+        margin: 0 0 3px 0;
+        line-height: 1.3;
       }
       
       .pdf-timeline-item .org {
-        font-size: 11.5px;
+        font-size: 9.5px;
         color: #2d3445;
         font-weight: 600;
-        margin: 0 0 3px 0;
+        margin: 0 0 2px 0;
       }
       
       .pdf-timeline-item .meta {
-        font-size: 10px;
+        font-size: 8.5px;
         color: #5d6372;
-        margin: 0 0 8px 0;
+        margin: 0 0 5px 0;
         font-style: italic;
       }
       
       .pdf-timeline-item .desc {
-        font-size: 10.5px;
+        font-size: 9px;
         color: #196396;
         font-style: italic;
-        line-height: 1.6;
+        line-height: 1.5;
         background: #f8fbff;
-        padding: 8px 10px;
+        padding: 6px 8px;
         border-radius: 4px;
-        margin-top: 6px;
+        margin-top: 4px;
       }
       
-      /* Skills Grid PDF */
+      /* ============================================
+         SKILLS GRID COMPACTO
+         ============================================ */
       .pdf-skills {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        gap: 10px;
-        margin-top: 10px;
+        gap: 8px;
+        margin-top: 8px;
       }
       
       .pdf-skill {
         background: linear-gradient(135deg, #eaf3fb 0%, #d9eafc 100%);
         border: 1.5px solid #196396;
-        border-radius: 8px;
-        padding: 8px 12px;
-        font-size: 10.5px;
+        border-radius: 6px;
+        padding: 6px 8px;
+        font-size: 9px;
         font-weight: 700;
         color: #196396;
         text-align: center;
@@ -825,24 +843,26 @@
         letter-spacing: 0.2px;
       }
       
-      /* Duas colunas para página 1 */
+      /* ============================================
+         LAYOUT DE 2 COLUNAS OTIMIZADO
+         ============================================ */
       .pdf-two-columns {
         display: grid;
-        grid-template-columns: 2fr 1fr;
-        gap: 24px;
+        grid-template-columns: 1.5fr 1fr;
+        gap: 20px;
+        margin-top: 12px;
       }
       
-      /* Footer PDF */
+      /* ============================================
+         FOOTER ELEGANTE
+         ============================================ */
       .pdf-footer {
-        margin-top: 24px;
-        padding-top: 14px;
-        border-top: 3px double #196396;
-        font-size: 9.5px;
+        margin-top: 16px;
+        padding-top: 10px;
+        border-top: 2px solid #196396;
+        font-size: 8.5px;
         color: #6b7280;
         text-align: center;
-        background: linear-gradient(to right, #f8fbff 0%, #ffffff 50%, #f8fbff 100%);
-        padding: 12px;
-        border-radius: 6px;
       }
     }
   </style>
@@ -1111,16 +1131,18 @@
     </div>
   </div>
 
-  <!-- PDF TEMPLATE - OCULTO -->
+  <!-- PDF TEMPLATE - LAYOUT PROFISSIONAL -->
   <div id="pdf-template">
-    <!-- PÁGINA 1 -->
+    <!-- ============================================
+         PÁGINA 1: Header + About + Skills + Experience (Top 4)
+         ============================================ -->
     <div class="pdf-page page-1">
       <header class="pdf-header">
         <img src="https://i.imgur.com/uXusAqJ.png" alt="Guilherme Thomé" class="pdf-photo">
         <div class="pdf-title">
           <h1>Guilherme Thomé, MD, MBA</h1>
-          <p id="pdfSubtitle">Médico Executivo e Consultor | Especialista em VBHC<br>
-          Superintendente Unimed / ICDS | Founder AxiaCare® & MedValor®</p>
+          <p id="pdfSubtitle">Chief Medical Officer & Consultant | VBHC Specialist<br>
+          CMO Unimed / ICDS | Founder AxiaCare® & MedValor®</p>
           <div class="pdf-contact">
             <strong>Email:</strong> guilherme@guithome.com.br | <strong>LinkedIn:</strong> linkedin.com/in/gui-thome | <strong>Site:</strong> guithome.com.br
           </div>
@@ -1130,41 +1152,48 @@
       <div class="pdf-two-columns">
         <div>
           <section class="pdf-section">
-            <h2 id="pdfAboutTitle">Sobre</h2>
+            <h2 id="pdfAboutTitle">About</h2>
             <p id="pdfAboutContent">
-              Atuo na interseção entre liderança executiva, negócios, VBHC e inovação, com foco em desfechos que importam para o paciente, eficiência operacional e inteligência de dados. Fundador da AxiaCare® e da MedValor®, sou consultor e palestrante com soluções que unem tecnologia, analytics e educação executiva para transformar serviços de saúde. Minha formação abrange Administração Hospitalar, Governança Clínica e Saúde Baseada em Valor.
+              I work at the intersection of executive leadership, business, VBHC and innovation, focusing on outcomes that matter to patients, operational efficiency and data intelligence. Founder of AxiaCare® and MedValor®, I am a consultant and speaker with solutions that combine technology, analytics and executive education to transform healthcare services. My background spans Hospital Administration, Clinical Governance and Value-Based Healthcare.
             </p>
           </section>
           
           <section class="pdf-section">
-            <h2 id="pdfExperienceTitle">Experiência Profissional</h2>
+            <h2 id="pdfExperienceTitle">Experience</h2>
             <div id="pdfExperienceContent"></div>
           </section>
         </div>
         
         <div>
           <section class="pdf-section">
-            <h2 id="pdfSkillsTitle">Competências</h2>
+            <h2 id="pdfSkillsTitle">Skills</h2>
             <div class="pdf-skills" id="pdfSkillsContent"></div>
           </section>
         </div>
       </div>
     </div>
     
-    <!-- PÁGINA 2 -->
+    <!-- ============================================
+         PÁGINA 2: Education + Certifications + Resto Experience
+         ============================================ -->
     <div class="pdf-page page-2">
       <section class="pdf-section">
-        <h2 id="pdfEducationTitle">Formação Acadêmica</h2>
+        <h2 id="pdfEducationTitle">Academic Background</h2>
         <ul id="pdfEducationContent"></ul>
       </section>
       
       <section class="pdf-section">
-        <h2 id="pdfCertificationsTitle">Licenças e Certificações</h2>
+        <h2 id="pdfCertificationsTitle">Licenses & Certifications</h2>
         <ul id="pdfCertificationsContent"></ul>
       </section>
       
+      <section class="pdf-section">
+        <h2>Additional Experience</h2>
+        <div id="pdfExperienceContent2"></div>
+      </section>
+      
       <div class="pdf-footer">
-        <span id="pdfFooter">© 2025 Guilherme Thomé | Grupo CSV - Todos os direitos reservados</span>
+        <span id="pdfFooter">© 2025 Guilherme Thomé | Grupo CSV - All rights reserved</span>
       </div>
     </div>
   </div>
@@ -1267,9 +1296,9 @@
           ? 'Atuo na interseção entre liderança executiva, negócios, VBHC e inovação, com foco em desfechos que importam para o paciente, eficiência operacional e inteligência de dados. Fundador da AxiaCare® e da MedValor®, sou consultor e palestrante com soluções que unem tecnologia, analytics e educação executiva para transformar serviços de saúde. Minha formação abrange Administração Hospitalar, Governança Clínica e Saúde Baseada em Valor.'
           : 'I work at the intersection of executive leadership, business, VBHC and innovation, focusing on outcomes that matter to patients, operational efficiency and data intelligence. Founder of AxiaCare® and MedValor®, I am a consultant and speaker with solutions that combine technology, analytics and executive education to transform healthcare services. My background spans Hospital Administration, Clinical Governance and Value-Based Healthcare.';
         
-        // PDF Experience (top 6)
+        // PDF Experience - Top 4 na página 1
         const pdfExperience = document.getElementById('pdfExperienceContent');
-        pdfExperience.innerHTML = t.experience.slice(0, 6).map(exp => `
+        pdfExperience.innerHTML = t.experience.slice(0, 4).map(exp => `
           <div class="pdf-timeline-item">
             <div class="role">${exp.role}</div>
             <div class="org">${exp.company}</div>
@@ -1277,6 +1306,20 @@
             ${exp.description ? `<div class="desc">${exp.description}</div>` : ''}
           </div>
         `).join('');
+        
+        // PDF Experience - Restante na página 2
+        const pdfExperience2 = document.getElementById('pdfExperienceContent2');
+        if (t.experience.length > 4) {
+          pdfExperience2.innerHTML = t.experience.slice(4).map(exp => `
+            <div class="pdf-timeline-item">
+              <div class="role">${exp.role}</div>
+              <div class="org">${exp.company}</div>
+              <div class="meta">${exp.period}</div>
+            </div>
+          `).join('');
+        } else {
+          pdfExperience2.innerHTML = '';
+        }
         
         // PDF Skills
         const pdfSkills = document.getElementById('pdfSkillsContent');
