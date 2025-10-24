@@ -30,6 +30,7 @@ window.translations = {
       education: "Formação acadêmica",
       certifications: "Licenças e certificações",
       skills: "Competências",
+      languages: "Idiomas",
       contact: "Contato",
       privacy: "Políticas de privacidade"
     },
@@ -181,6 +182,11 @@ window.translations = {
       "Liderança",
       "Inovação em Saúde"
     ],
+    languages: [
+      { language: "Português", level: "Nativo" },
+      { language: "Inglês", level: "Fluente" },
+      { language: "Espanhol", level: "Iniciante" }
+    ],
     modal: {
       contactTitle: "Fale com Guilherme Thomé",
       shareTitle: "Compartilhar Currículo",
@@ -226,6 +232,7 @@ window.translations = {
       education: "Academic Background",
       certifications: "Licenses & Certifications",
       skills: "Skills",
+      languages: "Languages",
       contact: "Contact",
       privacy: "Privacy Policies"
     },
@@ -376,6 +383,11 @@ window.translations = {
       "Accreditation",
       "Leadership",
       "Healthcare Innovation"
+    ],
+    languages: [
+      { language: "Portuguese", level: "Native" },
+      { language: "English", level: "Fluent" },
+      { language: "Spanish", level: "Beginner" }
     ],
     modal: {
       contactTitle: "Contact Guilherme Thomé",
