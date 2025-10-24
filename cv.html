@@ -349,6 +349,33 @@
     .skill:hover{ background:#d9eafc; transform:translateY(-1px); }
     .skill svg{ width:16px; height:16px; flex-shrink:0; }
 
+    /* Formação Acadêmica e Certificações - ESTILO MELHORADO */
+    .edu-item, .cert-item{
+      margin-bottom:16px; padding:12px; background:var(--off);
+      border-left:3px solid var(--azul); border-radius:8px;
+      transition:all .2s ease;
+    }
+    .edu-item:hover, .cert-item:hover{
+      background:var(--chip); transform:translateX(4px);
+      box-shadow:0 4px 12px rgba(25,99,150,.08);
+    }
+    .edu-degree, .cert-title{
+      font-size:1rem; font-weight:700; color:var(--azul);
+      margin:0 0 6px 0; line-height:1.3;
+    }
+    .edu-institution, .cert-institution{
+      font-size:.92rem; color:var(--grafite); font-weight:500;
+      margin:0 0 4px 0;
+    }
+    .edu-period, .cert-period{
+      font-size:.85rem; color:#5d6372; font-style:italic;
+      display:block; margin-top:4px;
+    }
+    .cert-details{
+      font-size:.88rem; color:#196396; font-style:italic;
+      margin-top:6px; padding-top:6px; border-top:1px solid var(--borda);
+    }
+
     /* Sidebar */
     .brand-divider{ display:flex; align-items:center; justify-content:center; padding:18px }
     .brand-divider img{ max-width:140px; height:auto; display:block }
@@ -914,8 +941,9 @@
       <div>
         <h1>Guilherme Thomé<span class="small">, MD, MBA.</span></h1>
         <p class="subtitle">
-          <span class="line" data-i18n="subtitle.line1">Médico Executivo e Consultor | Especialista em VBHC</span>
-          <span class="line" data-i18n="subtitle.line2">Superintendente Unimed / ICDS | Founder AxiaCare® & MedValor®</span>
+          <span class="line" data-i18n="subtitle.line1">Médico Executivo e Consultor, Especialista em VBHC.</span>
+          <span class="line" data-i18n="subtitle.line2">Superintendente Unimed e ICDS</span>
+          <span class="line" data-i18n="subtitle.line3">Fundador Grupo CSV - AxiaCare® • MedValor® • Thera®</span>
         </p>
         <div class="cta-bar">
           <button class="btn primary" id="btnContato" type="button">
@@ -974,17 +1002,17 @@
         <!-- FORMAÇÃO -->
         <section class="card" id="formacao" aria-label="Formação acadêmica">
           <h2 data-i18n="sections.education">Formação acadêmica</h2>
-          <ul id="educationList">
+          <div id="educationList">
             <!-- Conteúdo será populado via JavaScript -->
-          </ul>
+          </div>
         </section>
 
         <!-- CERTIFICAÇÕES -->
         <section class="card" id="certificacoes" aria-label="Licenças e certificações">
           <h2 data-i18n="sections.certifications">Licenças e certificações</h2>
-          <ul id="certificationsList">
+          <div id="certificationsList">
             <!-- Conteúdo será populado via JavaScript -->
-          </ul>
+          </div>
         </section>
       </div>
 
@@ -1141,8 +1169,9 @@
         <img src="https://i.imgur.com/uXusAqJ.png" alt="Guilherme Thomé" class="pdf-photo">
         <div class="pdf-title">
           <h1>Guilherme Thomé, MD, MBA</h1>
-          <p id="pdfSubtitle">Chief Medical Officer & Consultant | VBHC Specialist<br>
-          CMO Unimed / ICDS | Founder AxiaCare® & MedValor®</p>
+          <p id="pdfSubtitle">Chief Medical Officer & Consultant, VBHC Specialist.<br>
+          CMO Unimed and ICDS<br>
+          Founder Grupo CSV - AxiaCare® • MedValor® • Thera®</p>
           <div class="pdf-contact">
             <strong>Email:</strong> guilherme@guithome.com.br | <strong>LinkedIn:</strong> linkedin.com/in/gui-thome | <strong>Site:</strong> guithome.com.br
           </div>
@@ -1262,12 +1291,25 @@
       
       populateEducation(t) {
         const container = document.getElementById('educationList');
-        container.innerHTML = t.education.map(edu => `<li>${edu}</li>`).join('');
+        container.innerHTML = t.education.map(edu => `
+          <div class="edu-item">
+            <div class="edu-degree">${edu.degree}</div>
+            <div class="edu-institution">${edu.institution}</div>
+            <span class="edu-period">${edu.period}</span>
+          </div>
+        `).join('');
       },
       
       populateCertifications(t) {
         const container = document.getElementById('certificationsList');
-        container.innerHTML = t.certifications.map(cert => `<li>${cert}</li>`).join('');
+        container.innerHTML = t.certifications.map(cert => `
+          <div class="cert-item">
+            <div class="cert-title">${cert.title}</div>
+            <div class="cert-institution">${cert.institution}</div>
+            <span class="cert-period">${cert.period}</span>
+            ${cert.details ? `<div class="cert-details">${cert.details}</div>` : ''}
+          </div>
+        `).join('');
       },
       
       populateSkills(t) {
@@ -1283,7 +1325,7 @@
       
       populatePDF(t) {
         // PDF Header
-        document.getElementById('pdfSubtitle').innerHTML = `${t.subtitle.line1}<br>${t.subtitle.line2}`;
+        document.getElementById('pdfSubtitle').innerHTML = `${t.subtitle.line1}<br>${t.subtitle.line2}<br>${t.subtitle.line3}`;
         document.getElementById('pdfAboutTitle').textContent = t.sections.about;
         document.getElementById('pdfExperienceTitle').textContent = t.sections.experience;
         document.getElementById('pdfSkillsTitle').textContent = t.sections.skills;
@@ -1327,11 +1369,15 @@
         
         // PDF Education
         const pdfEducation = document.getElementById('pdfEducationContent');
-        pdfEducation.innerHTML = t.education.map(edu => `<li>${edu}</li>`).join('');
+        pdfEducation.innerHTML = t.education.map(edu => `
+          <li><strong>${edu.degree}</strong> — ${edu.institution} <em>(${edu.period})</em></li>
+        `).join('');
         
         // PDF Certifications
         const pdfCertifications = document.getElementById('pdfCertificationsContent');
-        pdfCertifications.innerHTML = t.certifications.map(cert => `<li>${cert}</li>`).join('');
+        pdfCertifications.innerHTML = t.certifications.map(cert => `
+          <li><strong>${cert.title}</strong> — ${cert.institution} <em>(${cert.period})</em>${cert.details ? ` • ${cert.details}` : ''}</li>
+        `).join('');
       }
     };
 
