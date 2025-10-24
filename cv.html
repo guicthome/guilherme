@@ -376,6 +376,24 @@
       margin-top:6px; padding-top:6px; border-top:1px solid var(--borda);
     }
 
+    /* Idiomas - ESTILO MINIMALISTA */
+    .languages-list{
+      display:flex; flex-direction:column; gap:10px; margin-top:8px;
+    }
+    .lang-item{
+      display:flex; justify-content:space-between; align-items:center;
+      padding:8px 0; border-bottom:1px solid var(--borda);
+      transition:all .2s ease;
+    }
+    .lang-item:last-child{ border-bottom:none; }
+    .lang-item:hover{ padding-left:4px; }
+    .lang-name{
+      font-size:.92rem; font-weight:600; color:var(--texto);
+    }
+    .lang-level{
+      font-size:.85rem; color:#5d6372; font-style:italic;
+    }
+
     /* Sidebar */
     .brand-divider{ display:flex; align-items:center; justify-content:center; padding:18px }
     .brand-divider img{ max-width:140px; height:auto; display:block }
@@ -759,6 +777,15 @@
         color: #1b1e24;
         margin: 0 0 8px 0;
         text-align: justify;
+        hyphens: none;
+        word-wrap: break-word;
+      }
+
+      /* About section - melhor para ATS */
+      #pdfAboutContent {
+        white-space: normal;
+        overflow-wrap: break-word;
+        text-rendering: optimizeLegibility;
       }
       
       .pdf-section ul {
@@ -891,6 +918,24 @@
         color: #6b7280;
         text-align: center;
       }
+
+      /* ============================================
+         KEYWORDS SECTION - ATS FRIENDLY
+         Visível para ATS mas discreta visualmente
+         ============================================ */
+      .pdf-keywords {
+        margin-top: 12px;
+        padding: 8px;
+        font-size: 8px;
+        color: #8a92a3;
+        line-height: 1.5;
+        border-top: 1px solid #e6e9ef;
+      }
+      .pdf-keywords strong {
+        color: #196396;
+        font-weight: 600;
+        font-size: 8.5px;
+      }
     }
   </style>
 </head>
@@ -1021,6 +1066,13 @@
         <section class="card" id="competencias" aria-label="Competências">
           <h2 data-i18n="sections.skills">Competências</h2>
           <div class="tags" id="skillsTags">
+            <!-- Conteúdo será populado via JavaScript -->
+          </div>
+        </section>
+
+        <section class="card" id="idiomas" aria-label="Idiomas">
+          <h2 data-i18n="sections.languages">Idiomas</h2>
+          <div class="languages-list" id="languagesList">
             <!-- Conteúdo será populado via JavaScript -->
           </div>
         </section>
@@ -1198,6 +1250,11 @@
             <h2 id="pdfSkillsTitle">Skills</h2>
             <div class="pdf-skills" id="pdfSkillsContent"></div>
           </section>
+
+          <section class="pdf-section">
+            <h2 id="pdfLanguagesTitle">Languages</h2>
+            <ul id="pdfLanguagesContent" style="list-style:none; padding:0; margin:0;"></ul>
+          </section>
         </div>
       </div>
     </div>
@@ -1220,7 +1277,12 @@
         <h2>Additional Experience</h2>
         <div id="pdfExperienceContent2"></div>
       </section>
-      
+
+      <!-- Keywords para ATS -->
+      <div class="pdf-keywords" id="pdfKeywords">
+        <strong>Core Expertise:</strong> <span id="pdfKeywordsContent"></span>
+      </div>
+
       <div class="pdf-footer">
         <span id="pdfFooter">© 2025 Guilherme Thomé | Grupo CSV - All rights reserved</span>
       </div>
@@ -1266,6 +1328,7 @@
         this.populateEducation(t);
         this.populateCertifications(t);
         this.populateSkills(t);
+        this.populateLanguages(t);
         this.populatePDF(t);
         
         // Atualiza meta
@@ -1322,6 +1385,16 @@
           <div class="skill">${icons[skill] || icons.default} ${skill}</div>
         `).join('');
       },
+
+      populateLanguages(t) {
+        const container = document.getElementById('languagesList');
+        container.innerHTML = t.languages.map(lang => `
+          <div class="lang-item">
+            <span class="lang-name">${lang.language}</span>
+            <span class="lang-level">${lang.level}</span>
+          </div>
+        `).join('');
+      },
       
       populatePDF(t) {
         // PDF Header
@@ -1333,10 +1406,16 @@
         document.getElementById('pdfCertificationsTitle').textContent = t.sections.certifications;
         document.getElementById('pdfFooter').textContent = t.footer.copyright + ' - ' + t.footer.rights;
         
-        // PDF About (resumido)
-        document.getElementById('pdfAboutContent').textContent = this.currentLang === 'pt' 
-          ? 'Atuo na interseção entre liderança executiva, negócios, VBHC e inovação, com foco em desfechos que importam para o paciente, eficiência operacional e inteligência de dados. Fundador da AxiaCare® e da MedValor®, sou consultor e palestrante com soluções que unem tecnologia, analytics e educação executiva para transformar serviços de saúde. Minha formação abrange Administração Hospitalar, Governança Clínica e Saúde Baseada em Valor.'
-          : 'I work at the intersection of executive leadership, business, VBHC and innovation, focusing on outcomes that matter to patients, operational efficiency and data intelligence. Founder of AxiaCare® and MedValor®, I am a consultant and speaker with solutions that combine technology, analytics and executive education to transform healthcare services. My background spans Hospital Administration, Clinical Governance and Value-Based Healthcare.';
+        // PDF About (COMPLETO para ATS) - Todos os slides
+        const aboutContent = [
+          t.about.slide1,
+          t.about.slide2,
+          t.about.slide3,
+          t.about.slide4,
+          t.about.slide5,
+          t.about.slide6
+        ].join(' ');
+        document.getElementById('pdfAboutContent').textContent = aboutContent;
         
         // PDF Experience - Top 4 na página 1
         const pdfExperience = document.getElementById('pdfExperienceContent');
@@ -1378,6 +1457,34 @@
         pdfCertifications.innerHTML = t.certifications.map(cert => `
           <li><strong>${cert.title}</strong> — ${cert.institution} <em>(${cert.period})</em>${cert.details ? ` • ${cert.details}` : ''}</li>
         `).join('');
+
+        // PDF Languages
+        document.getElementById('pdfLanguagesTitle').textContent = t.sections.languages;
+        const pdfLanguages = document.getElementById('pdfLanguagesContent');
+        pdfLanguages.innerHTML = t.languages.map(lang => `
+          <li style="font-size:9.5px; line-height:1.6; color:#1b1e24; margin-bottom:4px;">
+            <strong>${lang.language}:</strong> ${lang.level}
+          </li>
+        `).join('');
+
+        // PDF Keywords - ATS optimization
+        const keywords = [
+          ...t.skills,
+          'Healthcare Executive',
+          'Medical Director',
+          'Clinical Governance',
+          'Healthcare Consulting',
+          'Operational Efficiency',
+          'Data Analytics',
+          'Healthcare Innovation',
+          'Quality Management',
+          'Accreditation',
+          'Healthcare Strategy',
+          'Value-Based Care',
+          'Population Health',
+          'Hospital Administration'
+        ];
+        document.getElementById('pdfKeywordsContent').textContent = keywords.join(' • ');
       }
     };
 
