@@ -756,36 +756,38 @@
          SEÇÕES COM HIERARQUIA CLARA
          ============================================ */
       .pdf-section {
-        margin-bottom: 16px;
+        margin-bottom: 12px;
         page-break-inside: avoid;
       }
-      
+
       .pdf-section h2 {
-        font-size: 14px;
+        font-size: 12px;
         color: #196396;
-        margin: 0 0 10px 0;
+        margin: 0 0 8px 0;
         font-weight: 700;
         border-bottom: 2px solid #196396;
-        padding-bottom: 4px;
+        padding-bottom: 3px;
         text-transform: uppercase;
         letter-spacing: 0.5px;
       }
       
       .pdf-section p {
-        font-size: 10px;
-        line-height: 1.6;
+        font-size: 9px;
+        line-height: 1.5;
         color: #1b1e24;
-        margin: 0 0 8px 0;
+        margin: 0 0 6px 0;
         text-align: justify;
         hyphens: none;
         word-wrap: break-word;
       }
 
-      /* About section - melhor para ATS */
+      /* About section - melhor para ATS e layout */
       #pdfAboutContent {
         white-space: normal;
         overflow-wrap: break-word;
         text-rendering: optimizeLegibility;
+        font-size: 8.5px !important;
+        line-height: 1.4 !important;
       }
       
       .pdf-section ul {
@@ -820,14 +822,14 @@
          TIMELINE COMPACTA E ELEGANTE
          ============================================ */
       .pdf-timeline-item {
-        margin-bottom: 12px;
+        margin-bottom: 10px;
         padding-left: 14px;
         border-left: 3px solid #196396;
         position: relative;
         padding-top: 2px;
         padding-bottom: 2px;
       }
-      
+
       .pdf-timeline-item::before {
         content: '';
         position: absolute;
@@ -840,38 +842,39 @@
         border: 2px solid #fff;
         box-shadow: 0 0 0 1px #196396;
       }
-      
+
       .pdf-timeline-item .role {
-        font-size: 10.5px;
+        font-size: 9.5px;
         font-weight: 700;
         color: #196396;
-        margin: 0 0 3px 0;
-        line-height: 1.3;
+        margin: 0 0 2px 0;
+        line-height: 1.2;
       }
-      
+
       .pdf-timeline-item .org {
-        font-size: 9.5px;
+        font-size: 8.5px;
         color: #2d3445;
         font-weight: 600;
         margin: 0 0 2px 0;
+        line-height: 1.3;
       }
-      
+
       .pdf-timeline-item .meta {
-        font-size: 8.5px;
+        font-size: 7.5px;
         color: #5d6372;
-        margin: 0 0 5px 0;
+        margin: 0 0 4px 0;
         font-style: italic;
       }
       
       .pdf-timeline-item .desc {
-        font-size: 9px;
+        font-size: 7.5px;
         color: #196396;
         font-style: italic;
-        line-height: 1.5;
+        line-height: 1.4;
         background: #f8fbff;
-        padding: 6px 8px;
-        border-radius: 4px;
-        margin-top: 4px;
+        padding: 4px 6px;
+        border-radius: 3px;
+        margin-top: 3px;
       }
       
       /* ============================================
@@ -879,9 +882,9 @@
          ============================================ */
       .pdf-skills {
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 8px;
-        margin-top: 8px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 6px;
+        margin-top: 6px;
       }
       
       .pdf-skill {
@@ -1214,7 +1217,7 @@
   <!-- PDF TEMPLATE - LAYOUT PROFISSIONAL -->
   <div id="pdf-template">
     <!-- ============================================
-         PÁGINA 1: Header + About + Skills + Experience (Top 4)
+         PÁGINA 1: Header + About + Skills + Experience (Top 3)
          ============================================ -->
     <div class="pdf-page page-1">
       <header class="pdf-header">
@@ -1417,9 +1420,9 @@
         ].join(' ');
         document.getElementById('pdfAboutContent').textContent = aboutContent;
         
-        // PDF Experience - Top 4 na página 1
+        // PDF Experience - Top 3 na página 1 (otimizado para layout)
         const pdfExperience = document.getElementById('pdfExperienceContent');
-        pdfExperience.innerHTML = t.experience.slice(0, 4).map(exp => `
+        pdfExperience.innerHTML = t.experience.slice(0, 3).map(exp => `
           <div class="pdf-timeline-item">
             <div class="role">${exp.role}</div>
             <div class="org">${exp.company}</div>
@@ -1427,11 +1430,11 @@
             ${exp.description ? `<div class="desc">${exp.description}</div>` : ''}
           </div>
         `).join('');
-        
+
         // PDF Experience - Restante na página 2
         const pdfExperience2 = document.getElementById('pdfExperienceContent2');
-        if (t.experience.length > 4) {
-          pdfExperience2.innerHTML = t.experience.slice(4).map(exp => `
+        if (t.experience.length > 3) {
+          pdfExperience2.innerHTML = t.experience.slice(3).map(exp => `
             <div class="pdf-timeline-item">
               <div class="role">${exp.role}</div>
               <div class="org">${exp.company}</div>
