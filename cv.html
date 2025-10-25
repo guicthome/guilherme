@@ -27,7 +27,7 @@
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Guilherme Thomé - Currículo Digital" />
   <meta property="og:url" content="https://www.guithome.com.br" />
-  <meta property="og:updated_time" content="2025-10-25T00:00:00Z" />
+  <meta property="og:updated_time" content="" id="ogUpdatedTime" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Guilherme Thomé | Currículo Digital" />
   <meta name="twitter:description" content="Médico Executivo e Consultor | Especialista em VBHC | Superintendente Unimed/ICDS | Fundador Grupo CSV" />
@@ -1309,7 +1309,20 @@
   </div>
 
   <!-- TRANSLATIONS SCRIPT -->
-  <script src="./translations.js?v=1.0.2"></script>
+  <script>
+    // Cache busting automático - carrega translations.js com timestamp
+    (function() {
+      const script = document.createElement('script');
+      script.src = './translations.js?v=' + new Date().getTime();
+      document.head.appendChild(script);
+
+      // Atualiza Open Graph timestamp automaticamente
+      const ogTime = document.getElementById('ogUpdatedTime');
+      if (ogTime) {
+        ogTime.setAttribute('content', new Date().toISOString());
+      }
+    })();
+  </script>
 
   <script>
     // Sistema de Tradução - CORE
