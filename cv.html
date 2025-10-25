@@ -10,13 +10,28 @@
   <meta name="author" content="Guilherme Thomé" />
   <meta name="theme-color" content="#196396" />
 
+  <!-- Cache Control -->
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+
   <!-- Open Graph / Twitter -->
   <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Guilherme Thomé" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:locale:alternate" content="en_US" />
   <meta property="og:title" content="Guilherme Thomé | Currículo Digital" />
-  <meta property="og:description" content="Médico Executivo e Consultor | VBHC | Governança clínica | Inovação e eficiência operacional." />
+  <meta property="og:description" content="Médico Executivo e Consultor | Especialista em VBHC | Superintendente Unimed/ICDS | Fundador Grupo CSV (AxiaCare® • MedValor® • Thera®)" />
   <meta property="og:image" content="https://i.imgur.com/TKziJpD.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Guilherme Thomé - Currículo Digital" />
   <meta property="og:url" content="https://www.guithome.com.br" />
+  <meta property="og:updated_time" content="" id="ogUpdatedTime" />
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Guilherme Thomé | Currículo Digital" />
+  <meta name="twitter:description" content="Médico Executivo e Consultor | Especialista em VBHC | Superintendente Unimed/ICDS | Fundador Grupo CSV" />
+  <meta name="twitter:image" content="https://i.imgur.com/TKziJpD.png" />
 
   <!-- Favicon -->
   <link rel="icon" href="https://guithome.com.br/favicon.ico" />
@@ -230,6 +245,7 @@
     .btn:hover{ transform:translateY(-1px); box-shadow:0 6px 16px rgba(0,0,0,.08) }
     .btn img{ height:var(--icon); width:var(--icon); object-fit:contain }
     #btnContato img{ filter:invert(1) }
+    .btn[href*="blog"] img{ height:20px; width:20px; }
 
     .brandbar{ display:flex; gap:10px; align-items:center; margin-top:10px; flex-wrap:wrap }
     .logo-pill{
@@ -756,36 +772,38 @@
          SEÇÕES COM HIERARQUIA CLARA
          ============================================ */
       .pdf-section {
-        margin-bottom: 16px;
+        margin-bottom: 12px;
         page-break-inside: avoid;
       }
-      
+
       .pdf-section h2 {
-        font-size: 14px;
+        font-size: 12px;
         color: #196396;
-        margin: 0 0 10px 0;
+        margin: 0 0 8px 0;
         font-weight: 700;
         border-bottom: 2px solid #196396;
-        padding-bottom: 4px;
+        padding-bottom: 3px;
         text-transform: uppercase;
         letter-spacing: 0.5px;
       }
       
       .pdf-section p {
-        font-size: 10px;
-        line-height: 1.6;
+        font-size: 9px;
+        line-height: 1.5;
         color: #1b1e24;
-        margin: 0 0 8px 0;
+        margin: 0 0 6px 0;
         text-align: justify;
         hyphens: none;
         word-wrap: break-word;
       }
 
-      /* About section - melhor para ATS */
+      /* About section - melhor para ATS e layout */
       #pdfAboutContent {
         white-space: normal;
         overflow-wrap: break-word;
         text-rendering: optimizeLegibility;
+        font-size: 8.5px !important;
+        line-height: 1.4 !important;
       }
       
       .pdf-section ul {
@@ -820,14 +838,14 @@
          TIMELINE COMPACTA E ELEGANTE
          ============================================ */
       .pdf-timeline-item {
-        margin-bottom: 12px;
+        margin-bottom: 10px;
         padding-left: 14px;
         border-left: 3px solid #196396;
         position: relative;
         padding-top: 2px;
         padding-bottom: 2px;
       }
-      
+
       .pdf-timeline-item::before {
         content: '';
         position: absolute;
@@ -840,38 +858,39 @@
         border: 2px solid #fff;
         box-shadow: 0 0 0 1px #196396;
       }
-      
+
       .pdf-timeline-item .role {
-        font-size: 10.5px;
+        font-size: 9.5px;
         font-weight: 700;
         color: #196396;
-        margin: 0 0 3px 0;
-        line-height: 1.3;
+        margin: 0 0 2px 0;
+        line-height: 1.2;
       }
-      
+
       .pdf-timeline-item .org {
-        font-size: 9.5px;
+        font-size: 8.5px;
         color: #2d3445;
         font-weight: 600;
         margin: 0 0 2px 0;
+        line-height: 1.3;
       }
-      
+
       .pdf-timeline-item .meta {
-        font-size: 8.5px;
+        font-size: 7.5px;
         color: #5d6372;
-        margin: 0 0 5px 0;
+        margin: 0 0 4px 0;
         font-style: italic;
       }
       
       .pdf-timeline-item .desc {
-        font-size: 9px;
+        font-size: 7.5px;
         color: #196396;
         font-style: italic;
-        line-height: 1.5;
+        line-height: 1.4;
         background: #f8fbff;
-        padding: 6px 8px;
-        border-radius: 4px;
-        margin-top: 4px;
+        padding: 4px 6px;
+        border-radius: 3px;
+        margin-top: 3px;
       }
       
       /* ============================================
@@ -879,9 +898,9 @@
          ============================================ */
       .pdf-skills {
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 8px;
-        margin-top: 8px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 6px;
+        margin-top: 6px;
       }
       
       .pdf-skill {
@@ -992,7 +1011,7 @@
         </p>
         <div class="cta-bar">
           <button class="btn primary" id="btnContato" type="button">
-            <img src="https://cdn-icons-png.flaticon.com/512/542/542689.png" alt="" loading="lazy"><span data-i18n="buttons.contact">Contato</span>
+            <img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" alt="" loading="lazy"><span data-i18n="buttons.contact">Contato</span>
           </button>
           <a class="btn ghost" href="https://www.linkedin.com/in/gui-thome" target="_blank" rel="noopener">
             <img src="https://cdn-icons-png.flaticon.com/256/174/174857.png" alt="" loading="lazy">LinkedIn
@@ -1214,7 +1233,7 @@
   <!-- PDF TEMPLATE - LAYOUT PROFISSIONAL -->
   <div id="pdf-template">
     <!-- ============================================
-         PÁGINA 1: Header + About + Skills + Experience (Top 4)
+         PÁGINA 1: Header + About + Skills + Experience (Top 3)
          ============================================ -->
     <div class="pdf-page page-1">
       <header class="pdf-header">
@@ -1290,7 +1309,20 @@
   </div>
 
   <!-- TRANSLATIONS SCRIPT -->
-  <script src="./translations.js"></script>
+  <script>
+    // Cache busting automático - carrega translations.js com timestamp
+    (function() {
+      const script = document.createElement('script');
+      script.src = './translations.js?v=' + new Date().getTime();
+      document.head.appendChild(script);
+
+      // Atualiza Open Graph timestamp automaticamente
+      const ogTime = document.getElementById('ogUpdatedTime');
+      if (ogTime) {
+        ogTime.setAttribute('content', new Date().toISOString());
+      }
+    })();
+  </script>
 
   <script>
     // Sistema de Tradução - CORE
@@ -1417,9 +1449,9 @@
         ].join(' ');
         document.getElementById('pdfAboutContent').textContent = aboutContent;
         
-        // PDF Experience - Top 4 na página 1
+        // PDF Experience - Top 3 na página 1 (otimizado para layout)
         const pdfExperience = document.getElementById('pdfExperienceContent');
-        pdfExperience.innerHTML = t.experience.slice(0, 4).map(exp => `
+        pdfExperience.innerHTML = t.experience.slice(0, 3).map(exp => `
           <div class="pdf-timeline-item">
             <div class="role">${exp.role}</div>
             <div class="org">${exp.company}</div>
@@ -1427,11 +1459,11 @@
             ${exp.description ? `<div class="desc">${exp.description}</div>` : ''}
           </div>
         `).join('');
-        
+
         // PDF Experience - Restante na página 2
         const pdfExperience2 = document.getElementById('pdfExperienceContent2');
-        if (t.experience.length > 4) {
-          pdfExperience2.innerHTML = t.experience.slice(4).map(exp => `
+        if (t.experience.length > 3) {
+          pdfExperience2.innerHTML = t.experience.slice(3).map(exp => `
             <div class="pdf-timeline-item">
               <div class="role">${exp.role}</div>
               <div class="org">${exp.company}</div>
