@@ -1005,13 +1005,14 @@
       <div>
         <h1>Guilherme Thomé<span class="small">, MD, MBA.</span></h1>
         <p class="subtitle">
-          <span class="line" data-i18n="subtitle.line1">Médico Executivo e Consultor, Especialista em VBHC.</span>
-          <span class="line" data-i18n="subtitle.line2">Superintendente Unimed e ICDS</span>
-          <span class="line" data-i18n="subtitle.line3">Fundador Grupo CSV - AxiaCare® • MedValor® • Thera®</span>
+          <span class="line" data-i18n="subtitle.line1">Médico Executivo, Consultor e Palestrante</span>
+          <span class="line" data-i18n="subtitle.line2">Especialista em Value-Based Care</span>
+          <span class="line" data-i18n="subtitle.line3">Superintendente Unimed e ICDS</span>
+          <span class="line" data-i18n="subtitle.line4">Grupo CSV | AxiaCare® • MedValor® • Thera®</span>
         </p>
         <div class="cta-bar">
           <button class="btn primary" id="btnContato" type="button">
-            <img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" alt="" loading="lazy"><span data-i18n="buttons.contact">Contato</span>
+            <img src="https://cdn-icons-png.flaticon.com/512/455/455705.png" alt="" loading="lazy"><span data-i18n="buttons.contact">Contato</span>
           </button>
           <a class="btn ghost" href="https://www.linkedin.com/in/gui-thome" target="_blank" rel="noopener">
             <img src="https://cdn-icons-png.flaticon.com/256/174/174857.png" alt="" loading="lazy">LinkedIn
@@ -1430,7 +1431,7 @@
       
       populatePDF(t) {
         // PDF Header
-        document.getElementById('pdfSubtitle').innerHTML = `${t.subtitle.line1}<br>${t.subtitle.line2}<br>${t.subtitle.line3}`;
+        document.getElementById('pdfSubtitle').innerHTML = `${t.subtitle.line1}<br>${t.subtitle.line2}<br>${t.subtitle.line3}<br>${t.subtitle.line4}`;
         document.getElementById('pdfAboutTitle').textContent = t.sections.about;
         document.getElementById('pdfExperienceTitle').textContent = t.sections.experience;
         document.getElementById('pdfSkillsTitle').textContent = t.sections.skills;

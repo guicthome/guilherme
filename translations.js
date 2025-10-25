@@ -5,9 +5,10 @@ window.translations = {
       title: "Guilherme Thomé | Currículo Digital"
     },
     subtitle: {
-      line1: "Médico Executivo e Consultor, Especialista em VBHC.",
-      line2: "Superintendente Unimed e ICDS",
-      line3: "Fundador Grupo CSV - AxiaCare® • MedValor® • Thera®"
+      line1: "Médico Executivo, Consultor e Palestrante",
+      line2: "Especialista em Value-Based Care",
+      line3: "Superintendente Unimed e ICDS",
+      line4: "Grupo CSV | AxiaCare® • MedValor® • Thera®"
     },
     nav: {
       about: "Sobre",
@@ -209,9 +210,10 @@ window.translations = {
       title: "Guilherme Thomé | Digital Resume"
     },
     subtitle: {
-      line1: "Chief Medical Officer & Consultant, VBHC Specialist.",
-      line2: "CMO Unimed and ICDS",
-      line3: "Founder Grupo CSV - AxiaCare® • MedValor® • Thera®"
+      line1: "Chief Medical Officer, Consultant & Speaker",
+      line2: "Value-Based Care Specialist",
+      line3: "CMO Unimed and ICDS",
+      line4: "Grupo CSV | AxiaCare® • MedValor® • Thera®"
     },
     nav: {
       about: "About",
