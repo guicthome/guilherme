@@ -68,7 +68,7 @@ window.translations = {
         role: "Fundador e Diretor Executivo",
         company: "AxiaCare® • MedValor® • Thera®",
         period: "jan 2024 – atual",
-        description: "Grupo CSV (Cuidados em Saúde com Valor)",
+        description: "Idealizador e líder do Grupo CSV (Cuidados em Saúde com Valor), formado por três empresas — AxiaCare®, MedValor® e TheraMed® — que unem gestão, educação e tecnologia em um mesmo propósito: gerar transformação real na saúde, com foco em eficiência, conhecimento e cuidado centrado nas pessoas.",
         current: true
       },
       {
@@ -178,7 +178,7 @@ window.translations = {
       "Analytics em Saúde",
       "Linhas de Cuidado",
       "Modelos de Pagamentos",
-      "Relacionamento Institucional",
+      "Parcerias e Mercado",
       "Negociação e Contratos",
       "Inovação e Tecnologia",
       "Governança Clínica",
@@ -272,7 +272,7 @@ window.translations = {
         role: "Founder and Chief Executive Officer",
         company: "AxiaCare® • MedValor® • Thera®",
         period: "Jan 2024 – present",
-        description: "Grupo CSV (Value-Based Healthcare Group)",
+        description: "Creator and leader of Grupo CSV (Value-Based Healthcare Group), consisting of three companies — AxiaCare®, MedValor® and TheraMed® — that combine management, education and technology with a shared purpose: to generate real transformation in healthcare, focusing on efficiency, knowledge and people-centered care.",
         current: true
       },
       {
@@ -382,7 +382,7 @@ window.translations = {
       "Healthcare Analytics",
       "Care Pathways",
       "Payment Models",
-      "Institutional Relations",
+      "Partnerships and Market",
       "Negotiation and Contracts",
       "Innovation and Technology",
       "Clinical Governance",
