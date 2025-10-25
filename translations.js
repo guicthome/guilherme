@@ -59,9 +59,16 @@ window.translations = {
       },
       {
         role: "Superintendente Médico",
-        company: "ICDS (Unihealth)",
+        company: "Instituto de Cooperação para o Desenvolvimento da Saúde (ICDS)",
         period: "ago 2025 – atual • Regional Leste Nordeste, MG",
         description: "Líder no Núcleo de Desenvolvimento e Relações Institucionais, focado em desenvolvimento organizacional, inovação aplicada e articulação estratégica entre contrato, operação e sistema. Elo corporativo integrando hospital, operadora, filantropia e rede.",
+        current: true
+      },
+      {
+        role: "Fundador e Diretor Executivo",
+        company: "AxiaCare® • MedValor® • Thera®",
+        period: "jan 2024 – atual",
+        description: "Grupo CSV (Cuidados em Saúde com Valor)",
         current: true
       },
       {
@@ -99,12 +106,6 @@ window.translations = {
         company: "Unimed Governador Valadares",
         period: "dez 2017 – jan 2018",
         current: false
-      },
-      {
-        role: "Fundador e Diretor Executivo",
-        company: "Grupo CSV - AxiaCare® • MedValor® • Thera®",
-        period: "jan 2024 – atual",
-        current: true
       }
     ],
     education: [
@@ -141,46 +142,47 @@ window.translations = {
     ],
     certifications: [
       {
-        title: "VBHC Certified Yellow Belt™",
-        institution: "The Decision Institute",
+        title: "Value Management Professional Green Belt™",
+        institution: "Instituto Brasileiro de Valor em Saúde (IBRAVS)",
+        period: "out 2025"
+      },
+      {
+        title: "Value-Based Healthcare Certified Yellow Belt™",
+        institution: "Center Europe - The Decision Institute",
         period: "dez 2024"
-      },
-      {
-        title: "VMP Green Belt™",
-        institution: "IBRAVS",
-        period: "ago 2025",
-        details: "Value Management Professional | Instituto Brasileiro de Valor em Saúde"
-      },
-      {
-        title: "Certificado em Legislação e Regulação em Saúde/LGPD/Compliance",
-        institution: "PUCPR",
-        period: "jan 2025"
-      },
-      {
-        title: "Governança Clínica Baseada em Valor",
-        institution: "ONA",
-        period: "mar 2025"
-      },
-      {
-        title: "Preparação de Avaliadores do Sistema Brasileiro de Acreditação",
-        institution: "ONA",
-        period: "fev 2025"
       },
       {
         title: "Modelos de Remuneração Baseada em Valor",
         institution: "Faculdade Unimed",
         period: "nov 2025"
+      },
+      {
+        title: "Governança Clínica Baseada em Valor",
+        institution: "Organização Nacional de Acreditação (ONA)",
+        period: "mar 2025"
+      },
+      {
+        title: "Legislação e Regulação em Saúde / LGPD / Compliance",
+        institution: "Pontifícia Universidade Católica do Paraná",
+        period: "jan 2025"
+      },
+      {
+        title: "Preparação de Avaliadores do Sistema Brasileiro de Acreditação",
+        institution: "Organização Nacional de Acreditação (ONA)",
+        period: "fev 2025"
       }
     ],
     skills: [
-      "VBHC",
-      "Governança Clínica",
-      "Gestão Hospitalar",
-      "Saúde Suplementar",
+      "Cuidado Baseado em Valor",
+      "Saúde Populacional",
       "Analytics em Saúde",
-      "Acreditação",
-      "Liderança",
-      "Inovação em Saúde"
+      "Linhas de Cuidado",
+      "Modelos de Pagamentos",
+      "Relacionamento Institucional",
+      "Negociação e Contratos",
+      "Inovação e Tecnologia",
+      "Governança Clínica",
+      "Gestão Hospitalar"
     ],
     languages: [
       { language: "Português", level: "Nativo" },
@@ -261,9 +263,16 @@ window.translations = {
       },
       {
         role: "Chief Medical Officer",
-        company: "ICDS (Unihealth)",
+        company: "Institute for Healthcare Development Cooperation (ICDS)",
         period: "Aug 2025 – present • Northeast East Region, MG",
         description: "Leader in the Development and Institutional Relations Center, focused on organizational development, applied innovation and strategic articulation between contract, operation and system. Corporate link integrating hospital, operator, philanthropy and network.",
+        current: true
+      },
+      {
+        role: "Founder and Chief Executive Officer",
+        company: "AxiaCare® • MedValor® • Thera®",
+        period: "Jan 2024 – present",
+        description: "Grupo CSV (Value-Based Healthcare Group)",
         current: true
       },
       {
@@ -301,12 +310,6 @@ window.translations = {
         company: "Unimed Governador Valadares",
         period: "Dec 2017 – Jan 2018",
         current: false
-      },
-      {
-        role: "Founder and Chief Executive Officer",
-        company: "Grupo CSV - AxiaCare® • MedValor® • Thera®",
-        period: "Jan 2024 – present",
-        current: true
       }
     ],
     education: [
@@ -343,46 +346,47 @@ window.translations = {
     ],
     certifications: [
       {
-        title: "VBHC Certified Yellow Belt™",
-        institution: "The Decision Institute",
+        title: "Value Management Professional Green Belt™",
+        institution: "Brazilian Institute of Value-Based Healthcare (IBRAVS)",
+        period: "Oct 2025"
+      },
+      {
+        title: "Value-Based Healthcare Certified Yellow Belt™",
+        institution: "Center Europe - The Decision Institute",
         period: "Dec 2024"
-      },
-      {
-        title: "VMP Green Belt™",
-        institution: "IBRAVS",
-        period: "Aug 2025",
-        details: "Value Management Professional | Brazilian Institute of Value-Based Healthcare"
-      },
-      {
-        title: "Certificate in Healthcare Legislation and Regulation/LGPD/Compliance",
-        institution: "PUCPR",
-        period: "Jan 2025"
-      },
-      {
-        title: "Value-Based Clinical Governance",
-        institution: "ONA",
-        period: "Mar 2025"
-      },
-      {
-        title: "Preparation of Evaluators of the Brazilian Accreditation System",
-        institution: "ONA",
-        period: "Feb 2025"
       },
       {
         title: "Value-Based Remuneration Models",
         institution: "Faculdade Unimed",
         period: "Nov 2025"
+      },
+      {
+        title: "Value-Based Clinical Governance",
+        institution: "National Accreditation Organization (ONA)",
+        period: "Mar 2025"
+      },
+      {
+        title: "Healthcare Legislation and Regulation / LGPD / Compliance",
+        institution: "Pontifical Catholic University of Paraná",
+        period: "Jan 2025"
+      },
+      {
+        title: "Preparation of Evaluators of the Brazilian Accreditation System",
+        institution: "National Accreditation Organization (ONA)",
+        period: "Feb 2025"
       }
     ],
     skills: [
-      "VBHC",
-      "Clinical Governance",
-      "Hospital Management",
-      "Managed Care",
+      "Value-Based Care",
+      "Population Health",
       "Healthcare Analytics",
-      "Accreditation",
-      "Leadership",
-      "Healthcare Innovation"
+      "Care Pathways",
+      "Payment Models",
+      "Institutional Relations",
+      "Negotiation and Contracts",
+      "Innovation and Technology",
+      "Clinical Governance",
+      "Hospital Management"
     ],
     languages: [
       { language: "Portuguese", level: "Native" },
