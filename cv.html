@@ -132,8 +132,9 @@
         box-shadow:0 8px 24px rgba(0,0,0,.4), 0 4px 12px rgba(74,159,216,.15), inset 0 1px 0 rgba(255,255,255,.05);
         border-color:#3d4a5f;
       }
-      .brands-footer img:not([data-theme="light"]){ 
+      .brands-footer img:not([data-theme="light"]){
         filter:drop-shadow(0 1px 3px rgba(0,0,0,.4)) brightness(.92) contrast(1.1);
+        width:auto; max-width:100%; object-fit:contain;
       }
       .brands-footer a:hover img:not([data-theme="light"]){ 
         filter:drop-shadow(0 2px 6px rgba(74,159,216,.3)) brightness(1.05) contrast(1.15);
@@ -465,10 +466,11 @@
       box-shadow:0 8px 24px rgba(25,99,150,.15), 0 4px 12px rgba(0,0,0,.08), inset 0 1px 0 rgba(255,255,255,.9);
       border-color:#b8d4e8;
     }
-    .brands-footer img{ 
-      height:44px; display:block; position:relative; z-index:1;
+    .brands-footer img{
+      height:44px; width:auto; max-width:100%; display:block; position:relative; z-index:1;
       filter:drop-shadow(0 1px 2px rgba(0,0,0,.1)) brightness(1.02) contrast(1.05);
       transition:all .35s cubic-bezier(.4,0,.2,1);
+      object-fit:contain;
     }
     .brands-footer a:hover img{ 
       filter:drop-shadow(0 2px 4px rgba(25,99,150,.2)) brightness(1.08) contrast(1.1);
@@ -488,8 +490,9 @@
       box-shadow:0 8px 24px rgba(0,0,0,.4), 0 4px 12px rgba(74,159,216,.15), inset 0 1px 0 rgba(255,255,255,.05);
       border-color:#3d4a5f;
     }
-    [data-theme="dark"] .brands-footer img{ 
+    [data-theme="dark"] .brands-footer img{
       filter:drop-shadow(0 1px 3px rgba(0,0,0,.4)) brightness(.92) contrast(1.1);
+      width:auto; max-width:100%; object-fit:contain;
     }
     [data-theme="dark"] .brands-footer a:hover img{ 
       filter:drop-shadow(0 2px 6px rgba(74,159,216,.3)) brightness(1.05) contrast(1.15);
@@ -606,7 +609,7 @@
       .footer-inner{ grid-template-columns:1fr; gap:32px; padding:32px 20px; }
       .brands-footer{ gap:20px; }
       .brands-footer a{ min-width:160px; padding:14px 20px; }
-      .brands-footer img{ height:42px; }
+      .brands-footer img{ height:42px; width:auto; max-width:100%; object-fit:contain; }
       .foot-note{ padding:20px 16px; }
     }
     
@@ -659,7 +662,7 @@
       .footer-section a{ font-size:.92rem; word-break:break-word; }
       .brands-footer{ gap:18px; }
       .brands-footer a{ min-width:150px; padding:12px 18px; }
-      .brands-footer img{ height:40px; }
+      .brands-footer img{ height:40px; width:auto; max-width:100%; object-fit:contain; }
       .foot-note{ padding:20px 12px; }
       .foot-note .company{ font-size:.9rem; }
       .foot-note .rights{ font-size:.85rem; }
