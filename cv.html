@@ -132,8 +132,9 @@
         box-shadow:0 8px 24px rgba(0,0,0,.4), 0 4px 12px rgba(74,159,216,.15), inset 0 1px 0 rgba(255,255,255,.05);
         border-color:#3d4a5f;
       }
-      .brands-footer img:not([data-theme="light"]){ 
+      .brands-footer img:not([data-theme="light"]){
         filter:drop-shadow(0 1px 3px rgba(0,0,0,.4)) brightness(.92) contrast(1.1);
+        width:auto; max-width:100%; object-fit:contain;
       }
       .brands-footer a:hover img:not([data-theme="light"]){ 
         filter:drop-shadow(0 2px 6px rgba(74,159,216,.3)) brightness(1.05) contrast(1.15);
@@ -465,10 +466,11 @@
       box-shadow:0 8px 24px rgba(25,99,150,.15), 0 4px 12px rgba(0,0,0,.08), inset 0 1px 0 rgba(255,255,255,.9);
       border-color:#b8d4e8;
     }
-    .brands-footer img{ 
-      height:44px; display:block; position:relative; z-index:1;
+    .brands-footer img{
+      height:44px; width:auto; max-width:100%; display:block; position:relative; z-index:1;
       filter:drop-shadow(0 1px 2px rgba(0,0,0,.1)) brightness(1.02) contrast(1.05);
       transition:all .35s cubic-bezier(.4,0,.2,1);
+      object-fit:contain;
     }
     .brands-footer a:hover img{ 
       filter:drop-shadow(0 2px 4px rgba(25,99,150,.2)) brightness(1.08) contrast(1.1);
@@ -488,8 +490,9 @@
       box-shadow:0 8px 24px rgba(0,0,0,.4), 0 4px 12px rgba(74,159,216,.15), inset 0 1px 0 rgba(255,255,255,.05);
       border-color:#3d4a5f;
     }
-    [data-theme="dark"] .brands-footer img{ 
+    [data-theme="dark"] .brands-footer img{
       filter:drop-shadow(0 1px 3px rgba(0,0,0,.4)) brightness(.92) contrast(1.1);
+      width:auto; max-width:100%; object-fit:contain;
     }
     [data-theme="dark"] .brands-footer a:hover img{ 
       filter:drop-shadow(0 2px 6px rgba(74,159,216,.3)) brightness(1.05) contrast(1.15);
@@ -606,7 +609,7 @@
       .footer-inner{ grid-template-columns:1fr; gap:32px; padding:32px 20px; }
       .brands-footer{ gap:20px; }
       .brands-footer a{ min-width:160px; padding:14px 20px; }
-      .brands-footer img{ height:42px; }
+      .brands-footer img{ height:42px; width:auto; max-width:100%; object-fit:contain; }
       .foot-note{ padding:20px 16px; }
     }
     
@@ -659,7 +662,7 @@
       .footer-section a{ font-size:.92rem; word-break:break-word; }
       .brands-footer{ gap:18px; }
       .brands-footer a{ min-width:150px; padding:12px 18px; }
-      .brands-footer img{ height:40px; }
+      .brands-footer img{ height:40px; width:auto; max-width:100%; object-fit:contain; }
       .foot-note{ padding:20px 12px; }
       .foot-note .company{ font-size:.9rem; }
       .foot-note .rights{ font-size:.85rem; }
@@ -1045,12 +1048,13 @@
           <div class="carousel" aria-label="Carrossel de apresentação">
             <button class="nav-btn nav-prev" aria-label="Anterior">‹</button>
             <div class="track" id="aboutTrack">
-              <article class="slide"><p data-i18n="about.slide1">Atuo na interseção entre liderança executiva, negócios, VBHC e inovação, com foco em desfechos que importam para o paciente, eficiência operacional e inteligência de dados. Com formação médica em anestesiologia, destaquei-me na gestão de equipes e migrei para posições executivas, liderando inicialmente operações hospitalares e, em seguida, estratégias de alto impacto em operadoras, instituições filantrópicas e no ecossistema empresarial da saúde.</p></article>
-              <article class="slide"><p data-i18n="about.slide2">Minha caminhada conecta de forma sinérgica governança clínica, gestão hospitalar e gestão de planos de saúde, sempre orientada a resultados sustentáveis e centrados no paciente. Hoje atuo como médico executivo e consultor. Tenho presença técnica no território como elo corporativo entre operadoras, filantropia, hospitais e rede prestadora, articulando e desenvolvendo frentes assistenciais.</p></article>
-              <article class="slide"><p data-i18n="about.slide3">Fundador da AxiaCare® e da MedValor®, sou consultor e palestrante com soluções que unem tecnologia, analytics e educação executiva para transformar serviços de saúde e acelerar inovação. Minha formação e expertise abrangem Administração Hospitalar, Governança Clínica, Saúde Populacional e Saúde Baseada em Valor (VBHC).</p></article>
-              <article class="slide"><p data-i18n="about.slide4">Nos últimos quatro anos, conduzi a implantação de governança clínica guiada por dados em hospital de alta complexidade, elevando a eficiência e a entrega de valor; liderei equipes e núcleos de experiência do paciente, inteligência de dados, desenvolvimento médico e segurança. Atuei em múltiplos ciclos de acreditação hospitalar e criei um projeto de medicina hospitalista de alta performance, que reduziu desperdícios em mais de 2.600 diárias/ano e ampliou o cuidado a centenas de pacientes em ambulatórios de egressos.</p></article>
-              <article class="slide"><p data-i18n="about.slide5">Idealizei, escrevi e implementei uma estratégia completa de atenção à saúde para uma carteira de referência regional — modelo replicável, estruturado a partir da criação do Escritório de Valor em Saúde (EVS) e da integração entre unidade hospitalar, atenção ambulatorial, regulação e novos modelos de remuneração. O resultado foi impacto direto para milhares de pessoas em linhas de cuidado como idosos, neurodesenvolvimento infantil e terapias de alto custo, com economias anuais de milhões de reais.</p></article>
-              <article class="slide"><p data-i18n="about.slide6">Nesse contexto, venho estruturando comitês técnicos nos segmentos de autismo e novos modelos de pagamento médico, projetando uma área de atuação que envolve diversos municípios no estado, reforçando a integração entre prática clínica, governança e sustentabilidade. Meu propósito é claro: promover inovação, excelência operacional e valor sustentável para pacientes, organizações e sociedade.</p></article>
+              <article class="slide"><p data-i18n="about.slide1">Atuo na interseção entre liderança executiva, negócios, VBHC e inovação, com foco em desfechos que importam para o paciente, sustentabilidade do sistema de saúde e uso inteligente de dados.</p></article>
+              <article class="slide"><p data-i18n="about.slide2">Com formação médica em anestesiologia, destaquei-me na gestão de equipes e migrei para posições executivas, liderando operações hospitalares e, em seguida, estratégias de alto impacto em operadora, instituição filantrópica e no ecossistema empresarial da saúde. Minha trajetória conecta, de forma sinérgica e aplicada, o conhecimento e a execução integrados aos desafios dos principais stakeholders do sistema — pagadores, prestadores, profissionais, fornecedores e pacientes. Essa combinação me permite atuar com visão sistêmica, integrando saberes e perspectivas, orientado a resultados sustentáveis e centrados no paciente.</p></article>
+              <article class="slide"><p data-i18n="about.slide3">Hoje atuo como médico executivo, consultor e empresário. Participo da alta gestão em uma aliança multiorganizacional, aplicação do modelo de Accountable Care Organizations (ACOs), transitando entre operadora, instituição filantrópica, cadeia de suprimentos, tecnologia e diferentes organizações prestadoras. Como consultor, apoio frentes da gestão em saúde com foco em práticas indutoras de valor e novos modelos de pagamento.</p></article>
+              <article class="slide"><p data-i18n="about.slide4">Como empreendedor, fundei o grupo CSV, com três frentes complementares: AxiaCare® (consultoria e gestão em saúde), MedValor® (ensino executivo e conteúdo) e Thera® (tecnologia e produtos digitais aplicados à saúde). Também sou palestrante em VBHC, governança clínica, modelos de pagamento e inovação em saúde.</p></article>
+              <article class="slide"><p data-i18n="about.slide5">Entre as principais entregas, destaco a reestruturação da Governança Clínica em hospital de alta complexidade, com criação de núcleos de inteligência de dados, desenvolvimento médico e segurança assistencial, além da implementação de um modelo de medicina hospitalista que reduziu desperdícios em mais de 2.600 diárias/ano e ampliou o cuidado em ambulatórios de egressos.</p></article>
+              <article class="slide"><p data-i18n="about.slide6">Idealizei e implantei uma estratégia completa de atenção para uma carteira regional, estruturada pelo Escritório de Valor em Saúde (EVS) e pela integração da rede, mercado e novos modelos de remuneração médica. O resultado foi impacto direto a milhares de pessoas em linhas de cuidado como idosos, neurodesenvolvimento infantil e terapias de alto custo, com economias anuais de milhões de reais e fortalecimento da sustentabilidade do sistema.</p></article>
+              <article class="slide"><p data-i18n="about.slide7">Meu propósito é ser parte daqueles que entendem que é necessário inverter a prática atual da saúde, entregando cuidado com base em valor.</p></article>
             </div>
             <button class="nav-btn nav-next" aria-label="Próximo">›</button>
             <div class="carousel-progress">
@@ -1446,7 +1450,8 @@
           t.about.slide3,
           t.about.slide4,
           t.about.slide5,
-          t.about.slide6
+          t.about.slide6,
+          t.about.slide7
         ].join(' ');
         document.getElementById('pdfAboutContent').textContent = aboutContent;
         
