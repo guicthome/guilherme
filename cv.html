@@ -1315,18 +1315,14 @@
 
   <!-- TRANSLATIONS SCRIPT -->
   <script>
-    // Cache busting automático - carrega translations.js com timestamp
-    (function() {
-      const script = document.createElement('script');
-      script.src = './translations.js?v=' + new Date().getTime();
-      document.head.appendChild(script);
+    // Atualiza Open Graph timestamp automaticamente
+    const ogTime = document.getElementById('ogUpdatedTime');
+    if (ogTime) {
+      ogTime.setAttribute('content', new Date().toISOString());
+    }
 
-      // Atualiza Open Graph timestamp automaticamente
-      const ogTime = document.getElementById('ogUpdatedTime');
-      if (ogTime) {
-        ogTime.setAttribute('content', new Date().toISOString());
-      }
-    })();
+    // Carrega translations.js com cache busting (síncrono)
+    document.write('<script src="./translations.js?v=' + Date.now() + '"><\/script>');
   </script>
 
   <script>
