@@ -2213,8 +2213,8 @@
       const medicos = parseInt(document.getElementById('simMedicos').value) || 1;
       const trad = parseFloat(document.getElementById('simTrad').value) || 0;
       const esp = parseFloat(document.getElementById('simEsp').value) || 0;
-      
-      const orcamentoBase = medicos * (trad * appState.valorTradicional + esp * appState.valorEspecial);
+
+      const orcamentoBase = medicos * (trad * 22 * appState.valorTradicional + esp * 38 * appState.valorEspecial);
       document.getElementById('simOrcamentoBase').textContent = formatBRL(orcamentoBase);
     }
 
