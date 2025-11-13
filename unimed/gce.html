@@ -164,15 +164,29 @@ body {
 
 @media (max-width: 768px) {
   .header {
-    padding: 28px 24px;
+    padding: 24px 20px;
+  }
+  
+  .header > div {
+    flex-direction: column !important;
+    gap: 20px;
+  }
+  
+  .header img {
+    height: 60px !important;
+    align-self: center;
   }
   
   .h-title {
-    font-size: 26px;
+    font-size: 24px;
   }
   
   .h-subtitle {
-    font-size: 15px;
+    font-size: 14px;
+  }
+  
+  .h-meta {
+    font-size: 12px;
   }
 }
 
@@ -508,6 +522,151 @@ body {
 @media (max-width: 1024px) {
   .grid-2 {
     grid-template-columns: 1fr;
+  }
+}
+
+/* Responsividade Mobile */
+@media (max-width: 768px) {
+  .kpis-simple {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  
+  .team-card {
+    margin-bottom: 16px;
+  }
+  
+  .team-header {
+    padding: 20px;
+    gap: 12px;
+  }
+  
+  .team-icon {
+    width: 48px;
+    height: 48px;
+  }
+  
+  .team-icon svg {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .team-number {
+    font-size: 32px;
+  }
+  
+  .team-label {
+    font-size: 12px;
+  }
+  
+  .team-meta {
+    font-size: 12px;
+  }
+  
+  .team-list li {
+    padding: 10px 16px;
+    font-size: 13px;
+  }
+  
+  .member-name {
+    font-size: 13px;
+  }
+  
+  .member-count {
+    font-size: 14px;
+  }
+  
+  .nivel-badge {
+    font-size: 9px;
+    padding: 2px 6px;
+    margin-left: 6px;
+  }
+  
+  .kpi-simple {
+    padding: 20px;
+  }
+  
+  .kpi-simple-number {
+    font-size: 40px;
+  }
+  
+  .section-title {
+    font-size: 20px;
+  }
+  
+  .section-description {
+    font-size: 13px;
+  }
+  
+  .chart-wrapper {
+    padding: 20px;
+  }
+  
+  .data-table {
+    font-size: 12px;
+  }
+  
+  .data-table thead th,
+  .data-table tbody td {
+    padding: 10px 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .wrapper {
+    padding: 16px 12px;
+  }
+  
+  .header {
+    padding: 20px 16px;
+    border-radius: 16px;
+  }
+  
+  .h-title {
+    font-size: 20px;
+  }
+  
+  .h-subtitle {
+    font-size: 13px;
+  }
+  
+  .badge {
+    font-size: 10px;
+    padding: 5px 10px;
+  }
+  
+  .team-header {
+    padding: 16px;
+  }
+  
+  .team-icon {
+    width: 44px;
+    height: 44px;
+  }
+  
+  .team-number {
+    font-size: 28px;
+  }
+  
+  .kpi-simple-number {
+    font-size: 36px;
+  }
+  
+  .chart-wrapper {
+    padding: 16px;
+  }
+  
+  .chart-container {
+    height: 250px !important;
+  }
+  
+  .data-table {
+    font-size: 11px;
+  }
+  
+  .data-table thead th,
+  .data-table tbody td {
+    padding: 8px 6px;
   }
 }
 
