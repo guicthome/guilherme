@@ -1597,55 +1597,63 @@
 
   <!-- Modal Simulador -->
   <div class="modal" id="simuladorModal">
-    <div class="modal-content" style="max-width: 900px;">
+    <div class="modal-content" style="max-width: 700px;">
       <div class="modal-header">
-        <h3 class="modal-title">Simulador de Novo Plantão</h3>
+        <h3 class="modal-title">Adicionar Novo Plantão</h3>
         <button class="modal-close" id="closeSimulador">&times;</button>
       </div>
       <div class="modal-body">
         <div style="background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%); padding: 24px; border-radius: 12px; margin-bottom: 20px;">
           <p style="font-size: 14px; color: var(--text-secondary); margin-bottom: 20px;">
-            <strong>Configure um novo plantão do zero</strong> e observe como as diferentes composições de turnos impactam o custo ao longo do ano.
+            <strong>Configure um novo plantão</strong> selecionando um preset ou criando do zero.
           </p>
-          
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; margin-bottom: 20px;">
+
+          <div style="display: grid; gap: 16px; margin-bottom: 20px;">
+            <div class="field-group">
+              <label class="field-label">Preset de Especialidade</label>
+              <select class="input-field" id="simPreset">
+                <option value="">Selecione um preset ou configure manualmente</option>
+                <option value="Clínica PS Adulto">Clínica PS Adulto (25 consultas)</option>
+                <option value="Terapia Intensiva Adulto">Terapia Intensiva Adulto (37,5 consultas)</option>
+                <option value="Clínica Socorrista Adulto">Clínica Socorrista Adulto (37,5 consultas)</option>
+                <option value="Pediatria PS">Pediatria PS (32 consultas)</option>
+                <option value="Pediatria Socorrista">Pediatria Socorrista (37,5 consultas)</option>
+                <option value="Pediatria UIEP">Pediatria UIEP (37,5 consultas)</option>
+                <option value="Anestesiologia (Plantão)">Anestesiologia Plantão (20 consultas)</option>
+                <option value="Anestesiologia (Sobreaviso)">Anestesiologia Sobreaviso (6 consultas)</option>
+                <option value="Ortopedia (Plantão)">Ortopedia Plantão (20 consultas)</option>
+                <option value="Cirurgia Geral (Plantão)">Cirurgia Geral Plantão (20 consultas)</option>
+              </select>
+              <span class="field-hint">Selecione um preset para preencher automaticamente</span>
+            </div>
+
             <div class="field-group">
               <label class="field-label">Nome do Plantão</label>
-              <input type="text" class="input-field" id="simNome" placeholder="Ex: Clínica Médica Noturna">
+              <input type="text" class="input-field" id="simNome" placeholder="Ex: Clínica PS Adulto Diurno">
               <div class="error-message" id="simNomeError">Por favor, dê um nome ao plantão</div>
             </div>
-            
-            <div class="field-group">
-              <label class="field-label">Número de Médicos</label>
-              <div class="number-control">
-                <button class="number-btn" data-sim="medicos" data-action="decrease">−</button>
-                <input type="number" class="number-input" step="1" min="1" value="1" id="simMedicos">
-                <button class="number-btn" data-sim="medicos" data-action="increase">+</button>
-              </div>
-              <span class="field-hint">Quantos médicos atuam simultaneamente neste plantão</span>
-            </div>
-          </div>
 
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 20px;">
-            <div class="field-group">
-              <label class="field-label">Consultas Tradicionais <span style="opacity: 0.5; font-size: 11px;">(por médico)</span></label>
-              <div class="number-control">
-                <button class="number-btn" data-sim="trad" data-action="decrease">−</button>
-                <input type="number" class="number-input" step="0.5" min="0" value="0" id="simTrad">
-                <button class="number-btn" data-sim="trad" data-action="increase">+</button>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+              <div class="field-group">
+                <label class="field-label">Número de Consultas</label>
+                <div class="number-control">
+                  <button class="number-btn" data-sim="consultas" data-action="decrease">−</button>
+                  <input type="number" class="number-input" step="0.5" min="0" value="0" id="simConsultas">
+                  <button class="number-btn" data-sim="consultas" data-action="increase">+</button>
+                </div>
+                <span class="field-hint">Consultas por plantão de 12h</span>
+                <div class="error-message" id="simConsultasError">Informe o número de consultas</div>
               </div>
-              <span class="field-hint">Turnos em horário comercial (dias úteis)</span>
-            </div>
 
-            <div class="field-group">
-              <label class="field-label">Consultas Especiais <span style="opacity: 0.5; font-size: 11px;">(por médico)</span></label>
-              <div class="number-control">
-                <button class="number-btn" data-sim="esp" data-action="decrease">−</button>
-                <input type="number" class="number-input" step="0.5" min="0" value="0" id="simEsp">
-                <button class="number-btn" data-sim="esp" data-action="increase">+</button>
+              <div class="field-group">
+                <label class="field-label">Número de Plantonistas</label>
+                <div class="number-control">
+                  <button class="number-btn" data-sim="plantonistas" data-action="decrease">−</button>
+                  <input type="number" class="number-input" step="1" min="1" value="1" id="simPlantonistas">
+                  <button class="number-btn" data-sim="plantonistas" data-action="increase">+</button>
+                </div>
+                <span class="field-hint">Médicos simultâneos</span>
               </div>
-              <span class="field-hint">Turnos noturnos, finais de semana e feriados</span>
-              <div class="error-message" id="simConsultasError">Configure ao menos um tipo de consulta</div>
             </div>
           </div>
 
@@ -1655,7 +1663,7 @@
               <span style="font-size: 28px; font-weight: 900; color: var(--ax-primary);" id="simOrcamentoBase">R$ 0,00</span>
             </div>
             <div style="font-size: 11px; color: var(--text-tertiary);">
-              Considerando mês com 22 dias úteis e 8 dias de final de semana, sem feriados
+              Base: 22 dias úteis (tradicional) + 38 dias especiais (noturno/fim de semana/feriado)
             </div>
           </div>
 
@@ -1664,7 +1672,7 @@
               Limpar Campos
             </button>
             <button class="btn btn-primary" id="btnAplicarSimulador" style="flex: 2;">
-              Aplicar ao Slot 1 para Análise
+              ➕ Adicionar à Análise
             </button>
           </div>
         </div>
@@ -1951,20 +1959,16 @@
 
   <script>
     const ESPECIALIDADES_DISPONIVEIS = [
-      { nome: 'ANESTESIOLOGIA (PLANTÃO)', consultas: 20, tipo: 'plantao' },
-      { nome: 'ANESTESIOLOGIA (SOBREAVISO)', consultas: 6, tipo: 'sobreaviso' },
-      { nome: 'ANESTESIOLOGIA (TOTAL)', consultas: 20, tipo: 'total_anestesio', combo: true },
-      { nome: 'CIRURGIA GERAL (PLANTÃO)', consultas: 20, tipo: 'plantao' },
-      { nome: 'CIRURGIA GERAL (CINDERELA)', consultas: 4, tipo: 'cinderela' },
-      { nome: 'CIRURGIA GERAL (TOTAL)', consultas: 20, tipo: 'total_cirurgia', combo: true },
-      { nome: 'CLÍNICA MÉDICA', consultas: 25, tipo: 'plantao' },
-      { nome: 'GINECOLOGIA OBSTETRÍCIA', consultas: 20, tipo: 'plantao' },
-      { nome: 'ORTOPEDIA', consultas: 20, tipo: 'plantao' },
-      { nome: 'PEDIATRIA PSI', consultas: 32, tipo: 'plantao' },
-      { nome: 'PEDIATRIA SOCORRISTA', consultas: 37.5, tipo: 'plantao' },
-      { nome: 'PEDIATRIA UIEP', consultas: 37.5, tipo: 'plantao' },
-      { nome: 'SOCORRISTA ADULTO', consultas: 37.5, tipo: 'plantao' },
-      { nome: 'TERAPIA INTENSIVA ADULTO', consultas: 37.5, tipo: 'plantao' },
+      { nome: 'Clínica PS Adulto', consultas: 25, tipo: 'plantao' },
+      { nome: 'Terapia Intensiva Adulto', consultas: 37.5, tipo: 'plantao' },
+      { nome: 'Clínica Socorrista Adulto', consultas: 37.5, tipo: 'plantao' },
+      { nome: 'Pediatria PS', consultas: 32, tipo: 'plantao' },
+      { nome: 'Pediatria Socorrista', consultas: 37.5, tipo: 'plantao' },
+      { nome: 'Pediatria UIEP', consultas: 37.5, tipo: 'plantao' },
+      { nome: 'Anestesiologia (Plantão)', consultas: 20, tipo: 'plantao' },
+      { nome: 'Anestesiologia (Sobreaviso)', consultas: 6, tipo: 'sobreaviso' },
+      { nome: 'Ortopedia (Plantão)', consultas: 20, tipo: 'plantao' },
+      { nome: 'Cirurgia Geral (Plantão)', consultas: 20, tipo: 'plantao' },
       { nome: 'OUTRA', consultas: 0, tipo: 'custom' }
     ];
 
@@ -2200,21 +2204,15 @@
         { id: 2, nome: '', nomeCustom: '', consultasPorPlantao: 0, tipo: 'plantao', ativa: false, ...CORES_ESPECIALIDADES[1] },
         { id: 3, nome: '', nomeCustom: '', consultasPorPlantao: 0, tipo: 'plantao', ativa: false, ...CORES_ESPECIALIDADES[2] },
         { id: 4, nome: '', nomeCustom: '', consultasPorPlantao: 0, tipo: 'plantao', ativa: false, ...CORES_ESPECIALIDADES[3] }
-      ],
-      simulador: {
-        nome: '',
-        medicos: 1,
-        consultasTrad: 0,
-        consultasEsp: 0
-      }
+      ]
     };
 
     function updateSimuladorOrcamento() {
-      const medicos = parseInt(document.getElementById('simMedicos').value) || 1;
-      const trad = parseFloat(document.getElementById('simTrad').value) || 0;
-      const esp = parseFloat(document.getElementById('simEsp').value) || 0;
+      const consultas = parseFloat(document.getElementById('simConsultas').value) || 0;
+      const plantonistas = parseInt(document.getElementById('simPlantonistas').value) || 1;
 
-      const orcamentoBase = medicos * (trad * 22 * appState.valorTradicional + esp * 38 * appState.valorEspecial);
+      // Cálculo: plantonistas × consultas × (22 dias úteis × valorTrad + 38 dias especiais × valorEsp)
+      const orcamentoBase = plantonistas * consultas * (22 * appState.valorTradicional + 38 * appState.valorEspecial);
       document.getElementById('simOrcamentoBase').textContent = formatBRL(orcamentoBase);
     }
 
@@ -2248,17 +2246,9 @@
                 appState.especialidades[i].nomeCustom = esp.nomeCustom || '';
                 appState.especialidades[i].consultasPorPlantao = esp.consultasPorPlantao || 0;
                 appState.especialidades[i].tipo = esp.tipo || 'plantao';
-                appState.especialidades[i].simulado = esp.simulado || null;
                 appState.especialidades[i].ativa = esp.ativa || false;
               }
             });
-          }
-          if (data.simulador) {
-            appState.simulador = data.simulador;
-            document.getElementById('simNome').value = data.simulador.nome || '';
-            document.getElementById('simMedicos').value = data.simulador.medicos || 1;
-            document.getElementById('simTrad').value = data.simulador.consultasTrad || 0;
-            document.getElementById('simEsp').value = data.simulador.consultasEsp || 0;
           }
           
           document.getElementById('valorTradicional').value = appState.valorTradicional;
@@ -2298,9 +2288,6 @@
           const plantaoPresencial = esp.consultasPorPlantao * (22 * appState.valorTradicional + 38 * appState.valorEspecial);
           const sobreaviso = plantaoPresencial * (8/12) * 0.3;
           budgetBase = plantaoPresencial * (4/12) + sobreaviso;
-        } else if (esp.tipo === 'simulado' && esp.simulado) {
-          const { medicos, trad, esp: espConsultas } = esp.simulado;
-          budgetBase = medicos * (trad * 22 * appState.valorTradicional + espConsultas * 38 * appState.valorEspecial);
         } else {
           budgetBase = esp.consultasPorPlantao * (22 * appState.valorTradicional + 38 * appState.valorEspecial);
         }
@@ -2538,14 +2525,9 @@
             const plantaoPresencial = esp.consultasPorPlantao * (conventional * appState.valorTradicional + special * appState.valorEspecial);
             const sobreaviso = esp.consultasPorPlantao * (conventional * appState.valorTradicional + special * appState.valorEspecial) * (8/12) * 0.3;
             value = plantaoPresencial * (4/12) + sobreaviso;
-            
+
             const budgetPresencial = esp.consultasPorPlantao * (22 * appState.valorTradicional + 38 * appState.valorEspecial);
             budget = budgetPresencial * (4/12) + budgetPresencial * (8/12) * 0.3;
-          } else if (esp.tipo === 'simulado' && esp.simulado) {
-            // Plantão simulado com proporções customizadas
-            const { medicos, trad, esp: espConsultas } = esp.simulado;
-            value = medicos * (trad * conventional * appState.valorTradicional + espConsultas * special * appState.valorEspecial);
-            budget = medicos * (trad * 22 * appState.valorTradicional + espConsultas * 38 * appState.valorEspecial);
           } else {
             value = esp.consultasPorPlantao * (conventional * appState.valorTradicional + special * appState.valorEspecial);
             budget = esp.consultasPorPlantao * (22 * appState.valorTradicional + 38 * appState.valorEspecial);
@@ -3008,65 +2990,73 @@
     renderAll();
 
     // Simulador event listeners
-    document.getElementById('simNome').addEventListener('input', (e) => {
-      appState.simulador.nome = e.target.value;
-      saveData();
+
+    // Preset selector - auto preenche os campos
+    document.getElementById('simPreset').addEventListener('change', (e) => {
+      const presetNome = e.target.value;
+      if (presetNome) {
+        const preset = ESPECIALIDADES_DISPONIVEIS.find(esp => esp.nome === presetNome);
+        if (preset) {
+          document.getElementById('simNome').value = preset.nome;
+          document.getElementById('simConsultas').value = preset.consultas;
+          updateSimuladorOrcamento();
+        }
+      }
     });
 
-    ['simMedicos', 'simTrad', 'simEsp'].forEach(id => {
+    // Atualiza orçamento quando mudar valores
+    ['simConsultas', 'simPlantonistas'].forEach(id => {
       document.getElementById(id).addEventListener('input', updateSimuladorOrcamento);
     });
 
+    // Botões +/- do simulador
     document.querySelectorAll('[data-sim]').forEach(btn => {
       btn.addEventListener('click', (e) => {
         const field = e.target.dataset.sim;
         const action = e.target.dataset.action;
-        let input, step;
+        let input, step, minValue;
 
-        if (field === 'medicos') {
-          input = document.getElementById('simMedicos');
+        if (field === 'consultas') {
+          input = document.getElementById('simConsultas');
+          step = 0.5;
+          minValue = 0;
+        } else if (field === 'plantonistas') {
+          input = document.getElementById('simPlantonistas');
           step = 1;
-        } else if (field === 'trad') {
-          input = document.getElementById('simTrad');
-          step = 0.5;
-        } else if (field === 'esp') {
-          input = document.getElementById('simEsp');
-          step = 0.5;
+          minValue = 1;
         }
 
-        let currentValue = parseFloat(input.value) || (field === 'medicos' ? 1 : 0);
-        
+        let currentValue = parseFloat(input.value) || minValue;
+
         if (action === 'increase') {
           input.value = currentValue + step;
         } else if (action === 'decrease') {
-          input.value = Math.max(field === 'medicos' ? 1 : 0, currentValue - step);
+          input.value = Math.max(minValue, currentValue - step);
         }
 
         updateSimuladorOrcamento();
       });
     });
 
+    // Reset do simulador
     document.getElementById('btnResetSimulador').addEventListener('click', () => {
+      document.getElementById('simPreset').value = '';
       document.getElementById('simNome').value = '';
-      document.getElementById('simMedicos').value = 1;
-      document.getElementById('simTrad').value = 0;
-      document.getElementById('simEsp').value = 0;
-      appState.simulador = { nome: '', medicos: 1, consultasTrad: 0, consultasEsp: 0 };
+      document.getElementById('simConsultas').value = 0;
+      document.getElementById('simPlantonistas').value = 1;
       updateSimuladorOrcamento();
-      saveData();
-      showToast('Simulador limpo');
+      showToast('Campos limpos');
     });
 
+    // Aplicar plantão à análise
     document.getElementById('btnAplicarSimulador').addEventListener('click', () => {
       const nome = document.getElementById('simNome').value.trim();
-      const medicos = parseInt(document.getElementById('simMedicos').value) || 1;
-      const trad = parseFloat(document.getElementById('simTrad').value) || 0;
-      const esp = parseFloat(document.getElementById('simEsp').value) || 0;
+      const consultas = parseFloat(document.getElementById('simConsultas').value) || 0;
+      const plantonistas = parseInt(document.getElementById('simPlantonistas').value) || 1;
 
       // Limpar erros anteriores
       document.getElementById('simNome').classList.remove('error');
-      document.getElementById('simTrad').classList.remove('error');
-      document.getElementById('simEsp').classList.remove('error');
+      document.getElementById('simConsultas').classList.remove('error');
       document.getElementById('simNomeError').classList.remove('show');
       document.getElementById('simConsultasError').classList.remove('show');
 
@@ -3078,9 +3068,8 @@
         hasError = true;
       }
 
-      if (trad === 0 && esp === 0) {
-        document.getElementById('simTrad').classList.add('error');
-        document.getElementById('simEsp').classList.add('error');
+      if (consultas === 0) {
+        document.getElementById('simConsultas').classList.add('error');
         document.getElementById('simConsultasError').classList.add('show');
         hasError = true;
       }
@@ -3089,13 +3078,20 @@
         return;
       }
 
-      // Aplicar ao Slot 1
-      appState.especialidades[0].nome = 'OUTRA';
-      appState.especialidades[0].nomeCustom = `${nome} (${medicos} ${medicos > 1 ? 'médicos' : 'médico'})`;
-      appState.especialidades[0].consultasPorPlantao = medicos * (trad + esp);
-      appState.especialidades[0].tipo = 'simulado';
-      appState.especialidades[0].simulado = { medicos, trad, esp };
-      appState.especialidades[0].ativa = true;
+      // Encontrar primeiro slot disponível
+      let slotIndex = appState.especialidades.findIndex(esp => !esp.ativa);
+      if (slotIndex === -1) {
+        showToast('Todos os slots estão preenchidos. Desative um plantão existente primeiro.');
+        return;
+      }
+
+      // Aplicar ao slot disponível
+      const displayNome = plantonistas > 1 ? `${nome} (${plantonistas} plantonistas)` : nome;
+      appState.especialidades[slotIndex].nome = 'OUTRA';
+      appState.especialidades[slotIndex].nomeCustom = displayNome;
+      appState.especialidades[slotIndex].consultasPorPlantao = plantonistas * consultas;
+      appState.especialidades[slotIndex].tipo = 'plantao';
+      appState.especialidades[slotIndex].ativa = true;
 
       saveData();
       renderAll();
@@ -3103,7 +3099,14 @@
       // Fechar modal
       simuladorModal.classList.remove('active');
 
-      showToast('Plantão simulado aplicado ao Slot 1');
+      showToast(`Plantão "${nome}" adicionado ao Slot ${slotIndex + 1}`);
+
+      // Limpar campos para próxima adição
+      document.getElementById('simPreset').value = '';
+      document.getElementById('simNome').value = '';
+      document.getElementById('simConsultas').value = 0;
+      document.getElementById('simPlantonistas').value = 1;
+      updateSimuladorOrcamento();
 
       // Scroll para as especialidades
       setTimeout(() => {
@@ -3119,13 +3122,8 @@
       document.getElementById('simNomeError').classList.remove('show');
     });
 
-    document.getElementById('simTrad').addEventListener('input', () => {
-      document.getElementById('simTrad').classList.remove('error');
-      document.getElementById('simConsultasError').classList.remove('show');
-    });
-
-    document.getElementById('simEsp').addEventListener('input', () => {
-      document.getElementById('simEsp').classList.remove('error');
+    document.getElementById('simConsultas').addEventListener('input', () => {
+      document.getElementById('simConsultas').classList.remove('error');
       document.getElementById('simConsultasError').classList.remove('show');
     });
 
