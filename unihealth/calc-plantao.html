@@ -2992,21 +2992,33 @@
     // Simulador event listeners
 
     // Preset selector - auto preenche os campos
-    document.getElementById('simPreset').addEventListener('change', (e) => {
-      const presetNome = e.target.value;
-      if (presetNome) {
-        const preset = ESPECIALIDADES_DISPONIVEIS.find(esp => esp.nome === presetNome);
-        if (preset) {
-          document.getElementById('simNome').value = preset.nome;
-          document.getElementById('simConsultas').value = preset.consultas;
-          updateSimuladorOrcamento();
+    const presetSelector = document.getElementById('simPreset');
+    if (presetSelector) {
+      presetSelector.addEventListener('change', (e) => {
+        const presetNome = e.target.value;
+        console.log('Preset selecionado:', presetNome);
+
+        if (presetNome) {
+          const preset = ESPECIALIDADES_DISPONIVEIS.find(esp => esp.nome === presetNome);
+          console.log('Preset encontrado:', preset);
+
+          if (preset) {
+            document.getElementById('simNome').value = preset.nome;
+            document.getElementById('simConsultas').value = preset.consultas;
+            updateSimuladorOrcamento();
+          }
         }
-      }
-    });
+      });
+    } else {
+      console.error('Elemento simPreset não encontrado!');
+    }
 
     // Atualiza orçamento quando mudar valores
     ['simConsultas', 'simPlantonistas'].forEach(id => {
-      document.getElementById(id).addEventListener('input', updateSimuladorOrcamento);
+      const element = document.getElementById(id);
+      if (element) {
+        element.addEventListener('input', updateSimuladorOrcamento);
+      }
     });
 
     // Botões +/- do simulador
@@ -3039,93 +3051,130 @@
     });
 
     // Reset do simulador
-    document.getElementById('btnResetSimulador').addEventListener('click', () => {
-      document.getElementById('simPreset').value = '';
-      document.getElementById('simNome').value = '';
-      document.getElementById('simConsultas').value = 0;
-      document.getElementById('simPlantonistas').value = 1;
-      updateSimuladorOrcamento();
-      showToast('Campos limpos');
-    });
+    const btnResetSimulador = document.getElementById('btnResetSimulador');
+    if (btnResetSimulador) {
+      btnResetSimulador.addEventListener('click', () => {
+        const presetEl = document.getElementById('simPreset');
+        const nomeEl = document.getElementById('simNome');
+        const consultasEl = document.getElementById('simConsultas');
+        const plantonistasEl = document.getElementById('simPlantonistas');
+
+        if (presetEl) presetEl.value = '';
+        if (nomeEl) nomeEl.value = '';
+        if (consultasEl) consultasEl.value = 0;
+        if (plantonistasEl) plantonistasEl.value = 1;
+
+        updateSimuladorOrcamento();
+        showToast('Campos limpos');
+      });
+    }
 
     // Aplicar plantão à análise
-    document.getElementById('btnAplicarSimulador').addEventListener('click', () => {
-      const nome = document.getElementById('simNome').value.trim();
-      const consultas = parseFloat(document.getElementById('simConsultas').value) || 0;
-      const plantonistas = parseInt(document.getElementById('simPlantonistas').value) || 1;
+    const btnAplicarSimulador = document.getElementById('btnAplicarSimulador');
+    if (btnAplicarSimulador) {
+      btnAplicarSimulador.addEventListener('click', () => {
+        const nomeEl = document.getElementById('simNome');
+        const consultasEl = document.getElementById('simConsultas');
+        const plantonistasEl = document.getElementById('simPlantonistas');
 
-      // Limpar erros anteriores
-      document.getElementById('simNome').classList.remove('error');
-      document.getElementById('simConsultas').classList.remove('error');
-      document.getElementById('simNomeError').classList.remove('show');
-      document.getElementById('simConsultasError').classList.remove('show');
+        if (!nomeEl || !consultasEl || !plantonistasEl) {
+          console.error('Elementos do simulador não encontrados');
+          return;
+        }
 
-      let hasError = false;
+        const nome = nomeEl.value.trim();
+        const consultas = parseFloat(consultasEl.value) || 0;
+        const plantonistas = parseInt(plantonistasEl.value) || 1;
 
-      if (!nome) {
-        document.getElementById('simNome').classList.add('error');
-        document.getElementById('simNomeError').classList.add('show');
-        hasError = true;
-      }
+        // Limpar erros anteriores
+        nomeEl.classList.remove('error');
+        consultasEl.classList.remove('error');
+        const nomeError = document.getElementById('simNomeError');
+        const consultasError = document.getElementById('simConsultasError');
+        if (nomeError) nomeError.classList.remove('show');
+        if (consultasError) consultasError.classList.remove('show');
 
-      if (consultas === 0) {
-        document.getElementById('simConsultas').classList.add('error');
-        document.getElementById('simConsultasError').classList.add('show');
-        hasError = true;
-      }
+        let hasError = false;
 
-      if (hasError) {
-        return;
-      }
+        if (!nome) {
+          nomeEl.classList.add('error');
+          if (nomeError) nomeError.classList.add('show');
+          hasError = true;
+        }
 
-      // Encontrar primeiro slot disponível
-      let slotIndex = appState.especialidades.findIndex(esp => !esp.ativa);
-      if (slotIndex === -1) {
-        showToast('Todos os slots estão preenchidos. Desative um plantão existente primeiro.');
-        return;
-      }
+        if (consultas === 0) {
+          consultasEl.classList.add('error');
+          if (consultasError) consultasError.classList.add('show');
+          hasError = true;
+        }
 
-      // Aplicar ao slot disponível
-      const displayNome = plantonistas > 1 ? `${nome} (${plantonistas} plantonistas)` : nome;
-      appState.especialidades[slotIndex].nome = 'OUTRA';
-      appState.especialidades[slotIndex].nomeCustom = displayNome;
-      appState.especialidades[slotIndex].consultasPorPlantao = plantonistas * consultas;
-      appState.especialidades[slotIndex].tipo = 'plantao';
-      appState.especialidades[slotIndex].ativa = true;
+        if (hasError) {
+          return;
+        }
 
-      saveData();
-      renderAll();
+        // Encontrar primeiro slot disponível
+        let slotIndex = appState.especialidades.findIndex(esp => !esp.ativa);
+        if (slotIndex === -1) {
+          showToast('Todos os slots estão preenchidos. Desative um plantão existente primeiro.');
+          return;
+        }
 
-      // Fechar modal
-      simuladorModal.classList.remove('active');
+        // Aplicar ao slot disponível
+        const displayNome = plantonistas > 1 ? `${nome} (${plantonistas} plantonistas)` : nome;
+        appState.especialidades[slotIndex].nome = 'OUTRA';
+        appState.especialidades[slotIndex].nomeCustom = displayNome;
+        appState.especialidades[slotIndex].consultasPorPlantao = plantonistas * consultas;
+        appState.especialidades[slotIndex].tipo = 'plantao';
+        appState.especialidades[slotIndex].ativa = true;
 
-      showToast(`Plantão "${nome}" adicionado ao Slot ${slotIndex + 1}`);
+        saveData();
+        renderAll();
 
-      // Limpar campos para próxima adição
-      document.getElementById('simPreset').value = '';
-      document.getElementById('simNome').value = '';
-      document.getElementById('simConsultas').value = 0;
-      document.getElementById('simPlantonistas').value = 1;
+        // Fechar modal
+        const modal = document.getElementById('simuladorModal');
+        if (modal) modal.classList.remove('active');
+
+        showToast(`Plantão "${nome}" adicionado ao Slot ${slotIndex + 1}`);
+
+        // Limpar campos para próxima adição
+        const presetEl2 = document.getElementById('simPreset');
+        if (presetEl2) presetEl2.value = '';
+        nomeEl.value = '';
+        consultasEl.value = 0;
+        plantonistasEl.value = 1;
+        updateSimuladorOrcamento();
+
+        // Scroll para as especialidades
+        setTimeout(() => {
+          const grid = document.querySelector('.especialidades-grid');
+          if (grid) grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 300);
+      });
+    }
+
+    // Inicializar orçamento do simulador (somente se elementos existirem)
+    if (document.getElementById('simConsultas') && document.getElementById('simPlantonistas')) {
       updateSimuladorOrcamento();
-
-      // Scroll para as especialidades
-      setTimeout(() => {
-        document.querySelector('.especialidades-grid').scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }, 300);
-    });
-
-    updateSimuladorOrcamento();
+    }
 
     // Remover erros quando usuário começar a digitar
-    document.getElementById('simNome').addEventListener('input', () => {
-      document.getElementById('simNome').classList.remove('error');
-      document.getElementById('simNomeError').classList.remove('show');
-    });
+    const simNomeInput = document.getElementById('simNome');
+    if (simNomeInput) {
+      simNomeInput.addEventListener('input', () => {
+        simNomeInput.classList.remove('error');
+        const simNomeError = document.getElementById('simNomeError');
+        if (simNomeError) simNomeError.classList.remove('show');
+      });
+    }
 
-    document.getElementById('simConsultas').addEventListener('input', () => {
-      document.getElementById('simConsultas').classList.remove('error');
-      document.getElementById('simConsultasError').classList.remove('show');
-    });
+    const simConsultasInput = document.getElementById('simConsultas');
+    if (simConsultasInput) {
+      simConsultasInput.addEventListener('input', () => {
+        simConsultasInput.classList.remove('error');
+        const simConsultasError = document.getElementById('simConsultasError');
+        if (simConsultasError) simConsultasError.classList.remove('show');
+      });
+    }
 
     setInterval(saveData, 30000);
 
