@@ -2208,12 +2208,20 @@
     };
 
     function updateSimuladorOrcamento() {
-      const consultas = parseFloat(document.getElementById('simConsultas').value) || 0;
-      const plantonistas = parseInt(document.getElementById('simPlantonistas').value) || 1;
+      const consultasEl = document.getElementById('simConsultas');
+      const plantonistasEl = document.getElementById('simPlantonistas');
+      const orcamentoEl = document.getElementById('simOrcamentoBase');
+
+      if (!consultasEl || !plantonistasEl || !orcamentoEl) {
+        return; // Elementos não existem, sai silenciosamente
+      }
+
+      const consultas = parseFloat(consultasEl.value) || 0;
+      const plantonistas = parseInt(plantonistasEl.value) || 1;
 
       // Cálculo: plantonistas × consultas × (22 dias úteis × valorTrad + 38 dias especiais × valorEsp)
       const orcamentoBase = plantonistas * consultas * (22 * appState.valorTradicional + 38 * appState.valorEspecial);
-      document.getElementById('simOrcamentoBase').textContent = formatBRL(orcamentoBase);
+      orcamentoEl.textContent = formatBRL(orcamentoBase);
     }
 
     function saveData() {
@@ -2996,21 +3004,21 @@
     if (presetSelector) {
       presetSelector.addEventListener('change', (e) => {
         const presetNome = e.target.value;
-        console.log('Preset selecionado:', presetNome);
 
         if (presetNome) {
           const preset = ESPECIALIDADES_DISPONIVEIS.find(esp => esp.nome === presetNome);
-          console.log('Preset encontrado:', preset);
 
           if (preset) {
-            document.getElementById('simNome').value = preset.nome;
-            document.getElementById('simConsultas').value = preset.consultas;
+            const simNomeEl = document.getElementById('simNome');
+            const simConsultasEl = document.getElementById('simConsultas');
+
+            if (simNomeEl) simNomeEl.value = preset.nome;
+            if (simConsultasEl) simConsultasEl.value = preset.consultas;
+
             updateSimuladorOrcamento();
           }
         }
       });
-    } else {
-      console.error('Elemento simPreset não encontrado!');
     }
 
     // Atualiza orçamento quando mudar valores
@@ -3037,6 +3045,8 @@
           step = 1;
           minValue = 1;
         }
+
+        if (!input) return; // Segurança: sai se input não existe
 
         let currentValue = parseFloat(input.value) || minValue;
 
