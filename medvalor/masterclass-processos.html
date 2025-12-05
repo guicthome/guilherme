@@ -145,31 +145,28 @@
       text-decoration:underline;
     }
 
-    /* Botão para YouTube */
-    .btn-yt{
+    /* Link para YouTube */
+    .yt-link{
       display:inline-flex;
       align-items:center;
-      justify-content:center;
-      gap:10px;
-      padding:12px 20px;
-      border-radius:10px;
-      background:linear-gradient(180deg, #c4302b, #a82723);
-      color:#fff;
-      font-weight:700;
+      gap:6px;
+      color:var(--azul);
       text-decoration:none;
-      line-height:1;
-      box-shadow:0 4px 10px rgba(196,48,43,.25);
-      transition: transform .15s ease, box-shadow .15s ease;
-      margin-top:8px;
+      font-size:13px;
+      font-weight:600;
+      margin-top:10px;
+      padding:8px 0;
+      transition: color .15s ease;
     }
-    .btn-yt:hover{
-      transform:translateY(-2px);
-      box-shadow:0 6px 16px rgba(196,48,43,.35);
+    .yt-link:hover{
+      color:var(--verde);
+      text-decoration:underline;
     }
-    .btn-yt svg{
-      width:20px;
-      height:20px;
-      fill:#fff;
+    .yt-link svg{
+      width:18px;
+      height:18px;
+      fill:#cc0000;
+      flex-shrink:0;
     }
 
     /* Disclosure */
@@ -209,7 +206,6 @@
       .container{ margin-top:16px; border-radius:12px; padding:18px 14px; }
       .intro{ padding:0; }
       .credits{ padding:14px 12px; }
-      .btn-yt{ width:100%; justify-content:center; }
     }
   </style>
 </head>
@@ -233,9 +229,10 @@
     <!-- Player do YouTube -->
     <div class="video-wrapper">
       <iframe
-        src="https://www.youtube.com/embed/UE_53dX5bXU?rel=0&modestbranding=1"
-        title="Masterclass – Gestão de Processos para a Área da Saúde"
+        src="https://www.youtube.com/embed/UmBskQ9l7f4?si=rvkU_Sml05SlT77v"
+        title="YouTube video player"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
         allowfullscreen>
       </iframe>
     </div>
@@ -245,9 +242,9 @@
       <p class="credits-title">Sobre o conteúdo</p>
       <p><strong>Autor:</strong> <a href="https://www.youtube.com/@fm2seducacaoeconsultoria" target="_blank" rel="noopener">FM2S Educação e Consultoria</a></p>
       <p><strong>Disponibilidade:</strong> Este vídeo está disponível gratuitamente no YouTube.</p>
-      <a class="btn-yt" href="https://www.youtube.com/watch?v=UE_53dX5bXU" target="_blank" rel="noopener">
+      <a class="yt-link" href="https://www.youtube.com/watch?v=UmBskQ9l7f4" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-        Assistir no YouTube
+        Assistir diretamente no YouTube
       </a>
     </div>
 
