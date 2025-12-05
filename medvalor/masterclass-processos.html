@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Masterclass – Gestão de Processos para a Área da Saúde | MedValor</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="https://medvalor.med.br/favicon.ico" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Masterclass – Gestão de Processos para a Área da Saúde | MedValor" />
+  <meta property="og:description" content="Aprenda a estruturar, mapear e otimizar processos na área da saúde com foco em eficiência operacional e segurança assistencial." />
+  <meta property="og:image" content="https://i.imgur.com/nq9Nnuk.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.medvalor.med.br/masterclass-processos.html" />
+  <meta property="og:site_name" content="MedValor" />
+  <meta property="og:locale" content="pt_BR" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Masterclass – Gestão de Processos para a Área da Saúde | MedValor" />
+  <meta name="twitter:description" content="Aprenda a estruturar, mapear e otimizar processos na área da saúde com foco em eficiência operacional e segurança assistencial." />
+  <meta name="twitter:image" content="https://i.imgur.com/nq9Nnuk.png" />
+
+  <style>
+    :root{
+      --azul:#196396;
+      --azul-escuro:#103b63;
+      --bg:#f6f8fc;
+      --texto:#2e2e2e;
+      --borda:#e6ebf1;
+      --shadow:0 6px 20px rgba(16,59,99,0.10);
+      --radius:14px;
+      --verde:#2fa36b;
+      --verde-escuro:#218354;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: Verdana, sans-serif;
+      color:var(--texto);
+      background:var(--bg);
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+    }
+
+    .container{
+      width:min(800px,94vw);
+      margin:28px 0 0;
+      background:#fff;
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:clamp(18px,3.2vw,32px);
+    }
+
+    .brand{
+      display:flex;
+      justify-content:center;
+      margin-bottom:8px;
+    }
+    .brand-link{
+      display:inline-block;
+      line-height:0;
+    }
+    .brand-link img{
+      width:min(240px,70%);
+      height:auto;
+    }
+    .brand-link:focus-visible{
+      outline:3px solid #9bd3ff;
+      border-radius:6px;
+    }
+
+    /* Título */
+    h1{
+      margin:8px 0 18px;
+      color:#1f2937;
+      font-size:clamp(18px,2.4vw,26px);
+      line-height:1.3;
+      text-align:center;
+      font-weight:700;
+    }
+    h1 .accent{ color:var(--azul); }
+
+    /* Descrição */
+    .intro{
+      font-size:clamp(14px,1.8vw,16px);
+      color:#4b5563;
+      line-height:1.6;
+      text-align:justify;
+      margin:0 0 24px;
+      padding:0 8px;
+    }
+
+    /* Container do vídeo responsivo */
+    .video-wrapper{
+      position:relative;
+      width:100%;
+      padding-bottom:56.25%; /* 16:9 */
+      height:0;
+      overflow:hidden;
+      border-radius:12px;
+      box-shadow:0 8px 24px rgba(0,0,0,0.12);
+      margin-bottom:20px;
+    }
+    .video-wrapper iframe{
+      position:absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      border:0;
+      border-radius:12px;
+    }
+
+    /* Créditos */
+    .credits{
+      background:#f8fafc;
+      border:1px solid var(--borda);
+      border-radius:10px;
+      padding:16px;
+      margin:20px 0;
+    }
+    .credits-title{
+      font-size:14px;
+      font-weight:700;
+      color:#1f2937;
+      margin:0 0 8px;
+    }
+    .credits p{
+      font-size:13px;
+      color:#4b5563;
+      margin:4px 0;
+      line-height:1.5;
+    }
+    .credits a{
+      color:var(--azul);
+      text-decoration:none;
+      font-weight:600;
+    }
+    .credits a:hover{
+      text-decoration:underline;
+    }
+
+    /* Botão para YouTube */
+    .btn-yt{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:12px 20px;
+      border-radius:10px;
+      background:linear-gradient(180deg, #c4302b, #a82723);
+      color:#fff;
+      font-weight:700;
+      text-decoration:none;
+      line-height:1;
+      box-shadow:0 4px 10px rgba(196,48,43,.25);
+      transition: transform .15s ease, box-shadow .15s ease;
+      margin-top:8px;
+    }
+    .btn-yt:hover{
+      transform:translateY(-2px);
+      box-shadow:0 6px 16px rgba(196,48,43,.35);
+    }
+    .btn-yt svg{
+      width:20px;
+      height:20px;
+      fill:#fff;
+    }
+
+    /* Disclosure */
+    .disclosure{
+      margin-top:24px;
+      font-size:12px;
+      color:#5b5b5b;
+      border-top:1px dashed var(--borda);
+      padding-top:14px;
+      text-align:justify;
+      line-height:1.5;
+    }
+
+    /* Footer institucional */
+    .footer{
+      width:100%;
+      margin-top:24px;
+      padding:25px 15px;
+      background-color:#f8f5f0;
+      text-align:center;
+      font-family: Verdana, sans-serif;
+      border-top:2px solid #006b68;
+    }
+    .footer .wrap{ width:min(920px,96vw); margin:0 auto; }
+    .footer-logo{ width:140px; margin:0 auto 10px; display:block; }
+    .footer-title{ font-size:15px; font-weight:bold; color:#333; margin:10px 0 18px; }
+    .footer-links,.footer-social{
+      display:flex; flex-wrap:wrap; justify-content:center; gap:8px; font-size:14px; margin-bottom:10px;
+    }
+    .footer-links a,.footer-social a{ color:#004E4C; text-decoration:none; padding:0 4px; }
+    .footer-links a:hover,.footer-social a:hover{ color:#002c2a; text-decoration:underline; }
+    .footer .separator{ color:#bbb; margin:0 4px; }
+    .footeropyright{ margin-top:18px; font-size:11px; color:#999; }
+
+    /* Responsividade */
+    @media (max-width:540px){
+      .container{ margin-top:16px; border-radius:12px; padding:18px 14px; }
+      .intro{ padding:0; }
+      .credits{ padding:14px 12px; }
+      .btn-yt{ width:100%; justify-content:center; }
+    }
+  </style>
+</head>
+<body>
+
+  <main class="container">
+    <div class="brand">
+      <a class="brand-link" href="https://medvalor.med.br" target="_blank" rel="noopener" aria-label="Site MedValor">
+        <img src="https://i.imgur.com/N0lXklP.png" alt="MedValor" />
+      </a>
+    </div>
+
+    <h1>
+      Masterclass – <span class="accent">Gestão de Processos para a Área da Saúde</span>
+    </h1>
+
+    <p class="intro">
+      Esta masterclass apresenta uma visão prática e direta sobre como estruturar, mapear e otimizar processos na área da saúde, com foco em eficiência operacional e segurança assistencial. Um conteúdo especialmente relevante para médicos, enfermeiros e gestores interessados em melhorar a performance das unidades de saúde.
+    </p>
+
+    <!-- Player do YouTube -->
+    <div class="video-wrapper">
+      <iframe
+        src="https://www.youtube.com/embed/UE_53dX5bXU?rel=0&modestbranding=1"
+        title="Masterclass – Gestão de Processos para a Área da Saúde"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+      </iframe>
+    </div>
+
+    <!-- Créditos -->
+    <div class="credits">
+      <p class="credits-title">Sobre o conteúdo</p>
+      <p><strong>Autor:</strong> <a href="https://www.youtube.com/@fm2seducacaoeconsultoria" target="_blank" rel="noopener">FM2S Educação e Consultoria</a></p>
+      <p><strong>Disponibilidade:</strong> Este vídeo está disponível gratuitamente no YouTube.</p>
+      <a class="btn-yt" href="https://www.youtube.com/watch?v=UE_53dX5bXU" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        Assistir no YouTube
+      </a>
+    </div>
+
+    <p class="disclosure">
+      Aviso: Nesta página, a MedValor atua exclusivamente como curadora de conteúdos públicos de referência. Este vídeo é de autoria da FM2S Educação e Consultoria e está disponível gratuitamente em seu canal oficial no YouTube. A MedValor não tem vínculo comercial com a produtora do conteúdo. A seleção foi realizada por sua relevância para profissionais da saúde interessados em gestão por processos.
+    </p>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <img class="footer-logo" src="https://i.imgur.com/yAUQciP.png" alt="AxiaCare Logo">
+      <div class="footer-title">AxView™ | Pages - Gestão e Consultoria em Saúde</div>
+
+      <div class="footer-links">
+        <a href="https://linktr.ee/gui.thome">Conheça nossas soluções.</a>
+        <span class="separator">|</span>
+        <a href="https://www.axcare.com.br">axcare.com.br</a>
+        <span class="separator">|</span>
+        <a href="https://www.medvalor.med.br">medvalor.med.br</a>
+      </div>
+
+      <div class="footer-social">
+        <a href="https://guithome.com.br">guithome.com.br</a>
+        <span class="separator">|</span>
+        <a href="https://linkedin.com/in/guithome">LinkedIn</a>
+        <span class="separator">|</span>
+        <a href="https://www.instagram.com/gui.thome/">Instagram</a>
+      </div>
+
+      <div class="footeropyright">
+        Copyright © 2025 AxiaCare | Todos os direitos reservados | Uma empresa GTCorp.
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
