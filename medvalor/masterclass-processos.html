@@ -34,6 +34,7 @@
       --radius:14px;
       --verde:#2fa36b;
       --verde-escuro:#218354;
+      --muted:#5e6a7c;
     }
     *{box-sizing:border-box}
     html,body{height:100%}
@@ -46,9 +47,10 @@
       flex-direction:column;
       align-items:center;
     }
+    body.modal-open{ overflow:hidden; }
 
     .container{
-      width:min(800px,94vw);
+      width:min(1100px,96vw);
       margin:28px 0 0;
       background:#fff;
       border-radius:var(--radius);
@@ -95,16 +97,24 @@
       padding:0 8px;
     }
 
+    /* Layout principal: vídeo + box lateral */
+    .content-grid{
+      display:grid;
+      grid-template-columns:1fr 320px;
+      gap:24px;
+      align-items:start;
+    }
+
     /* Container do vídeo responsivo */
+    .video-section{ min-width:0; }
     .video-wrapper{
       position:relative;
       width:100%;
-      padding-bottom:56.25%; /* 16:9 */
+      padding-bottom:56.25%;
       height:0;
       overflow:hidden;
       border-radius:12px;
       box-shadow:0 8px 24px rgba(0,0,0,0.12);
-      margin-bottom:20px;
     }
     .video-wrapper iframe{
       position:absolute;
@@ -116,13 +126,43 @@
       border-radius:12px;
     }
 
+    /* Box lateral CTA */
+    .cta-box{
+      background:linear-gradient(180deg, rgba(166,216,192,.15), rgba(166,251,144,.08));
+      border:1px solid rgba(25,99,150,.18);
+      border-radius:var(--radius);
+      padding:20px;
+      font-size:14px;
+      line-height:1.65;
+      color:var(--texto);
+    }
+    .cta-box p{
+      margin:0 0 14px;
+    }
+    .cta-box p:last-of-type{
+      margin-bottom:0;
+    }
+    .cta-box strong{
+      color:var(--azul-escuro);
+    }
+    .cta-link{
+      color:var(--azul);
+      font-weight:700;
+      text-decoration:underline;
+      cursor:pointer;
+      transition: color .15s ease;
+    }
+    .cta-link:hover{
+      color:var(--verde);
+    }
+
     /* Créditos */
     .credits{
       background:#f8fafc;
       border:1px solid var(--borda);
       border-radius:10px;
       padding:16px;
-      margin:20px 0;
+      margin:24px 0 0;
     }
     .credits-title{
       font-size:14px;
@@ -180,6 +220,142 @@
       line-height:1.5;
     }
 
+    /* Modal overlay */
+    .modal-overlay{
+      position:fixed;
+      inset:0;
+      background:rgba(25,99,150,.3);
+      backdrop-filter:blur(3px);
+      -webkit-backdrop-filter:blur(3px);
+      opacity:0;
+      pointer-events:none;
+      transition:opacity .25s ease;
+      z-index:1000;
+    }
+    .modal-overlay.show{
+      opacity:1;
+      pointer-events:auto;
+    }
+
+    /* Modal */
+    .modal{
+      position:fixed;
+      inset:0;
+      display:grid;
+      place-items:center;
+      padding:24px;
+      opacity:0;
+      transform:translateY(20px) scale(.96);
+      pointer-events:none;
+      transition:opacity .25s ease, transform .25s ease;
+      z-index:1001;
+    }
+    .modal.show{
+      opacity:1;
+      transform:translateY(0) scale(1);
+      pointer-events:auto;
+    }
+    .modal-panel{
+      width:min(440px,94vw);
+      background:#fff;
+      border:1px solid rgba(25,99,150,.15);
+      border-radius:var(--radius);
+      box-shadow:0 20px 50px rgba(25,99,150,.2);
+      padding:28px;
+      position:relative;
+    }
+    .modal-close{
+      position:absolute;
+      top:12px;
+      right:12px;
+      background:none;
+      border:none;
+      font-size:22px;
+      color:#999;
+      cursor:pointer;
+      padding:4px 8px;
+      line-height:1;
+      transition:color .15s ease;
+    }
+    .modal-close:hover{ color:var(--azul); }
+    .modal-logo{
+      height:24px;
+      display:block;
+      margin:0 0 12px;
+      opacity:.9;
+    }
+    .modal h2{
+      margin:0 0 8px;
+      font-size:20px;
+      color:var(--azul-escuro);
+    }
+    .modal p{
+      margin:0 0 18px;
+      font-size:14px;
+      color:var(--muted);
+      line-height:1.5;
+    }
+    .modal label{
+      display:block;
+      font-size:13px;
+      font-weight:600;
+      color:var(--texto);
+      margin-bottom:6px;
+    }
+    .modal input[type="text"]{
+      width:100%;
+      padding:12px 14px;
+      border-radius:10px;
+      border:1px solid rgba(25,99,150,.25);
+      background:#fcfdff;
+      color:var(--texto);
+      font-size:15px;
+      outline:none;
+      margin-bottom:14px;
+      transition:border-color .15s ease;
+    }
+    .modal input[type="text"]:focus{
+      border-color:var(--azul);
+    }
+    .modal input::placeholder{ color:#99a4b3; }
+    .modal-btn{
+      width:100%;
+      padding:14px 18px;
+      border-radius:10px;
+      border:none;
+      background:linear-gradient(180deg, var(--verde), var(--verde-escuro));
+      color:#fff;
+      font-weight:700;
+      font-size:15px;
+      cursor:pointer;
+      box-shadow:0 8px 20px rgba(47,163,107,.25);
+      transition:transform .15s ease, box-shadow .15s ease;
+    }
+    .modal-btn:hover{
+      transform:translateY(-2px);
+      box-shadow:0 12px 28px rgba(47,163,107,.35);
+    }
+    .modal-btn:disabled{
+      opacity:.6;
+      cursor:not-allowed;
+      transform:none;
+    }
+    .modal-msg{
+      font-size:13px;
+      min-height:18px;
+      margin-top:10px;
+      text-align:center;
+    }
+    .modal-msg.error{ color:#c0392b; }
+    .modal-msg.ok{ color:var(--verde); }
+    .modal-legal{
+      font-size:11px;
+      color:#6d788a;
+      margin-top:12px;
+      text-align:center;
+      line-height:1.4;
+    }
+
     /* Footer institucional */
     .footer{
       width:100%;
@@ -202,10 +378,19 @@
     .footeropyright{ margin-top:18px; font-size:11px; color:#999; }
 
     /* Responsividade */
+    @media (max-width:860px){
+      .content-grid{
+        grid-template-columns:1fr;
+      }
+      .cta-box{
+        margin-top:20px;
+      }
+    }
     @media (max-width:540px){
       .container{ margin-top:16px; border-radius:12px; padding:18px 14px; }
       .intro{ padding:0; }
       .credits{ padding:14px 12px; }
+      .modal-panel{ padding:22px 18px; }
     }
   </style>
 </head>
@@ -226,15 +411,29 @@
       Esta masterclass apresenta uma visão prática e direta sobre como estruturar, mapear e otimizar processos na área da saúde, com foco em eficiência operacional e segurança assistencial. Um conteúdo especialmente relevante para médicos, enfermeiros e gestores interessados em melhorar a performance das unidades de saúde.
     </p>
 
-    <!-- Player do YouTube -->
-    <div class="video-wrapper">
-      <iframe
-        src="https://www.youtube.com/embed/UmBskQ9l7f4?si=rvkU_Sml05SlT77v"
-        title="YouTube video player"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        referrerpolicy="strict-origin-when-cross-origin"
-        allowfullscreen>
-      </iframe>
+    <!-- Layout: Vídeo + Box Lateral -->
+    <div class="content-grid">
+      <!-- Vídeo -->
+      <div class="video-section">
+        <div class="video-wrapper">
+          <iframe
+            src="https://www.youtube.com/embed/UmBskQ9l7f4?si=rvkU_Sml05SlT77v"
+            title="YouTube video player"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+
+      <!-- Box lateral CTA -->
+      <aside class="cta-box">
+        <p><strong>Sabia que um dos lugares mais eficientes para começar a organizar processos é na forma como fazemos reuniões?</strong></p>
+        <p>Com a IA cada vez mais poderosa, o impacto real não está no "que ela faz", mas no <strong>como alimentamos esse sistema</strong>: dados padronizados, sequência lógica e um método claro de condução.</p>
+        <p>Foi isso que eu estruturei — e, na prática, economizo horas todas as semanas.</p>
+        <p>Se quiser ver exatamente como eu faço, <span class="cta-link" id="openCtaModal">clique aqui</span>.</p>
+        <p>É conteúdo prático, do jeito que a gente realmente usa no dia a dia.</p>
+      </aside>
     </div>
 
     <!-- Créditos -->
@@ -252,6 +451,30 @@
       Aviso: Nesta página, a MedValor atua exclusivamente como curadora de conteúdos públicos de referência. Este vídeo é de autoria da FM2S Educação e Consultoria e está disponível gratuitamente em seu canal oficial no YouTube. A MedValor não tem vínculo comercial com a produtora do conteúdo. A seleção foi realizada por sua relevância para profissionais da saúde interessados em gestão por processos.
     </p>
   </main>
+
+  <!-- Modal Overlay -->
+  <div class="modal-overlay" id="modalOverlay"></div>
+
+  <!-- Modal CTA -->
+  <div class="modal" id="ctaModal" role="dialog" aria-modal="true" aria-labelledby="ctaModalTitle">
+    <div class="modal-panel">
+      <button class="modal-close" id="closeModal" aria-label="Fechar">&times;</button>
+      <img src="https://i.imgur.com/NQYipnw.png" alt="MedValor" class="modal-logo" />
+      <h2 id="ctaModalTitle">Ver o método na prática</h2>
+      <p>Preencha abaixo para acessar o conteúdo exclusivo sobre como aplico esse método no dia a dia.</p>
+      <form id="ctaForm" novalidate>
+        <label for="ctaName">Seu nome</label>
+        <input type="text" id="ctaName" name="name" placeholder="Como podemos te chamar?" autocomplete="name" required />
+        <label for="ctaProfession">Sua profissão</label>
+        <input type="text" id="ctaProfession" name="profession" placeholder="Ex: Médico, Enfermeiro, Gestor..." autocomplete="organization-title" required />
+        <!-- Honeypot -->
+        <input type="text" name="website" id="ctaHoneypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;height:0;width:0;opacity:0" />
+        <button type="submit" class="modal-btn" id="ctaSubmitBtn">Ver o vídeo aplicando a prática</button>
+        <div class="modal-msg" id="ctaMsg" role="status" aria-live="polite"></div>
+        <p class="modal-legal">Ao continuar, você autoriza o uso dos dados para entregar este conteúdo e comunicações relacionadas.</p>
+      </form>
+    </div>
+  </div>
 
   <footer class="footer">
     <div class="wrap">
@@ -280,5 +503,158 @@
     </div>
   </footer>
 
+<script>
+(function(){
+  'use strict';
+
+  // ====== CONFIGURAÇÃO ======
+  const WEBHOOK_URL = 'https://hook.us2.make.com/wv7igcf7f1b2guv3bal4h8xjkcfeykx8';
+  const REDIRECT_URL = 'https://hub.guithome.com.br/medvalor/cta_radar.html';
+  const CAMPAIGN_CODE = 'CTA-RADAR-12-25';
+  const CAMPAIGN_TAG = 'MedValor_CTA_Ir_Alem';
+  const TIMEOUT_MS = 4000;
+
+  // ====== ELEMENTOS ======
+  const openBtn = document.getElementById('openCtaModal');
+  const modalOverlay = document.getElementById('modalOverlay');
+  const modal = document.getElementById('ctaModal');
+  const closeBtn = document.getElementById('closeModal');
+  const form = document.getElementById('ctaForm');
+  const nameInput = document.getElementById('ctaName');
+  const professionInput = document.getElementById('ctaProfession');
+  const honeypot = document.getElementById('ctaHoneypot');
+  const submitBtn = document.getElementById('ctaSubmitBtn');
+  const msg = document.getElementById('ctaMsg');
+
+  // ====== FUNÇÕES DO MODAL ======
+  function openModal(){
+    document.body.classList.add('modal-open');
+    modalOverlay.classList.add('show');
+    modal.classList.add('show');
+    setTimeout(() => nameInput.focus(), 100);
+  }
+
+  function closeModal(){
+    document.body.classList.remove('modal-open');
+    modalOverlay.classList.remove('show');
+    modal.classList.remove('show');
+    form.reset();
+    setStatus('', '');
+  }
+
+  // ====== EVENT LISTENERS ======
+  openBtn.addEventListener('click', openModal);
+  closeBtn.addEventListener('click', closeModal);
+  modalOverlay.addEventListener('click', closeModal);
+
+  // Fechar com ESC
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && modal.classList.contains('show')){
+      closeModal();
+    }
+  });
+
+  // Trap de foco
+  modal.addEventListener('keydown', function(e){
+    if(e.key !== 'Tab') return;
+    const focusables = modal.querySelectorAll('button, input:not([tabindex="-1"]), [href]');
+    const first = focusables[0];
+    const last = focusables[focusables.length - 1];
+    if(!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
+    else if(e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
+  });
+
+  // ====== UTILIDADES ======
+  function setStatus(text, type){
+    msg.textContent = text || '';
+    msg.className = 'modal-msg' + (type ? ' ' + type : '');
+  }
+
+  function disableForm(disabled){
+    submitBtn.disabled = disabled;
+    nameInput.disabled = disabled;
+    professionInput.disabled = disabled;
+  }
+
+  function saveLocal(name, profession){
+    try{
+      localStorage.setItem('mv_cta_name', name);
+      localStorage.setItem('mv_cta_profession', profession);
+    }catch(_){}
+  }
+
+  function redirect(){
+    setStatus('Abrindo conteúdo...', 'ok');
+    setTimeout(() => { location.assign(REDIRECT_URL); }, 300);
+  }
+
+  // ====== ENVIO DO FORMULÁRIO ======
+  form.addEventListener('submit', async function(e){
+    e.preventDefault();
+
+    // Anti-bot
+    if(honeypot.value) return;
+
+    const name = (nameInput.value || '').trim();
+    const profession = (professionInput.value || '').trim();
+
+    // Validação
+    if(!name || name.length < 2){
+      setStatus('Por favor, informe seu nome.', 'error');
+      nameInput.focus();
+      return;
+    }
+    if(!profession || profession.length < 2){
+      setStatus('Por favor, informe sua profissão.', 'error');
+      professionInput.focus();
+      return;
+    }
+
+    disableForm(true);
+    setStatus('Enviando...', '');
+
+    // Recupera email do localStorage se disponível
+    const savedEmail = localStorage.getItem('mv_email') || null;
+
+    const now = new Date();
+    const payload = {
+      name: name,
+      profession: profession,
+      email: savedEmail,
+      ts: now.toISOString(),
+      data_hora: now.toLocaleString('sv-SE', { timeZone: 'America/Sao_Paulo', hour12: false }),
+      source: 'masterclass_cta',
+      campaign: CAMPAIGN_TAG,
+      campaign_code: CAMPAIGN_CODE,
+      page: location.href,
+      referrer: document.referrer || null,
+      utm: Object.fromEntries(new URLSearchParams(location.search)),
+      context: { brand: 'MedValor', action: 'ir_alem' }
+    };
+
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), TIMEOUT_MS);
+
+    try{
+      const res = await fetch(WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+        signal: controller.signal,
+        keepalive: true
+      });
+      clearTimeout(timeout);
+
+      saveLocal(name, profession);
+      redirect();
+    }catch(_){
+      // Em caso de erro, ainda redireciona
+      saveLocal(name, profession);
+      redirect();
+    }
+  });
+
+})();
+</script>
 </body>
 </html>
