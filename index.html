@@ -201,6 +201,10 @@
         text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
     }
 
+    .hero a:hover img {
+        transform: scale(1.05);
+    }
+
     .stats {
         max-width: 600px;
         margin: 0 auto 30px;
@@ -871,7 +875,9 @@
             <img src="https://i.imgur.com/IdefdhS.png" alt="Logo Guilherme Thomé" class="hero-logo">
             <div class="hero-hub">Hub</div>
             <p class="hero-subtitle">Repositório Central de Documentos e Ferramentas</p>
-            <img src="marca_csv_neg.png" alt="Logo Grupo CSV" style="width: 400px; max-width: 80%; margin-top: 20px; filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.15));">
+            <a href="https://grupocsv.com" target="_blank" rel="noopener noreferrer" aria-label="Visitar Grupo CSV">
+                <img src="marca_csv_neg.png" alt="Logo Grupo CSV" style="width: 400px; max-width: 80%; margin-top: 20px; filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.15)); cursor: pointer; transition: transform 0.3s ease;">
+            </a>
         </header>
 
         <section class="stats" aria-label="Estatísticas do hub">
