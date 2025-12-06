@@ -155,6 +155,26 @@
     .cta-link:hover{
       color:var(--verde);
     }
+    .cta-btn{
+      display:block;
+      width:100%;
+      margin-top:16px;
+      padding:14px 18px;
+      border:none;
+      border-radius:10px;
+      background:linear-gradient(180deg, var(--verde), var(--verde-escuro));
+      color:#fff;
+      font-weight:700;
+      font-size:14px;
+      text-align:center;
+      cursor:pointer;
+      box-shadow:0 6px 16px rgba(47,163,107,.25);
+      transition:transform .15s ease, box-shadow .15s ease;
+    }
+    .cta-btn:hover{
+      transform:translateY(-2px);
+      box-shadow:0 10px 24px rgba(47,163,107,.35);
+    }
 
     /* Créditos */
     .credits{
@@ -162,7 +182,7 @@
       border:1px solid var(--borda);
       border-radius:10px;
       padding:16px;
-      margin:24px 0 0;
+      margin:20px 0 0;
     }
     .credits-title{
       font-size:14px;
@@ -413,7 +433,7 @@
 
     <!-- Layout: Vídeo + Box Lateral -->
     <div class="content-grid">
-      <!-- Vídeo -->
+      <!-- Vídeo + Créditos -->
       <div class="video-section">
         <div class="video-wrapper">
           <iframe
@@ -424,6 +444,16 @@
             allowfullscreen>
           </iframe>
         </div>
+        <!-- Créditos -->
+        <div class="credits">
+          <p class="credits-title">Sobre o conteúdo</p>
+          <p><strong>Autor:</strong> <a href="https://www.youtube.com/@fm2seducacaoeconsultoria" target="_blank" rel="noopener">FM2S Educação e Consultoria</a></p>
+          <p><strong>Disponibilidade:</strong> Este vídeo está disponível gratuitamente no YouTube.</p>
+          <a class="yt-link" href="https://www.youtube.com/watch?v=UmBskQ9l7f4" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            Assistir diretamente no YouTube
+          </a>
+        </div>
       </div>
 
       <!-- Box lateral CTA -->
@@ -433,18 +463,8 @@
         <p>Foi isso que eu estruturei — e, na prática, economizo horas todas as semanas.</p>
         <p>Se quiser ver exatamente como eu faço, <span class="cta-link" id="openCtaModal">clique aqui</span>.</p>
         <p>É conteúdo prático, do jeito que a gente realmente usa no dia a dia.</p>
+        <button type="button" class="cta-btn" id="openCtaModalBtn">Ver como eu faço na prática</button>
       </aside>
-    </div>
-
-    <!-- Créditos -->
-    <div class="credits">
-      <p class="credits-title">Sobre o conteúdo</p>
-      <p><strong>Autor:</strong> <a href="https://www.youtube.com/@fm2seducacaoeconsultoria" target="_blank" rel="noopener">FM2S Educação e Consultoria</a></p>
-      <p><strong>Disponibilidade:</strong> Este vídeo está disponível gratuitamente no YouTube.</p>
-      <a class="yt-link" href="https://www.youtube.com/watch?v=UmBskQ9l7f4" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-        Assistir diretamente no YouTube
-      </a>
     </div>
 
     <p class="disclosure">
@@ -543,7 +563,9 @@
   }
 
   // ====== EVENT LISTENERS ======
+  const openBtnAlt = document.getElementById('openCtaModalBtn');
   openBtn.addEventListener('click', openModal);
+  openBtnAlt.addEventListener('click', openModal);
   closeBtn.addEventListener('click', closeModal);
   modalOverlay.addEventListener('click', closeModal);
 
