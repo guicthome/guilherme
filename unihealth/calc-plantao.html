@@ -12,11 +12,9 @@
   <meta name="description" content="Sistema profissional de análise preditiva orçamentária de plantões médicos com modelagem estatística de variabilidade.">
   <meta name="theme-color" content="#196396">
 
-  <!-- OG_icds -->
   <meta property="og:title" content="Calculadora Variabilidade Plantões | AxiaCare®">
   <meta property="og:description" content="Sistema profissional de análise preditiva orçamentária de plantões médicos com modelagem estatística de variabilidade.">
   <meta property="og:type" content="website">
-  <meta property="og:site_name" content="OG_icds">
   <meta property="og:locale" content="pt_BR">
 
   <link rel="icon" href="https://axcare.com.br/favicon.ico">
@@ -60,7 +58,7 @@
       --text-secondary: #475569;
       --text-tertiary: #64748b;
       --border-color: #e2e8f0;
-      
+
       --transition-fast: 150ms ease;
       --transition-normal: 250ms ease;
     }
@@ -80,7 +78,6 @@
       --text-tertiary: #94a3b8;
       --border-color: #334155;
 
-      /* Cores melhoradas para acessibilidade em dark mode */
       --ax-ok: #34d399;
       --ax-ok-light: #6ee7b7;
       --ax-warn: #f87171;
@@ -113,6 +110,7 @@
       -webkit-tap-highlight-color: transparent;
     }
 
+    /* Header */
     .hero {
       position: sticky;
       top: 0;
@@ -201,26 +199,19 @@
       -webkit-tap-highlight-color: transparent;
     }
 
-    @media (max-width: 768px) {
-      .theme-toggle {
-        width: 44px;
-        height: 44px;
-        min-width: 44px;
-        min-height: 44px;
-      }
-    }
-
     .theme-toggle:hover {
       background: var(--bg-tertiary);
       transform: scale(1.05);
     }
 
+    /* Container */
     .container {
       max-width: 1400px;
       margin: 0 auto;
       padding: 24px;
     }
 
+    /* Card */
     .card {
       background: var(--bg-primary);
       border: 1px solid var(--border-color);
@@ -244,12 +235,6 @@
       gap: 12px;
     }
 
-    .card-header > div {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
     .card-title {
       font-size: 20px;
       font-weight: 800;
@@ -260,7 +245,7 @@
       padding: 24px;
     }
 
-    /* Introdução */
+    /* Intro Section */
     .intro-section {
       background: linear-gradient(135deg, var(--bg-tertiary) 0%, var(--bg-secondary) 100%);
       padding: 28px;
@@ -416,7 +401,7 @@
       }
     }
 
-    /* Indexador */
+    /* Input Section (Indexador Style) */
     .indexador-section {
       background: linear-gradient(135deg, var(--ax-primary) 0%, var(--ax-primary-dark) 100%);
       padding: 28px;
@@ -505,484 +490,169 @@
       box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.2);
     }
 
-    .indexador-actions {
-      display: flex;
-      gap: 10px;
-      margin-top: 16px;
-      justify-content: flex-end;
+    /* Period Section */
+    .period-section {
+      background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+      padding: 28px;
+      border-radius: 0;
     }
 
-    .btn-light {
-      background: rgba(255, 255, 255, 0.2);
-      color: white;
-      border: 2px solid rgba(255, 255, 255, 0.3);
-      padding: 10px 20px;
-      border-radius: 10px;
-      font-weight: 700;
+    .period-title {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+    }
+
+    .period-subtitle {
       font-size: 13px;
-      cursor: pointer;
-      transition: all var(--transition-fast);
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .btn-light:hover {
-      background: rgba(255, 255, 255, 0.3);
-      border-color: rgba(255, 255, 255, 0.5);
-      transform: translateY(-1px);
-    }
-
-    /* Especialidades */
-    .especialidades-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-      gap: 20px;
-    }
-
-    .esp-card {
-      background: var(--bg-secondary);
-      border: 2px solid var(--border-color);
-      border-radius: 16px;
-      padding: 20px;
-      transition: all var(--transition-normal);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .esp-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 4px;
-      height: 100%;
-      background: var(--esp-color);
-      transition: width var(--transition-fast);
-    }
-
-    .esp-card:hover {
-      border-color: var(--esp-color);
-      transform: translateY(-2px);
-      box-shadow: var(--ax-shadow);
-    }
-
-    .esp-card:hover::before {
-      width: 8px;
-    }
-
-    .esp-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      color: var(--text-secondary);
       margin-bottom: 20px;
     }
 
-    .esp-title {
-      font-size: 16px;
-      font-weight: 800;
-      color: var(--esp-color);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .esp-badge {
-      display: inline-block;
-      padding: 3px 8px;
-      background: var(--esp-color);
-      color: white;
-      border-radius: 6px;
-      font-size: 9px;
-      font-weight: 600;
-      letter-spacing: 0.03em;
-      opacity: 0.85;
-    }
-
-    .toggle-switch {
-      position: relative;
-      width: 52px;
-      height: 28px;
-      min-width: 52px;
-      min-height: 28px;
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    @media (max-width: 768px) {
-      .toggle-switch {
-        width: 56px;
-        height: 32px;
-        min-width: 56px;
-        min-height: 32px;
-      }
-
-      .toggle-slider::before {
-        height: 24px;
-        width: 24px;
-      }
-
-      .toggle-switch input:checked + .toggle-slider::before {
-        transform: translateX(24px);
-      }
-    }
-
-    .toggle-switch input {
-      opacity: 0;
-      width: 0;
-      height: 0;
-    }
-
-    .toggle-slider {
-      position: absolute;
-      cursor: pointer;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: var(--border-color);
-      border-radius: 28px;
-      transition: var(--transition-normal);
-    }
-
-    .toggle-slider::before {
-      position: absolute;
-      content: "";
-      height: 20px;
-      width: 20px;
-      left: 4px;
-      bottom: 4px;
-      background: white;
-      border-radius: 50%;
-      transition: var(--transition-normal);
-      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-    }
-
-    .toggle-switch input:checked + .toggle-slider {
-      background: var(--esp-color);
-    }
-
-    .toggle-switch input:checked + .toggle-slider::before {
-      transform: translateX(24px);
-    }
-
-    .esp-fields {
+    .period-grid {
       display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 16px;
     }
 
-    .field-group {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
+    .period-field {
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(25, 99, 150, 0.2);
+      border-radius: 12px;
+      padding: 16px;
     }
 
-    .field-label {
-      font-size: 13px;
+    .period-field.highlight {
+      background: rgba(255, 255, 255, 0.95);
+      border: 2px solid var(--ax-primary);
+    }
+
+    .period-label {
+      font-size: 12px;
       font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
       color: var(--text-primary);
     }
 
-    .field-hint {
-      font-size: 12px;
-      color: var(--text-tertiary);
-      line-height: 1.4;
-    }
-
-    .input-field {
-      flex: 1;
-      padding: 12px 14px;
+    .period-select {
+      width: 100%;
+      padding: 12px 36px 12px 14px;
       border: 2px solid var(--border-color);
       border-radius: 10px;
       font-size: 14px;
       font-weight: 500;
       color: var(--text-primary);
       background: var(--bg-primary);
-      transition: all var(--transition-fast);
-      font-family: inherit;
-    }
-
-    .input-field:focus {
-      outline: none;
-      border-color: var(--ax-primary);
-      box-shadow: 0 0 0 4px rgba(25, 99, 150, 0.1);
-    }
-
-    .input-field:disabled,
-    .input-field[readonly] {
-      background: var(--bg-tertiary);
-      cursor: not-allowed;
-      opacity: 0.7;
-    }
-
-    select.input-field {
       cursor: pointer;
       appearance: none;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23475569' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+      background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'12\' height=\'12\' viewBox=\'0 0 12 12\'%3E%3Cpath fill=\'%23475569\' d=\'M6 9L1 4h10z\'/%3E%3C/svg%3E');
       background-repeat: no-repeat;
       background-position: right 12px center;
-      padding-right: 36px;
-    }
-
-    /* Campo customizado para "Outra" */
-    .custom-name-field {
-      display: none;
-      margin-top: 12px;
-    }
-
-    .custom-name-field.active {
-      display: block;
-    }
-
-    /* Controle Numérico */
-    .number-control {
-      display: flex;
-      align-items: stretch;
-      background: var(--bg-primary);
-      border: 2px solid var(--border-color);
-      border-radius: 10px;
-      overflow: hidden;
-    }
-
-    .number-btn {
-      width: 40px;
-      border: none;
-      background: var(--bg-tertiary);
-      color: var(--text-primary);
-      font-size: 18px;
-      font-weight: 700;
-      cursor: pointer;
       transition: all var(--transition-fast);
     }
 
-    .number-btn:hover {
-      background: var(--border-color);
-    }
-
-    .number-btn:active {
-      transform: scale(0.95);
-    }
-
-    .number-input {
-      flex: 1;
-      border: none;
-      border-left: 2px solid var(--border-color);
-      border-right: 2px solid var(--border-color);
-      text-align: center;
-      font-size: 16px;
-      font-weight: 700;
-      color: var(--text-primary);
-      background: var(--bg-primary);
-      padding: 12px;
-    }
-
-    .number-input:focus {
+    .period-select:focus {
       outline: none;
-      background: var(--bg-tertiary);
+      border-color: var(--ax-primary);
     }
 
-    .number-input.error,
-    .indexador-input.error,
-    input.error {
-      border-color: var(--ax-warn) !important;
-      background: rgba(185, 28, 28, 0.05) !important;
-    }
-
-    .error-message {
-      color: var(--ax-warn);
-      font-size: 12px;
-      margin-top: 6px;
-      display: none;
-      animation: fadeIn 0.2s ease;
-    }
-
-    .error-message.show {
-      display: block;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-4px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .budget-display {
-      background: linear-gradient(135deg, var(--esp-color) 0%, var(--esp-color-dark, var(--esp-color)) 100%);
-      color: white;
-      padding: 16px;
-      border-radius: 12px;
-      text-align: center;
-      margin-top: 12px;
-    }
-
-    .budget-label {
-      font-size: 12px;
-      font-weight: 600;
-      opacity: 0.9;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    .budget-value {
-      font-size: 24px;
+    .period-value {
+      font-size: 32px;
       font-weight: 900;
-      margin-top: 4px;
+      color: var(--ax-primary);
+      text-align: center;
+      padding: 8px 0;
     }
 
-    .budget-detail {
-      font-size: 11px;
-      opacity: 0.85;
-      margin-top: 6px;
-    }
-
-    /* Análise Estatística */
+    /* Stats Grid */
     .stats-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-      margin-bottom: 24px;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-bottom: 20px;
     }
 
     .stat-card {
-      background: var(--bg-secondary);
-      border: 2px solid var(--border-color);
-      border-radius: 14px;
-      padding: 24px;
-      transition: all var(--transition-fast);
+      background: linear-gradient(135deg, var(--bg-tertiary) 0%, var(--bg-secondary) 100%);
+      padding: 20px;
+      border-radius: 12px;
+      border-left: 4px solid var(--ax-primary);
     }
 
-    .stat-card:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--ax-shadow);
-      border-color: var(--ax-primary);
+    .stat-card.max {
+      border-left-color: var(--ax-warn-light);
     }
 
-    .stat-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: 16px;
+    .stat-card.min {
+      border-left-color: var(--ax-ok-light);
     }
 
     .stat-label {
-      font-size: 13px;
-      font-weight: 700;
+      font-size: 12px;
+      font-weight: 600;
       color: var(--text-tertiary);
       text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    .stat-period {
-      font-size: 11px;
-      font-weight: 700;
-      padding: 4px 8px;
-      background: var(--bg-tertiary);
-      border-radius: 6px;
-      color: var(--text-secondary);
-    }
-
-    .stat-value {
-      font-size: 32px;
-      font-weight: 900;
-      color: var(--text-primary);
+      letter-spacing: 0.5px;
       margin-bottom: 8px;
     }
 
-    .stat-description {
-      font-size: 12px;
-      color: var(--text-secondary);
-      line-height: 1.5;
+    .stat-value {
+      font-size: 24px;
+      font-weight: 900;
+      color: var(--ax-primary);
     }
 
-    .stat-alert {
-      margin-top: 12px;
-      padding: 10px;
-      background: var(--ax-warn-light);
-      color: white;
-      border-radius: 8px;
-      font-size: 12px;
-      font-weight: 600;
-      text-align: center;
+    .stat-card.max .stat-value {
+      color: var(--ax-warn-light);
     }
 
-    /* Tabela */
+    .stat-card.min .stat-value {
+      color: var(--ax-ok-light);
+    }
+
+    /* Chart */
+    .chart-container {
+      position: relative;
+      height: 400px;
+      margin: 20px 0;
+    }
+
+    /* Table */
     .table-container {
       overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      border-radius: 12px;
+      border-radius: 8px;
       border: 1px solid var(--border-color);
-      max-width: 100%;
     }
 
-    @media (max-width: 768px) {
-      .table-container {
-        margin: 0 -16px;
-        border-radius: 0;
-        border-left: none;
-        border-right: none;
-      }
-    }
-
-    .data-table {
+    table {
       width: 100%;
-      border-collapse: separate;
-      border-spacing: 0;
-    }
-
-    .data-table thead th {
-      position: sticky;
-      top: 0;
-      background: var(--bg-secondary);
-      color: var(--text-primary);
-      font-size: 12px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      padding: 16px 12px;
-      text-align: left;
-      border-bottom: 2px solid var(--border-color);
-      white-space: nowrap;
-      z-index: 10;
-    }
-
-    .data-table thead th.numeric {
-      text-align: right;
-    }
-
-    .data-table tbody td {
-      padding: 14px 12px;
-      border-bottom: 1px solid var(--border-color);
+      border-collapse: collapse;
       font-size: 14px;
-      color: var(--text-primary);
-      transition: background var(--transition-fast);
     }
 
-    .data-table tbody tr:hover {
-      background: var(--bg-tertiary);
+    thead {
+      background: linear-gradient(135deg, var(--ax-primary) 0%, var(--ax-primary-dark) 100%);
+      color: white;
     }
 
-    .data-table tbody tr:last-child td {
-      border-bottom: none;
-    }
-
-    /* Sticky primeira coluna (Mês) para melhor navegação em mobile */
-    .data-table thead th:first-child {
-      position: sticky;
-      left: 0;
-      z-index: 20;
-      background: var(--bg-secondary);
-      box-shadow: 2px 0 4px rgba(0, 0, 0, 0.08);
-    }
-
-    .data-table tbody td:first-child {
-      position: sticky;
-      left: 0;
-      background: var(--bg-primary);
+    th {
+      padding: 12px;
+      text-align: left;
       font-weight: 700;
-      color: var(--text-primary);
-      z-index: 5;
-      box-shadow: 2px 0 4px rgba(0, 0, 0, 0.08);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
 
-    .data-table tbody tr:hover td:first-child {
+    td {
+      padding: 12px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    tbody tr:hover {
       background: var(--bg-tertiary);
     }
 
@@ -991,178 +661,54 @@
       font-variant-numeric: tabular-nums;
     }
 
-    .month-cell {
-      font-weight: 700;
-      color: var(--text-primary);
+    .highlight-max {
+      background: rgba(239, 68, 68, 0.1);
+      font-weight: 600;
+      color: var(--ax-warn-light);
     }
 
-    .value-positive {
-      color: var(--ax-warn);
-      font-weight: 700;
-    }
-
-    .value-negative {
-      color: var(--ax-ok);
-      font-weight: 700;
-    }
-
-    .value-neutral {
-      color: var(--text-tertiary);
-    }
-
-    .holidays-cell {
-      font-size: 13px;
-      color: var(--text-secondary);
-    }
-
-    /* Botões */
-    .button-group {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      padding: 12px 24px;
-      border-radius: 12px;
-      font-size: 14px;
-      font-weight: 700;
-      cursor: pointer;
-      border: 2px solid transparent;
-      transition: all var(--transition-fast);
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      text-decoration: none;
-      white-space: nowrap;
-    }
-
-    .btn:active {
-      transform: scale(0.97);
-    }
-
-    .btn-primary {
-      background: var(--ax-primary);
-      color: white;
-      border-color: var(--ax-primary);
-    }
-
-    .btn-primary:hover {
-      background: var(--ax-primary-light);
-      box-shadow: 0 8px 20px rgba(25, 99, 150, 0.3);
-    }
-
-    .btn-primary.btn-simulator {
-      background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%);
-      border-color: #8b5cf6;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .btn-primary.btn-simulator::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-      transition: left 0.5s;
-    }
-
-    .btn-primary.btn-simulator:hover::before {
-      left: 100%;
-    }
-
-    .btn-primary.btn-simulator:hover {
-      background: linear-gradient(135deg, #9f7aea 0%, #7c3aed 100%);
-      box-shadow: 0 8px 20px rgba(139, 92, 246, 0.4);
-    }
-
-    .btn-secondary {
-      background: var(--bg-secondary);
-      color: var(--text-primary);
-      border-color: var(--border-color);
-    }
-
-    .btn-secondary:hover {
-      background: var(--bg-tertiary);
-      box-shadow: var(--ax-shadow);
-    }
-
-    /* Gráficos */
-    .chart-container {
-      position: relative;
-      height: 450px;
-      width: 100%;
-    }
-
-    @media (max-width: 768px) {
-      .chart-container {
-        height: 320px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .chart-container {
-        height: 280px;
-      }
+    .highlight-min {
+      background: rgba(16, 185, 129, 0.1);
+      font-weight: 600;
+      color: var(--ax-ok-light);
     }
 
     /* Tabs */
     .tabs {
       display: flex;
-      gap: 8px;
+      border-bottom: 2px solid var(--border-color);
       padding: 0 24px;
-      overflow-x: auto;
-      scrollbar-width: thin;
     }
 
     .tab {
-      padding: 12px 20px;
+      padding: 16px 24px;
+      background: none;
       border: none;
-      background: transparent;
-      color: var(--text-secondary);
       font-size: 14px;
-      font-weight: 600;
+      font-weight: 700;
+      color: var(--text-tertiary);
       cursor: pointer;
-      border-bottom: 3px solid transparent;
+      position: relative;
       transition: all var(--transition-fast);
-      white-space: nowrap;
     }
 
     .tab:hover {
-      color: var(--text-primary);
-      background: var(--bg-tertiary);
+      color: var(--ax-primary);
     }
 
     .tab.active {
       color: var(--ax-primary);
-      border-bottom-color: var(--ax-primary);
     }
 
-    .tab.tab-chart {
-      position: relative;
-      background: linear-gradient(to bottom, transparent 0%, rgba(139, 92, 246, 0.05) 100%);
-    }
-
-    .tab.tab-chart:hover {
-      background: linear-gradient(to bottom, rgba(139, 92, 246, 0.05) 0%, rgba(139, 92, 246, 0.1) 100%);
-    }
-
-    .tab.tab-chart.active {
-      background: linear-gradient(to bottom, rgba(25, 99, 150, 0.05) 0%, rgba(25, 99, 150, 0.08) 100%);
-    }
-
-    .tab.tab-chart::after {
-      content: '📊';
-      margin-left: 6px;
-      font-size: 14px;
-      transition: transform var(--transition-fast);
-    }
-
-    .tab.tab-chart:hover::after {
-      transform: scale(1.15);
+    .tab.active::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: var(--ax-primary);
+      border-radius: 3px 3px 0 0;
     }
 
     .tab-content {
@@ -1171,6 +717,27 @@
 
     .tab-content.active {
       display: block;
+    }
+
+    /* Buttons */
+    .btn-primary {
+      background: var(--ax-primary);
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all var(--transition-fast);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-primary:hover {
+      background: var(--ax-primary-light);
+      transform: translateY(-1px);
     }
 
     /* Footer */
@@ -1182,17 +749,20 @@
       font-family: Verdana, sans-serif;
       border-top: 2px solid #006b68;
     }
+
     .footer-logo {
       width: 140px;
       margin: 0 auto 10px auto;
       display: block;
     }
+
     .footer-title {
       font-size: 15px;
       font-weight: bold;
       color: #333;
       margin: 10px 0 18px;
     }
+
     .footer-links,
     .footer-social {
       display: flex;
@@ -1202,6 +772,7 @@
       font-size: 14px;
       margin-bottom: 10px;
     }
+
     .footer-links a,
     .footer-social a {
       color: #004E4C;
@@ -1209,65 +780,31 @@
       position: relative;
       padding: 0 4px;
     }
+
     .footer-links a:hover,
     .footer-social a:hover {
       color: #002c2a;
       text-decoration: underline;
     }
+
     .footer .separator {
       color: #bbb;
       margin: 0 4px;
     }
+
     .footer-copyright {
       margin-top: 18px;
       font-size: 11px;
       color: #999;
     }
 
-    /* Toast */
-    .toast-container {
-      position: fixed;
-      top: 80px;
-      right: 24px;
-      z-index: 9999;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      max-width: 400px;
+    /* Hidden */
+    #results {
+      display: none;
     }
 
-    .toast {
-      background: var(--bg-primary);
-      border: 2px solid var(--border-color);
-      border-radius: 12px;
-      padding: 16px 20px;
-      box-shadow: var(--ax-shadow-lg);
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      animation: slideInRight 0.3s ease;
-    }
-
-    .toast.success {
-      border-color: var(--ax-ok-light);
-    }
-
-    .toast-message {
-      flex: 1;
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--text-primary);
-    }
-
-    @keyframes slideInRight {
-      from {
-        transform: translateX(100%);
-        opacity: 0;
-      }
-      to {
-        transform: translateX(0);
-        opacity: 1;
-      }
+    #results.active {
+      display: block;
     }
 
     /* Responsive */
@@ -1282,202 +819,40 @@
       .hero-actions {
         justify-content: center;
       }
-
-      .especialidades-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .stats-grid {
-        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      }
     }
 
     @media (max-width: 768px) {
+      .hero-title h1 {
+        font-size: 22px;
+      }
+
       .container {
         padding: 16px;
       }
 
-      .card-header,
-      .card-body {
-        padding: 16px;
-      }
-
-      .hero-title h1 {
-        font-size: 20px;
-      }
-
-      .hero-subtitle {
-        font-size: 13px;
-      }
-
-      .button-group {
-        width: 100%;
-      }
-
-      .btn {
-        flex: 1;
-        justify-content: center;
-        font-size: 13px;
-        padding: 10px 16px;
-      }
-
-      .toast-container {
-        right: 12px;
-        left: 12px;
-        max-width: none;
-        top: 70px;
-      }
-
-      .intro-header {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .intro-title {
-        font-size: 16px;
-        text-align: center;
-      }
-
-      .btn-info {
-        width: 100%;
-      }
-
-      .indexador-grid {
+      .indexador-grid,
+      .period-grid {
         grid-template-columns: 1fr;
-      }
-
-      .indexador-section {
-        padding: 20px;
-      }
-
-      .modal-content {
-        width: 95%;
-        max-height: 85vh;
-      }
-
-      .modal-header,
-      .modal-body {
-        padding: 16px;
-      }
-
-      .modal-title {
-        font-size: 18px;
-      }
-
-      .tabs {
-        padding: 0 16px;
-        gap: 4px;
-      }
-
-      .tab {
-        font-size: 13px;
-        padding: 10px 14px;
-      }
-
-      .table-container {
-        font-size: 12px;
-      }
-
-      .data-table thead th {
-        padding: 12px 8px;
-        font-size: 10px;
-      }
-
-      .data-table tbody td {
-        padding: 10px 8px;
-        font-size: 12px;
-      }
-
-      .stat-card {
-        padding: 16px;
-      }
-
-      .stat-value {
-        font-size: 28px;
-      }
-
-      .card-title {
-        font-size: 18px;
-      }
-
-      .esp-card {
-        padding: 16px;
-      }
-
-      .number-control {
-        touch-action: manipulation;
-      }
-
-      .number-btn {
-        min-width: 44px;
-        min-height: 44px;
-        font-size: 20px;
-      }
-
-      .number-input {
-        min-height: 44px;
-        font-size: 16px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .hero-title h1 {
-        font-size: 18px;
-      }
-
-      .hero-subtitle {
-        font-size: 12px;
-      }
-
-      .brand-logo {
-        height: 40px;
-      }
-
-      .intro-text {
-        font-size: 13px;
-      }
-
-      .indexador-title {
-        font-size: 16px;
-      }
-
-      .indexador-subtitle {
-        font-size: 12px;
-      }
-
-      .card-title {
-        font-size: 16px;
-      }
-
-      .especialidades-grid {
-        gap: 16px;
       }
 
       .stats-grid {
         grid-template-columns: 1fr;
       }
 
-      .table-container {
-        border-radius: 8px;
+      .theme-toggle {
+        width: 44px;
+        height: 44px;
+        min-width: 44px;
+        min-height: 44px;
       }
 
-      .data-table {
-        font-size: 11px;
+      .tabs {
+        padding: 0 12px;
       }
 
-      .data-table thead th {
-        padding: 10px 6px;
-        font-size: 9px;
-      }
-
-      .data-table tbody td {
-        padding: 8px 6px;
-        font-size: 11px;
-      }
-
-      .modal-content {
-        width: 98%;
-        max-height: 90vh;
+      .tab {
+        padding: 12px 16px;
+        font-size: 12px;
       }
 
       .footer {
@@ -1489,62 +864,22 @@
       }
 
       .footer-title {
-        font-size: 14px;
+        font-size: 13px;
       }
 
       .footer-links,
       .footer-social {
-        font-size: 13px;
-        flex-direction: column;
-        gap: 6px;
+        font-size: 12px;
       }
 
       .footer .separator {
         display: none;
       }
-    }
 
-    /* Impressão */
-    @media print {
-      @page {
-        size: A4 landscape;
-        margin: 15mm;
-      }
-
-      body {
-        background: white;
-      }
-
-      .hero {
-        position: static;
-        box-shadow: none;
-        border-bottom: 2px solid #000;
-      }
-
-      .theme-toggle,
-      .btn,
-      .tabs,
-      .btn-info {
-        display: none !important;
-      }
-
-      .card {
-        box-shadow: none;
-        page-break-inside: avoid;
-        margin-bottom: 20px;
-      }
-
-      .chart-container {
-        height: 300px;
-      }
-
-      .data-table {
-        font-size: 10px;
-      }
-
-      .data-table thead th,
-      .data-table tbody td {
-        padding: 8px 6px;
+      .footer-links,
+      .footer-social {
+        flex-direction: column;
+        gap: 4px;
       }
     }
 
@@ -1555,8 +890,6 @@
   </style>
 </head>
 <body>
-  <div class="toast-container" id="toastContainer"></div>
-
   <!-- Modal Informações -->
   <div class="modal" id="infoModal">
     <div class="modal-content">
@@ -1566,116 +899,25 @@
       </div>
       <div class="modal-body">
         <p>
-          Os plantões médicos apresentam <strong>variabilidade orçamentária intrínseca</strong> ao longo do ano devido à distribuição não uniforme de dias úteis, finais de semana e feriados nacionais em cada mês. Esta variabilidade decorre da aplicação de <strong>valores diferenciados de consulta</strong> conforme o período de atendimento: consultas realizadas em horário especial (noturno, finais de semana e feriados) recebem acréscimo remuneratório em relação às consultas tradicionais (diurnas em dias úteis).
+          Os plantões médicos apresentam <strong>variabilidade orçamentária intrínseca</strong> ao longo do ano devido à distribuição não uniforme de dias úteis, finais de semana e feriados nacionais em cada mês. Esta variabilidade decorre da aplicação de <strong>valores diferenciados por turno</strong> conforme o período de atendimento: turnos especiais (noturno, finais de semana e feriados) recebem acréscimo de 30% em relação aos turnos tradicionais (diurnos em dias úteis).
         </p>
         <p>
           A <strong>visão preditiva orçamentária</strong> busca o mais alto nível de precisão na estimativa de custos mensais, considerando a composição exata de cada período e permitindo a identificação de <strong>desvios estatisticamente significativos</strong> em relação ao orçamento base. O modelo estabelece intervalos de confiança e limites de alerta para variações que excedam os parâmetros esperados, possibilitando <strong>controle orçamentário proativo</strong> e ajustes estratégicos tempestivos.
         </p>
         <div class="modal-formula">
-          Custo Mensal (Cₘ) = N × [(W - H) × Rₜ + (D + S + H) × Rₑ]<br><br>
+          Custo Mensal (Cₘ) = Tₙ × Vₙ + Tₑ × Vₑ<br><br>
           Onde:<br>
-          • N = Número de consultas por plantão de 12h<br>
-          • W = Dias úteis no mês<br>
-          • H = Feriados em dias úteis<br>
-          • S = Dias de fins de semana<br>
-          • D = Total de dias no mês<br>
-          • Rₜ = Valor consulta tradicional<br>
-          • Rₑ = Valor consulta especial
+          • Tₙ = Turnos normais (diurnos em dias úteis sem feriado)<br>
+          • Vₙ = Valor do turno normal (R$ 21.456,01)<br>
+          • Tₑ = Turnos especiais (noturnos + fins de semana + feriados)<br>
+          • Vₑ = Valor do turno especial (R$ 27.892,82 = Vₙ × 1.30)
         </div>
         <p>
-          O <strong>orçamento base (X)</strong> é calculado considerando uma distribuição média mensal de 22 consultas tradicionais e 38 consultas especiais, permitindo análise comparativa de variações percentuais em relação a este parâmetro de referência.
+          Os <strong>valores de referência</strong> foram calculados a partir da média real dos gastos de agosto, setembro e outubro de 2025, garantindo que a projeção reflita fielmente os custos praticados pela instituição.
         </p>
         <p>
-          Para plantões em regime de <strong>sobreaviso</strong>, o modelo aplica um fator de 30% sobre o valor do plantão presencial, refletindo a disponibilidade remota com possibilidade de acionamento. No caso de escalas mistas (exemplo: Cinderela), o cálculo combina horas presenciais com horas de sobreaviso proporcionalmente.
+          O modelo considera que cada dia possui <strong>2 turnos de 12 horas</strong> (diurno e noturno). A análise estatística utiliza <strong>desvio padrão</strong> para estabelecer limites de alerta. Variações superiores ao intervalo esperado são sinalizadas como potenciais anomalias que requerem investigação.
         </p>
-        <p>
-          A análise estatística utiliza <strong>desvio padrão</strong> para estabelecer limites de alerta. Variações superiores a ±2σ (dois desvios padrão) da média são sinalizadas como potenciais anomalias que requerem investigação, permitindo identificação precoce de distorções orçamentárias antes que impactem significativamente o planejamento financeiro.
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Modal Simulador -->
-  <div class="modal" id="simuladorModal">
-    <div class="modal-content" style="max-width: 700px;">
-      <div class="modal-header">
-        <h3 class="modal-title">Adicionar Novo Plantão</h3>
-        <button class="modal-close" id="closeSimulador">&times;</button>
-      </div>
-      <div class="modal-body">
-        <div style="background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%); padding: 24px; border-radius: 12px; margin-bottom: 20px;">
-          <p style="font-size: 14px; color: var(--text-secondary); margin-bottom: 20px;">
-            <strong>Configure um novo plantão</strong> selecionando um preset ou criando do zero.
-          </p>
-
-          <div style="display: grid; gap: 16px; margin-bottom: 20px;">
-            <div class="field-group">
-              <label class="field-label">Preset de Especialidade</label>
-              <select class="input-field" id="simPreset">
-                <option value="">Selecione um preset ou configure manualmente</option>
-                <option value="Clínica PS Adulto">Clínica PS Adulto (25 consultas)</option>
-                <option value="Terapia Intensiva Adulto">Terapia Intensiva Adulto (37,5 consultas)</option>
-                <option value="Clínica Socorrista Adulto">Clínica Socorrista Adulto (37,5 consultas)</option>
-                <option value="Pediatria PS">Pediatria PS (32 consultas)</option>
-                <option value="Pediatria Socorrista">Pediatria Socorrista (37,5 consultas)</option>
-                <option value="Pediatria UIEP">Pediatria UIEP (37,5 consultas)</option>
-                <option value="Anestesiologia (Plantão)">Anestesiologia Plantão (20 consultas)</option>
-                <option value="Anestesiologia (Sobreaviso)">Anestesiologia Sobreaviso (6 consultas)</option>
-                <option value="Ortopedia (Plantão)">Ortopedia Plantão (20 consultas)</option>
-                <option value="Cirurgia Geral (Plantão)">Cirurgia Geral Plantão (20 consultas)</option>
-              </select>
-              <span class="field-hint">Selecione um preset para preencher automaticamente</span>
-            </div>
-
-            <div class="field-group">
-              <label class="field-label">Nome do Plantão</label>
-              <input type="text" class="input-field" id="simNome" placeholder="Ex: Clínica PS Adulto Diurno">
-              <div class="error-message" id="simNomeError">Por favor, dê um nome ao plantão</div>
-            </div>
-
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
-              <div class="field-group">
-                <label class="field-label">Número de Consultas</label>
-                <div class="number-control">
-                  <button class="number-btn" data-sim="consultas" data-action="decrease">−</button>
-                  <input type="number" class="number-input" step="0.5" min="0" value="0" id="simConsultas">
-                  <button class="number-btn" data-sim="consultas" data-action="increase">+</button>
-                </div>
-                <span class="field-hint">Consultas por plantão de 12h</span>
-                <div class="error-message" id="simConsultasError">Informe o número de consultas</div>
-              </div>
-
-              <div class="field-group">
-                <label class="field-label">Número de Plantonistas</label>
-                <div class="number-control">
-                  <button class="number-btn" data-sim="plantonistas" data-action="decrease">−</button>
-                  <input type="number" class="number-input" step="1" min="1" value="1" id="simPlantonistas">
-                  <button class="number-btn" data-sim="plantonistas" data-action="increase">+</button>
-                </div>
-                <span class="field-hint">Médicos simultâneos</span>
-              </div>
-            </div>
-          </div>
-
-          <div style="background: white; border-radius: 10px; padding: 20px; margin-bottom: 20px; border: 2px solid var(--ax-primary);">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-              <span style="font-size: 13px; font-weight: 700; color: var(--text-secondary);">CUSTO MENSAL ESTIMADO</span>
-              <span style="font-size: 28px; font-weight: 900; color: var(--ax-primary);" id="simOrcamentoBase">R$ 0,00</span>
-            </div>
-            <div style="font-size: 11px; color: var(--text-tertiary);">
-              Base: 22 dias úteis (tradicional) + 38 dias especiais (noturno/fim de semana/feriado)
-            </div>
-          </div>
-
-          <div style="display: flex; gap: 12px;">
-            <button class="btn btn-secondary" id="btnResetSimulador" style="flex: 1;">
-              Limpar Campos
-            </button>
-            <button class="btn btn-primary" id="btnAplicarSimulador" style="flex: 2;">
-              ➕ Adicionar à Análise
-            </button>
-          </div>
-        </div>
       </div>
     </div>
   </div>
@@ -1710,66 +952,44 @@
         <button class="btn-info" id="openModal">Mais Informações</button>
       </div>
       <p class="intro-text">
-        Esta calculadora foi parametrizada considerando a variação do custo de plantões médicos baseada na proporção de turnos com "horário tradicional" versus "horário especial". O indexador principal varia na ordem de 30% (R$ 48,50 tradicional para R$ 63,05 especial), refletindo o acréscimo aplicável em períodos noturnos, finais de semana e feriados. A distribuição média de 22 turnos tradicionais e 38 turnos especiais por mês (totalizando 60 turnos em plantões de 12h) serve como base de referência para cálculo do orçamento padrão. Meses com maior concentração de finais de semana ou feriados em dias úteis apresentam desvios positivos em relação a esta base, enquanto meses com menor concentração apresentam desvios negativos. O modelo quantifica esses desvios percentuais, permitindo análise preditiva e identificação de variações fora do intervalo estatisticamente esperado.
+        Esta calculadora projeta a variação mensal do orçamento de plantões médicos com base na composição do calendário. O modelo considera que turnos especiais (noturnos, finais de semana e feriados) possuem acréscimo de 30% sobre o valor dos turnos tradicionais. Os valores de referência foram calculados a partir dos gastos reais de agosto a outubro de 2025: <strong>R$ 21.456,01</strong> por turno normal e <strong>R$ 27.892,82</strong> por turno especial. A projeção permite identificar meses com maior ou menor custo, facilitando o planejamento orçamentário e a antecipação de variações.
       </p>
     </section>
 
-    <!-- Indexadores -->
+    <!-- Valor da Rubrica -->
     <section class="card">
       <div class="card-body" style="padding: 0;">
         <div class="indexador-section">
           <div class="indexador-title">
-            Indexadores de Valor de Consulta
+            Valor da Rubrica Mensal de Plantões
           </div>
           <div class="indexador-subtitle">
-            Valores globais aplicados a todas as especialidades. Alterações recalculam toda a análise preditiva.
+            Informe o valor total mensal da rubrica de plantões médicos. Este valor serve como referência para calcular as variações percentuais.
           </div>
           <div class="indexador-grid">
-            <div class="indexador-field">
-              <div class="indexador-label">Consulta Tradicional <span style="opacity: 0.5; font-size: 10px;">(Rₜ)</span></div>
+            <div class="indexador-field" style="max-width: 400px;">
+              <div class="indexador-label">Valor Mensal de Referência</div>
               <div class="indexador-input-wrapper">
                 <span class="indexador-prefix">R$</span>
-                <input type="number" class="indexador-input" id="valorTradicional" step="0.01" min="0.01" value="48.50">
+                <input type="text" class="indexador-input" id="valorRubrica" placeholder="1.500.000,00" inputmode="decimal">
               </div>
-              <div class="indexador-hint">Plantões diurnos em dias úteis sem feriado</div>
+              <div class="indexador-hint">Ex: 1.500.000,00 (total pago em plantões no mês)</div>
             </div>
-            <div class="indexador-field">
-              <div class="indexador-label">Consulta Especial <span style="opacity: 0.5; font-size: 10px;">(Rₑ)</span></div>
-              <div class="indexador-input-wrapper">
-                <span class="indexador-prefix">R$</span>
-                <input type="number" class="indexador-input" id="valorEspecial" step="0.01" min="0.01" value="63.05">
-              </div>
-              <div class="indexador-hint">Plantões noturnos, finais de semana e feriados</div>
-            </div>
-          </div>
-          <div class="indexador-actions">
-            <button class="btn-light" id="btnResetIndexadores">
-              Restaurar Valores Padrão
-            </button>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Seletor de Período -->
+    <!-- Período -->
     <section class="card">
       <div class="card-body" style="padding: 0;">
-        <div style="background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%); padding: 28px; border-radius: 0;">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-            <div>
-              <div style="font-size: 18px; font-weight: 800; color: var(--text-primary); margin-bottom: 4px;">
-                Período de Análise
-              </div>
-              <div style="font-size: 13px; color: var(--text-secondary);">
-                Selecione o intervalo de meses para análise preditiva
-              </div>
-            </div>
-          </div>
-          
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px;">
-            <div class="indexador-field" style="background: rgba(255, 255, 255, 0.9); border-color: rgba(25, 99, 150, 0.2);">
-              <div class="indexador-label" style="color: var(--text-primary);">Mês Inicial</div>
-              <select class="indexador-input" id="mesInicial" style="color: var(--text-primary); cursor: pointer; padding-right: 36px; background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'12\' height=\'12\' viewBox=\'0 0 12 12\'%3E%3Cpath fill=\'%23475569\' d=\'M6 9L1 4h10z\'/%3E%3C/svg%3E'); background-repeat: no-repeat; background-position: right 12px center;">
+        <div class="period-section">
+          <div class="period-title">Período de Análise</div>
+          <div class="period-subtitle">Selecione o intervalo de meses para análise preditiva</div>
+          <div class="period-grid">
+            <div class="period-field">
+              <div class="period-label">Mês Inicial</div>
+              <select class="period-select" id="mesInicial">
                 <option value="2025-01">Janeiro/2025</option>
                 <option value="2025-02">Fevereiro/2025</option>
                 <option value="2025-03">Março/2025</option>
@@ -1797,9 +1017,9 @@
               </select>
             </div>
 
-            <div class="indexador-field" style="background: rgba(255, 255, 255, 0.9); border-color: rgba(25, 99, 150, 0.2);">
-              <div class="indexador-label" style="color: var(--text-primary);">Mês Final</div>
-              <select class="indexador-input" id="mesFinal" style="color: var(--text-primary); cursor: pointer; padding-right: 36px; background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'12\' height=\'12\' viewBox=\'0 0 12 12\'%3E%3Cpath fill=\'%23475569\' d=\'M6 9L1 4h10z\'/%3E%3C/svg%3E'); background-repeat: no-repeat; background-position: right 12px center;">
+            <div class="period-field">
+              <div class="period-label">Mês Final</div>
+              <select class="period-select" id="mesFinal">
                 <option value="2025-01">Janeiro/2025</option>
                 <option value="2025-02">Fevereiro/2025</option>
                 <option value="2025-03">Março/2025</option>
@@ -1827,112 +1047,100 @@
               </select>
             </div>
 
-            <div class="indexador-field" style="background: rgba(255, 255, 255, 0.95); border: 2px solid var(--ax-primary);">
-              <div class="indexador-label" style="color: var(--text-primary);">Total de Meses</div>
-              <div style="font-size: 32px; font-weight: 900; color: var(--ax-primary); text-align: center; padding: 8px 0;" id="totalMeses">
-                16
-              </div>
+            <div class="period-field highlight">
+              <div class="period-label">Total de Meses</div>
+              <div class="period-value" id="totalMeses">16</div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Especialidades -->
-    <section class="card">
-      <div class="card-header">
-        <h2 class="card-title">Configuração de Especialidades Médicas</h2>
-        <button class="btn btn-secondary" id="btnReset">
-          Limpar Configurações
-        </button>
-      </div>
-      <div class="card-body">
-        <div style="background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); padding: 20px; border-radius: 12px; margin-bottom: 24px; border-left: 4px solid var(--ax-primary);">
-          <p style="font-size: 14px; color: var(--text-secondary); margin-bottom: 12px; line-height: 1.6;">
-            Selecione abaixo as especialidades parametrizadas para sua instituição.
-          </p>
-          <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
-            <span style="font-size: 14px; font-weight: 600; color: var(--text-primary);">
-              Quer simular uma nova possibilidade de plantão?
-            </span>
-            <button class="btn btn-primary btn-simulator" id="btnAbrirSimulador" style="padding: 10px 20px; font-size: 13px;">
-              ✨ Abrir Simulador
-            </button>
-          </div>
-        </div>
-        <div class="especialidades-grid" id="especialidadesGrid">
-          <!-- Gerado dinamicamente -->
-        </div>
-      </div>
-    </section>
+    <!-- Botão Calcular -->
+    <div style="text-align: center; margin-bottom: 24px;">
+      <button class="btn-primary" onclick="calcular()" style="padding: 16px 48px; font-size: 16px;">
+        Calcular Projeção
+      </button>
+    </div>
 
-    <!-- Análise Estatística -->
-    <section class="card">
-      <div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
-        <h2 class="card-title">Análise Estatística de Variabilidade</h2>
-        <button class="btn-primary" id="btnExportPDF" style="font-size: 13px; padding: 10px 20px;">
-          📄 Exportar PDF
-        </button>
-      </div>
-      <div class="card-body">
-        <div class="stats-grid" id="statsGrid">
-          <!-- Gerado dinamicamente -->
+    <!-- Resultados -->
+    <div id="results">
+      <!-- Estatísticas -->
+      <section class="card">
+        <div class="card-header">
+          <h2 class="card-title">Análise Estatística de Variabilidade</h2>
+          <button class="btn-primary" id="btnExportPDF" style="font-size: 13px; padding: 10px 20px;">
+            Exportar PDF
+          </button>
         </div>
-      </div>
-    </section>
-
-    <!-- Análise Detalhada -->
-    <section class="card">
-      <div class="tabs" role="tablist">
-        <button class="tab active" role="tab" data-tab="mensal" aria-selected="true">
-          Série Mensal Detalhada
-        </button>
-        <button class="tab tab-chart" role="tab" data-tab="grafico" aria-selected="false">
-          Visualização Gráfica
-        </button>
-      </div>
-
-      <div class="tab-content active" id="tabMensal">
         <div class="card-body">
-          <div class="table-container">
-            <table class="data-table">
-              <thead>
-                <tr>
-                  <th>Mês</th>
-                  <th class="numeric">Dias</th>
-                  <th class="numeric">Úteis (W)</th>
-                  <th class="numeric">Fins-Sem. (S)</th>
-                  <th class="numeric">Fer. Úteis (H)</th>
-                  <th class="numeric">Valor Esp. 1</th>
-                  <th class="numeric">Var. %</th>
-                  <th class="numeric">Valor Esp. 2</th>
-                  <th class="numeric">Var. %</th>
-                  <th class="numeric">Valor Esp. 3</th>
-                  <th class="numeric">Var. %</th>
-                  <th class="numeric">Valor Esp. 4</th>
-                  <th class="numeric">Var. %</th>
-                  <th>Feriados</th>
-                </tr>
-              </thead>
-              <tbody id="tableBody"></tbody>
-            </table>
+          <div class="stats-grid">
+            <div class="stat-card max">
+              <div class="stat-label">Valor Máximo</div>
+              <div class="stat-value" id="statMax">-</div>
+              <div style="font-size: 11px; color: var(--text-tertiary); margin-top: 4px;" id="statMaxMes"></div>
+            </div>
+            <div class="stat-card min">
+              <div class="stat-label">Valor Mínimo</div>
+              <div class="stat-value" id="statMin">-</div>
+              <div style="font-size: 11px; color: var(--text-tertiary); margin-top: 4px;" id="statMinMes"></div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-label">Média do Período</div>
+              <div class="stat-value" id="statMedia">-</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-label">Amplitude (Máx - Mín)</div>
+              <div class="stat-value" id="statVariacao">-</div>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      <div class="tab-content" id="tabGrafico">
-        <div class="card-body">
-          <div style="display: flex; justify-content: flex-end; margin-bottom: 12px;">
-            <button class="btn-light" id="btnResetZoom" style="font-size: 12px; padding: 8px 16px;">
-              🔍 Resetar Zoom
-            </button>
-          </div>
-          <div class="chart-container">
-            <canvas id="mainChart"></canvas>
+      <!-- Tabela e Gráfico -->
+      <section class="card">
+        <div class="tabs" role="tablist">
+          <button class="tab active" role="tab" data-tab="mensal" aria-selected="true">
+            Série Mensal Detalhada
+          </button>
+          <button class="tab" role="tab" data-tab="grafico" aria-selected="false">
+            Visualização Gráfica
+          </button>
+        </div>
+
+        <div class="tab-content active" id="tabMensal">
+          <div class="card-body">
+            <div class="table-container">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Mês</th>
+                    <th class="numeric">Sáb</th>
+                    <th class="numeric">Dom</th>
+                    <th class="numeric">Feriados</th>
+                    <th class="numeric">Dias Úteis</th>
+                    <th class="numeric">T. Normais</th>
+                    <th class="numeric">T. Especiais</th>
+                    <th class="numeric">Valor Projetado</th>
+                    <th class="numeric">Variação</th>
+                  </tr>
+                </thead>
+                <tbody id="tableBody">
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+
+        <div class="tab-content" id="tabGrafico">
+          <div class="card-body">
+            <div class="chart-container">
+              <canvas id="projectionChart"></canvas>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
   </main>
 
   <footer class="footer">
@@ -1958,1248 +1166,437 @@
   </footer>
 
   <script>
-    const ESPECIALIDADES_DISPONIVEIS = [
-      { nome: 'Clínica PS Adulto', consultas: 25, tipo: 'plantao' },
-      { nome: 'Terapia Intensiva Adulto', consultas: 37.5, tipo: 'plantao' },
-      { nome: 'Clínica Socorrista Adulto', consultas: 37.5, tipo: 'plantao' },
-      { nome: 'Pediatria PS', consultas: 32, tipo: 'plantao' },
-      { nome: 'Pediatria Socorrista', consultas: 37.5, tipo: 'plantao' },
-      { nome: 'Pediatria UIEP', consultas: 37.5, tipo: 'plantao' },
-      { nome: 'Anestesiologia (Plantão)', consultas: 20, tipo: 'plantao' },
-      { nome: 'Anestesiologia (Sobreaviso)', consultas: 6, tipo: 'sobreaviso' },
-      { nome: 'Ortopedia (Plantão)', consultas: 20, tipo: 'plantao' },
-      { nome: 'Cirurgia Geral (Plantão)', consultas: 20, tipo: 'plantao' },
-      { nome: 'OUTRA', consultas: 0, tipo: 'custom' }
-    ];
+    // Constantes calculadas (média de ago-out 2025)
+    const VALOR_TURNO_NORMAL = 21456.01;
+    const VALOR_TURNO_ESPECIAL = 27892.82;
 
-    const CORES_ESPECIALIDADES = [
-      { color: '#196396', colorDark: '#0f4764' },
-      { color: '#10b981', colorDark: '#065f46' },
-      { color: '#ff8f00', colorDark: '#c56000' },
-      { color: '#8b5cf6', colorDark: '#6d28d9' }
-    ];
-
-    const BRL = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' });
-    const NUM = new Intl.NumberFormat('pt-BR', { maximumFractionDigits: 2, minimumFractionDigits: 2 });
-    const pad2 = n => n < 10 ? `0${n}` : String(n);
-    const ymd = d => `${d.getFullYear()}-${pad2(d.getMonth() + 1)}-${pad2(d.getDate())}`;
-    const formatBRL = v => BRL.format(v);
-    const formatNum = v => NUM.format(v);
-    const formatPct = v => `${v > 0 ? '+' : ''}${formatNum(v)}%`;
-
-    function showToast(message) {
-      const container = document.getElementById('toastContainer');
-      const toast = document.createElement('div');
-      toast.className = 'toast success';
-      toast.innerHTML = `<div class="toast-message">${message}</div>`;
-      container.appendChild(toast);
-      setTimeout(() => {
-        toast.style.opacity = '0';
-        setTimeout(() => toast.remove(), 300);
-      }, 3000);
-    }
-
-    // Modal
-    const modal = document.getElementById('infoModal');
-    const openModal = document.getElementById('openModal');
-    const closeModal = document.getElementById('closeModal');
-
-    openModal.addEventListener('click', () => {
-      modal.classList.add('active');
-    });
-
-    closeModal.addEventListener('click', () => {
-      modal.classList.remove('active');
-    });
-
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) {
-        modal.classList.remove('active');
-      }
-    });
-
-    // Modal Simulador
-    const simuladorModal = document.getElementById('simuladorModal');
-    const openSimulador = document.getElementById('btnAbrirSimulador');
-    const closeSimulador = document.getElementById('closeSimulador');
-
-    openSimulador.addEventListener('click', () => {
-      simuladorModal.classList.add('active');
-      updateSimuladorOrcamento();
-    });
-
-    closeSimulador.addEventListener('click', () => {
-      simuladorModal.classList.remove('active');
-    });
-
-    simuladorModal.addEventListener('click', (e) => {
-      if (e.target === simuladorModal) {
-        simuladorModal.classList.remove('active');
-      }
-    });
-
-    // Botão Reset Zoom
-    document.getElementById('btnResetZoom').addEventListener('click', () => {
-      if (mainChart) {
-        mainChart.resetZoom();
-        showToast('Zoom resetado');
-      }
-    });
-
-    // Tema
-    const themeToggle = document.getElementById('themeToggle');
-    const themeIcon = document.getElementById('themeIcon');
-    
-    function setTheme(theme) {
-      document.documentElement.setAttribute('data-theme', theme);
-      themeIcon.textContent = theme === 'dark' ? '🌙' : '☀️';
-      localStorage.setItem('theme', theme);
-    }
-
-    themeToggle.addEventListener('click', () => {
-      const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
-      setTheme(currentTheme === 'dark' ? 'light' : 'dark');
-    });
-
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    setTheme(savedTheme);
-
-    const hero = document.getElementById('hero');
-    window.addEventListener('scroll', () => {
-      hero.classList.toggle('scrolled', window.scrollY > 10);
-    });
-
-    // Feriados
-    function easterSunday(year) {
-      const a = year % 19;
-      const b = Math.floor(year / 100);
-      const c = year % 100;
-      const d = Math.floor(b / 4);
-      const e = b % 4;
-      const f = Math.floor((b + 8) / 25);
-      const g = Math.floor((b - f + 1) / 3);
-      const h = (19 * a + b - d - g + 15) % 30;
-      const i = Math.floor(c / 4);
-      const k = c % 4;
-      const l = (32 + 2 * e + 2 * i - h - k) % 7;
-      const m = Math.floor((a + 11 * h + 22 * l) / 451);
-      const month = Math.floor((h + l - 7 * m + 114) / 31);
-      const day = ((h + l - 7 * m + 114) % 31) + 1;
-      return new Date(year, month - 1, day);
-    }
-
-    const addDays = (date, days) => {
-      const result = new Date(date);
-      result.setDate(result.getDate() + days);
-      return result;
-    };
-
-    const FIXED_HOLIDAYS = ['01-01', '04-21', '05-01', '09-07', '10-12', '11-02', '11-15', '11-20', '12-25'];
-
-    function getHolidays(year) {
-      const holidays = new Set(FIXED_HOLIDAYS.map(md => `${year}-${md}`));
-      const goodFriday = addDays(easterSunday(year), -2);
-      holidays.add(ymd(goodFriday));
-      return holidays;
-    }
-
-    function getMonthDays(year, month) {
-      const days = [];
-      const date = new Date(year, month, 1);
-      while (date.getMonth() === month) {
-        days.push(new Date(date));
-        date.setDate(date.getDate() + 1);
-      }
-      return days;
-    }
-
-    function analyzeMonth(year, month, holidays) {
-      const days = getMonthDays(year, month);
-      let weekends = 0;
-      let weekdays = 0;
-      let holidaysWeekdays = 0;
-      const holidayDates = [];
-
-      for (const day of days) {
-        const dow = day.getDay();
-        const isWeekend = dow === 0 || dow === 6;
-        
-        if (isWeekend) {
-          weekends++;
-        } else {
-          weekdays++;
-          if (holidays.has(ymd(day))) {
-            holidaysWeekdays++;
-            holidayDates.push(day);
-          }
-        }
-      }
-
-      return {
-        total: days.length,
-        weekends,
-        weekdays,
-        holidaysWeekdays,
-        holidayDates
-      };
-    }
-
-    function generateMonthsSeries(mesInicial, mesFinal) {
-      const months = [];
-      const [anoIni, mesIni] = mesInicial.split('-').map(Number);
-      const [anoFim, mesFim] = mesFinal.split('-').map(Number);
-      
-      const holidays2025 = getHolidays(2025);
-      const holidays2026 = getHolidays(2026);
-      const holidays2027 = getHolidays(2027);
-
-      let currentYear = anoIni;
-      let currentMonth = mesIni - 1; // JavaScript months são 0-indexed
-
-      while (currentYear < anoFim || (currentYear === anoFim && currentMonth <= mesFim - 1)) {
-        const holidays = currentYear === 2025 ? holidays2025 : currentYear === 2026 ? holidays2026 : holidays2027;
-        const data = analyzeMonth(currentYear, currentMonth, holidays);
-        
-        months.push({
-          year: currentYear,
-          month: currentMonth + 1,
-          label: `${pad2(currentMonth + 1)}/${String(currentYear).slice(2)}`,
-          ...data
-        });
-
-        currentMonth++;
-        if (currentMonth > 11) {
-          currentMonth = 0;
-          currentYear++;
-        }
-      }
-
-      return months;
-    }
-
-    let MONTHS_DATA = generateMonthsSeries(appState.mesInicial, appState.mesFinal);
-
-    function updateTotalMeses() {
-      const totalMeses = MONTHS_DATA.length;
-      document.getElementById('totalMeses').textContent = totalMeses;
-      
-      // Atualizar subtítulo
-      const [anoIni] = appState.mesInicial.split('-');
-      const [anoFim] = appState.mesFinal.split('-');
-      
-      if (anoIni === anoFim) {
-        document.querySelector('.hero-subtitle').textContent = `Análise Preditiva Orçamentária | ${anoIni}`;
-      } else {
-        document.querySelector('.hero-subtitle').textContent = `Análise Preditiva Orçamentária | ${anoIni} - ${anoFim}`;
-      }
-    }
-
-    const appState = {
-      valorTradicional: 48.50,
-      valorEspecial: 63.05,
-      mesInicial: '2025-09',
-      mesFinal: '2026-12',
-      especialidades: [
-        { id: 1, nome: '', nomeCustom: '', consultasPorPlantao: 0, tipo: 'plantao', ativa: false, ...CORES_ESPECIALIDADES[0] },
-        { id: 2, nome: '', nomeCustom: '', consultasPorPlantao: 0, tipo: 'plantao', ativa: false, ...CORES_ESPECIALIDADES[1] },
-        { id: 3, nome: '', nomeCustom: '', consultasPorPlantao: 0, tipo: 'plantao', ativa: false, ...CORES_ESPECIALIDADES[2] },
-        { id: 4, nome: '', nomeCustom: '', consultasPorPlantao: 0, tipo: 'plantao', ativa: false, ...CORES_ESPECIALIDADES[3] }
+    // Feriados nacionais
+    const FERIADOS = {
+      2025: [
+        '2025-01-01', // Ano Novo
+        '2025-04-18', // Sexta-feira Santa
+        '2025-04-21', // Tiradentes
+        '2025-05-01', // Trabalho
+        '2025-09-07', // Independência
+        '2025-10-12', // N. Sra. Aparecida
+        '2025-11-02', // Finados
+        '2025-11-15', // Proclamação
+        '2025-11-20', // Consciência Negra
+        '2025-12-25'  // Natal
+      ],
+      2026: [
+        '2026-01-01', // Ano Novo
+        '2026-04-03', // Sexta-feira Santa
+        '2026-04-21', // Tiradentes
+        '2026-05-01', // Trabalho
+        '2026-09-07', // Independência
+        '2026-10-12', // N. Sra. Aparecida
+        '2026-11-02', // Finados
+        '2026-11-15', // Proclamação
+        '2026-11-20', // Consciência Negra
+        '2026-12-25'  // Natal
       ]
     };
 
-    function updateSimuladorOrcamento() {
-      const consultasEl = document.getElementById('simConsultas');
-      const plantonistasEl = document.getElementById('simPlantonistas');
-      const orcamentoEl = document.getElementById('simOrcamentoBase');
+    let chart = null;
+    let resultadosGlobais = [];
 
-      if (!consultasEl || !plantonistasEl || !orcamentoEl) {
-        return; // Elementos não existem, sai silenciosamente
+    // Formatadores
+    const BRL = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' });
+    const formatBRL = v => BRL.format(v);
+
+    // Formatação de moeda no input
+    function formatarMoeda(input) {
+      let valor = input.value.replace(/\D/g, '');
+      if (valor === '') {
+        input.value = '';
+        return;
+      }
+      valor = (parseInt(valor) / 100).toFixed(2);
+      input.value = parseFloat(valor).toLocaleString('pt-BR', {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+      });
+    }
+
+    function parseMoeda(valor) {
+      if (!valor) return 0;
+      return parseFloat(valor.replace(/\./g, '').replace(',', '.')) || 0;
+    }
+
+    // Inicialização
+    document.addEventListener('DOMContentLoaded', function() {
+      const valorInput = document.getElementById('valorRubrica');
+      valorInput.addEventListener('input', function() {
+        formatarMoeda(this);
+      });
+
+      // Total de meses
+      updateTotalMeses();
+      document.getElementById('mesInicial').addEventListener('change', updateTotalMeses);
+      document.getElementById('mesFinal').addEventListener('change', updateTotalMeses);
+
+      // Tabs
+      document.querySelectorAll('.tab').forEach(tab => {
+        tab.addEventListener('click', function() {
+          document.querySelectorAll('.tab').forEach(t => {
+            t.classList.remove('active');
+            t.setAttribute('aria-selected', 'false');
+          });
+          document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+
+          this.classList.add('active');
+          this.setAttribute('aria-selected', 'true');
+
+          const tabId = this.dataset.tab === 'mensal' ? 'tabMensal' : 'tabGrafico';
+          document.getElementById(tabId).classList.add('active');
+        });
+      });
+
+      // Theme toggle
+      const themeToggle = document.getElementById('themeToggle');
+      const themeIcon = document.getElementById('themeIcon');
+
+      if (localStorage.getItem('theme') === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        themeIcon.textContent = '🌙';
       }
 
-      const consultas = parseFloat(consultasEl.value) || 0;
-      const plantonistas = parseInt(plantonistasEl.value) || 1;
-
-      // Cálculo: plantonistas × consultas × (22 dias úteis × valorTrad + 38 dias especiais × valorEsp)
-      const orcamentoBase = plantonistas * consultas * (22 * appState.valorTradicional + 38 * appState.valorEspecial);
-      orcamentoEl.textContent = formatBRL(orcamentoBase);
-    }
-
-    function saveData() {
-      localStorage.setItem('appState', JSON.stringify(appState));
-    }
-
-    function loadData() {
-      const saved = localStorage.getItem('appState');
-      if (saved) {
-        try {
-          const data = JSON.parse(saved);
-          appState.valorTradicional = data.valorTradicional || 48.50;
-          appState.valorEspecial = data.valorEspecial || 63.05;
-          appState.mesInicial = data.mesInicial || '2025-09';
-          appState.mesFinal = data.mesFinal || '2026-12';
-          
-          document.getElementById('valorTradicional').value = appState.valorTradicional;
-          document.getElementById('valorEspecial').value = appState.valorEspecial;
-          document.getElementById('mesInicial').value = appState.mesInicial;
-          document.getElementById('mesFinal').value = appState.mesFinal;
-          
-          // Regenerar MONTHS_DATA com período salvo
-          MONTHS_DATA = generateMonthsSeries(appState.mesInicial, appState.mesFinal);
-          updateTotalMeses();
-          
-          if (data.especialidades) {
-            data.especialidades.forEach((esp, i) => {
-              if (appState.especialidades[i]) {
-                appState.especialidades[i].nome = esp.nome || '';
-                appState.especialidades[i].nomeCustom = esp.nomeCustom || '';
-                appState.especialidades[i].consultasPorPlantao = esp.consultasPorPlantao || 0;
-                appState.especialidades[i].tipo = esp.tipo || 'plantao';
-                appState.especialidades[i].ativa = esp.ativa || false;
-              }
-            });
-          }
-          
-          document.getElementById('valorTradicional').value = appState.valorTradicional;
-          document.getElementById('valorEspecial').value = appState.valorEspecial;
-          
-          showToast('Configurações carregadas');
-        } catch (e) {
-          console.error('Erro ao carregar dados:', e);
-        }
-      }
-    }
-
-    function renderEspecialidades() {
-      const grid = document.getElementById('especialidadesGrid');
-      grid.innerHTML = '';
-
-      appState.especialidades.forEach((esp, index) => {
-        const card = document.createElement('div');
-        card.className = 'esp-card';
-        card.style.setProperty('--esp-color', esp.color);
-        card.style.setProperty('--esp-color-dark', esp.colorDark);
-
-        // Cálculo do orçamento base
-        let budgetBase = 0;
-        if (esp.tipo === 'total_anestesio') {
-          const budgetPlantao = 20 * (22 * appState.valorTradicional + 38 * appState.valorEspecial);
-          const budgetSobreaviso = budgetPlantao * 0.3; // 30% do plantão de 20
-          budgetBase = budgetPlantao + budgetSobreaviso;
-        } else if (esp.tipo === 'total_cirurgia') {
-          const budgetPlantao = 20 * (22 * appState.valorTradicional + 38 * appState.valorEspecial);
-          const budgetCinderela = 4 * (22 * appState.valorTradicional + 38 * appState.valorEspecial);
-          budgetBase = budgetPlantao + budgetCinderela * (4/12) + budgetCinderela * (8/12) * 0.3;
-        } else if (esp.tipo === 'sobreaviso') {
-          const budgetPlantaoRef = 20 * (22 * appState.valorTradicional + 38 * appState.valorEspecial);
-          budgetBase = budgetPlantaoRef * 0.3;
-        } else if (esp.tipo === 'cinderela') {
-          const plantaoPresencial = esp.consultasPorPlantao * (22 * appState.valorTradicional + 38 * appState.valorEspecial);
-          const sobreaviso = plantaoPresencial * (8/12) * 0.3;
-          budgetBase = plantaoPresencial * (4/12) + sobreaviso;
+      themeToggle.addEventListener('click', function() {
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        if (isDark) {
+          document.documentElement.removeAttribute('data-theme');
+          themeIcon.textContent = '☀️';
+          localStorage.removeItem('theme');
         } else {
-          budgetBase = esp.consultasPorPlantao * (22 * appState.valorTradicional + 38 * appState.valorEspecial);
+          document.documentElement.setAttribute('data-theme', 'dark');
+          themeIcon.textContent = '🌙';
+          localStorage.setItem('theme', 'dark');
         }
-
-        const options = ['<option value="">Selecione uma especialidade</option>'];
-        ESPECIALIDADES_DISPONIVEIS.forEach(item => {
-          options.push(`<option value="${item.nome}" ${esp.nome === item.nome ? 'selected' : ''}>${item.nome}</option>`);
-        });
-
-        const isCustom = esp.nome === 'OUTRA';
-        const displayName = isCustom && esp.nomeCustom ? esp.nomeCustom : (esp.nome || 'Não configurada');
-
-        let tipoLabel = '';
-        if (esp.tipo === 'sobreaviso') tipoLabel = ' (30% do plantão)';
-        if (esp.tipo === 'cinderela') tipoLabel = ' (4h presencial + 8h sobreaviso)';
-
-        card.innerHTML = `
-          <div class="esp-header">
-            <div class="esp-title">
-              <span class="esp-badge">${esp.id}</span>
-            </div>
-            <label class="toggle-switch">
-              <input type="checkbox" ${esp.ativa ? 'checked' : ''} data-esp="${index}">
-              <span class="toggle-slider"></span>
-            </label>
-          </div>
-          <div class="esp-fields">
-            <div class="field-group">
-              <label class="field-label">Especialidade Médica</label>
-              <select class="input-field" data-esp="${index}" data-field="nome">
-                ${options.join('')}
-              </select>
-              <span class="field-hint">Selecione a especialidade (valores são exemplos ajustáveis)</span>
-            </div>
-            <div class="field-group custom-name-field ${isCustom ? 'active' : ''}" id="customName${index}">
-              <label class="field-label">Nome da Especialidade</label>
-              <input type="text" class="input-field" data-esp="${index}" data-field="nomeCustom" value="${esp.nomeCustom}" placeholder="Digite o nome da especialidade">
-            </div>
-            <div class="field-group">
-              <label class="field-label">Consultas por Plantão (12h) <span style="opacity: 0.5; font-size: 11px; font-weight: 500;">Indexador</span></label>
-              <div class="number-control">
-                <button class="number-btn" data-esp="${index}" data-action="decrease">−</button>
-                <input type="number" class="number-input" step="0.5" min="0" value="${esp.consultasPorPlantao}" data-esp="${index}" data-field="consultasPorPlantao">
-                <button class="number-btn" data-esp="${index}" data-action="increase">+</button>
-              </div>
-              <span class="field-hint">Ajuste o número médio de consultas</span>
-            </div>
-            <div class="budget-display">
-              <div class="budget-label">Orçamento Base Mensal</div>
-              <div class="budget-value">${formatBRL(budgetBase)}</div>
-              <div class="budget-detail" style="font-size: 10px; opacity: 0.8; margin-top: 4px;">Considerando mês com 22 dias úteis e 8 dias de final de semana, sem feriados</div>
-            </div>
-          </div>
-        `;
-
-        grid.appendChild(card);
+        if (chart) {
+          updateChartColors();
+        }
       });
 
-      // Event listeners
-      grid.querySelectorAll('input[type="checkbox"]').forEach(input => {
-        input.addEventListener('change', (e) => {
-          const index = parseInt(e.target.dataset.esp);
-          appState.especialidades[index].ativa = e.target.checked;
-          saveData();
-          renderAll();
-        });
+      // Modal
+      const modal = document.getElementById('infoModal');
+      document.getElementById('openModal').addEventListener('click', () => modal.classList.add('active'));
+      document.getElementById('closeModal').addEventListener('click', () => modal.classList.remove('active'));
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) modal.classList.remove('active');
       });
 
-      grid.querySelectorAll('select').forEach(input => {
-        input.addEventListener('change', (e) => {
-          const index = parseInt(e.target.dataset.esp);
-          const selectedName = e.target.value;
-          
-          appState.especialidades[index].nome = selectedName;
-          
-          const espConfig = ESPECIALIDADES_DISPONIVEIS.find(item => item.nome === selectedName);
-          if (espConfig) {
-            appState.especialidades[index].consultasPorPlantao = espConfig.consultas;
-            appState.especialidades[index].tipo = espConfig.tipo;
-          }
-
-          const customField = document.getElementById(`customName${index}`);
-          if (selectedName === 'OUTRA') {
-            customField.classList.add('active');
-          } else {
-            customField.classList.remove('active');
-            appState.especialidades[index].nomeCustom = '';
-          }
-
-          saveData();
-          renderAll();
-        });
+      // Hero scroll
+      const hero = document.getElementById('hero');
+      window.addEventListener('scroll', () => {
+        hero.classList.toggle('scrolled', window.scrollY > 10);
       });
 
-      grid.querySelectorAll('input[type="text"]').forEach(input => {
-        input.addEventListener('input', (e) => {
-          const index = parseInt(e.target.dataset.esp);
-          appState.especialidades[index].nomeCustom = e.target.value;
-          saveData();
-          renderAll();
-        });
-      });
+      // Export PDF
+      document.getElementById('btnExportPDF').addEventListener('click', exportPDF);
+    });
 
-      grid.querySelectorAll('input[type="number"]').forEach(input => {
-        input.addEventListener('change', (e) => {
-          const index = parseInt(e.target.dataset.esp);
-          appState.especialidades[index].consultasPorPlantao = parseFloat(e.target.value) || 0;
-          saveData();
-          renderAll();
-        });
-      });
+    function updateTotalMeses() {
+      const mesInicial = document.getElementById('mesInicial').value;
+      const mesFinal = document.getElementById('mesFinal').value;
 
-      grid.querySelectorAll('.number-btn').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-          const index = parseInt(e.target.dataset.esp);
-          const action = e.target.dataset.action;
-          const currentValue = appState.especialidades[index].consultasPorPlantao;
-          
-          if (action === 'increase') {
-            appState.especialidades[index].consultasPorPlantao = currentValue + 0.5;
-          } else if (action === 'decrease' && currentValue > 0) {
-            appState.especialidades[index].consultasPorPlantao = Math.max(0, currentValue - 0.5);
-          }
-          
-          saveData();
-          renderAll();
-        });
-      });
+      const [anoIni, mesIni] = mesInicial.split('-').map(Number);
+      const [anoFim, mesFim] = mesFinal.split('-').map(Number);
+
+      const total = (anoFim - anoIni) * 12 + (mesFim - mesIni) + 1;
+      document.getElementById('totalMeses').textContent = total > 0 ? total : 0;
     }
 
-    document.getElementById('valorTradicional').addEventListener('input', (e) => {
-      appState.valorTradicional = parseFloat(e.target.value) || 0;
-      saveData();
-      renderAll();
-    });
-
-    document.getElementById('valorEspecial').addEventListener('input', (e) => {
-      appState.valorEspecial = parseFloat(e.target.value) || 0;
-      saveData();
-      renderAll();
-    });
-
-    document.getElementById('mesInicial').addEventListener('change', (e) => {
-      const novoInicial = e.target.value;
-      const mesFinalAtual = document.getElementById('mesFinal').value;
-
-      // Validar que mesInicial não seja posterior a mesFinal
-      if (novoInicial > mesFinalAtual) {
-        appState.mesFinal = novoInicial;
-        document.getElementById('mesFinal').value = novoInicial;
-        showToast('Mês final ajustado automaticamente');
-      } else {
-        showToast('Período atualizado');
-      }
-
-      appState.mesInicial = novoInicial;
-      MONTHS_DATA = generateMonthsSeries(appState.mesInicial, appState.mesFinal);
-      updateTotalMeses();
-      saveData();
-      renderAll();
-    });
-
-    document.getElementById('mesFinal').addEventListener('change', (e) => {
-      const novoFinal = e.target.value;
-      const mesInicialAtual = document.getElementById('mesInicial').value;
-
-      // Validar que mesFinal não seja anterior a mesInicial
-      if (novoFinal < mesInicialAtual) {
-        appState.mesInicial = novoFinal;
-        document.getElementById('mesInicial').value = novoFinal;
-        showToast('Mês inicial ajustado automaticamente');
-      } else {
-        showToast('Período atualizado');
-      }
-
-      appState.mesFinal = novoFinal;
-      MONTHS_DATA = generateMonthsSeries(appState.mesInicial, appState.mesFinal);
-      updateTotalMeses();
-      saveData();
-      renderAll();
-    });
-
-    document.getElementById('btnResetIndexadores').addEventListener('click', () => {
-      appState.valorTradicional = 48.50;
-      appState.valorEspecial = 63.05;
-      document.getElementById('valorTradicional').value = 48.50;
-      document.getElementById('valorEspecial').value = 63.05;
-      saveData();
-      renderAll();
-      showToast('Indexadores restaurados');
-    });
-
-    function calculateData() {
-      return MONTHS_DATA.map(month => {
-        const conventional = month.weekdays - month.holidaysWeekdays;
-        const special = month.weekends + month.holidaysWeekdays;
-
-        const results = appState.especialidades.map(esp => {
-          if (!esp.ativa || esp.consultasPorPlantao <= 0 || (!esp.nome || (esp.nome === 'OUTRA' && !esp.nomeCustom))) {
-            return { value: 0, variance: 0 };
-          }
-
-          let value = 0;
-          let budget = 0;
-
-          if (esp.tipo === 'total_anestesio') {
-            // ANESTESIOLOGIA TOTAL = Plantão (20 consultas) + Sobreaviso (6 consultas = 30% do plantão de 20)
-            const plantao = 20 * (conventional * appState.valorTradicional + special * appState.valorEspecial);
-            const valorPlantao20 = 20 * (conventional * appState.valorTradicional + special * appState.valorEspecial);
-            const sobreaviso = valorPlantao20 * 0.3; // 30% do plantão de 20 consultas
-            value = plantao + sobreaviso;
-            
-            const budgetPlantao = 20 * (22 * appState.valorTradicional + 38 * appState.valorEspecial);
-            const budgetSobreaviso = budgetPlantao * 0.3; // 30% do plantão de 20
-            budget = budgetPlantao + budgetSobreaviso;
-          } else if (esp.tipo === 'total_cirurgia') {
-            // CIRURGIA GERAL TOTAL = Plantão (20) + Cinderela (4h presencial + 8h sobreaviso)
-            const plantao = 20 * (conventional * appState.valorTradicional + special * appState.valorEspecial);
-            const cinderelaPresencial = 4 * (conventional * appState.valorTradicional + special * appState.valorEspecial);
-            const cinderelaSobreaviso = 4 * (conventional * appState.valorTradicional + special * appState.valorEspecial) * (8/12) * 0.3;
-            value = plantao + cinderelaPresencial * (4/12) + cinderelaSobreaviso;
-            
-            const budgetPlantao = 20 * (22 * appState.valorTradicional + 38 * appState.valorEspecial);
-            const budgetCinderela = 4 * (22 * appState.valorTradicional + 38 * appState.valorEspecial);
-            budget = budgetPlantao + budgetCinderela * (4/12) + budgetCinderela * (8/12) * 0.3;
-          } else if (esp.tipo === 'sobreaviso') {
-            // Sobreaviso: as 6 consultas equivalem a 30% do plantão de 20 consultas
-            // Proporção: 6/20 = 0.3, logo valor = (plantão de referência) * 0.3
-            const plantaoReferencia = 20 * (conventional * appState.valorTradicional + special * appState.valorEspecial);
-            value = plantaoReferencia * 0.3;
-            
-            const budgetPlantaoRef = 20 * (22 * appState.valorTradicional + 38 * appState.valorEspecial);
-            budget = budgetPlantaoRef * 0.3;
-          } else if (esp.tipo === 'cinderela') {
-            const plantaoPresencial = esp.consultasPorPlantao * (conventional * appState.valorTradicional + special * appState.valorEspecial);
-            const sobreaviso = esp.consultasPorPlantao * (conventional * appState.valorTradicional + special * appState.valorEspecial) * (8/12) * 0.3;
-            value = plantaoPresencial * (4/12) + sobreaviso;
-
-            const budgetPresencial = esp.consultasPorPlantao * (22 * appState.valorTradicional + 38 * appState.valorEspecial);
-            budget = budgetPresencial * (4/12) + budgetPresencial * (8/12) * 0.3;
-          } else {
-            value = esp.consultasPorPlantao * (conventional * appState.valorTradicional + special * appState.valorEspecial);
-            budget = esp.consultasPorPlantao * (22 * appState.valorTradicional + 38 * appState.valorEspecial);
-          }
-
-          const variance = budget > 0 ? ((value / budget - 1) * 100) : 0;
-
-          return { value, variance };
-        });
-
-        const holidaysStr = month.holidayDates
-          .map(d => `${pad2(d.getDate())}/${pad2(d.getMonth() + 1)}`)
-          .join(', ') || '';
-
-        return {
-          ...month,
-          esp1: results[0],
-          esp2: results[1],
-          esp3: results[2],
-          esp4: results[3],
-          holidaysStr
-        };
-      });
+    function getDaysInMonth(year, month) {
+      return new Date(year, month + 1, 0).getDate();
     }
 
-    function renderStats() {
-      const data = calculateData();
-      const grid = document.getElementById('statsGrid');
-      
-      const activeEsp = appState.especialidades.filter(e => {
-        return e.ativa && e.consultasPorPlantao > 0 && e.nome && (e.nome !== 'OUTRA' || e.nomeCustom);
-      });
-      
-      if (activeEsp.length === 0) {
-        grid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: var(--text-tertiary);">Configure ao menos uma especialidade para visualizar a análise estatística.</p>';
+    function analisarMes(year, month) {
+      const totalDias = getDaysInMonth(year, month);
+      let sabados = 0;
+      let domingos = 0;
+      let feriadosUteis = 0;
+      let diasUteis = 0;
+
+      for (let dia = 1; dia <= totalDias; dia++) {
+        const data = new Date(year, month, dia);
+        const diaSemana = data.getDay();
+        const dataStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(dia).padStart(2, '0')}`;
+
+        const isSabado = diaSemana === 6;
+        const isDomingo = diaSemana === 0;
+        const isFeriado = FERIADOS[year]?.includes(dataStr);
+
+        if (isSabado) sabados++;
+        if (isDomingo) domingos++;
+
+        if (!isSabado && !isDomingo) {
+          diasUteis++;
+          if (isFeriado) feriadosUteis++;
+        }
+      }
+
+      // Turnos normais = turnos diurnos em dias úteis SEM feriado
+      const turnosNormais = diasUteis - feriadosUteis;
+
+      // Turnos especiais = turnos noturnos + fins de semana + feriados
+      const turnosEspeciais = diasUteis + (sabados + domingos) * 2 + feriadosUteis;
+
+      return {
+        sabados,
+        domingos,
+        feriadosUteis,
+        diasUteis,
+        turnosNormais,
+        turnosEspeciais
+      };
+    }
+
+    function calcular() {
+      const valorRubrica = parseMoeda(document.getElementById('valorRubrica').value);
+      const mesInicial = document.getElementById('mesInicial').value;
+      const mesFinal = document.getElementById('mesFinal').value;
+
+      if (!valorRubrica || valorRubrica <= 0) {
+        alert('Por favor, informe o valor da rubrica mensal');
         return;
       }
 
-      const cards = [];
+      if (mesInicial > mesFinal) {
+        alert('O mês inicial deve ser anterior ao mês final');
+        return;
+      }
 
-      activeEsp.forEach((esp, idx) => {
-        const espKey = `esp${idx + 1}`;
-        const variances = data.map(d => d[espKey].variance).filter(v => v !== 0);
+      const [anoIni, mesIni] = mesInicial.split('-').map(Number);
+      const [anoFim, mesFim] = mesFinal.split('-').map(Number);
 
-        if (variances.length > 0) {
-          const maxVar = Math.max(...variances);
-          const minVar = Math.min(...variances);
-          const avgVar = variances.reduce((a, b) => a + b, 0) / variances.length;
-          const stdDev = Math.sqrt(variances.reduce((sq, n) => sq + Math.pow(n - avgVar, 2), 0) / variances.length);
+      const resultados = [];
+      let valores = [];
 
-          const upperLimit = avgVar + (2 * stdDev);
-          const lowerLimit = avgVar - (2 * stdDev);
+      let ano = anoIni;
+      let mes = mesIni - 1;
 
-          const displayName = esp.nome === 'OUTRA' ? esp.nomeCustom : esp.nome;
+      while (ano < anoFim || (ano === anoFim && mes <= mesFim - 1)) {
+        const analise = analisarMes(ano, mes);
+        const valorProjetado = analise.turnosNormais * VALOR_TURNO_NORMAL +
+                               analise.turnosEspeciais * VALOR_TURNO_ESPECIAL;
+        const variacao = ((valorProjetado / valorRubrica) - 1) * 100;
 
-          const firstMonth = data[0];
-          const lastMonth = data[data.length - 1];
-          const periodLabel = `${pad2(firstMonth.month + 1)}/${firstMonth.year} - ${pad2(lastMonth.month + 1)}/${lastMonth.year}`;
+        resultados.push({
+          ano,
+          mes,
+          mesNome: new Date(ano, mes).toLocaleDateString('pt-BR', { month: 'long', year: 'numeric' }),
+          ...analise,
+          valorProjetado,
+          variacao
+        });
 
-          cards.push(`
-            <div class="stat-card">
-              <div class="stat-header">
-                <div class="stat-label">${displayName}</div>
-                <div class="stat-period">${periodLabel}</div>
-              </div>
-              <div class="stat-value">${formatPct(maxVar)}</div>
-              <div class="stat-description">
-                <strong>Variação máxima:</strong> ${formatPct(maxVar)}<br>
-                <strong>Variação mínima:</strong> ${formatPct(minVar)}<br>
-                <strong>Desvio padrão:</strong> ${formatNum(stdDev)}%
-              </div>
-              <div class="stat-alert">
-                Alerta em variações acima de ${formatPct(upperLimit)} ou abaixo de ${formatPct(lowerLimit)}
-              </div>
-            </div>
-          `);
+        valores.push(valorProjetado);
+
+        mes++;
+        if (mes > 11) {
+          mes = 0;
+          ano++;
         }
-      });
+      }
 
-      grid.innerHTML = cards.join('');
-    }
+      resultadosGlobais = resultados;
 
-    function renderTable() {
-      const data = calculateData();
+      // Estatísticas
+      const max = Math.max(...valores);
+      const min = Math.min(...valores);
+      const media = valores.reduce((a, b) => a + b, 0) / valores.length;
+      const amplitude = max - min;
+
+      const mesMax = resultados.find(r => r.valorProjetado === max);
+      const mesMin = resultados.find(r => r.valorProjetado === min);
+
+      document.getElementById('statMax').textContent = formatBRL(max);
+      document.getElementById('statMaxMes').textContent = mesMax ? mesMax.mesNome : '';
+      document.getElementById('statMin').textContent = formatBRL(min);
+      document.getElementById('statMinMes').textContent = mesMin ? mesMin.mesNome : '';
+      document.getElementById('statMedia').textContent = formatBRL(media);
+      document.getElementById('statVariacao').textContent = formatBRL(amplitude);
+
+      // Tabela
       const tbody = document.getElementById('tableBody');
       tbody.innerHTML = '';
 
-      data.forEach(row => {
+      resultados.forEach(r => {
         const tr = document.createElement('tr');
-
-        const esp1Class = row.esp1.variance > 0 ? 'value-positive' : row.esp1.variance < 0 ? 'value-negative' : 'value-neutral';
-        const esp2Class = row.esp2.variance > 0 ? 'value-positive' : row.esp2.variance < 0 ? 'value-negative' : 'value-neutral';
-        const esp3Class = row.esp3.variance > 0 ? 'value-positive' : row.esp3.variance < 0 ? 'value-negative' : 'value-neutral';
-        const esp4Class = row.esp4.variance > 0 ? 'value-positive' : row.esp4.variance < 0 ? 'value-negative' : 'value-neutral';
+        const isMax = r.valorProjetado === max;
+        const isMin = r.valorProjetado === min;
+        const className = isMax ? 'highlight-max' : isMin ? 'highlight-min' : '';
 
         tr.innerHTML = `
-          <td class="month-cell">${row.label}</td>
-          <td class="numeric">${row.total}</td>
-          <td class="numeric">${row.weekdays}</td>
-          <td class="numeric">${row.weekends}</td>
-          <td class="numeric">${row.holidaysWeekdays}</td>
-          <td class="numeric">${row.esp1.value > 0 ? formatBRL(row.esp1.value) : ''}</td>
-          <td class="numeric ${esp1Class}">${row.esp1.value > 0 ? formatPct(row.esp1.variance) : ''}</td>
-          <td class="numeric">${row.esp2.value > 0 ? formatBRL(row.esp2.value) : ''}</td>
-          <td class="numeric ${esp2Class}">${row.esp2.value > 0 ? formatPct(row.esp2.variance) : ''}</td>
-          <td class="numeric">${row.esp3.value > 0 ? formatBRL(row.esp3.value) : ''}</td>
-          <td class="numeric ${esp3Class}">${row.esp3.value > 0 ? formatPct(row.esp3.variance) : ''}</td>
-          <td class="numeric">${row.esp4.value > 0 ? formatBRL(row.esp4.value) : ''}</td>
-          <td class="numeric ${esp4Class}">${row.esp4.value > 0 ? formatPct(row.esp4.variance) : ''}</td>
-          <td class="holidays-cell">${row.holidaysStr}</td>
+          <td>${r.mesNome}</td>
+          <td class="numeric">${r.sabados}</td>
+          <td class="numeric">${r.domingos}</td>
+          <td class="numeric">${r.feriadosUteis}</td>
+          <td class="numeric">${r.diasUteis}</td>
+          <td class="numeric">${r.turnosNormais}</td>
+          <td class="numeric">${r.turnosEspeciais}</td>
+          <td class="numeric ${className}">${formatBRL(r.valorProjetado)}</td>
+          <td class="numeric ${r.variacao > 0 ? 'highlight-max' : 'highlight-min'}">${r.variacao > 0 ? '+' : ''}${r.variacao.toFixed(2)}%</td>
         `;
-
         tbody.appendChild(tr);
       });
+
+      // Gráfico
+      renderChart(resultados, valores, valorRubrica, media);
+
+      document.getElementById('results').classList.add('active');
+      document.getElementById('results').scrollIntoView({ behavior: 'smooth' });
     }
 
-    let mainChart = null;
+    function renderChart(resultados, valores, valorRubrica, media) {
+      const ctx = document.getElementById('projectionChart').getContext('2d');
 
-    function renderMainChart() {
-      const data = calculateData();
-      const ctx = document.getElementById('mainChart').getContext('2d');
-      
-      const labels = data.map(d => d.label);
-      
-      const datasets = [];
-      appState.especialidades.forEach((esp, i) => {
-        if (esp.ativa && esp.consultasPorPlantao > 0 && esp.nome && (esp.nome !== 'OUTRA' || esp.nomeCustom)) {
-          const values = data.map(d => d[`esp${i + 1}`].value || null);
-          const displayName = esp.nome === 'OUTRA' ? esp.nomeCustom : esp.nome;
-          
-          datasets.push({
-            label: displayName,
-            data: values,
-            borderColor: esp.color,
-            backgroundColor: `${esp.color}20`,
-            borderWidth: 3,
-            tension: 0.4,
-            fill: false,
-            pointRadius: 5,
-            pointHoverRadius: 8,
-            pointBackgroundColor: esp.color,
-            pointBorderColor: '#fff',
-            pointBorderWidth: 2,
-            pointHoverBackgroundColor: esp.color,
-            pointHoverBorderColor: '#fff',
-            pointHoverBorderWidth: 3
-          });
-        }
-      });
+      if (chart) chart.destroy();
 
-      const isMobile = window.innerWidth < 768;
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
 
-      if (mainChart) {
-        // Atualizar dados existentes ao invés de destruir
-        mainChart.data.labels = labels;
-        mainChart.data.datasets = datasets;
-        mainChart.options.plugins.legend.position = isMobile ? 'bottom' : 'top';
-        mainChart.options.plugins.legend.labels.font.size = isMobile ? 11 : 13;
-        mainChart.options.plugins.legend.labels.padding = isMobile ? 10 : 15;
-        mainChart.options.plugins.legend.labels.boxWidth = isMobile ? 8 : 10;
-        mainChart.options.plugins.legend.labels.boxHeight = isMobile ? 8 : 10;
-        mainChart.options.plugins.tooltip.padding = isMobile ? 10 : 12;
-        mainChart.options.plugins.tooltip.titleFont.size = isMobile ? 12 : 14;
-        mainChart.options.plugins.tooltip.bodyFont.size = isMobile ? 11 : 13;
-        mainChart.options.scales.y.ticks.font.size = isMobile ? 10 : 12;
-        mainChart.options.scales.y.ticks.maxTicksLimit = isMobile ? 6 : 8;
-        mainChart.options.scales.x.ticks.font.size = isMobile ? 10 : 12;
-        mainChart.options.scales.x.ticks.maxRotation = isMobile ? 45 : 0;
-        mainChart.options.scales.x.ticks.minRotation = isMobile ? 45 : 0;
-        mainChart.options.layout.padding.right = isMobile ? 5 : 10;
-        mainChart.options.layout.padding.left = isMobile ? 5 : 10;
-        mainChart.update();
-        return;
-      }
-
-      mainChart = new Chart(ctx, {
+      chart = new Chart(ctx, {
         type: 'line',
-        data: { labels, datasets },
+        data: {
+          labels: resultados.map(r => r.mesNome),
+          datasets: [
+            {
+              label: 'Valor Projetado',
+              data: valores,
+              borderColor: isDark ? '#3b9dd8' : '#196396',
+              backgroundColor: isDark ? 'rgba(59, 157, 216, 0.1)' : 'rgba(25, 99, 150, 0.1)',
+              borderWidth: 3,
+              fill: true,
+              tension: 0.4
+            },
+            {
+              label: 'Valor Referência',
+              data: Array(valores.length).fill(valorRubrica),
+              borderColor: '#10b981',
+              borderWidth: 2,
+              borderDash: [5, 5],
+              fill: false
+            },
+            {
+              label: 'Média do Período',
+              data: Array(valores.length).fill(media),
+              borderColor: '#ff8f00',
+              borderWidth: 2,
+              borderDash: [10, 5],
+              fill: false
+            }
+          ]
+        },
         options: {
           responsive: true,
           maintainAspectRatio: false,
-          interaction: {
-            mode: 'index',
-            intersect: false
-          },
           plugins: {
             legend: {
-              position: isMobile ? 'bottom' : 'top',
+              position: 'top',
               labels: {
-                font: { 
-                  size: isMobile ? 11 : 13, 
-                  weight: 'bold',
-                  family: 'Inter, sans-serif'
+                font: {
+                  family: 'Inter',
+                  size: 12,
+                  weight: 600
                 },
-                padding: isMobile ? 10 : 15,
-                usePointStyle: true,
-                boxWidth: isMobile ? 8 : 10,
-                boxHeight: isMobile ? 8 : 10
+                color: isDark ? '#f1f5f9' : '#0f172a'
               }
             },
             tooltip: {
-              enabled: true,
-              backgroundColor: 'rgba(0, 0, 0, 0.85)',
-              titleColor: '#fff',
-              bodyColor: '#fff',
-              padding: isMobile ? 10 : 12,
-              cornerRadius: 8,
-              titleFont: {
-                size: isMobile ? 12 : 14,
-                weight: 'bold',
-                family: 'Inter, sans-serif'
-              },
-              bodyFont: {
-                size: isMobile ? 11 : 13,
-                family: 'Inter, sans-serif'
-              },
-              displayColors: true,
               callbacks: {
-                label: (context) => ` ${context.dataset.label}: ${formatBRL(context.parsed.y)}`
-              }
-            },
-            zoom: {
-              pan: {
-                enabled: true,
-                mode: 'x',
-                modifierKey: 'ctrl'
-              },
-              zoom: {
-                wheel: {
-                  enabled: true,
-                  modifierKey: 'ctrl'
-                },
-                pinch: {
-                  enabled: true
-                },
-                mode: 'x'
-              },
-              limits: {
-                x: { min: 'original', max: 'original' }
+                label: function(context) {
+                  return context.dataset.label + ': ' + formatBRL(context.parsed.y);
+                }
               }
             }
           },
           scales: {
             y: {
-              beginAtZero: true,
+              beginAtZero: false,
               ticks: {
-                callback: (value) => {
-                  if (isMobile && value >= 1000) {
-                    return 'R$ ' + (value / 1000).toFixed(0) + 'k';
-                  }
-                  return formatBRL(value);
+                callback: function(value) {
+                  return (value / 1000000).toFixed(2) + 'M';
                 },
-                font: { 
-                  size: isMobile ? 10 : 12,
-                  family: 'Inter, sans-serif'
-                },
-                maxTicksLimit: isMobile ? 6 : 8
+                color: isDark ? '#94a3b8' : '#64748b'
               },
               grid: {
-                color: 'rgba(0, 0, 0, 0.05)',
-                drawBorder: false
+                color: isDark ? '#334155' : '#e2e8f0'
               }
             },
             x: {
               ticks: {
-                font: { 
-                  size: isMobile ? 10 : 12,
-                  family: 'Inter, sans-serif'
-                },
-                maxRotation: isMobile ? 45 : 0,
-                minRotation: isMobile ? 45 : 0
+                color: isDark ? '#94a3b8' : '#64748b'
               },
               grid: {
-                display: false,
-                drawBorder: false
+                color: isDark ? '#334155' : '#e2e8f0'
               }
-            }
-          },
-          layout: {
-            padding: {
-              top: 10,
-              right: isMobile ? 5 : 10,
-              bottom: 10,
-              left: isMobile ? 5 : 10
             }
           }
         }
       });
     }
 
-    function exportCSV() {
-      const data = calculateData();
-      
-      const headers = ['Mês', 'Ano', 'Dias', 'Úteis', 'Fins-Semana', 'Feriados', 
-                      'Valor Esp.1', 'Var% Esp.1', 'Valor Esp.2', 'Var% Esp.2', 
-                      'Valor Esp.3', 'Var% Esp.3', 'Valor Esp.4', 'Var% Esp.4'];
-      
-      const rows = data.map(d => [
-        d.month, d.year, d.total, d.weekdays, d.weekends, d.holidaysWeekdays,
-        d.esp1.value.toFixed(2), d.esp1.variance.toFixed(2),
-        d.esp2.value.toFixed(2), d.esp2.variance.toFixed(2),
-        d.esp3.value.toFixed(2), d.esp3.variance.toFixed(2),
-        d.esp4.value.toFixed(2), d.esp4.variance.toFixed(2)
-      ]);
-
-      const csv = [headers.join(','), ...rows.map(r => r.join(','))].join('\n');
-      
-      const blob = new Blob(['\ufeff' + csv], { type: 'text/csv;charset=utf-8;' });
-      const url = URL.createObjectURL(blob);
-      const link = document.createElement('a');
-      link.href = url;
-      link.download = `analise_preditiva_plantoes_${new Date().toISOString().split('T')[0]}.csv`;
-      link.click();
-      URL.revokeObjectURL(url);
-
-      showToast('CSV exportado');
+    function updateChartColors() {
+      if (!chart || resultadosGlobais.length === 0) return;
+      const valorRubrica = parseMoeda(document.getElementById('valorRubrica').value);
+      const valores = resultadosGlobais.map(r => r.valorProjetado);
+      const media = valores.reduce((a, b) => a + b, 0) / valores.length;
+      renderChart(resultadosGlobais, valores, valorRubrica, media);
     }
 
     function exportPDF() {
       const { jsPDF } = window.jspdf;
-      const doc = new jsPDF('landscape', 'mm', 'a4');
-      const data = calculateData();
+      const doc = new jsPDF();
 
-      // Configurações
-      const pageWidth = doc.internal.pageSize.getWidth();
-      const pageHeight = doc.internal.pageSize.getHeight();
-      const margin = 15;
-
-      // Header
       doc.setFontSize(18);
-      doc.setFont('helvetica', 'bold');
-      doc.text('Análise Preditiva Orçamentária - Plantões Médicos', margin, 20);
+      doc.setTextColor(25, 99, 150);
+      doc.text('Calculadora de Variação Orçamentária - Plantões', 14, 22);
 
       doc.setFontSize(10);
-      doc.setFont('helvetica', 'normal');
-      doc.text(`AxiaCare® | Gerado em ${new Date().toLocaleDateString('pt-BR')}`, margin, 27);
+      doc.setTextColor(100);
+      doc.text('AxiaCare® | Análise Preditiva Orçamentária', 14, 30);
+      doc.text(new Date().toLocaleDateString('pt-BR'), 14, 36);
 
-      // Informações do período
-      const firstMonth = data[0];
-      const lastMonth = data[data.length - 1];
-      doc.setFontSize(11);
-      doc.setFont('helvetica', 'bold');
-      doc.text(`Período: ${pad2(firstMonth.month + 1)}/${firstMonth.year} - ${pad2(lastMonth.month + 1)}/${lastMonth.year}`, margin, 35);
+      const valorRubrica = parseMoeda(document.getElementById('valorRubrica').value);
+      const valores = resultadosGlobais.map(r => r.valorProjetado);
+      const max = Math.max(...valores);
+      const min = Math.min(...valores);
+      const media = valores.reduce((a, b) => a + b, 0) / valores.length;
 
-      // Indexadores
+      doc.setFontSize(12);
+      doc.setTextColor(0);
+      doc.text('Estatísticas do Período', 14, 50);
+
       doc.setFontSize(10);
-      doc.setFont('helvetica', 'normal');
-      doc.text(`Consulta Tradicional (Rₜ): R$ ${appState.valorTradicional.toFixed(2)} | Consulta Especial (Rₑ): R$ ${appState.valorEspecial.toFixed(2)}`, margin, 41);
+      doc.text(`Valor de Referência: ${formatBRL(valorRubrica)}`, 14, 58);
+      doc.text(`Valor Máximo: ${formatBRL(max)}`, 14, 64);
+      doc.text(`Valor Mínimo: ${formatBRL(min)}`, 14, 70);
+      doc.text(`Média: ${formatBRL(media)}`, 14, 76);
+      doc.text(`Amplitude: ${formatBRL(max - min)}`, 14, 82);
 
-      // Tabela de dados
-      const tableData = data.map(d => {
-        const row = [
-          d.label,
-          d.total.toString(),
-          d.weekdays.toString(),
-          d.weekends.toString(),
-          d.holidaysWeekdays.toString()
-        ];
-
-        appState.especialidades.forEach((esp, idx) => {
-          if (esp.ativa && esp.consultasPorPlantao > 0 && esp.nome && (esp.nome !== 'OUTRA' || esp.nomeCustom)) {
-            const espData = d[`esp${idx + 1}`];
-            row.push(
-              espData.value > 0 ? `R$ ${espData.value.toFixed(2)}` : '',
-              espData.value > 0 ? `${espData.variance > 0 ? '+' : ''}${espData.variance.toFixed(2)}%` : ''
-            );
-          }
-        });
-
-        return row;
-      });
-
-      const headers = ['Mês', 'Dias', 'Úteis', 'Fins-S.', 'Fer.'];
-      appState.especialidades.forEach((esp, idx) => {
-        if (esp.ativa && esp.consultasPorPlantao > 0 && esp.nome && (esp.nome !== 'OUTRA' || esp.nomeCustom)) {
-          const displayName = esp.nome === 'OUTRA' ? esp.nomeCustom : esp.nome;
-          headers.push(`${displayName} (R$)`, 'Var. %');
-        }
-      });
+      const tableData = resultadosGlobais.map(r => [
+        r.mesNome,
+        r.sabados,
+        r.domingos,
+        r.feriadosUteis,
+        r.turnosNormais,
+        r.turnosEspeciais,
+        formatBRL(r.valorProjetado),
+        `${r.variacao > 0 ? '+' : ''}${r.variacao.toFixed(2)}%`
+      ]);
 
       doc.autoTable({
-        head: [headers],
+        head: [['Mês', 'Sáb', 'Dom', 'Fer', 'T.Norm', 'T.Esp', 'Valor', 'Var.']],
         body: tableData,
-        startY: 47,
+        startY: 92,
         theme: 'striped',
-        styles: {
-          fontSize: 8,
-          cellPadding: 2,
-          font: 'helvetica'
-        },
-        headStyles: {
-          fillColor: [25, 99, 150],
-          textColor: 255,
-          fontStyle: 'bold',
-          halign: 'center'
-        },
-        columnStyles: {
-          0: { fontStyle: 'bold', cellWidth: 20 }
-        },
-        margin: { left: margin, right: margin },
-        didDrawPage: function(data) {
-          // Footer
-          doc.setFontSize(8);
-          doc.setFont('helvetica', 'italic');
-          doc.text(`Página ${doc.internal.getCurrentPageInfo().pageNumber}`, pageWidth / 2, pageHeight - 10, { align: 'center' });
-        }
+        headStyles: { fillColor: [25, 99, 150] },
+        styles: { fontSize: 8 }
       });
 
-      // Salvar
-      doc.save(`analise_plantoes_${new Date().toISOString().split('T')[0]}.pdf`);
-      showToast('PDF exportado com sucesso');
+      doc.save('projecao-plantoes.pdf');
     }
-
-    document.getElementById('btnExportPDF').addEventListener('click', exportPDF);
-
-    document.querySelectorAll('.tab').forEach(tab => {
-      tab.addEventListener('click', () => {
-        document.querySelectorAll('.tab').forEach(t => {
-          t.classList.remove('active');
-          t.setAttribute('aria-selected', 'false');
-        });
-        document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-
-        tab.classList.add('active');
-        tab.setAttribute('aria-selected', 'true');
-        
-        const tabId = tab.dataset.tab;
-        document.getElementById(`tab${tabId.charAt(0).toUpperCase() + tabId.slice(1)}`).classList.add('active');
-
-        if (tabId === 'grafico') {
-          setTimeout(() => renderMainChart(), 100);
-        }
-      });
-    });
-
-    document.getElementById('btnReset').addEventListener('click', () => {
-      if (confirm('Limpar todas as especialidades configuradas?')) {
-        appState.especialidades.forEach(esp => {
-          esp.nome = '';
-          esp.nomeCustom = '';
-          esp.consultasPorPlantao = 0;
-          esp.tipo = 'plantao';
-          esp.ativa = false;
-        });
-        saveData();
-        renderAll();
-        showToast('Especialidades limpas');
-      }
-    });
-
-    function renderAll() {
-      renderEspecialidades();
-      renderStats();
-      renderTable();
-      if (mainChart) renderMainChart();
-    }
-
-    loadData();
-    updateTotalMeses();
-    renderAll();
-
-    // Simulador event listeners
-
-    // Preset selector - auto preenche os campos
-    const presetSelector = document.getElementById('simPreset');
-    if (presetSelector) {
-      presetSelector.addEventListener('change', (e) => {
-        const presetNome = e.target.value;
-
-        if (presetNome) {
-          const preset = ESPECIALIDADES_DISPONIVEIS.find(esp => esp.nome === presetNome);
-
-          if (preset) {
-            const simNomeEl = document.getElementById('simNome');
-            const simConsultasEl = document.getElementById('simConsultas');
-
-            if (simNomeEl) simNomeEl.value = preset.nome;
-            if (simConsultasEl) simConsultasEl.value = preset.consultas;
-
-            updateSimuladorOrcamento();
-          }
-        }
-      });
-    }
-
-    // Atualiza orçamento quando mudar valores
-    ['simConsultas', 'simPlantonistas'].forEach(id => {
-      const element = document.getElementById(id);
-      if (element) {
-        element.addEventListener('input', updateSimuladorOrcamento);
-      }
-    });
-
-    // Botões +/- do simulador
-    document.querySelectorAll('[data-sim]').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        const field = e.target.dataset.sim;
-        const action = e.target.dataset.action;
-        let input, step, minValue;
-
-        if (field === 'consultas') {
-          input = document.getElementById('simConsultas');
-          step = 0.5;
-          minValue = 0;
-        } else if (field === 'plantonistas') {
-          input = document.getElementById('simPlantonistas');
-          step = 1;
-          minValue = 1;
-        }
-
-        if (!input) return; // Segurança: sai se input não existe
-
-        let currentValue = parseFloat(input.value) || minValue;
-
-        if (action === 'increase') {
-          input.value = currentValue + step;
-        } else if (action === 'decrease') {
-          input.value = Math.max(minValue, currentValue - step);
-        }
-
-        updateSimuladorOrcamento();
-      });
-    });
-
-    // Reset do simulador
-    const btnResetSimulador = document.getElementById('btnResetSimulador');
-    if (btnResetSimulador) {
-      btnResetSimulador.addEventListener('click', () => {
-        const presetEl = document.getElementById('simPreset');
-        const nomeEl = document.getElementById('simNome');
-        const consultasEl = document.getElementById('simConsultas');
-        const plantonistasEl = document.getElementById('simPlantonistas');
-
-        if (presetEl) presetEl.value = '';
-        if (nomeEl) nomeEl.value = '';
-        if (consultasEl) consultasEl.value = 0;
-        if (plantonistasEl) plantonistasEl.value = 1;
-
-        updateSimuladorOrcamento();
-        showToast('Campos limpos');
-      });
-    }
-
-    // Aplicar plantão à análise
-    const btnAplicarSimulador = document.getElementById('btnAplicarSimulador');
-    if (btnAplicarSimulador) {
-      btnAplicarSimulador.addEventListener('click', () => {
-        const nomeEl = document.getElementById('simNome');
-        const consultasEl = document.getElementById('simConsultas');
-        const plantonistasEl = document.getElementById('simPlantonistas');
-
-        if (!nomeEl || !consultasEl || !plantonistasEl) {
-          console.error('Elementos do simulador não encontrados');
-          return;
-        }
-
-        const nome = nomeEl.value.trim();
-        const consultas = parseFloat(consultasEl.value) || 0;
-        const plantonistas = parseInt(plantonistasEl.value) || 1;
-
-        // Limpar erros anteriores
-        nomeEl.classList.remove('error');
-        consultasEl.classList.remove('error');
-        const nomeError = document.getElementById('simNomeError');
-        const consultasError = document.getElementById('simConsultasError');
-        if (nomeError) nomeError.classList.remove('show');
-        if (consultasError) consultasError.classList.remove('show');
-
-        let hasError = false;
-
-        if (!nome) {
-          nomeEl.classList.add('error');
-          if (nomeError) nomeError.classList.add('show');
-          hasError = true;
-        }
-
-        if (consultas === 0) {
-          consultasEl.classList.add('error');
-          if (consultasError) consultasError.classList.add('show');
-          hasError = true;
-        }
-
-        if (hasError) {
-          return;
-        }
-
-        // Encontrar primeiro slot disponível
-        let slotIndex = appState.especialidades.findIndex(esp => !esp.ativa);
-        if (slotIndex === -1) {
-          showToast('Todos os slots estão preenchidos. Desative um plantão existente primeiro.');
-          return;
-        }
-
-        // Aplicar ao slot disponível
-        const displayNome = plantonistas > 1 ? `${nome} (${plantonistas} plantonistas)` : nome;
-        appState.especialidades[slotIndex].nome = 'OUTRA';
-        appState.especialidades[slotIndex].nomeCustom = displayNome;
-        appState.especialidades[slotIndex].consultasPorPlantao = plantonistas * consultas;
-        appState.especialidades[slotIndex].tipo = 'plantao';
-        appState.especialidades[slotIndex].ativa = true;
-
-        saveData();
-        renderAll();
-
-        // Fechar modal
-        const modal = document.getElementById('simuladorModal');
-        if (modal) modal.classList.remove('active');
-
-        showToast(`Plantão "${nome}" adicionado ao Slot ${slotIndex + 1}`);
-
-        // Limpar campos para próxima adição
-        const presetEl2 = document.getElementById('simPreset');
-        if (presetEl2) presetEl2.value = '';
-        nomeEl.value = '';
-        consultasEl.value = 0;
-        plantonistasEl.value = 1;
-        updateSimuladorOrcamento();
-
-        // Scroll para as especialidades
-        setTimeout(() => {
-          const grid = document.querySelector('.especialidades-grid');
-          if (grid) grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }, 300);
-      });
-    }
-
-    // Inicializar orçamento do simulador (somente se elementos existirem)
-    if (document.getElementById('simConsultas') && document.getElementById('simPlantonistas')) {
-      updateSimuladorOrcamento();
-    }
-
-    // Remover erros quando usuário começar a digitar
-    const simNomeInput = document.getElementById('simNome');
-    if (simNomeInput) {
-      simNomeInput.addEventListener('input', () => {
-        simNomeInput.classList.remove('error');
-        const simNomeError = document.getElementById('simNomeError');
-        if (simNomeError) simNomeError.classList.remove('show');
-      });
-    }
-
-    const simConsultasInput = document.getElementById('simConsultas');
-    if (simConsultasInput) {
-      simConsultasInput.addEventListener('input', () => {
-        simConsultasInput.classList.remove('error');
-        const simConsultasError = document.getElementById('simConsultasError');
-        if (simConsultasError) simConsultasError.classList.remove('show');
-      });
-    }
-
-    setInterval(saveData, 30000);
-
-    // Recriar gráfico ao redimensionar (importante para mobile/rotação)
-    let resizeTimer;
-    window.addEventListener('resize', () => {
-      clearTimeout(resizeTimer);
-      resizeTimer = setTimeout(() => {
-        if (mainChart && document.querySelector('.tab[data-tab="grafico"]').classList.contains('active')) {
-          renderMainChart();
-        }
-      }, 250);
-    });
-
-    console.log('Sistema AxView inicializado');
   </script>
 </body>
 </html>
