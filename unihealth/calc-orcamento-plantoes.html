@@ -1,0 +1,616 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Calculadora de Variação Orçamentária - Plantões Médicos | AxiaCare®</title>
+  <meta name="description" content="Projeção de variação orçamentária mensal da rubrica de plantões médicos">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+
+  <style>
+    :root {
+      --ax-primary: #196396;
+      --ax-primary-light: #2b7ab8;
+      --ax-primary-dark: #0f4764;
+      --ax-ok: #10b981;
+      --ax-warn: #ef4444;
+      --ax-info: #3b82f6;
+
+      --bg-primary: #ffffff;
+      --bg-secondary: #f8fafc;
+      --bg-tertiary: #f1f5f9;
+      --text-primary: #0f172a;
+      --text-secondary: #475569;
+      --text-tertiary: #64748b;
+      --border-color: #e2e8f0;
+    }
+
+    [data-theme="dark"] {
+      --ax-primary: #3b9dd8;
+      --bg-primary: #1e293b;
+      --bg-secondary: #0f172a;
+      --bg-tertiary: #1e293b;
+      --text-primary: #f1f5f9;
+      --text-secondary: #cbd5e1;
+      --text-tertiary: #94a3b8;
+      --border-color: #334155;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 20px;
+      color: var(--text-primary);
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .header {
+      text-align: center;
+      color: white;
+      margin-bottom: 30px;
+    }
+
+    .header h1 {
+      font-size: 32px;
+      font-weight: 900;
+      margin-bottom: 8px;
+    }
+
+    .header p {
+      font-size: 16px;
+      opacity: 0.9;
+    }
+
+    .card {
+      background: var(--bg-primary);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 20px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    }
+
+    .input-section {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    .field-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .field-label {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-secondary);
+    }
+
+    .field-input {
+      padding: 12px 16px;
+      border: 2px solid var(--border-color);
+      border-radius: 8px;
+      font-size: 16px;
+      font-family: inherit;
+      background: var(--bg-secondary);
+      color: var(--text-primary);
+      transition: all 0.2s;
+    }
+
+    .field-input:focus {
+      outline: none;
+      border-color: var(--ax-primary);
+      background: var(--bg-primary);
+    }
+
+    .btn {
+      padding: 14px 28px;
+      background: var(--ax-primary);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn:hover {
+      background: var(--ax-primary-light);
+      transform: translateY(-1px);
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .stat-card {
+      background: linear-gradient(135deg, var(--bg-tertiary) 0%, var(--bg-secondary) 100%);
+      padding: 20px;
+      border-radius: 12px;
+      border-left: 4px solid var(--ax-primary);
+    }
+
+    .stat-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-tertiary);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+    }
+
+    .stat-value {
+      font-size: 28px;
+      font-weight: 900;
+      color: var(--ax-primary);
+    }
+
+    .chart-container {
+      position: relative;
+      height: 400px;
+      margin: 20px 0;
+    }
+
+    .table-container {
+      overflow-x: auto;
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+
+    thead {
+      background: linear-gradient(135deg, var(--ax-primary) 0%, var(--ax-primary-dark) 100%);
+      color: white;
+    }
+
+    th {
+      padding: 12px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    td {
+      padding: 12px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    tbody tr:hover {
+      background: var(--bg-tertiary);
+    }
+
+    .numeric {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .highlight-max {
+      background: rgba(16, 185, 129, 0.1);
+      font-weight: 600;
+      color: var(--ax-ok);
+    }
+
+    .highlight-min {
+      background: rgba(239, 68, 68, 0.1);
+      font-weight: 600;
+      color: var(--ax-warn);
+    }
+
+    #results {
+      display: none;
+    }
+
+    #results.active {
+      display: block;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>📊 Calculadora de Variação Orçamentária</h1>
+      <p>Projeção de custos mensais da rubrica de plantões médicos</p>
+    </div>
+
+    <div class="card">
+      <div class="input-section">
+        <div class="field-group">
+          <label class="field-label">Valor da Rubrica Mensal (R$)</label>
+          <input type="number" id="valorRubrica" class="field-input" placeholder="Ex: 1500000" step="0.01">
+        </div>
+
+        <div class="field-group">
+          <label class="field-label">Mês Inicial</label>
+          <select id="mesInicial" class="field-input">
+            <option value="2025-01">Janeiro 2025</option>
+            <option value="2025-02">Fevereiro 2025</option>
+            <option value="2025-03">Março 2025</option>
+            <option value="2025-04">Abril 2025</option>
+            <option value="2025-05">Maio 2025</option>
+            <option value="2025-06">Junho 2025</option>
+            <option value="2025-07">Julho 2025</option>
+            <option value="2025-08" selected>Agosto 2025</option>
+            <option value="2025-09">Setembro 2025</option>
+            <option value="2025-10">Outubro 2025</option>
+            <option value="2025-11">Novembro 2025</option>
+            <option value="2025-12">Dezembro 2025</option>
+            <option value="2026-01">Janeiro 2026</option>
+            <option value="2026-02">Fevereiro 2026</option>
+            <option value="2026-03">Março 2026</option>
+            <option value="2026-04">Abril 2026</option>
+            <option value="2026-05">Maio 2026</option>
+            <option value="2026-06">Junho 2026</option>
+            <option value="2026-07">Julho 2026</option>
+            <option value="2026-08">Agosto 2026</option>
+            <option value="2026-09">Setembro 2026</option>
+            <option value="2026-10">Outubro 2026</option>
+            <option value="2026-11">Novembro 2026</option>
+            <option value="2026-12">Dezembro 2026</option>
+          </select>
+        </div>
+
+        <div class="field-group">
+          <label class="field-label">Mês Final</label>
+          <select id="mesFinal" class="field-input">
+            <option value="2025-01">Janeiro 2025</option>
+            <option value="2025-02">Fevereiro 2025</option>
+            <option value="2025-03">Março 2025</option>
+            <option value="2025-04">Abril 2025</option>
+            <option value="2025-05">Maio 2025</option>
+            <option value="2025-06">Junho 2025</option>
+            <option value="2025-07">Julho 2025</option>
+            <option value="2025-08">Agosto 2025</option>
+            <option value="2025-09">Setembro 2025</option>
+            <option value="2025-10">Outubro 2025</option>
+            <option value="2025-11">Novembro 2025</option>
+            <option value="2025-12" selected>Dezembro 2025</option>
+            <option value="2026-01">Janeiro 2026</option>
+            <option value="2026-02">Fevereiro 2026</option>
+            <option value="2026-03">Março 2026</option>
+            <option value="2026-04">Abril 2026</option>
+            <option value="2026-05">Maio 2026</option>
+            <option value="2026-06">Junho 2026</option>
+            <option value="2026-07">Julho 2026</option>
+            <option value="2026-08">Agosto 2026</option>
+            <option value="2026-09">Setembro 2026</option>
+            <option value="2026-10">Outubro 2026</option>
+            <option value="2026-11">Novembro 2026</option>
+            <option value="2026-12">Dezembro 2026</option>
+          </select>
+        </div>
+      </div>
+
+      <button class="btn" onclick="calcular()">🔮 Calcular Projeção</button>
+    </div>
+
+    <div id="results">
+      <div class="card">
+        <h2 style="margin-bottom: 20px; font-size: 24px; font-weight: 800;">📈 Estatísticas do Período</h2>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-label">Valor Máximo</div>
+            <div class="stat-value" id="statMax">-</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Valor Mínimo</div>
+            <div class="stat-value" id="statMin">-</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Média do Período</div>
+            <div class="stat-value" id="statMedia">-</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Variação Total</div>
+            <div class="stat-value" id="statVariacao">-</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2 style="margin-bottom: 20px; font-size: 24px; font-weight: 800;">📊 Gráfico de Projeção</h2>
+        <div class="chart-container">
+          <canvas id="projectionChart"></canvas>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2 style="margin-bottom: 20px; font-size: 24px; font-weight: 800;">📋 Projeção Detalhada</h2>
+        <div class="table-container">
+          <table id="projectionTable">
+            <thead>
+              <tr>
+                <th>Mês</th>
+                <th class="numeric">Sábados</th>
+                <th class="numeric">Domingos</th>
+                <th class="numeric">Feriados</th>
+                <th class="numeric">Dias Úteis</th>
+                <th class="numeric">Turnos Normais</th>
+                <th class="numeric">Turnos Especiais</th>
+                <th class="numeric">Valor Projetado</th>
+                <th class="numeric">Variação</th>
+              </tr>
+            </thead>
+            <tbody id="tableBody">
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Constantes calculadas (média de ago-out 2025)
+    const VALOR_TURNO_NORMAL = 21456.01;
+    const VALOR_TURNO_ESPECIAL = 27892.82;
+
+    // Feriados nacionais fixos e móveis
+    const FERIADOS = {
+      2025: [
+        '2025-01-01', // Ano Novo
+        '2025-04-18', // Sexta-feira Santa
+        '2025-04-21', // Tiradentes
+        '2025-05-01', // Trabalho
+        '2025-09-07', // Independência
+        '2025-10-12', // N. Sra. Aparecida
+        '2025-11-02', // Finados
+        '2025-11-15', // Proclamação
+        '2025-11-20', // Consciência Negra
+        '2025-12-25'  // Natal
+      ],
+      2026: [
+        '2026-01-01', // Ano Novo
+        '2026-04-03', // Sexta-feira Santa
+        '2026-04-21', // Tiradentes
+        '2026-05-01', // Trabalho
+        '2026-09-07', // Independência
+        '2026-10-12', // N. Sra. Aparecida
+        '2026-11-02', // Finados
+        '2026-11-15', // Proclamação
+        '2026-11-20', // Consciência Negra
+        '2026-12-25'  // Natal
+      ]
+    };
+
+    let chart = null;
+
+    function getDaysInMonth(year, month) {
+      return new Date(year, month + 1, 0).getDate();
+    }
+
+    function analisarMes(year, month) {
+      const totalDias = getDaysInMonth(year, month);
+      let sabados = 0;
+      let domingos = 0;
+      let feriadosUteis = 0;
+      let diasUteis = 0;
+
+      for (let dia = 1; dia <= totalDias; dia++) {
+        const data = new Date(year, month, dia);
+        const diaSemana = data.getDay();
+        const dataStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(dia).padStart(2, '0')}`;
+
+        const isSabado = diaSemana === 6;
+        const isDomingo = diaSemana === 0;
+        const isFeriado = FERIADOS[year]?.includes(dataStr);
+
+        if (isSabado) sabados++;
+        if (isDomingo) domingos++;
+
+        if (!isSabado && !isDomingo) {
+          diasUteis++;
+          if (isFeriado) feriadosUteis++;
+        }
+      }
+
+      // Turnos normais = turnos diurnos em dias úteis SEM feriado
+      const turnosNormais = diasUteis - feriadosUteis;
+
+      // Turnos especiais = turnos noturnos + fins de semana + feriados
+      const turnosEspeciais = diasUteis + (sabados + domingos) * 2 + feriadosUteis;
+
+      return {
+        sabados,
+        domingos,
+        feriadosUteis,
+        diasUteis,
+        turnosNormais,
+        turnosEspeciais
+      };
+    }
+
+    function calcular() {
+      const valorRubrica = parseFloat(document.getElementById('valorRubrica').value);
+      const mesInicial = document.getElementById('mesInicial').value;
+      const mesFinal = document.getElementById('mesFinal').value;
+
+      if (!valorRubrica || valorRubrica <= 0) {
+        alert('Por favor, informe o valor da rubrica mensal');
+        return;
+      }
+
+      if (mesInicial > mesFinal) {
+        alert('O mês inicial deve ser anterior ao mês final');
+        return;
+      }
+
+      const [anoIni, mesIni] = mesInicial.split('-').map(Number);
+      const [anoFim, mesFim] = mesFinal.split('-').map(Number);
+
+      const resultados = [];
+      let valores = [];
+
+      let ano = anoIni;
+      let mes = mesIni - 1;
+
+      while (ano < anoFim || (ano === anoFim && mes <= mesFim - 1)) {
+        const analise = analisarMes(ano, mes);
+        const valorProjetado = analise.turnosNormais * VALOR_TURNO_NORMAL +
+                               analise.turnosEspeciais * VALOR_TURNO_ESPECIAL;
+        const variacao = ((valorProjetado / valorRubrica) - 1) * 100;
+
+        resultados.push({
+          ano,
+          mes,
+          mesNome: new Date(ano, mes).toLocaleDateString('pt-BR', { month: 'long', year: 'numeric' }),
+          ...analise,
+          valorProjetado,
+          variacao
+        });
+
+        valores.push(valorProjetado);
+
+        mes++;
+        if (mes > 11) {
+          mes = 0;
+          ano++;
+        }
+      }
+
+      // Estatísticas
+      const max = Math.max(...valores);
+      const min = Math.min(...valores);
+      const media = valores.reduce((a, b) => a + b, 0) / valores.length;
+      const variacaoTotal = ((max / min) - 1) * 100;
+
+      // Atualizar estatísticas
+      document.getElementById('statMax').textContent = max.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+      document.getElementById('statMin').textContent = min.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+      document.getElementById('statMedia').textContent = media.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+      document.getElementById('statVariacao').textContent = variacaoTotal.toFixed(2) + '%';
+
+      // Atualizar tabela
+      const tbody = document.getElementById('tableBody');
+      tbody.innerHTML = '';
+
+      resultados.forEach(r => {
+        const tr = document.createElement('tr');
+        const isMax = r.valorProjetado === max;
+        const isMin = r.valorProjetado === min;
+        const className = isMax ? 'highlight-max' : isMin ? 'highlight-min' : '';
+
+        tr.innerHTML = `
+          <td>${r.mesNome}</td>
+          <td class="numeric">${r.sabados}</td>
+          <td class="numeric">${r.domingos}</td>
+          <td class="numeric">${r.feriadosUteis}</td>
+          <td class="numeric">${r.diasUteis}</td>
+          <td class="numeric">${r.turnosNormais}</td>
+          <td class="numeric">${r.turnosEspeciais}</td>
+          <td class="numeric ${className}">${r.valorProjetado.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</td>
+          <td class="numeric ${r.variacao > 0 ? 'highlight-max' : 'highlight-min'}">${r.variacao > 0 ? '+' : ''}${r.variacao.toFixed(2)}%</td>
+        `;
+        tbody.appendChild(tr);
+      });
+
+      // Atualizar gráfico
+      const ctx = document.getElementById('projectionChart').getContext('2d');
+
+      if (chart) chart.destroy();
+
+      chart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: resultados.map(r => r.mesNome),
+          datasets: [
+            {
+              label: 'Valor Projetado',
+              data: valores,
+              borderColor: '#196396',
+              backgroundColor: 'rgba(25, 99, 150, 0.1)',
+              borderWidth: 3,
+              fill: true,
+              tension: 0.4
+            },
+            {
+              label: 'Valor Referência',
+              data: Array(valores.length).fill(valorRubrica),
+              borderColor: '#10b981',
+              borderWidth: 2,
+              borderDash: [5, 5],
+              fill: false
+            },
+            {
+              label: 'Média do Período',
+              data: Array(valores.length).fill(media),
+              borderColor: '#3b82f6',
+              borderWidth: 2,
+              borderDash: [10, 5],
+              fill: false
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              position: 'top',
+              labels: {
+                font: {
+                  family: 'Inter',
+                  size: 12,
+                  weight: 600
+                }
+              }
+            },
+            tooltip: {
+              callbacks: {
+                label: function(context) {
+                  return context.dataset.label + ': ' +
+                    context.parsed.y.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+                }
+              }
+            }
+          },
+          scales: {
+            y: {
+              beginAtZero: false,
+              ticks: {
+                callback: function(value) {
+                  return (value / 1000000).toFixed(2) + 'M';
+                }
+              }
+            }
+          }
+        }
+      });
+
+      document.getElementById('results').classList.add('active');
+      document.getElementById('results').scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>
