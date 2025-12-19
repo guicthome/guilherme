@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Estratificação Inteligente | Unimed GV</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -29,7 +30,7 @@
 
         .hero {
             background: linear-gradient(135deg, var(--unimed-green) 0%, var(--unimed-dark) 100%);
-            padding: 80px 20px;
+            padding: 60px 20px 40px 20px;
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -54,35 +55,51 @@
         }
 
         .logo {
-            width: 220px;
-            margin-bottom: 30px;
+            width: 200px;
+            margin-bottom: 25px;
         }
 
         .hero h1 {
             color: white;
-            font-size: 42px;
+            font-size: 38px;
             font-weight: 800;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             line-height: 1.2;
         }
 
         .hero .subtitle {
             color: var(--unimed-light-green);
-            font-size: 20px;
+            font-size: 19px;
             font-weight: 400;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
         .hero .tagline {
             color: rgba(255,255,255,0.9);
-            font-size: 16px;
+            font-size: 15px;
             font-style: italic;
+        }
+
+        .seal-container {
+            text-align: center;
+            margin: -30px 0 20px 0;
+            position: relative;
+            z-index: 10;
+        }
+
+        .seal-container img {
+            width: 140px;
+            height: auto;
+            filter: drop-shadow(0 6px 16px rgba(0, 153, 93, 0.3));
+            background: white;
+            border-radius: 50%;
+            padding: 10px;
         }
 
         .container {
             max-width: 1100px;
             margin: 0 auto;
-            padding: 60px 20px;
+            padding: 40px 20px 60px 20px;
         }
 
         .back-link {
@@ -103,13 +120,113 @@
             content: "← ";
         }
 
+        /* FLUXO PRINCIPAL - INÍCIO DO DOCUMENTO */
+        .main-flow {
+            background: white;
+            border-radius: 20px;
+            padding: 50px 40px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.12);
+            margin-bottom: 50px;
+            border-top: 6px solid var(--unimed-green);
+        }
+
+        .main-flow h2 {
+            color: var(--unimed-green);
+            font-size: 32px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .main-flow .intro {
+            text-align: center;
+            color: #4a5568;
+            font-size: 18px;
+            margin-bottom: 45px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .flow-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .flow-item {
+            background: linear-gradient(135deg, rgba(0,153,93,0.05) 0%, rgba(0,153,93,0.02) 100%);
+            border: 2px solid var(--unimed-light-green);
+            border-radius: 16px;
+            padding: 30px 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .flow-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 35px rgba(0,153,93,0.2);
+            border-color: var(--unimed-green);
+        }
+
+        .flow-item::after {
+            content: '→';
+            position: absolute;
+            right: -18px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 28px;
+            color: var(--unimed-green-light);
+            font-weight: bold;
+            z-index: 1;
+        }
+
+        .flow-item:last-child::after {
+            content: '';
+        }
+
+        .flow-icon {
+            font-size: 42px;
+            color: var(--unimed-green);
+            margin-bottom: 18px;
+        }
+
+        .flow-number {
+            background: var(--unimed-green);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 16px;
+            margin-bottom: 12px;
+        }
+
+        .flow-title {
+            color: var(--unimed-dark);
+            font-size: 17px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .flow-desc {
+            color: #718096;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
         .section {
-            margin-bottom: 60px;
+            margin-bottom: 50px;
         }
 
         .section-title {
             color: var(--unimed-green);
-            font-size: 32px;
+            font-size: 30px;
             font-weight: 700;
             margin-bottom: 15px;
             text-align: center;
@@ -118,8 +235,8 @@
         .section-subtitle {
             text-align: center;
             color: #4a5568;
-            font-size: 18px;
-            margin-bottom: 40px;
+            font-size: 17px;
+            margin-bottom: 35px;
             max-width: 800px;
             margin-left: auto;
             margin-right: auto;
@@ -128,30 +245,30 @@
         .content-box {
             background: white;
             border-radius: 16px;
-            padding: 50px;
+            padding: 45px;
             box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
 
         .content-box h3 {
             color: var(--unimed-dark);
-            font-size: 24px;
+            font-size: 23px;
             font-weight: 700;
-            margin-bottom: 20px;
+            margin-bottom: 18px;
         }
 
         .content-box p {
-            font-size: 17px;
+            font-size: 16px;
             color: #4a5568;
             line-height: 1.8;
-            margin-bottom: 16px;
+            margin-bottom: 15px;
             text-align: justify;
         }
 
         .challenge-box {
             background: white;
             border-radius: 16px;
-            padding: 50px;
+            padding: 45px;
             box-shadow: 0 10px 40px rgba(0,0,0,0.1);
             text-align: center;
             border-top: 5px solid var(--unimed-orange);
@@ -159,187 +276,141 @@
 
         .challenge-box h2 {
             color: var(--unimed-dark);
-            font-size: 28px;
+            font-size: 26px;
             font-weight: 700;
-            margin-bottom: 20px;
+            margin-bottom: 18px;
         }
 
         .challenge-box p {
-            font-size: 20px;
+            font-size: 19px;
             color: #4a5568;
             line-height: 1.7;
-        }
-
-        .flow-container {
-            background: white;
-            border-radius: 16px;
-            padding: 50px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-        }
-
-        .flow-intro {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .flow-intro h3 {
-            color: var(--unimed-dark);
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 15px;
-        }
-
-        .flow-intro p {
-            font-size: 17px;
-            color: #4a5568;
-            line-height: 1.7;
-        }
-
-        .flow-steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .flow-step {
-            text-align: center;
-            position: relative;
-        }
-
-        .flow-step::after {
-            content: '→';
-            position: absolute;
-            right: -20px;
-            top: 35px;
-            font-size: 30px;
-            color: var(--unimed-green-light);
-            font-weight: bold;
-        }
-
-        .flow-step:last-child::after {
-            content: '';
-        }
-
-        .step-number {
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(135deg, var(--unimed-green) 0%, var(--unimed-green-light) 100%);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 28px;
-            font-weight: 700;
-            margin: 0 auto 15px auto;
-            box-shadow: 0 6px 20px rgba(0,153,93,0.3);
-        }
-
-        .step-title {
-            color: var(--unimed-dark);
-            font-size: 16px;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-
-        .step-desc {
-            color: #718096;
-            font-size: 14px;
-            line-height: 1.5;
         }
 
         .highlight-box {
             background: linear-gradient(135deg, rgba(0,153,93,0.08) 0%, rgba(0,153,93,0.05) 100%);
             border-left: 4px solid var(--unimed-green);
-            padding: 25px 30px;
-            margin: 25px 0;
+            padding: 22px 28px;
+            margin: 22px 0;
             border-radius: 8px;
         }
 
         .highlight-box p {
-            font-size: 17px;
+            font-size: 16px;
             color: #2d3748;
             line-height: 1.8;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
         .highlight-box p:last-child {
             margin-bottom: 0;
         }
 
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-            margin-top: 30px;
+        .highlight-box strong {
+            color: var(--unimed-green);
         }
 
-        .feature-card {
-            background: linear-gradient(135deg, rgba(139,175,31,0.1) 0%, rgba(139,175,31,0.05) 100%);
-            padding: 30px;
+        .pathways-visual {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .pathway-card {
+            background: white;
+            border: 3px solid var(--unimed-light-green);
             border-radius: 12px;
-            border-left: 4px solid var(--unimed-green-light);
+            padding: 25px 20px;
+            text-align: center;
             transition: all 0.3s ease;
         }
 
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(139,175,31,0.2);
+        .pathway-card:hover {
+            border-color: var(--unimed-green);
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(0,153,93,0.2);
         }
 
-        .feature-title {
+        .pathway-icon {
+            font-size: 36px;
             color: var(--unimed-green);
-            font-size: 18px;
-            font-weight: 600;
             margin-bottom: 12px;
         }
 
-        .feature-desc {
-            color: #4a5568;
-            font-size: 15px;
-            line-height: 1.6;
+        .pathway-title {
+            color: var(--unimed-dark);
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .pathway-desc {
+            color: #718096;
+            font-size: 13px;
+            line-height: 1.5;
         }
 
         .geriatria-section {
             background: white;
             border-radius: 16px;
-            padding: 50px;
+            padding: 45px;
             box-shadow: 0 10px 40px rgba(0,0,0,0.1);
         }
 
         .score-highlight {
             background: linear-gradient(135deg, var(--unimed-green) 0%, var(--unimed-dark) 100%);
             color: white;
-            padding: 40px;
+            padding: 35px;
             border-radius: 12px;
             text-align: center;
-            margin: 30px 0;
+            margin: 25px 0;
         }
 
         .score-highlight h3 {
-            font-size: 32px;
+            font-size: 30px;
             margin-bottom: 10px;
         }
 
         .score-highlight p {
-            font-size: 18px;
+            font-size: 17px;
             opacity: 0.95;
             line-height: 1.6;
         }
 
+        .backend-highlight {
+            background: linear-gradient(135deg, rgba(139,175,31,0.15) 0%, rgba(139,175,31,0.08) 100%);
+            border: 2px solid var(--unimed-green-light);
+            padding: 25px 30px;
+            border-radius: 12px;
+            margin: 25px 0;
+        }
+
+        .backend-highlight h4 {
+            color: var(--unimed-green);
+            font-size: 19px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .backend-highlight p {
+            font-size: 16px;
+            color: #2d3748;
+            line-height: 1.7;
+        }
+
         .levels-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin: 40px 0;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 22px;
+            margin: 35px 0;
         }
 
         .level-card {
             background: white;
             border: 3px solid var(--unimed-light-green);
             border-radius: 12px;
-            padding: 30px;
+            padding: 28px;
             text-align: center;
             transition: all 0.3s ease;
         }
@@ -353,100 +424,102 @@
         .level-badge {
             background: var(--unimed-green-light);
             color: white;
-            padding: 8px 20px;
+            padding: 7px 18px;
             border-radius: 20px;
             font-weight: 700;
             display: inline-block;
-            margin-bottom: 15px;
+            margin-bottom: 14px;
+            font-size: 14px;
         }
 
         .level-range {
-            font-size: 28px;
+            font-size: 26px;
             font-weight: 700;
             color: var(--unimed-green);
-            margin-bottom: 15px;
+            margin-bottom: 14px;
         }
 
         .level-profile {
             color: #4a5568;
-            font-size: 15px;
-            margin-bottom: 15px;
+            font-size: 14px;
+            margin-bottom: 14px;
             line-height: 1.6;
         }
 
         .level-recommendation {
             background: var(--unimed-beige);
-            padding: 15px;
+            padding: 14px;
             border-radius: 8px;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 600;
             color: var(--unimed-dark);
         }
 
         .results-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 25px;
-            margin: 40px 0;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 22px;
+            margin: 35px 0;
         }
 
         .result-card {
             background: linear-gradient(135deg, var(--unimed-green) 0%, var(--unimed-dark) 100%);
             color: white;
-            padding: 35px 25px;
+            padding: 32px 22px;
             border-radius: 12px;
             text-align: center;
             box-shadow: 0 8px 25px rgba(0,153,93,0.3);
         }
 
         .result-number {
-            font-size: 48px;
+            font-size: 44px;
             font-weight: 800;
             color: var(--unimed-green-light);
             margin-bottom: 10px;
         }
 
         .result-label {
-            font-size: 15px;
+            font-size: 14px;
             line-height: 1.4;
         }
 
         .replicability-section {
             background: linear-gradient(135deg, rgba(244,121,32,0.1) 0%, rgba(244,121,32,0.05) 100%);
             border-radius: 16px;
-            padding: 50px;
+            padding: 45px;
         }
 
         .replicability-section h3 {
             color: var(--unimed-orange);
-            font-size: 28px;
+            font-size: 26px;
             font-weight: 700;
-            margin-bottom: 20px;
+            margin-bottom: 18px;
         }
 
         .replicability-section p {
-            font-size: 17px;
+            font-size: 16px;
             color: #4a5568;
             line-height: 1.8;
-            margin-bottom: 16px;
+            margin-bottom: 15px;
         }
 
         .specialties-list {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 15px;
-            margin: 30px 0;
+            gap: 14px;
+            margin: 28px 0;
         }
 
         .specialty-tag {
             background: white;
             color: var(--unimed-orange);
-            padding: 12px 25px;
+            padding: 11px 23px;
             border-radius: 25px;
             font-weight: 600;
             border: 2px solid var(--unimed-orange);
             transition: all 0.3s ease;
+            font-size: 14px;
         }
 
         .specialty-tag:hover {
@@ -457,7 +530,7 @@
 
         .cta-section {
             text-align: center;
-            padding: 60px 20px;
+            padding: 50px 20px;
             background: white;
             border-radius: 16px;
             box-shadow: 0 10px 40px rgba(0,0,0,0.1);
@@ -467,14 +540,14 @@
             display: inline-block;
             background: var(--unimed-orange);
             color: white;
-            padding: 20px 50px;
+            padding: 18px 45px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 700;
-            font-size: 20px;
+            font-size: 18px;
             transition: all 0.3s ease;
             box-shadow: 0 8px 25px rgba(244,121,32,0.4);
-            margin-top: 20px;
+            margin-top: 18px;
         }
 
         .cta-button:hover {
@@ -484,8 +557,8 @@
         }
 
         .footer {
-            margin-top: 60px;
-            padding: 30px 20px;
+            margin-top: 50px;
+            padding: 28px 20px;
             background: white;
             text-align: center;
             border-radius: 16px;
@@ -493,23 +566,23 @@
         }
 
         .footer-logo {
-            width: 140px;
-            margin: 0 auto 15px auto;
+            width: 130px;
+            margin: 0 auto 14px auto;
         }
 
         .footer-title {
-            font-size: 15px;
+            font-size: 14px;
             font-weight: bold;
             color: var(--unimed-dark);
-            margin: 10px 0 18px;
+            margin: 10px 0 16px;
         }
 
         .footer-links {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 8px;
-            font-size: 14px;
+            gap: 7px;
+            font-size: 13px;
         }
 
         .footer-links a {
@@ -529,39 +602,106 @@
         }
 
         .footer-copyright {
-            margin-top: 18px;
+            margin-top: 16px;
             font-size: 11px;
             color: #999;
         }
 
+        /* MOBILE OPTIMIZATION */
         @media (max-width: 768px) {
+            .hero {
+                padding: 40px 15px 30px 15px;
+            }
+
             .hero h1 {
-                font-size: 28px;
+                font-size: 24px;
             }
 
             .hero .subtitle {
-                font-size: 18px;
+                font-size: 16px;
             }
 
-            .flow-step::after {
+            .logo {
+                width: 160px;
+            }
+
+            .seal-container {
+                margin: -25px 0 15px 0;
+            }
+
+            .seal-container img {
+                width: 100px;
+            }
+
+            .container {
+                padding: 30px 15px 40px 15px;
+            }
+
+            .main-flow {
+                padding: 35px 20px;
+            }
+
+            .main-flow h2 {
+                font-size: 24px;
+            }
+
+            .main-flow .intro {
+                font-size: 15px;
+                margin-bottom: 30px;
+            }
+
+            .flow-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .flow-item::after {
                 content: '↓';
                 right: 50%;
                 top: auto;
-                bottom: -25px;
+                bottom: -15px;
                 transform: translateX(50%);
             }
 
+            .flow-item:last-child::after {
+                content: '';
+            }
+
+            .flow-icon {
+                font-size: 36px;
+            }
+
             .section-title {
-                font-size: 26px;
+                font-size: 24px;
             }
 
             .content-box,
             .challenge-box,
-            .flow-container,
             .geriatria-section,
             .replicability-section,
             .cta-section {
-                padding: 30px 20px;
+                padding: 28px 20px;
+            }
+
+            .content-box h3 {
+                font-size: 20px;
+            }
+
+            .content-box p,
+            .highlight-box p {
+                font-size: 15px;
+            }
+
+            .pathways-visual {
+                grid-template-columns: 1fr;
+            }
+
+            .levels-container {
+                grid-template-columns: 1fr;
+            }
+
+            .results-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -573,14 +713,59 @@
             <a href="https://www.unimed.coop.br/site/web/governadorvaladares" target="_blank">
                 <img src="https://i.imgur.com/prZGWXK.png" alt="Unimed Governador Valadares" class="logo">
             </a>
-            <h1>Estratificação Inteligente:<br>O Filtro que Personaliza o Cuidado</h1>
+            <h1>Estratificação Inteligente:<br>Instrumento que Personaliza o Cuidado</h1>
             <p class="subtitle">Inovação na Autorização que Garante Equidade e Eficiência Assistencial</p>
             <p class="tagline">Escritório de Valor em Saúde | Setor de Autorização</p>
         </div>
     </div>
 
+    <!-- SELO EVS -->
+    <div class="seal-container">
+        <img src="assets/selo_evs.png" alt="Selo Escritório de Valor em Saúde">
+    </div>
+
     <div class="container">
         <a href="index3.html" class="back-link">Voltar ao Hub de Documentos</a>
+
+        <!-- FLUXO PRINCIPAL NO INÍCIO -->
+        <div class="main-flow">
+            <h2>Como Funciona o Instrumento de Estratificação</h2>
+            <p class="intro">Processo automatizado integrado ao Busca Rede que estratifica necessidades e personaliza percursos assistenciais</p>
+            
+            <div class="flow-grid">
+                <div class="flow-item">
+                    <div class="flow-number">1</div>
+                    <div class="flow-icon"><i class="fas fa-file-medical"></i></div>
+                    <div class="flow-title">Solicitação</div>
+                    <div class="flow-desc">Pedido chega via Busca Rede na Autorização</div>
+                </div>
+
+                <div class="flow-item">
+                    <div class="flow-number">2</div>
+                    <div class="flow-icon"><i class="fas fa-paper-plane"></i></div>
+                    <div class="flow-title">Envio Automático</div>
+                    <div class="flow-desc">Formulário enviado automaticamente via WhatsApp com mensagens padrão</div>
+                </div>
+
+                <div class="flow-item">
+                    <div class="flow-number">3</div>
+                    <div class="flow-icon"><i class="fas fa-calculator"></i></div>
+                    <div class="flow-title">Classificação</div>
+                    <div class="flow-desc">Sistema gera pontuação automática por modelos multicritério</div>
+                </div>
+
+                <div class="flow-item">
+                    <div class="flow-number">4</div>
+                    <div class="flow-icon"><i class="fas fa-route"></i></div>
+                    <div class="flow-title">Direcionamento</div>
+                    <div class="flow-desc">Encaminhamento personalizado ao nível adequado de cuidado</div>
+                </div>
+            </div>
+
+            <div class="highlight-box" style="margin-top: 35px;">
+                <p><strong>Tecnologia e Segurança:</strong> Utiliza Google Forms vinculado ao e-mail corporativo, garantindo proteção de dados e conformidade com a LGPD. O envio ocorre automaticamente pelos canais existentes (WhatsApp) com mensagens padronizadas.</p>
+            </div>
+        </div>
 
         <!-- CONTEXTO -->
         <section class="section">
@@ -588,7 +773,7 @@
                 <h3>Contexto da Iniciativa</h3>
                 <p>A Unimed Governador Valadares está desenvolvendo uma iniciativa inovadora de estratificação da necessidade de cuidado, fundamentada nos princípios de equidade e pertinência assistencial. Este projeto representa um avanço significativo na forma como a cooperativa organiza e coordena o cuidado aos seus beneficiários.</p>
                 
-                <p>A lógica aplicada consiste em acoplar um filtro automatizado às solicitações que chegam pelo Busca Rede, permitindo que ele seja aplicado pela equipe de Autorização. Esse filtro tem como objetivo automatizar uma classificação inicial do paciente por meio de formulários auto-responsivos, preenchidos pelo paciente ou responsável, com linguagem simples e baixo número de itens a serem respondidos.</p>
+                <p>A lógica aplicada consiste em acoplar um instrumento de estratificação automatizado às solicitações que chegam pelo Busca Rede, permitindo que ele seja aplicado de forma automática com mensagens padrão pela equipe de Autorização. Esse instrumento tem como objetivo automatizar uma classificação inicial do paciente por meio de formulários auto-responsivos, preenchidos pelo paciente ou responsável, com linguagem simples e baixo número de itens a serem respondidos.</p>
 
                 <p>Essa iniciativa está sendo conduzida por uma parceria estratégica entre o Setor de Autorização e o Escritório de Valor em Saúde, com potencial de desenho de fluxos personalizados para qualquer especialidade médica.</p>
             </div>
@@ -602,73 +787,14 @@
             </div>
         </section>
 
-        <!-- A SOLUÇÃO -->
-        <section class="section">
-            <h2 class="section-title">A Solução: O Fluxo do Filtro Inteligente</h2>
-            <p class="section-subtitle">Um processo automatizado que estratifica necessidades e personaliza percursos assistenciais</p>
-            
-            <div class="flow-container">
-                <div class="flow-intro">
-                    <h3>Como Funciona o Fluxo</h3>
-                    <p>O processo está integrado ao fluxo natural de solicitação de consultas, garantindo agilidade e segurança na coleta de informações clínicas relevantes para a tomada de decisão assistencial.</p>
-                </div>
-
-                <div class="flow-steps">
-                    <div class="flow-step">
-                        <div class="step-number">1</div>
-                        <div class="step-title">Solicitação</div>
-                        <div class="step-desc">Pedido chega via Busca Rede na Autorização</div>
-                    </div>
-                    <div class="flow-step">
-                        <div class="step-number">2</div>
-                        <div class="step-title">Envio do Filtro</div>
-                        <div class="step-desc">Formulário enviado pelos canais existentes (WhatsApp)</div>
-                    </div>
-                    <div class="flow-step">
-                        <div class="step-number">3</div>
-                        <div class="step-title">Classificação</div>
-                        <div class="step-desc">Sistema gera pontuação automática</div>
-                    </div>
-                    <div class="flow-step">
-                        <div class="step-number">4</div>
-                        <div class="step-title">Direcionamento</div>
-                        <div class="step-desc">Encaminhamento personalizado ao nível adequado</div>
-                    </div>
-                </div>
-
-                <div class="highlight-box" style="margin-top: 40px;">
-                    <p><strong>Importante:</strong> A ferramenta utilizada é o Google Forms, vinculada ao e-mail corporativo, garantindo a segurança dos dados e conformidade com a Lei Geral de Proteção de Dados (LGPD). O envio ocorre pelos canais de atendimento já existentes, especialmente via WhatsApp, facilitando o acesso e a resposta por parte dos beneficiários.</p>
-                </div>
-            </div>
-        </section>
-
         <!-- CARACTERÍSTICAS DO INSTRUMENTO -->
         <section class="section">
             <div class="content-box">
                 <h3>Características do Instrumento</h3>
                 <p>Apesar da baixa complexidade da estrutura do formulário, as perguntas foram elaboradas com base sólida na literatura científica e acopladas a um sistema automatizado que permite classificar numericamente a necessidade de cuidado, favorecendo uma tomada de decisão mais assertiva.</p>
 
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <div class="feature-title">Formulário Auto-Responsivo</div>
-                        <div class="feature-desc">Pode ser preenchido pelo próprio paciente ou por seu responsável, utilizando linguagem simples e acessível</div>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-title">Segurança de Dados</div>
-                        <div class="feature-desc">Google Forms vinculado ao e-mail corporativo, garantindo proteção e conformidade com a LGPD</div>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-title">Pontuação Automática</div>
-                        <div class="feature-desc">Sistema inteligente classifica numericamente a necessidade de cuidado do paciente</div>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-title">Base Científica</div>
-                        <div class="feature-desc">Perguntas elaboradas com fundamentação sólida na literatura científica internacional</div>
-                    </div>
-                </div>
-
                 <div class="highlight-box">
-                    <p><strong>Garantia de Acesso:</strong> É fundamental destacar que todos os pacientes têm agendamento garantido no Centro de Atendimento Integrado (CAI), atendendo imediatamente à solicitação médica. A estratificação não posterga nem nega acesso, mas sim qualifica o tipo de atendimento que será oferecido.</p>
+                    <p><strong>Garantia de Acesso:</strong> É fundamental destacar que todos os pacientes têm agendamento garantido, seja no Centro de Atendimento Integrado (CAI) ou em outras frentes definidas pelo Escritório de Valor em Saúde, incluindo parceiros estratégicos, teleatendimento e outras modalidades assistenciais. A estratificação não posterga nem nega acesso, mas sim qualifica o tipo de atendimento que será oferecido.</p>
                 </div>
             </div>
         </section>
@@ -679,7 +805,33 @@
                 <h3>Resultado Esperado</h3>
                 <p>O resultado esperado é que, para cada especialidade, possamos personalizar o caminho assistencial oferecido ao paciente. Uma vez melhor compreendida a necessidade assistencial, reduzimos riscos assistenciais e jurídicos e aumentamos a satisfação do usuário.</p>
 
-                <p>Do ponto de vista prático, isso nos permite criar fluxos de atendimento que podem envolver verticalização, teleatendimento ou encaminhamento para outra especialidade, sempre com anuência do paciente após contato da enfermagem navegadora.</p>
+                <p>Do ponto de vista prático, isso nos permite criar fluxos de atendimento personalizados, sempre com anuência do paciente após contato da enfermagem navegadora:</p>
+
+                <div class="pathways-visual">
+                    <div class="pathway-card">
+                        <div class="pathway-icon"><i class="fas fa-hospital"></i></div>
+                        <div class="pathway-title">Verticalização</div>
+                        <div class="pathway-desc">Encaminhamento para especialista de maior complexidade</div>
+                    </div>
+
+                    <div class="pathway-card">
+                        <div class="pathway-icon"><i class="fas fa-video"></i></div>
+                        <div class="pathway-title">Teleatendimento</div>
+                        <div class="pathway-desc">Consulta remota quando apropriado ao caso</div>
+                    </div>
+
+                    <div class="pathway-card">
+                        <div class="pathway-icon"><i class="fas fa-exchange-alt"></i></div>
+                        <div class="pathway-title">Encaminhamento</div>
+                        <div class="pathway-desc">Direcionamento para outra especialidade mais adequada</div>
+                    </div>
+
+                    <div class="pathway-card">
+                        <div class="pathway-icon"><i class="fas fa-handshake"></i></div>
+                        <div class="pathway-title">Parceiros Estratégicos</div>
+                        <div class="pathway-desc">Atendimento em rede credenciada especializada</div>
+                    </div>
+                </div>
 
                 <div class="highlight-box">
                     <p><strong>Coordenação do Cuidado:</strong> Entre a etapa de autorização e o atendimento propriamente dito, a enfermagem de navegação, municiada com as informações clínicas coletadas no questionário, adequa o percurso assistencial à necessidade identificada, garantindo que o paciente transite pelos diferentes níveis de complexidade de forma fluida e segura.</p>
@@ -690,22 +842,31 @@
         <!-- GERIATRIA: PRIMEIRO CASO DE SUCESSO -->
         <section class="section">
             <h2 class="section-title">Geriatria: Primeiro Caso de Sucesso</h2>
-            <p class="section-subtitle">Aplicação prática do fluxo com resultados mensuráveis</p>
+            <p class="section-subtitle">Aplicação prática do instrumento com resultados mensuráveis</p>
             
             <div class="geriatria-section">
-                <p style="font-size: 17px; color: #4a5568; line-height: 1.8; margin-bottom: 30px; text-align: justify;">Como caso concreto inicial, apresentamos a metodologia aplicada em Geriatria, que tem permitido a manutenção do reembolso zerado, associada à mensuração sistemática da satisfação do paciente, resultado alcançado em poucos meses de trabalho.</p>
+                <p style="font-size: 16px; color: #4a5568; line-height: 1.8; margin-bottom: 25px; text-align: justify;">Como caso concreto inicial, apresentamos a metodologia aplicada em Geriatria, que tem permitido a manutenção do reembolso zerado, associada à mensuração sistemática da satisfação do paciente, resultado alcançado em poucos meses de trabalho.</p>
+
+                <div class="highlight-box">
+                    <p><strong>Grande Vantagem do Modelo:</strong> Para a demanda "dita de geriatria", utilizamos de forma escalonada médicos da Clínica Médica, Medicina de Família e Comunidade, e também Geriatria, otimizando recursos e garantindo que cada paciente seja atendido pelo profissional mais adequado à sua complexidade.</p>
+                </div>
 
                 <div class="score-highlight">
                     <h3>SCG-100</h3>
                     <p>Score de Complexidade Geriátrica</p>
-                    <p style="font-size: 16px; margin-top: 15px; opacity: 0.9;">Instrumento de apoio à coordenação do cuidado desenvolvido pelo Escritório de Valor em Saúde da Unimed Governador Valadares</p>
+                    <p style="font-size: 16px; margin-top: 14px; opacity: 0.95;">Instrumento de apoio à coordenação do cuidado desenvolvido pelo Escritório de Valor em Saúde da Unimed Governador Valadares</p>
                 </div>
 
-                <p style="font-size: 17px; color: #4a5568; line-height: 1.8; margin-bottom: 30px; text-align: justify;">O questionário produz automaticamente o SCG-100, construído para estimar a complexidade clínica e funcional do paciente idoso a partir de informações objetivas coletadas diretamente com o paciente ou responsável.</p>
+                <p style="font-size: 16px; color: #4a5568; line-height: 1.8; margin-bottom: 25px; text-align: justify;">O questionário produz automaticamente o SCG-100, construído para estimar a complexidade clínica e funcional do paciente idoso a partir de informações objetivas coletadas diretamente com o paciente ou responsável.</p>
 
-                <h3 style="text-align: center; color: var(--unimed-dark); margin: 40px 0 20px 0; font-size: 24px;">Estratificação por Níveis de Complexidade</h3>
+                <div class="backend-highlight">
+                    <h4>Tecnologia de Classificação Avançada</h4>
+                    <p>O sistema utiliza <strong>Modelos Multicritério com conhecimento clínico aplicado</strong> para transformar as respostas do questionário em um escore numérico preciso. Esta abordagem combina evidências científicas, critérios clínicos validados e algoritmos de decisão para gerar uma classificação objetiva e confiável da complexidade do paciente.</p>
+                </div>
 
-                <p style="font-size: 17px; color: #4a5568; line-height: 1.8; margin-bottom: 30px; text-align: center;">A classificação ocorre conforme as seguintes faixas de pontuação:</p>
+                <h3 style="text-align: center; color: var(--unimed-dark); margin: 35px 0 18px 0; font-size: 23px;">Estratificação por Níveis de Complexidade</h3>
+
+                <p style="font-size: 16px; color: #4a5568; line-height: 1.8; margin-bottom: 28px; text-align: center;">A classificação ocorre conforme as seguintes faixas de pontuação:</p>
 
                 <div class="levels-container">
                     <div class="level-card">
@@ -734,7 +895,7 @@
                     <p><strong>Modelo de Atendimento Escalonado:</strong> Atualmente, o atendimento em Geriatria é escalonado entre Medicina de Família e Comunidade e Geriatria, com inclusão de Clínica Médica a partir de 2026, mantendo garantia de acesso, coordenação do cuidado e foco em valor.</p>
                 </div>
 
-                <h3 style="text-align: center; color: var(--unimed-dark); margin: 40px 0 20px 0; font-size: 24px;">Resultados em Geriatria</h3>
+                <h3 style="text-align: center; color: var(--unimed-dark); margin: 35px 0 18px 0; font-size: 23px;">Resultados em Geriatria</h3>
 
                 <div class="results-grid">
                     <div class="result-card">
@@ -761,7 +922,7 @@
 
                 <p>A parceria entre o Setor de Autorização e o Escritório de Valor em Saúde permite o desenho de fluxos personalizados, considerando o perfil epidemiológico da população atendida, a disponibilidade de recursos assistenciais, as evidências científicas específicas de cada especialidade e os indicadores de qualidade e segurança assistencial.</p>
                 
-                <p style="text-align: center; font-weight: 600; margin-top: 30px; margin-bottom: 20px; font-size: 18px;">Especialidades com Potencial de Aplicação:</p>
+                <p style="text-align: center; font-weight: 600; margin-top: 28px; margin-bottom: 18px; font-size: 17px;">Especialidades com Potencial de Aplicação:</p>
 
                 <div class="specialties-list">
                     <div class="specialty-tag">Nutrologia</div>
@@ -776,17 +937,16 @@
         <!-- CTA -->
         <section class="section">
             <div class="cta-section">
-                <h2 style="color: var(--unimed-green); font-size: 32px; margin-bottom: 15px;">Conheça o Questionário</h2>
-                <p style="font-size: 18px; color: #4a5568; margin-bottom: 20px;">Veja como funciona o instrumento de estratificação geriátrica</p>
-                <a href="#" class="cta-button">Acessar Questionário</a>
-                <p style="font-size: 14px; color: #718096; margin-top: 20px;"><em>Link será disponibilizado em breve</em></p>
+                <h2 style="color: var(--unimed-green); font-size: 30px; margin-bottom: 14px;">Conheça o Questionário</h2>
+                <p style="font-size: 17px; color: #4a5568; margin-bottom: 18px;">Veja como funciona o instrumento de estratificação geriátrica</p>
+                <a href="https://docs.google.com/forms/d/1fGRykPY8JtkQIKcjxwYBwW09alPzVXclhbufFg8ZgYc/edit" target="_blank" class="cta-button">Acessar Questionário</a>
             </div>
         </section>
 
         <!-- FOOTER -->
         <footer class="footer">
             <img class="footer-logo" src="https://i.imgur.com/yAUQciP.png" alt="AxiaCare Logo">
-            <div class="footer-title">AxView™ | WebApps - Gestão e Consultoria em Saúde</div>
+            <div class="footer-title">AxiaCare Webpages - Gestão e Consultoria em Saúde</div>
             <div class="footer-links">
                 <a href="https://linktr.ee/gui.thome">Conheça nossas soluções</a>
                 <span class="separator">|</span>
