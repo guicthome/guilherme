@@ -806,17 +806,17 @@
       const desvioPadrao = Math.sqrt(variancia);
       const cv = (desvioPadrao / media) * 100;
       
-      const drivers = data.map(d => d.driver);
-      const mediaDriver = drivers.reduce((a, b) => a + b, 0) / n;
-      let numerador = 0, denomDriver = 0, denomCusto = 0;
+      const consultas = data.map(d => d.consultas);
+      const mediaConsultas = consultas.reduce((a, b) => a + b, 0) / n;
+      let numerador = 0, denomConsultas = 0, denomCusto = 0;
       for (let i = 0; i < n; i++) {
-        const diffDriver = drivers[i] - mediaDriver;
+        const diffConsultas = consultas[i] - mediaConsultas;
         const diffCusto = data[i].custo_medio - media;
-        numerador += diffDriver * diffCusto;
-        denomDriver += diffDriver * diffDriver;
+        numerador += diffConsultas * diffCusto;
+        denomConsultas += diffConsultas * diffConsultas;
         denomCusto += diffCusto * diffCusto;
       }
-      const correlacao = denomDriver && denomCusto ? numerador / Math.sqrt(denomDriver * denomCusto) : 0;
+      const correlacao = denomConsultas && denomCusto ? numerador / Math.sqrt(denomConsultas * denomCusto) : 0;
       const totalConsultas = data.reduce((a, b) => a + b.consultas, 0);
       const custoTotal = data.reduce((a, b) => a + (b.custo_medio * b.consultas), 0);
       
@@ -845,9 +845,7 @@
         if (filtros.quartil !== 'todos') {
           dados = dados.filter(d => getQuartil(d.custo_medio, allStats.q1, allStats.q3) === filtros.quartil);
         }
-        if (filtros.clinica !== 'todas') {
-          dados = dados.filter(d => d.clinica === filtros.clinica);
-        }
+        // Filtro de clínica removido (não disponível nos dados)
         if (filtros.volumeMin > 0) {
           dados = dados.filter(d => d.consultas >= filtros.volumeMin);
         }
@@ -898,7 +896,7 @@
         
         const minY = Math.min(...dadosFiltrados.map(d => d.custo_medio)) * 0.92;
         const maxY = Math.max(...dadosFiltrados.map(d => d.custo_medio)) * 1.06;
-        const maxDriver = Math.max(...spec.data.map(d => d.driver));
+        const maxConsultas = Math.max(...spec.data.map(d => d.consultas));
         
         const scaleX = (val) => margin.left + ((Math.log10(val) - logMinX) / (logMaxX - logMinX)) * plotWidth;
         const scaleY = (val) => margin.top + plotHeight - ((val - minY) / (maxY - minY)) * plotHeight;
@@ -985,19 +983,13 @@
         dadosFiltrados.forEach(d => {
           const x = scaleX(d.consultas);
           const y = scaleY(d.custo_medio);
-          const r = 9 + (d.driver / maxDriver) * 16;
+          const r = 6 + (d.consultas / maxConsultas) * 12;
           const quartil = getQuartil(d.custo_medio, allStats.q1, allStats.q3);
           const cor = getCorQuartil(quartil);
           
           pointsData.push({ x, y, r, data: d });
           
-          // Borda de clínica
-          if (spec.tem_clinica && d.clinica !== 'Independente') {
-            ctx.beginPath();
-            ctx.arc(x, y, r + 3, 0, Math.PI * 2);
-            ctx.fillStyle = CORES_CLINICA[d.clinica];
-            ctx.fill();
-          }
+          // Borda removida (sem dados de clínica)
           
           // Bolha
           ctx.beginPath();
@@ -1019,7 +1011,7 @@
           dadosFiltrados.forEach(d => {
             const x = scaleX(d.consultas);
             const y = scaleY(d.custo_medio);
-            const r = 9 + (d.driver / maxDriver) * 16;
+            const r = 6 + (d.consultas / maxConsultas) * 12;
             ctx.fillText(d.nome_curto, x, y - r - 4);
           });
         }
@@ -1093,7 +1085,7 @@
               React.createElement('h3', { className: 'text-lg font-semibold', style: { color: CORES.verde3 } }, spec.nome),
               React.createElement('p', { className: 'text-sm text-gray-500 mt-0.5' }, 
                 'Volume ', React.createElement('span', { className: 'text-gray-400' }, 'x'), ' Custo Médio ',
-                React.createElement('span', { className: 'text-gray-400' }, 'x'), ' ', spec.driver_label
+                React.createElement('span', { className: 'text-gray-400' }, 'x'), ' ', 'Consultas'
               )
             ),
             React.createElement('div', { className: 'flex gap-6 text-sm' },
@@ -1137,9 +1129,9 @@
                 )
               ),
               React.createElement('div', { className: 'flex justify-between' },
-                React.createElement('span', { className: 'text-gray-500' }, spec.driver_label),
+                React.createElement('span', { className: 'text-gray-500' }, 'Consultas'),
                 React.createElement('span', { className: 'font-medium text-gray-900' }, 
-                  spec.driver_prefix ? `${spec.driver_prefix} ${tooltip.data.driver}` : tooltip.data.driver.toFixed(2)
+                  tooltip.data.consultas.toLocaleString('pt-BR')
                 )
               ),
               React.createElement('div', { className: 'flex justify-between' },
@@ -1148,7 +1140,7 @@
                   formatCurrency(tooltip.data.consultas * tooltip.data.custo_medio)
                 )
               ),
-              spec.tem_clinica && tooltip.data.clinica !== 'Independente' && 
+              // Clínica removida: tooltip.data.clinica !== 'Independente' && 
                 React.createElement('div', { className: 'flex justify-between pt-2 border-t border-gray-100 mt-2' },
                   React.createElement('span', { className: 'text-gray-500' }, 'Vínculo'),
                   React.createElement('span', { className: 'font-medium', style: { color: CORES_CLINICA[tooltip.data.clinica] } }, tooltip.data.clinica)
@@ -1170,7 +1162,7 @@
             React.createElement('div', { className: 'w-3 h-3 rounded-full', style: { backgroundColor: CORES.laranja } }),
             React.createElement('span', { className: 'text-xs text-gray-600' }, 'Acima Q3 (alerta)')
           ),
-          spec.tem_clinica && React.createElement('div', { className: 'flex items-center gap-2 ml-3 pl-3 border-l border-gray-200' },
+          // Clínica removida: React.createElement('div', { className: 'flex items-center gap-2 ml-3 pl-3 border-l border-gray-200' },
             React.createElement('span', { className: 'text-xs text-gray-500' }, 'Borda colorida indica vínculo institucional')
           )
         )
@@ -1188,9 +1180,7 @@
         if (filtros.quartil !== 'todos') {
           dados = dados.filter(d => getQuartil(d.custo_medio, allStats.q1, allStats.q3) === filtros.quartil);
         }
-        if (filtros.clinica !== 'todas') {
-          dados = dados.filter(d => d.clinica === filtros.clinica);
-        }
+        // Filtro de clínica removido (não disponível nos dados)
         if (filtros.volumeMin > 0) {
           dados = dados.filter(d => d.consultas >= filtros.volumeMin);
         }
@@ -1219,11 +1209,11 @@
                 React.createElement('th', { className: 'px-4 py-3 text-right text-xs font-semibold text-gray-500 uppercase tracking-wider cursor-pointer hover:text-gray-700 select-none', onClick: () => handleSort('custo_medio') }, 
                   'Custo Médio', React.createElement(SortIcon, { active: sortConfig.key === 'custo_medio', direction: sortConfig.direction })
                 ),
-                React.createElement('th', { className: 'px-4 py-3 text-right text-xs font-semibold text-gray-500 uppercase tracking-wider cursor-pointer hover:text-gray-700 select-none', onClick: () => handleSort('driver') }, 
-                  spec.driver_label, React.createElement(SortIcon, { active: sortConfig.key === 'driver', direction: sortConfig.direction })
+                React.createElement('th', { className: 'px-4 py-3 text-right text-xs font-semibold text-gray-500 uppercase tracking-wider cursor-pointer hover:text-gray-700 select-none', onClick: () => handleSort('consultas') }, 
+                  'Consultas', React.createElement(SortIcon, { active: sortConfig.key === 'consultas', direction: sortConfig.direction })
                 ),
                 React.createElement('th', { className: 'px-4 py-3 text-center text-xs font-semibold text-gray-500 uppercase tracking-wider' }, 'Status'),
-                spec.tem_clinica && React.createElement('th', { className: 'px-4 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider' }, 'Vínculo')
+                // Clínica removida: React.createElement('th', { className: 'px-4 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider' }, 'Vínculo')
               )
             ),
             React.createElement('tbody', { className: 'divide-y divide-gray-100' },
@@ -1239,7 +1229,7 @@
                   React.createElement('td', { className: 'px-4 py-3 text-sm text-right font-medium text-gray-700' }, formatNumber(row.consultas)),
                   React.createElement('td', { className: 'px-4 py-3 text-sm text-right font-semibold', style: { color: getCorQuartil(quartil) } }, formatCurrency(row.custo_medio)),
                   React.createElement('td', { className: 'px-4 py-3 text-sm text-right font-medium text-gray-700' }, 
-                    spec.driver_prefix ? `${spec.driver_prefix} ${row.driver}` : row.driver.toFixed(2)
+                    row.consultas.toLocaleString('pt-BR')
                   ),
                   React.createElement('td', { className: 'px-4 py-3 text-center' },
                     React.createElement('span', { 
@@ -1247,7 +1237,7 @@
                       style: { backgroundColor: `${getCorQuartil(quartil)}15`, color: getCorQuartil(quartil) }
                     }, quartil === 'Q1' ? 'Eficiente' : quartil === 'Q3' ? 'Alerta' : 'Esperado')
                   ),
-                  spec.tem_clinica && React.createElement('td', { className: 'px-4 py-3' },
+                  // Clínica removida: React.createElement('td', { className: 'px-4 py-3' },
                     row.clinica !== 'Independente' 
                       ? React.createElement('span', { className: 'text-xs font-medium', style: { color: CORES_CLINICA[row.clinica] } }, row.clinica)
                       : React.createElement('span', { className: 'text-xs text-gray-300' }, '—')
@@ -1299,7 +1289,7 @@
               React.createElement('option', { value: 'Q3' }, 'Acima Q3 (alerta)')
             )
           ),
-          spec.tem_clinica && React.createElement('div', null,
+          // Clínica removida: React.createElement('div', null,
             React.createElement('label', { className: 'block text-xs font-medium text-gray-500 mb-1.5' }, 'Vínculo institucional'),
             React.createElement('select', {
               value: filtros.clinica,
@@ -1416,7 +1406,7 @@
             React.createElement(StatCard, { label: 'Prestadores', value: stats.n, color: CORES.verde3 }),
             React.createElement(StatCard, { label: 'Consultas', value: formatNumber(stats.totalConsultas), color: CORES.verde1 }),
             React.createElement(StatCard, { label: 'Mediana', value: formatCurrency(stats.mediana), subvalue: `Q1: ${formatCurrency(stats.q1)} | Q3: ${formatCurrency(stats.q3)}`, color: CORES.verde3, highlight: true }),
-            React.createElement(StatCard, { label: 'Correlação', value: stats.correlacao.toFixed(2), subvalue: `${spec.driver_label} x Custo`, color: stats.correlacao > 0.7 ? CORES.verde1 : CORES.laranja, highlight: true }),
+            React.createElement(StatCard, { label: 'Correlação', value: stats.correlacao.toFixed(2), subvalue: `${'Consultas'} x Custo`, color: stats.correlacao > 0.7 ? CORES.verde1 : CORES.laranja, highlight: true }),
             React.createElement(StatCard, { label: 'CV', value: `${stats.cv.toFixed(0)}%`, subvalue: 'Coef. Variação', color: stats.cv > 30 ? CORES.laranja : CORES.verde2 }),
             React.createElement(StatCard, { label: 'Custo Total', value: formatCurrency(stats.custoTotal), subvalue: spec.periodo, color: CORES.verde3 })
           ),
