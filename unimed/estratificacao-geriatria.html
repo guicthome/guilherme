@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estratificação de Risco e Coordenação do Cuidado em Geriatria | Unimed GV</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --unimed-green: #00995d;
+            --unimed-green-light: #8baf1f;
+            --unimed-dark: #004e4c;
+            --unimed-orange: #f47920;
+            --unimed-beige: #ece3d9;
+            --unimed-light-green: #cde3bb;
+            --text-primary: #2d3748;
+            --text-secondary: #4a5568;
+            --bg-gradient-start: #f7f9fc;
+            --bg-gradient-end: #e8f4ee;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+            min-height: 100vh;
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+
+        .header-banner {
+            background: linear-gradient(135deg, var(--unimed-green) 0%, var(--unimed-dark) 100%);
+            padding: 40px 20px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .header-banner .logo {
+            width: 240px;
+            max-width: 90%;
+            margin-bottom: 20px;
+        }
+
+        .header-banner h1 {
+            color: white;
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            letter-spacing: -0.3px;
+        }
+
+        .header-banner .subtitle {
+            color: var(--unimed-light-green);
+            font-size: 18px;
+            font-weight: 400;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .seal-container {
+            text-align: center;
+            margin: 30px 0 40px 0;
+        }
+
+        .seal-container img {
+            width: 180px;
+            height: auto;
+            filter: drop-shadow(0 4px 12px rgba(0, 153, 93, 0.2));
+        }
+
+        .section {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border-left: 5px solid var(--unimed-green);
+        }
+
+        .section h2 {
+            color: var(--unimed-green);
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--unimed-light-green);
+        }
+
+        .section h3 {
+            color: var(--unimed-dark);
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .section h4 {
+            color: var(--unimed-green-light);
+            font-size: 18px;
+            font-weight: 600;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .section p {
+            margin-bottom: 16px;
+            text-align: justify;
+            color: var(--text-secondary);
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(0, 153, 93, 0.05) 0%, rgba(0, 153, 93, 0.08) 100%);
+            border-left: 4px solid var(--unimed-green-light);
+            padding: 20px 25px;
+            margin: 25px 0;
+            border-radius: 8px;
+        }
+
+        .highlight-box p {
+            margin-bottom: 12px;
+        }
+
+        .highlight-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .level-card {
+            background: linear-gradient(135deg, rgba(139, 175, 31, 0.08) 0%, rgba(139, 175, 31, 0.12) 100%);
+            border-left: 5px solid var(--unimed-green-light);
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .level-card:hover {
+            transform: translateX(5px);
+            box-shadow: 0 6px 20px rgba(139, 175, 31, 0.2);
+        }
+
+        .level-card h4 {
+            color: var(--unimed-green);
+            font-size: 20px;
+            margin-top: 0;
+            margin-bottom: 12px;
+        }
+
+        .level-card p {
+            margin-bottom: 10px;
+        }
+
+        .level-card .recommendation {
+            color: var(--unimed-dark);
+            font-weight: 600;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(139, 175, 31, 0.3);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, var(--unimed-green) 0%, var(--unimed-dark) 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 6px 20px rgba(0, 153, 93, 0.25);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-card .number {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--unimed-green-light);
+        }
+
+        .stat-card .label {
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1.4;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--unimed-orange);
+            color: white;
+            padding: 18px 40px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(244, 121, 32, 0.3);
+            margin: 20px 0;
+        }
+
+        .cta-button:hover {
+            background: #d66a1a;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(244, 121, 32, 0.4);
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+            margin: 25px 0;
+        }
+
+        .info-item {
+            background: var(--unimed-beige);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 3px solid var(--unimed-green);
+        }
+
+        .info-item strong {
+            color: var(--unimed-dark);
+            display: block;
+            margin-bottom: 8px;
+            font-size: 15px;
+        }
+
+        .info-item span {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        .footer {
+            margin-top: 50px;
+            padding: 30px 20px;
+            background: white;
+            text-align: center;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .footer-logo {
+            width: 140px;
+            margin: 0 auto 15px auto;
+            display: block;
+        }
+
+        .footer-title {
+            font-size: 15px;
+            font-weight: bold;
+            color: var(--unimed-dark);
+            margin: 10px 0 18px;
+        }
+
+        .footer-links,
+        .footer-social {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .footer-links a,
+        .footer-social a {
+            color: var(--unimed-dark);
+            text-decoration: none;
+            padding: 0 4px;
+            transition: all 0.2s ease;
+        }
+
+        .footer-links a:hover,
+        .footer-social a:hover {
+            color: var(--unimed-green);
+            text-decoration: underline;
+        }
+
+        .footer .separator {
+            color: #bbb;
+            margin: 0 4px;
+        }
+
+        .footer-copyright {
+            margin-top: 18px;
+            font-size: 11px;
+            color: #999;
+        }
+
+        .back-link {
+            display: inline-block;
+            color: var(--unimed-green);
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: var(--unimed-dark);
+            transform: translateX(-5px);
+        }
+
+        .back-link::before {
+            content: "← ";
+        }
+
+        .update-notice {
+            background: var(--unimed-beige);
+            padding: 15px 20px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 13px;
+            color: var(--text-secondary);
+            font-style: italic;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .header-banner h1 {
+                font-size: 24px;
+            }
+
+            .header-banner .subtitle {
+                font-size: 16px;
+            }
+
+            .section {
+                padding: 25px 20px;
+            }
+
+            .section h2 {
+                font-size: 24px;
+            }
+
+            .section h3 {
+                font-size: 20px;
+            }
+
+            .stat-card .number {
+                font-size: 36px;
+            }
+
+            .cta-button {
+                width: 100%;
+                padding: 16px 30px;
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header-banner">
+        <a href="https://www.unimed.coop.br/site/web/governadorvaladares" target="_blank">
+            <img src="https://i.imgur.com/prZGWXK.png" alt="Unimed Governador Valadares" class="logo">
+        </a>
+        <h1>Estratificação de Risco e Coordenação do Cuidado em Geriatria</h1>
+        <p class="subtitle">Projeto Institucional | Escritório de Valor em Saúde</p>
+    </div>
+
+    <div class="container">
+        <a href="index3.html" class="back-link">Voltar ao Hub de Documentos</a>
+
+        <div class="seal-container">
+            <img src="assets/selo_evs.png" alt="Selo Escritório de Valor em Saúde">
+        </div>
+
+        <!-- VISÃO GERAL -->
+        <div class="section">
+            <h2>Visão Geral do Projeto</h2>
+            
+            <h3>Contexto Estratégico</h3>
+            <p>A Unimed Governador Valadares está desenvolvendo uma iniciativa inovadora de <strong>estratificação da necessidade de cuidado</strong>, fundamentada nos princípios de equidade e pertinência assistencial. Este projeto representa um avanço significativo na forma como a cooperativa organiza e coordena o cuidado aos seus beneficiários, especialmente na população idosa.</p>
+            
+            <p>A iniciativa é conduzida por uma parceria estratégica entre o <strong>Setor de Autorização</strong> e o <strong>Escritório de Valor em Saúde</strong>, com potencial de expansão para diversas especialidades médicas. O modelo prioriza a personalização do percurso assistencial, garantindo que cada paciente receba o cuidado adequado à sua real necessidade clínica.</p>
+
+            <h3>Princípios Norteadores</h3>
+            
+            <div class="highlight-box">
+                <h4>Equidade Assistencial</h4>
+                <p>A estratificação não visa restringir acesso, mas sim direcionar cada paciente ao nível de cuidado mais apropriado à sua condição clínica, garantindo que recursos sejam alocados de forma justa e eficiente.</p>
+            </div>
+
+            <div class="highlight-box">
+                <h4>Pertinência Clínica</h4>
+                <p>Todas as decisões assistenciais são baseadas em evidências científicas sólidas e em instrumentos validados de avaliação, assegurando que o cuidado oferecido seja clinicamente apropriado.</p>
+            </div>
+
+            <div class="highlight-box">
+                <h4>Coordenação do Cuidado</h4>
+                <p>A enfermagem navegadora atua como elemento central na coordenação, garantindo que o paciente transite pelos diferentes níveis de complexidade de forma fluida e segura.</p>
+            </div>
+        </div>
+
+        <!-- METODOLOGIA -->
+        <div class="section">
+            <h2>Metodologia</h2>
+            
+            <h3>Fluxo Operacional</h3>
+            <p>O processo de estratificação está integrado ao fluxo natural de solicitação de consultas através do <strong>Busca Rede</strong>. Quando uma solicitação de consulta especializada é realizada, um filtro automatizado é acionado pela equipe de Autorização, iniciando o processo de classificação do paciente.</p>
+            
+            <p>A ferramenta utilizada é o <strong>Google Forms</strong>, vinculada ao e-mail corporativo, garantindo segurança e conformidade com a Lei Geral de Proteção de Dados (LGPD). O envio do questionário ocorre pelos canais de atendimento já estabelecidos, especialmente via WhatsApp, facilitando o acesso e a resposta por parte dos beneficiários.</p>
+
+            <h3>Instrumento de Avaliação</h3>
+            <p>Os questionários foram elaborados com base sólida na literatura científica internacional e adaptados para a realidade assistencial brasileira. Apesar da aparente simplicidade estrutural, cada pergunta foi cuidadosamente desenhada para capturar informações clinicamente relevantes.</p>
+            
+            <p>O formulário é <strong>auto-responsivo</strong>, ou seja, pode ser preenchido pelo próprio paciente ou por seu responsável, utilizando linguagem simples e acessível. O número reduzido de itens garante alta taxa de adesão sem comprometer a qualidade das informações coletadas.</p>
+            
+            <p>As respostas são processadas por um <strong>sistema automatizado de pontuação</strong>, que classifica numericamente a necessidade de cuidado do paciente, fornecendo subsídios objetivos para a tomada de decisão assistencial.</p>
+
+            <h3>Garantia de Acesso</h3>
+            <p>É fundamental destacar que <strong>todos os pacientes têm agendamento garantido</strong> no <strong>Centro de Atendimento Integrado (CAI)</strong>, atendendo imediatamente à solicitação médica. A estratificação não posterga nem nega acesso, mas sim qualifica o tipo de atendimento que será oferecido.</p>
+            
+            <p>Entre a etapa de autorização e o atendimento propriamente dito, a <strong>enfermagem de navegação</strong>, municiada com as informações clínicas coletadas no questionário, adequa o percurso assistencial à necessidade identificada, podendo envolver verticalização, teleatendimento ou encaminhamento para outra especialidade, sempre com anuência do paciente.</p>
+        </div>
+
+        <!-- CASO CONCRETO: GERIATRIA -->
+        <div class="section">
+            <h2>Caso Concreto: Geriatria</h2>
+            
+            <h3>O SCG-100: Score de Complexidade Geriátrica</h3>
+            <p>Para a especialidade de Geriatria, foi desenvolvido o <strong>SCG-100 – Score de Complexidade Geriátrica</strong>, um instrumento proprietário criado pelo Escritório de Valor em Saúde da Unimed Governador Valadares. Trata-se de uma ferramenta de apoio à coordenação do cuidado, construída para estimar a complexidade clínica e funcional do paciente idoso.</p>
+            
+            <p>O SCG-100 é gerado automaticamente a partir das respostas ao questionário, produzindo uma pontuação que varia de 0 a 100 pontos. Esta pontuação reflete múltiplas dimensões da saúde do idoso, incluindo condições clínicas, capacidade funcional, presença de síndromes geriátricas e risco de desfechos adversos.</p>
+
+            <h3>Estratificação por Níveis de Complexidade</h3>
+            <p>A classificação ocorre conforme três faixas de pontuação, cada uma associada a um perfil clínico específico e a uma recomendação de encaminhamento:</p>
+
+            <div class="level-card">
+                <h4>Nível 1 – 0 a 29 pontos</h4>
+                <p>Perfil de baixa complexidade, adequado para manejo longitudinal generalista. Pacientes nesta faixa apresentam condições clínicas estáveis, ausência de síndromes geriátricas significativas e preservação da capacidade funcional.</p>
+                <p class="recommendation">Encaminhamento recomendado: Clínica Médica ou Médico de Família</p>
+            </div>
+
+            <div class="level-card">
+                <h4>Nível 2 – 30 a 69 pontos</h4>
+                <p>Pacientes com risco clínico moderado, demandas funcionais específicas ou síndromes geriátricas iniciais. Este grupo pode se beneficiar tanto de abordagem generalista quanto especializada, dependendo da natureza das demandas identificadas.</p>
+                <p class="recommendation">Encaminhamento recomendado: Médico de Família ou Geriatra</p>
+            </div>
+
+            <div class="level-card">
+                <h4>Nível 3 – ≥ 70 pontos</h4>
+                <p>Pacientes com múltiplas síndromes geriátricas, dependência funcional relevante ou instabilidade clínica. Este grupo demanda abordagem especializada em Geriatria, com avaliação multidimensional e plano de cuidados individualizado.</p>
+                <p class="recommendation">Encaminhamento recomendado: Geriatra</p>
+            </div>
+
+            <h3>Modelo de Atendimento Escalonado</h3>
+            <p>Atualmente, o atendimento em Geriatria é escalonado entre <strong>Medicina de Família e Comunidade</strong> e <strong>Geriatria</strong>, com previsão de inclusão da <strong>Clínica Médica</strong> a partir de 2026. Este modelo garante:</p>
+            
+            <div class="highlight-box">
+                <p><strong>✓ Garantia de acesso:</strong> Todo paciente é atendido, independentemente da pontuação obtida.</p>
+                <p><strong>✓ Coordenação do cuidado:</strong> A enfermagem navegadora acompanha o paciente ao longo de sua jornada assistencial.</p>
+                <p><strong>✓ Foco em valor:</strong> O cuidado é direcionado para o nível de complexidade adequado, otimizando recursos e desfechos clínicos.</p>
+            </div>
+        </div>
+
+        <!-- RESULTADOS -->
+        <div class="section">
+            <h2>Resultados Alcançados</h2>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="number">98,4%</div>
+                    <div class="label">Satisfação Geral dos Pacientes (PPE-15)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">568</div>
+                    <div class="label">Beneficiários Atendidos no CAI</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">1.034</div>
+                    <div class="label">Atendimentos Realizados</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">R$ 125mil+</div>
+                    <div class="label">Custos Evitados no Período</div>
+                </div>
+            </div>
+
+            <h3>Desempenho Econômico</h3>
+            <p>O projeto tem demonstrado resultados expressivos em termos de sustentabilidade econômica. Desde a implementação do modelo de estratificação em Geriatria, foi alcançada a <strong>manutenção do reembolso zerado</strong>, indicando que a rede própria e credenciada tem sido suficiente para absorver toda a demanda, sem necessidade de autorização de consultas fora da rede.</p>
+            
+            <p>No primeiro ano completo de funcionamento do Centro de Atendimento Integrado (outubro de 2024 a setembro de 2025), foram registrados <strong>custos evitados superiores a R$ 125.000,00</strong>, resultado direto da coordenação eficiente do cuidado e da alocação adequada de recursos assistenciais.</p>
+
+            <h3>Desfechos Clínicos</h3>
+            <p>Os indicadores clínicos têm demonstrado maturidade assistencial e efetividade do modelo:</p>
+            
+            <div class="highlight-box">
+                <p>• Redução substancial nas reinternações por recaída na Linha de Cuidado da Fratura de Fêmur</p>
+                <p>• Diminuição expressiva no risco de nova internação, mesmo com aumento gradual da complexidade dos pacientes atendidos</p>
+                <p>• 568 beneficiários atendidos e 1.034 atendimentos realizados no primeiro ano de operação do CAI</p>
+            </div>
+
+            <h3>Experiência do Paciente</h3>
+            <p>A mensuração sistemática da satisfação do paciente é realizada por meio do <strong>PPE-15 Adaptado</strong> (Patient-Reported Experience Measures), instrumento validado que avalia múltiplas dimensões da experiência assistencial.</p>
+            
+            <p>Os resultados têm sido consistentemente elevados, com <strong>média geral de 98,4%</strong> de satisfação, refletindo alinhamento entre as equipes envolvidas na condução do cuidado, maturidade assistencial do Centro de Atendimento Integrado, efetividade da comunicação entre profissionais e pacientes, e adequação do percurso assistencial às expectativas e necessidades dos beneficiários.</p>
+            
+            <p>Esta métrica consolida a experiência do paciente como componente central da lógica de <strong>Saúde Baseada em Valor</strong> adotada pela Unimed Governador Valadares.</p>
+        </div>
+
+        <!-- PERSPECTIVAS -->
+        <div class="section">
+            <h2>Perspectivas Futuras</h2>
+            
+            <h3>Expansão para Outras Especialidades</h3>
+            <p>O modelo desenvolvido para Geriatria possui potencial de replicação para qualquer especialidade médica. A metodologia é adaptável e pode ser customizada conforme as características clínicas e epidemiológicas de cada área.</p>
+            
+            <p>A parceria entre o Setor de Autorização e o Escritório de Valor em Saúde permite o desenho de fluxos personalizados, considerando perfil epidemiológico da população atendida, disponibilidade de recursos assistenciais, evidências científicas específicas de cada especialidade, e indicadores de qualidade e segurança assistencial.</p>
+
+            <h3>Consolidação do Centro de Atendimento Integrado</h3>
+            <p>O CAI está consolidado como <strong>ponto central entre o cuidado hospitalar e o cuidado ambulatorial</strong>, servindo de base para os próximos ciclos estratégicos da operação. A transição para a gestão plena pelo ICDS (Instituto de Ciências da Saúde) a partir de outubro de 2025 marca uma nova fase de maturidade institucional.</p>
+
+            <h3>Fortalecimento da Saúde Baseada em Valor</h3>
+            <p>A iniciativa reforça o compromisso da Unimed Governador Valadares com os princípios da <strong>Saúde Baseada em Valor (Value-Based Health Care)</strong>, modelo assistencial que prioriza desfechos clínicos relevantes para o paciente, experiência positiva ao longo da jornada assistencial, eficiência na utilização de recursos, e coordenação e continuidade do cuidado.</p>
+        </div>
+
+        <!-- ACESSE O QUESTIONÁRIO -->
+        <div class="section" style="text-align: center;">
+            <h2>Acesse o Questionário</h2>
+            <p>Conheça o instrumento de estratificação utilizado no projeto:</p>
+            <a href="#" class="cta-button">Questionário de Estratificação Geriátrica</a>
+            <p style="font-size: 14px; color: var(--text-secondary); margin-top: 10px;"><em>Link será disponibilizado em breve</em></p>
+        </div>
+
+        <!-- INFORMAÇÕES TÉCNICAS -->
+        <div class="section">
+            <h2>Informações Técnicas</h2>
+            
+            <div class="info-grid">
+                <div class="info-item">
+                    <strong>Responsáveis pelo Projeto</strong>
+                    <span>Setor de Autorização | Escritório de Valor em Saúde</span>
+                </div>
+                <div class="info-item">
+                    <strong>Instrumento de Coleta</strong>
+                    <span>Google Forms (vinculado ao e-mail corporativo)</span>
+                </div>
+                <div class="info-item">
+                    <strong>Canal de Envio</strong>
+                    <span>WhatsApp e demais canais de atendimento Unimed GV</span>
+                </div>
+                <div class="info-item">
+                    <strong>Local de Atendimento</strong>
+                    <span>Centro de Atendimento Integrado (CAI)</span>
+                </div>
+                <div class="info-item">
+                    <strong>Período de Análise</strong>
+                    <span>Outubro de 2024 a Setembro de 2025</span>
+                </div>
+                <div class="info-item">
+                    <strong>Indicador de Experiência</strong>
+                    <span>PPE-15 Adaptado (Patient-Reported Experience Measures)</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- CONTATO -->
+        <div class="section" style="text-align: center;">
+            <h2>Contato</h2>
+            <p>Para mais informações sobre o projeto, entre em contato com:</p>
+            <p style="font-size: 18px; color: var(--unimed-green); font-weight: 600; margin-top: 15px;">Escritório de Valor em Saúde</p>
+            <p style="font-size: 16px; color: var(--text-secondary);">Unimed Governador Valadares</p>
+        </div>
+
+        <div class="update-notice">
+            Documento institucional sujeito a atualizações periódicas conforme evolução do projeto.
+        </div>
+
+        <!-- FOOTER -->
+        <footer class="footer">
+            <img class="footer-logo" src="https://i.imgur.com/yAUQciP.png" alt="AxiaCare Logo">
+            <div class="footer-title">AxView™ | WebApps - Gestão e Consultoria em Saúde</div>
+            <div class="footer-links">
+                <a href="https://linktr.ee/gui.thome">Conheça nossas soluções.</a>
+                <span class="separator">|</span>
+                <a href="https://www.axcare.com.br">axcare.com.br</a>
+                <span class="separator">|</span>
+                <a href="https://www.medvalor.med.br">medvalor.med.br</a>
+            </div>
+            <div class="footer-social">
+                <a href="https://guithome.com.br">guithome.com.br</a>
+                <span class="separator">|</span>
+                <a href="https://linkedin.com/in/guithome">LinkedIn</a>
+                <span class="separator">|</span>
+                <a href="https://www.instagram.com/gui.thome/">Instagram</a>
+            </div>
+            <div class="footer-copyright">
+                Copyright © 2025 AxiaCare | Todos os direitos reservados | Uma empresa do Grupo CSV
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
