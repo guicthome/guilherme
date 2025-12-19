@@ -24,7 +24,7 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             background: linear-gradient(135deg, #f7f9fc 0%, #e8f4ee 100%);
             color: #2d3748;
-            line-height: 1.6;
+            line-height: 1.7;
         }
 
         .hero {
@@ -120,9 +120,32 @@
             color: #4a5568;
             font-size: 18px;
             margin-bottom: 40px;
-            max-width: 700px;
+            max-width: 800px;
             margin-left: auto;
             margin-right: auto;
+        }
+
+        .content-box {
+            background: white;
+            border-radius: 16px;
+            padding: 50px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .content-box h3 {
+            color: var(--unimed-dark);
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .content-box p {
+            font-size: 17px;
+            color: #4a5568;
+            line-height: 1.8;
+            margin-bottom: 16px;
+            text-align: justify;
         }
 
         .challenge-box {
@@ -154,9 +177,27 @@
             box-shadow: 0 10px 40px rgba(0,0,0,0.1);
         }
 
+        .flow-intro {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .flow-intro h3 {
+            color: var(--unimed-dark);
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .flow-intro p {
+            font-size: 17px;
+            color: #4a5568;
+            line-height: 1.7;
+        }
+
         .flow-steps {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 30px;
             margin-top: 40px;
         }
@@ -205,13 +246,33 @@
         .step-desc {
             color: #718096;
             font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(0,153,93,0.08) 0%, rgba(0,153,93,0.05) 100%);
+            border-left: 4px solid var(--unimed-green);
+            padding: 25px 30px;
+            margin: 25px 0;
+            border-radius: 8px;
+        }
+
+        .highlight-box p {
+            font-size: 17px;
+            color: #2d3748;
+            line-height: 1.8;
+            margin-bottom: 12px;
+        }
+
+        .highlight-box p:last-child {
+            margin-bottom: 0;
         }
 
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 25px;
-            margin-top: 40px;
+            margin-top: 30px;
         }
 
         .feature-card {
@@ -227,21 +288,17 @@
             box-shadow: 0 10px 30px rgba(139,175,31,0.2);
         }
 
-        .feature-icon {
-            font-size: 36px;
-            margin-bottom: 15px;
-        }
-
         .feature-title {
             color: var(--unimed-green);
             font-size: 18px;
             font-weight: 600;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
 
         .feature-desc {
             color: #4a5568;
             font-size: 15px;
+            line-height: 1.6;
         }
 
         .geriatria-section {
@@ -268,6 +325,7 @@
         .score-highlight p {
             font-size: 18px;
             opacity: 0.95;
+            line-height: 1.6;
         }
 
         .levels-container {
@@ -313,7 +371,7 @@
             color: #4a5568;
             font-size: 15px;
             margin-bottom: 15px;
-            line-height: 1.5;
+            line-height: 1.6;
         }
 
         .level-recommendation {
@@ -357,7 +415,20 @@
             background: linear-gradient(135deg, rgba(244,121,32,0.1) 0%, rgba(244,121,32,0.05) 100%);
             border-radius: 16px;
             padding: 50px;
-            text-align: center;
+        }
+
+        .replicability-section h3 {
+            color: var(--unimed-orange);
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .replicability-section p {
+            font-size: 17px;
+            color: #4a5568;
+            line-height: 1.8;
+            margin-bottom: 16px;
         }
 
         .specialties-list {
@@ -484,6 +555,7 @@
                 font-size: 26px;
             }
 
+            .content-box,
             .challenge-box,
             .flow-container,
             .geriatria-section,
@@ -510,6 +582,18 @@
     <div class="container">
         <a href="index3.html" class="back-link">Voltar ao Hub de Documentos</a>
 
+        <!-- CONTEXTO -->
+        <section class="section">
+            <div class="content-box">
+                <h3>Contexto da Iniciativa</h3>
+                <p>A Unimed Governador Valadares está desenvolvendo uma iniciativa inovadora de estratificação da necessidade de cuidado, fundamentada nos princípios de equidade e pertinência assistencial. Este projeto representa um avanço significativo na forma como a cooperativa organiza e coordena o cuidado aos seus beneficiários.</p>
+                
+                <p>A lógica aplicada consiste em acoplar um filtro automatizado às solicitações que chegam pelo Busca Rede, permitindo que ele seja aplicado pela equipe de Autorização. Esse filtro tem como objetivo automatizar uma classificação inicial do paciente por meio de formulários auto-responsivos, preenchidos pelo paciente ou responsável, com linguagem simples e baixo número de itens a serem respondidos.</p>
+
+                <p>Essa iniciativa está sendo conduzida por uma parceria estratégica entre o Setor de Autorização e o Escritório de Valor em Saúde, com potencial de desenho de fluxos personalizados para qualquer especialidade médica.</p>
+            </div>
+        </section>
+
         <!-- O DESAFIO -->
         <section class="section">
             <div class="challenge-box">
@@ -524,59 +608,81 @@
             <p class="section-subtitle">Um processo automatizado que estratifica necessidades e personaliza percursos assistenciais</p>
             
             <div class="flow-container">
+                <div class="flow-intro">
+                    <h3>Como Funciona o Fluxo</h3>
+                    <p>O processo está integrado ao fluxo natural de solicitação de consultas, garantindo agilidade e segurança na coleta de informações clínicas relevantes para a tomada de decisão assistencial.</p>
+                </div>
+
                 <div class="flow-steps">
                     <div class="flow-step">
                         <div class="step-number">1</div>
                         <div class="step-title">Solicitação</div>
-                        <div class="step-desc">Via Busca Rede</div>
+                        <div class="step-desc">Pedido chega via Busca Rede na Autorização</div>
                     </div>
                     <div class="flow-step">
                         <div class="step-number">2</div>
-                        <div class="step-title">Filtro Automático</div>
-                        <div class="step-desc">Acionado na Autorização</div>
+                        <div class="step-title">Envio do Filtro</div>
+                        <div class="step-desc">Formulário enviado pelos canais existentes (WhatsApp)</div>
                     </div>
                     <div class="flow-step">
                         <div class="step-number">3</div>
-                        <div class="step-title">Questionário</div>
-                        <div class="step-desc">Simples via WhatsApp</div>
+                        <div class="step-title">Classificação</div>
+                        <div class="step-desc">Sistema gera pontuação automática</div>
                     </div>
                     <div class="flow-step">
                         <div class="step-number">4</div>
-                        <div class="step-title">Classificação</div>
-                        <div class="step-desc">Pontuação Automática</div>
-                    </div>
-                    <div class="flow-step">
-                        <div class="step-number">5</div>
                         <div class="step-title">Direcionamento</div>
-                        <div class="step-desc">Personalizado</div>
+                        <div class="step-desc">Encaminhamento personalizado ao nível adequado</div>
                     </div>
+                </div>
+
+                <div class="highlight-box" style="margin-top: 40px;">
+                    <p><strong>Importante:</strong> A ferramenta utilizada é o Google Forms, vinculada ao e-mail corporativo, garantindo a segurança dos dados e conformidade com a Lei Geral de Proteção de Dados (LGPD). O envio ocorre pelos canais de atendimento já existentes, especialmente via WhatsApp, facilitando o acesso e a resposta por parte dos beneficiários.</p>
                 </div>
             </div>
         </section>
 
-        <!-- COMO FUNCIONA -->
+        <!-- CARACTERÍSTICAS DO INSTRUMENTO -->
         <section class="section">
-            <h2 class="section-title">Como Funciona</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">📱</div>
-                    <div class="feature-title">Formulário Auto-Responsivo</div>
-                    <div class="feature-desc">Preenchido pelo paciente ou responsável com linguagem simples</div>
+            <div class="content-box">
+                <h3>Características do Instrumento</h3>
+                <p>Apesar da baixa complexidade da estrutura do formulário, as perguntas foram elaboradas com base sólida na literatura científica e acopladas a um sistema automatizado que permite classificar numericamente a necessidade de cuidado, favorecendo uma tomada de decisão mais assertiva.</p>
+
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-title">Formulário Auto-Responsivo</div>
+                        <div class="feature-desc">Pode ser preenchido pelo próprio paciente ou por seu responsável, utilizando linguagem simples e acessível</div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-title">Segurança de Dados</div>
+                        <div class="feature-desc">Google Forms vinculado ao e-mail corporativo, garantindo proteção e conformidade com a LGPD</div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-title">Pontuação Automática</div>
+                        <div class="feature-desc">Sistema inteligente classifica numericamente a necessidade de cuidado do paciente</div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-title">Base Científica</div>
+                        <div class="feature-desc">Perguntas elaboradas com fundamentação sólida na literatura científica internacional</div>
+                    </div>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🔒</div>
-                    <div class="feature-title">Google Forms Seguro</div>
-                    <div class="feature-desc">Vinculado ao e-mail corporativo, garantindo proteção de dados</div>
+
+                <div class="highlight-box">
+                    <p><strong>Garantia de Acesso:</strong> É fundamental destacar que todos os pacientes têm agendamento garantido no Centro de Atendimento Integrado (CAI), atendendo imediatamente à solicitação médica. A estratificação não posterga nem nega acesso, mas sim qualifica o tipo de atendimento que será oferecido.</p>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">⚡</div>
-                    <div class="feature-title">Pontuação Automática</div>
-                    <div class="feature-desc">Sistema inteligente classifica numericamente a necessidade</div>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🎯</div>
-                    <div class="feature-title">Decisão Baseada em Evidências</div>
-                    <div class="feature-desc">Perguntas elaboradas com base sólida na literatura científica</div>
+            </div>
+        </section>
+
+        <!-- RESULTADO ESPERADO -->
+        <section class="section">
+            <div class="content-box">
+                <h3>Resultado Esperado</h3>
+                <p>O resultado esperado é que, para cada especialidade, possamos personalizar o caminho assistencial oferecido ao paciente. Uma vez melhor compreendida a necessidade assistencial, reduzimos riscos assistenciais e jurídicos e aumentamos a satisfação do usuário.</p>
+
+                <p>Do ponto de vista prático, isso nos permite criar fluxos de atendimento que podem envolver verticalização, teleatendimento ou encaminhamento para outra especialidade, sempre com anuência do paciente após contato da enfermagem navegadora.</p>
+
+                <div class="highlight-box">
+                    <p><strong>Coordenação do Cuidado:</strong> Entre a etapa de autorização e o atendimento propriamente dito, a enfermagem de navegação, municiada com as informações clínicas coletadas no questionário, adequa o percurso assistencial à necessidade identificada, garantindo que o paciente transite pelos diferentes níveis de complexidade de forma fluida e segura.</p>
                 </div>
             </div>
         </section>
@@ -587,35 +693,45 @@
             <p class="section-subtitle">Aplicação prática do fluxo com resultados mensuráveis</p>
             
             <div class="geriatria-section">
+                <p style="font-size: 17px; color: #4a5568; line-height: 1.8; margin-bottom: 30px; text-align: justify;">Como caso concreto inicial, apresentamos a metodologia aplicada em Geriatria, que tem permitido a manutenção do reembolso zerado, associada à mensuração sistemática da satisfação do paciente, resultado alcançado em poucos meses de trabalho.</p>
+
                 <div class="score-highlight">
                     <h3>SCG-100</h3>
                     <p>Score de Complexidade Geriátrica</p>
-                    <p style="font-size: 16px; margin-top: 15px; opacity: 0.9;">Instrumento proprietário desenvolvido pelo Escritório de Valor em Saúde</p>
+                    <p style="font-size: 16px; margin-top: 15px; opacity: 0.9;">Instrumento de apoio à coordenação do cuidado desenvolvido pelo Escritório de Valor em Saúde da Unimed Governador Valadares</p>
                 </div>
 
+                <p style="font-size: 17px; color: #4a5568; line-height: 1.8; margin-bottom: 30px; text-align: justify;">O questionário produz automaticamente o SCG-100, construído para estimar a complexidade clínica e funcional do paciente idoso a partir de informações objetivas coletadas diretamente com o paciente ou responsável.</p>
+
                 <h3 style="text-align: center; color: var(--unimed-dark); margin: 40px 0 20px 0; font-size: 24px;">Estratificação por Níveis de Complexidade</h3>
+
+                <p style="font-size: 17px; color: #4a5568; line-height: 1.8; margin-bottom: 30px; text-align: center;">A classificação ocorre conforme as seguintes faixas de pontuação:</p>
 
                 <div class="levels-container">
                     <div class="level-card">
                         <div class="level-badge">NÍVEL 1</div>
                         <div class="level-range">0 a 29 pontos</div>
-                        <div class="level-profile">Baixa complexidade, adequado para manejo generalista</div>
-                        <div class="level-recommendation">→ Clínica Médica ou Médico de Família</div>
+                        <div class="level-profile">Perfil de baixa complexidade, adequado para manejo longitudinal generalista</div>
+                        <div class="level-recommendation">Encaminhamento: Clínica Médica ou Médico de Família</div>
                     </div>
 
                     <div class="level-card">
                         <div class="level-badge">NÍVEL 2</div>
                         <div class="level-range">30 a 69 pontos</div>
-                        <div class="level-profile">Risco moderado, demandas funcionais específicas</div>
-                        <div class="level-recommendation">→ Médico de Família ou Geriatra</div>
+                        <div class="level-profile">Pacientes com risco clínico moderado, demandas funcionais específicas ou síndromes geriátricas iniciais</div>
+                        <div class="level-recommendation">Encaminhamento: Médico de Família ou Geriatra</div>
                     </div>
 
                     <div class="level-card">
                         <div class="level-badge">NÍVEL 3</div>
                         <div class="level-range">≥ 70 pontos</div>
-                        <div class="level-profile">Alta complexidade, múltiplas síndromes geriátricas</div>
-                        <div class="level-recommendation">→ Geriatra</div>
+                        <div class="level-profile">Pacientes com múltiplas síndromes geriátricas, dependência funcional relevante ou instabilidade clínica</div>
+                        <div class="level-recommendation">Encaminhamento: Geriatra</div>
                     </div>
+                </div>
+
+                <div class="highlight-box">
+                    <p><strong>Modelo de Atendimento Escalonado:</strong> Atualmente, o atendimento em Geriatria é escalonado entre Medicina de Família e Comunidade e Geriatria, com inclusão de Clínica Médica a partir de 2026, mantendo garantia de acesso, coordenação do cuidado e foco em valor.</p>
                 </div>
 
                 <h3 style="text-align: center; color: var(--unimed-dark); margin: 40px 0 20px 0; font-size: 24px;">Resultados em Geriatria</h3>
@@ -640,22 +756,20 @@
         <!-- REPLICABILIDADE -->
         <section class="section">
             <div class="replicability-section">
-                <h2 style="color: var(--unimed-orange); font-size: 32px; margin-bottom: 20px;">Potencial de Replicação</h2>
-                <p style="font-size: 18px; color: #4a5568; margin-bottom: 30px;">O fluxo do filtro pode ser adaptado para qualquer especialidade</p>
-                
-                <div class="specialties-list">
-                    <div class="specialty-tag">Cardiologia</div>
-                    <div class="specialty-tag">Ortopedia</div>
-                    <div class="specialty-tag">Pediatria</div>
-                    <div class="specialty-tag">Endocrinologia</div>
-                    <div class="specialty-tag">Pneumologia</div>
-                    <div class="specialty-tag">Neurologia</div>
-                    <div class="specialty-tag">E muito mais...</div>
-                </div>
+                <h3>Potencial de Replicação para Outras Especialidades</h3>
+                <p>O modelo desenvolvido para Geriatria possui potencial de replicação para qualquer especialidade médica. A metodologia é adaptável e pode ser customizada conforme as características clínicas e epidemiológicas de cada área.</p>
 
-                <p style="font-size: 16px; color: #4a5568; margin-top: 30px; font-weight: 600;">
-                    Metodologia adaptável às características clínicas e epidemiológicas de cada área
-                </p>
+                <p>A parceria entre o Setor de Autorização e o Escritório de Valor em Saúde permite o desenho de fluxos personalizados, considerando o perfil epidemiológico da população atendida, a disponibilidade de recursos assistenciais, as evidências científicas específicas de cada especialidade e os indicadores de qualidade e segurança assistencial.</p>
+                
+                <p style="text-align: center; font-weight: 600; margin-top: 30px; margin-bottom: 20px; font-size: 18px;">Especialidades com Potencial de Aplicação:</p>
+
+                <div class="specialties-list">
+                    <div class="specialty-tag">Nutrologia</div>
+                    <div class="specialty-tag">Reumatologia</div>
+                    <div class="specialty-tag">Subespecialidades Pediátricas</div>
+                    <div class="specialty-tag">Psiquiatria</div>
+                    <div class="specialty-tag">Outras Especialidades</div>
+                </div>
             </div>
         </section>
 
