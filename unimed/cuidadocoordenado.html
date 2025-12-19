@@ -44,6 +44,25 @@
             background: linear-gradient(135deg, #f7f9fc 0%, #e8f4ee 100%);
             color: #2d3748;
             line-height: 1.7;
+            position: relative;
+        }
+
+        .axia-watermark {
+            position: fixed;
+            top: 10px;
+            right: 15px;
+            z-index: 1000;
+            opacity: 0.25;
+            transition: opacity 0.3s ease;
+        }
+
+        .axia-watermark:hover {
+            opacity: 0.6;
+        }
+
+        .axia-watermark img {
+            width: 60px;
+            height: auto;
         }
 
         .hero {
@@ -106,9 +125,9 @@
         }
 
         .seal-container img {
-            width: 120px;
+            width: 150px;
             height: auto;
-            filter: drop-shadow(0 4px 12px rgba(0, 153, 93, 0.25));
+            filter: drop-shadow(0 6px 16px rgba(0, 153, 93, 0.35));
         }
 
         .container {
@@ -637,7 +656,7 @@
             }
 
             .seal-container img {
-                width: 100px;
+                width: 130px;
             }
 
             .flow-grid {
@@ -682,7 +701,7 @@
             }
 
             .seal-container img {
-                width: 95px;
+                width: 120px;
             }
 
             .container {
@@ -745,20 +764,69 @@
             }
 
             .pathways-visual {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+
+            .pathway-card {
+                padding: 20px 15px;
+            }
+
+            .pathway-card i {
+                font-size: 32px;
+            }
+
+            .pathway-card h4 {
+                font-size: 14px;
+            }
+
+            .pathway-card p {
+                font-size: 13px;
             }
 
             .levels-container {
                 grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .level-card {
+                padding: 20px 15px;
             }
 
             .results-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+
+            .result-card {
+                padding: 20px 15px;
+            }
+
+            .result-number {
+                font-size: 32px;
+            }
+
+            .result-label {
+                font-size: 13px;
+            }
+
+            .axia-watermark {
+                top: 8px;
+                right: 10px;
+            }
+
+            .axia-watermark img {
+                width: 45px;
             }
         }
     </style>
 </head>
 <body>
+    <!-- LOGO AXIA DISCRETA -->
+    <a href="https://www.axcare.com.br" target="_blank" class="axia-watermark">
+        <img src="https://i.imgur.com/yAUQciP.png" alt="AxiaCare">
+    </a>
+
     <!-- HERO -->
     <div class="hero">
         <div class="hero-content">
@@ -962,7 +1030,7 @@
                     </div>
                     <div class="result-card">
                         <div class="result-number">98,4%</div>
-                        <div class="result-label">Resultado obtido pelo PPE-15 Adaptado (Patient-Reported Experience Measures)</div>
+                        <div class="result-label">Satisfação e Experiência do Paciente medida pelo PPE-15 Adaptado (Patient-Reported Experience Measures)</div>
                     </div>
                 </div>
             </div>
@@ -1000,7 +1068,7 @@
         <!-- FOOTER -->
         <footer class="footer">
             <img class="footer-logo" src="https://i.imgur.com/yAUQciP.png" alt="AxiaCare Logo">
-            <div class="footer-title">AxiaCare Webpages - Gestão e Consultoria em Saúde</div>
+            <div class="footer-title">AxiaCare - Consultoria e Gestão em Saúde</div>
             <div class="footer-links">
                 <a href="https://linktr.ee/gui.thome">Conheça nossas soluções</a>
                 <span class="separator">|</span>
