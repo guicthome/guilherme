@@ -119,16 +119,64 @@
 
         .seal-container {
             text-align: center;
-            margin: -30px 0 20px 0;
+            margin: -35px 0 30px 0;
             position: relative;
             z-index: 10;
+        }
+
+        .seal-container::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 240px;
+            height: 240px;
+            background: radial-gradient(circle, rgba(0, 153, 93, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: -1;
         }
 
         .seal-container img {
             width: 180px;
             height: auto;
-            filter: drop-shadow(0 6px 16px rgba(0, 153, 93, 0.35));
+            filter: drop-shadow(0 8px 20px rgba(0, 153, 93, 0.45));
+            animation: sealPulse 3s ease-in-out infinite;
         }
+
+        @keyframes sealPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .section {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .flow-item {
+            animation: fadeInUp 0.6s ease-out backwards;
+        }
+
+        .flow-item:nth-child(1) { animation-delay: 0.1s; }
+        .flow-item:nth-child(2) { animation-delay: 0.2s; }
+        .flow-item:nth-child(3) { animation-delay: 0.3s; }
+        .flow-item:nth-child(4) { animation-delay: 0.4s; }
 
         .container {
             max-width: 1100px;
@@ -200,9 +248,10 @@
         }
 
         .flow-item:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 35px rgba(0,153,93,0.2);
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 15px 45px rgba(0,153,93,0.25);
             border-color: var(--unimed-green);
+            background: linear-gradient(135deg, rgba(0,153,93,0.08) 0%, rgba(0,153,93,0.04) 100%);
         }
 
         .flow-item::after {
@@ -672,36 +721,46 @@
             }
         }
 
-        /* MOBILE OPTIMIZATION */
+        /* MOBILE OPTIMIZATION - DESIGN PREMIUM */
         @media (max-width: 768px) {
             .hero {
-                padding: 40px 15px 30px 15px;
+                padding: 45px 18px 35px 18px;
             }
 
             .hero h1 {
-                font-size: 26px;
-                line-height: 1.3;
+                font-size: 28px;
+                line-height: 1.35;
+                letter-spacing: -0.5px;
+                font-weight: 800;
             }
 
             .hero .subtitle {
                 font-size: 17px;
-                line-height: 1.5;
+                line-height: 1.6;
+                margin-top: 12px;
             }
 
             .hero .tagline {
                 font-size: 14px;
+                margin-top: 10px;
             }
 
             .logo {
-                width: 160px;
+                width: 170px;
+                margin-bottom: 20px;
             }
 
             .seal-container {
-                margin: -25px 0 20px 0;
+                margin: -30px 0 25px 0;
+            }
+
+            .seal-container::before {
+                width: 200px;
+                height: 200px;
             }
 
             .seal-container img {
-                width: 140px;
+                width: 150px;
             }
 
             .container {
@@ -709,16 +768,20 @@
             }
 
             .main-flow {
-                padding: 35px 20px;
+                padding: 40px 22px;
+                border-radius: 18px;
+                box-shadow: 0 12px 40px rgba(0,0,0,0.1);
             }
 
             .main-flow h2 {
-                font-size: 24px;
+                font-size: 25px;
+                font-weight: 700;
             }
 
             .main-flow .intro {
-                font-size: 15px;
-                margin-bottom: 30px;
+                font-size: 15.5px;
+                line-height: 1.7;
+                margin-bottom: 32px;
             }
 
             .flow-grid {
@@ -738,12 +801,19 @@
                 content: '';
             }
 
+            .flow-item {
+                padding: 28px 18px;
+                border-radius: 14px;
+                box-shadow: 0 6px 20px rgba(0,153,93,0.08);
+            }
+
             .flow-icon {
-                font-size: 36px;
+                font-size: 38px;
             }
 
             .section-title {
-                font-size: 24px;
+                font-size: 25px;
+                font-weight: 700;
             }
 
             .content-box,
@@ -751,7 +821,9 @@
             .geriatria-section,
             .replicability-section,
             .cta-section {
-                padding: 28px 20px;
+                padding: 32px 22px;
+                border-radius: 16px;
+                box-shadow: 0 8px 30px rgba(0,0,0,0.08);
             }
 
             .content-box h3 {
@@ -833,7 +905,7 @@
             <a href="https://www.unimed.coop.br/site/web/governadorvaladares" target="_blank">
                 <img src="https://i.imgur.com/prZGWXK.png" alt="Unimed Governador Valadares" class="logo">
             </a>
-            <h1>Estratificação Inteligente:<br>Instrumento que Coordena o Cuidado</h1>
+            <h1>Cuidado Coordenado:<br>Cada Paciente no Caminho Certo</h1>
             <p class="subtitle">Inovação na Autorização que Garante Equidade e Eficiência Assistencial</p>
             <p class="tagline">Central de Gerenciamento do Cuidado</p>
         </div>
@@ -849,8 +921,8 @@
 
         <!-- FLUXO PRINCIPAL NO INÍCIO -->
         <div class="main-flow">
-            <h2>Como Funciona o Instrumento de Estratificação</h2>
-            <p class="intro">Processo automatizado integrado ao Busca Rede que estratifica necessidades e personaliza percursos assistenciais</p>
+            <h2>O Instrumento de Estratificação</h2>
+            <p class="intro"><strong>Um processo automatizado e inteligente</strong> que transforma a autorização em coordenação do cuidado. Integrado ao Busca Rede, o instrumento estratifica necessidades, classifica complexidade e personaliza percursos assistenciais para cada paciente.</p>
             
             <div class="flow-grid">
                 <div class="flow-item">
@@ -979,11 +1051,20 @@
                     <p style="font-size: 16px; margin-top: 14px; opacity: 0.95;">Instrumento de apoio à coordenação do cuidado desenvolvido pelo Escritório de Valor em Saúde da Unimed Governador Valadares</p>
                 </div>
 
-                <p style="font-size: 16px; color: #4a5568; line-height: 1.8; margin-bottom: 25px; text-align: justify;">O questionário produz automaticamente o SCG-100, construído para estimar a complexidade clínica e funcional do paciente idoso a partir de informações objetivas coletadas diretamente com o paciente ou responsável.</p>
+                <p style="font-size: 16px; color: #4a5568; line-height: 1.8; margin-bottom: 25px; text-align: justify;">O <strong>instrumento de estratificação</strong> produz automaticamente o SCG-100, construído para estimar a complexidade clínica e funcional do paciente idoso a partir de informações objetivas coletadas diretamente com o paciente ou responsável.</p>
 
                 <div class="backend-highlight">
                     <h4>Metodologia de Classificação Avançada</h4>
-                    <p>O sistema utiliza <strong>Modelos Multicritério com conhecimento clínico aplicado</strong> para transformar as respostas do questionário em um escore numérico preciso. Esta abordagem combina evidências científicas, critérios clínicos validados e algoritmos de decisão para gerar uma classificação objetiva e confiável da complexidade do paciente.</p>
+                    <p>O <strong>instrumento</strong> utiliza <strong>Modelos Multicritério com conhecimento clínico aplicado</strong> para transformar as respostas do questionário em um escore numérico preciso. Esta abordagem combina evidências científicas, critérios clínicos validados e algoritmos de decisão para gerar uma classificação objetiva e confiável da complexidade do paciente.</p>
+                </div>
+
+                <!-- CTA PRÓXIMO AO SCG-100 -->
+                <div class="cta-section" style="margin: 35px 0; padding: 35px 30px; background: linear-gradient(135deg, var(--unimed-green) 0%, var(--unimed-dark) 100%); border-radius: 16px;">
+                    <h2 style="color: white; font-size: 28px; margin-bottom: 12px; text-align: center;">Conheça o Instrumento de Estratificação</h2>
+                    <p style="font-size: 16px; color: rgba(255,255,255,0.95); margin-bottom: 20px; text-align: center;">Veja como funciona o questionário SCG-100 na prática</p>
+                    <div style="text-align: center;">
+                        <a href="https://docs.google.com/forms/d/1fGRykPY8JtkQIKcjxwYBwW09alPzVXclhbufFg8ZgYc/edit" target="_blank" class="cta-button" style="background: white; color: var(--unimed-green); font-weight: 700; display: inline-block; padding: 16px 40px; border-radius: 50px; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 6px 20px rgba(0,0,0,0.15);" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 8px 25px rgba(0,0,0,0.2)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 6px 20px rgba(0,0,0,0.15)'">Acessar Questionário SCG-100</a>
+                    </div>
                 </div>
 
                 <h3 style="text-align: center; color: var(--unimed-dark); margin: 35px 0 18px 0; font-size: 23px;">Estratificação por Níveis de Complexidade</h3>
@@ -1056,14 +1137,7 @@
             </div>
         </section>
 
-        <!-- CTA -->
-        <section class="section">
-            <div class="cta-section">
-                <h2 style="color: var(--unimed-green); font-size: 30px; margin-bottom: 14px;">Conheça o Questionário</h2>
-                <p style="font-size: 17px; color: #4a5568; margin-bottom: 18px;">Veja como funciona o instrumento de estratificação geriátrica</p>
-                <a href="https://docs.google.com/forms/d/1fGRykPY8JtkQIKcjxwYBwW09alPzVXclhbufFg8ZgYc/edit" target="_blank" class="cta-button">Acessar Questionário</a>
-            </div>
-        </section>
+
 
         <!-- FOOTER -->
         <footer class="footer">
