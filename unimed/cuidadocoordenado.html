@@ -757,7 +757,7 @@
             }
 
             .seal-container {
-                margin: -30px 0 25px 0;
+                margin: 10px 0 30px 0;
             }
 
             .seal-container::before {
@@ -1174,5 +1174,32 @@
             </div>
         </footer>
     </div>
+
+    <!-- Script para forçar atualização em mobile -->
+    <script>
+        // Versão da página (atualizar quando houver mudanças)
+        const PAGE_VERSION = '2024-12-22-v3';
+        const VERSION_KEY = 'cuidadocoordenado_version';
+        
+        // Verificar se é uma versão antiga
+        const storedVersion = localStorage.getItem(VERSION_KEY);
+        
+        if (storedVersion !== PAGE_VERSION) {
+            // Limpar cache do navegador
+            if ('caches' in window) {
+                caches.keys().then(names => {
+                    names.forEach(name => caches.delete(name));
+                });
+            }
+            
+            // Atualizar versão armazenada
+            localStorage.setItem(VERSION_KEY, PAGE_VERSION);
+            
+            // Forçar reload sem cache (apenas na primeira vez)
+            if (storedVersion !== null) {
+                window.location.reload(true);
+            }
+        }
+    </script>
 </body>
 </html>
