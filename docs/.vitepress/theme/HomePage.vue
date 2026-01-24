@@ -92,6 +92,7 @@
 <style scoped>
 .home-page {
   width: 100%;
+  overflow-x: hidden;
 }
 
 /* Hero */
@@ -103,7 +104,7 @@
 
 .hero-logo {
   max-width: 450px;
-  width: 100%;
+  width: 90%;
   height: auto;
   margin-bottom: 32px;
 }
@@ -114,6 +115,7 @@
   max-width: 800px;
   margin: 0 auto 40px;
   line-height: 1.7;
+  padding: 0 16px;
 }
 
 .hero-actions {
@@ -131,6 +133,8 @@
   font-size: 15px;
   text-decoration: none;
   transition: all 0.25s ease;
+  min-width: 140px;
+  text-align: center;
 }
 
 .btn.primary {
@@ -165,7 +169,8 @@
 }
 
 .feature-card {
-  display: block;
+  display: flex;
+  flex-direction: column;
   border: 1px solid var(--vp-c-divider);
   border-radius: 16px;
   padding: 28px;
@@ -192,6 +197,7 @@
   color: var(--vp-c-text-2);
   line-height: 1.6;
   margin: 0 0 16px 0;
+  flex-grow: 1;
 }
 
 .feature-card .link {
@@ -224,7 +230,7 @@
 
 .ecosystem-img {
   max-width: 800px;
-  width: 100%;
+  width: 95%;
   height: auto;
   filter: drop-shadow(0 4px 20px rgba(25, 99, 150, 0.1));
 }
@@ -251,6 +257,7 @@
 .footer-logo {
   height: 60px;
   width: auto;
+  max-width: 90%;
   margin-bottom: 16px;
 }
 
@@ -305,6 +312,7 @@
   margin-bottom: 20px;
   font-size: 1rem;
   font-weight: 500;
+  flex-wrap: wrap;
 }
 
 .brands .dot {
@@ -331,57 +339,250 @@
   color: #2DBF7F;
 }
 
-/* Responsive */
+/* ========================================================================
+   RESPONSIVE - TABLET (max-width: 960px)
+   ======================================================================== */
 @media (max-width: 960px) {
   .features {
     grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
   }
+  
   .footer-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
   }
-}
-
-@media (max-width: 768px) {
-  .hero-logo {
-    max-width: 320px;
-  }
-  .hero-tagline {
-    font-size: 1rem;
-  }
-  .features {
-    grid-template-columns: 1fr;
-  }
-  .ecosystem h2 {
-    font-size: 1.5rem;
-  }
+  
   .ecosystem-img {
-    max-width: 500px;
-  }
-  .footer-grid {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-  .footer-col a:hover {
-    padding-left: 0;
+    max-width: 600px;
   }
 }
 
-@media (max-width: 480px) {
+/* ========================================================================
+   RESPONSIVE - MOBILE LANDSCAPE (max-width: 768px)
+   ======================================================================== */
+@media (max-width: 768px) {
   .hero {
-    padding: 60px 16px 40px;
+    padding: 60px 20px 50px;
   }
+  
   .hero-logo {
-    max-width: 260px;
+    max-width: 300px;
   }
+  
+  .hero-tagline {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 32px;
+  }
+  
+  .hero-actions {
+    gap: 12px;
+  }
+  
   .btn {
     padding: 12px 28px;
     font-size: 14px;
+    min-width: 120px;
   }
+  
+  .features {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 40px 20px 50px;
+  }
+  
+  .feature-card {
+    padding: 24px;
+  }
+  
+  .ecosystem {
+    padding: 50px 20px 60px;
+  }
+  
+  .ecosystem h2 {
+    font-size: 1.5rem;
+  }
+  
+  .ecosystem .subtitle {
+    font-size: 1rem;
+    margin-bottom: 32px;
+  }
+  
+  .ecosystem-img {
+    max-width: 100%;
+  }
+  
+  .footer-container {
+    padding: 50px 20px 36px;
+  }
+  
+  .footer-brand {
+    margin-bottom: 40px;
+    padding-bottom: 32px;
+  }
+  
+  .footer-logo {
+    height: 50px;
+  }
+  
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    text-align: center;
+  }
+  
+  .footer-col a:hover {
+    padding-left: 0;
+  }
+  
+  .footer-bottom {
+    padding-top: 28px;
+  }
+}
+
+/* ========================================================================
+   RESPONSIVE - MOBILE PORTRAIT (max-width: 480px)
+   ======================================================================== */
+@media (max-width: 480px) {
+  .hero {
+    padding: 48px 16px 40px;
+  }
+  
+  .hero-logo {
+    max-width: 240px;
+    margin-bottom: 24px;
+  }
+  
+  .hero-tagline {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 28px;
+    padding: 0 8px;
+  }
+  
+  .hero-actions {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .btn {
+    width: 100%;
+    max-width: 220px;
+    padding: 14px 24px;
+  }
+  
+  .features {
+    padding: 32px 16px 40px;
+    gap: 14px;
+  }
+  
+  .feature-card {
+    padding: 20px;
+    border-radius: 12px;
+  }
+  
+  .feature-card h3 {
+    font-size: 1rem;
+  }
+  
+  .feature-card p {
+    font-size: 0.9rem;
+  }
+  
+  .ecosystem {
+    padding: 40px 16px 50px;
+  }
+  
+  .ecosystem h2 {
+    font-size: 1.35rem;
+  }
+  
+  .ecosystem .subtitle {
+    font-size: 0.95rem;
+    margin-bottom: 24px;
+  }
+  
   .footer-container {
     padding: 40px 16px 32px;
   }
+  
+  .footer-brand {
+    margin-bottom: 32px;
+    padding-bottom: 28px;
+  }
+  
   .footer-logo {
-    height: 48px;
+    height: 44px;
+  }
+  
+  .footer-brand p {
+    font-size: 0.9rem;
+  }
+  
+  .footer-grid {
+    gap: 28px;
+  }
+  
+  .footer-col h4 {
+    font-size: 0.8rem;
+    margin-bottom: 16px;
+  }
+  
+  .footer-col a {
+    font-size: 0.9rem;
+    padding: 6px 0;
+  }
+  
+  .brands {
+    gap: 10px 14px;
+    font-size: 0.9rem;
+  }
+  
+  .copyright {
+    font-size: 0.8rem;
+  }
+  
+  .compliance {
+    font-size: 0.8rem;
+  }
+}
+
+/* ========================================================================
+   RESPONSIVE - SMALL MOBILE (max-width: 360px)
+   ======================================================================== */
+@media (max-width: 360px) {
+  .hero {
+    padding: 40px 12px 32px;
+  }
+  
+  .hero-logo {
+    max-width: 200px;
+  }
+  
+  .hero-tagline {
+    font-size: 0.85rem;
+  }
+  
+  .features {
+    padding: 28px 12px 36px;
+  }
+  
+  .feature-card {
+    padding: 16px;
+  }
+  
+  .ecosystem {
+    padding: 36px 12px 44px;
+  }
+  
+  .footer-container {
+    padding: 36px 12px 28px;
+  }
+  
+  .footer-logo {
+    height: 40px;
   }
 }
 </style>
