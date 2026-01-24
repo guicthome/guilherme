@@ -2,9 +2,11 @@
 layout: home
 
 hero:
-  name: "Guilherme Thomé"
-  text: "Médico Executivo"
-  tagline: Especialista em Value-Based Healthcare | Fundador do Grupo CSV
+  image:
+    src: /logos/guithome_horizontal_positiva.png
+    alt: Guilherme Thomé
+  text: ""
+  tagline: Médico Executivo e Consultor | Especialista em Value-Based Care | Fundador Grupo CSV - AxiaCare® • MedValor® • Thera®
   actions:
     - theme: brand
       text: Currículo
@@ -12,69 +14,71 @@ hero:
     - theme: alt
       text: LinkedIn
       link: https://www.linkedin.com/in/gui-thome
-    - theme: alt
-      text: Grupo CSV
-      link: https://hub.grupocsv.com
 
 features:
-  - title: Currículo Digital
-    details: Trajetória profissional, formação acadêmica e experiência em gestão de organizações de saúde.
-    link: /cv
-    linkText: Acessar
-
-  - title: MedValor
-    details: Educação executiva para líderes em saúde. Cursos e capacitações estratégicas.
-    link: /medvalor/
-    linkText: Conhecer
-
   - title: Grupo CSV
-    details: Ecossistema empresarial focado em Cuidados em Saúde com Valor.
+    details: Ecossistema empresarial focado em Cuidados em Saúde com Valor. Consultoria, educação e tecnologia integradas.
     link: https://hub.grupocsv.com
-    linkText: Hub CSV
+    linkText: Acessar Hub
 
   - title: Blog
-    details: Artigos e reflexões sobre gestão em saúde e value-based healthcare.
+    details: Artigos e reflexões sobre gestão em saúde, value-based healthcare e liderança executiva.
     link: https://blog.guithome.com.br
-    linkText: Ler
+    linkText: Ler artigos
+
+  - title: Marketing Digital
+    details: Materiais institucionais, apresentações e recursos para comunicação e marketing.
+    link: /medvalor/
+    linkText: Acessar
 ---
 
-## Sobre
-
-Médico executivo com experiência em **gestão estratégica de organizações de saúde**. Superintendente na Unimed Governador Valadares e no ICDS. Fundador do Grupo CSV.
-
-### Áreas de Atuação
-
-- **Value-Based Healthcare** — Modelos de remuneração e cuidado baseados em valor
-- **Governança Clínica** — Comitês, protocolos e indicadores de qualidade
-- **Eficiência Operacional** — Otimização de processos e gestão de custos
-- **Analytics em Saúde** — Dados para tomada de decisão estratégica
-
----
-
-## Contato
-
-| Canal | |
-|-------|------------|
-| **Email** | [guilherme@guithome.com.br](mailto:guilherme@guithome.com.br) |
-| **LinkedIn** | [linkedin.com/in/gui-thome](https://www.linkedin.com/in/gui-thome) |
-| **Site** | [guithome.com.br](https://guithome.com.br) |
-| **Blog** | [blog.guithome.com.br](https://blog.guithome.com.br) |
-
----
-
-## Ecossistema Digital
-
-| Portal | Descrição |
-|--------|-----------|
-| [hub.guithome.com.br](https://hub.guithome.com.br) | Este portal |
-| [hub.grupocsv.com](https://hub.grupocsv.com) | Hub empresarial do Grupo CSV |
-
----
-
-<div style="text-align: center; margin-top: 40px; padding: 20px; background: var(--vp-c-bg-soft); border-radius: 12px;">
-
-**Grupo CSV** — AxiaCare · MedValor · Thera
-
-[hub.grupocsv.com](https://hub.grupocsv.com)
-
+<div class="ecosystem-section">
+  <h2 class="ecosystem-title">Ecossistema Grupo CSV</h2>
+  <p class="ecosystem-subtitle">Cuidados em Saúde com Valor</p>
+  <img src="/triangulo_csv.png" alt="Triângulo do Grupo CSV - AxiaCare, MedValor e Thera" class="ecosystem-image">
 </div>
+
+<footer class="custom-footer">
+  <div class="footer-container">
+    <div class="footer-brand">
+      <img src="/logos/guithome_horizontal_positiva.png" alt="Guilherme Thomé" class="footer-logo">
+      <p class="footer-tagline">Médico Executivo e Consultor<br>Especialista em Value-Based Care</p>
+    </div>
+    
+    <div class="footer-links">
+      <div class="footer-column">
+        <h4>Portais</h4>
+        <a href="https://hub.guithome.com.br">Hub Pessoal</a>
+        <a href="https://hub.grupocsv.com">Hub Grupo CSV</a>
+        <a href="https://blog.guithome.com.br">Blog</a>
+        <a href="/cv">Currículo Digital</a>
+      </div>
+      
+      <div class="footer-column">
+        <h4>Grupo CSV</h4>
+        <a href="https://axiacare.com.br">AxiaCare - Consultoria</a>
+        <a href="https://medvalor.com.br">MedValor - Educação</a>
+        <a href="https://thera.tech">Thera - Tecnologia</a>
+      </div>
+      
+      <div class="footer-column">
+        <h4>Contato</h4>
+        <a href="mailto:guilherme@guithome.com.br">guilherme@guithome.com.br</a>
+        <a href="https://www.linkedin.com/in/gui-thome">LinkedIn</a>
+        <a href="https://wa.me/5533999999999">WhatsApp</a>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <div class="footer-empresas">
+        <span>AxiaCare®</span>
+        <span class="separator">•</span>
+        <span>MedValor®</span>
+        <span class="separator">•</span>
+        <span>Thera®</span>
+      </div>
+      <p class="footer-copyright">© 2026 Guilherme Thomé. Todos os direitos reservados.</p>
+      <p class="footer-compliance"><a href="https://hub.grupocsv.com/compliance/">Compliance</a> | <a href="https://hub.grupocsv.com/compliance/privacidade">Privacidade</a></p>
+    </div>
+  </div>
+</footer>

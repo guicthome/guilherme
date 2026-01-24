@@ -13,9 +13,12 @@
   --vp-c-brand-3: #0d4a73;
   --vp-c-brand-soft: rgba(25, 99, 150, 0.12);
 
-  /* Accent colors */
-  --accent-gold: #c9a227;
-  --accent-light: #f8fafc;
+  /* Accent colors - Grupo CSV */
+  --csv-blue: #196396;
+  --csv-green: #2DBF7F;
+  --axia-green: #2DBF7F;
+  --medvalor-blue: #1a7ab8;
+  --thera-purple: #6B5B95;
 
   /* Typography */
   --vp-font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
@@ -59,41 +62,44 @@
 }
 
 /* --------------------------------------------------------------------------
-   Hero Section
+   Hero Section - Logo como imagem principal
    -------------------------------------------------------------------------- */
 .VPHero {
-  padding: 80px 24px 64px;
+  padding: 60px 24px 48px;
+}
+
+.VPHero .VPImage {
+  max-width: 400px;
+  height: auto;
+  margin-bottom: 24px;
 }
 
 .VPHero .name {
-  font-size: 3.5rem;
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  background: linear-gradient(135deg, var(--vp-c-brand-1) 0%, var(--vp-c-brand-3) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  display: none;
 }
 
 .VPHero .text {
-  font-size: 2rem;
-  font-weight: 600;
-  color: var(--vp-c-text-1);
-  letter-spacing: -0.02em;
+  display: none;
 }
 
 .VPHero .tagline {
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   color: var(--vp-c-text-2);
   font-weight: 400;
-  max-width: 560px;
-  line-height: 1.6;
+  max-width: 700px;
+  line-height: 1.7;
+  text-align: center;
+  margin: 0 auto;
 }
 
 /* Hero action buttons */
+.VPHero .actions {
+  margin-top: 32px;
+}
+
 .VPHero .actions .VPButton {
   border-radius: 8px;
-  padding: 12px 28px;
+  padding: 14px 32px;
   font-weight: 600;
   font-size: 15px;
   transition: all 0.25s ease;
@@ -124,7 +130,7 @@
    Feature Cards
    -------------------------------------------------------------------------- */
 .VPFeatures {
-  padding: 48px 24px 80px;
+  padding: 48px 24px 60px;
 }
 
 .VPFeature {
@@ -166,6 +172,154 @@
 
 .VPFeature:hover .link-text {
   gap: 8px;
+}
+
+/* --------------------------------------------------------------------------
+   Ecosystem Section - Triângulo do Grupo CSV
+   -------------------------------------------------------------------------- */
+.ecosystem-section {
+  text-align: center;
+  padding: 60px 24px 80px;
+  background: linear-gradient(180deg, var(--vp-c-bg) 0%, var(--vp-c-bg-soft) 100%);
+  margin-top: 40px;
+}
+
+.ecosystem-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--vp-c-brand-1);
+  margin-bottom: 8px;
+  letter-spacing: -0.02em;
+}
+
+.ecosystem-subtitle {
+  font-size: 1.1rem;
+  color: var(--vp-c-text-2);
+  margin-bottom: 40px;
+  font-weight: 400;
+}
+
+.ecosystem-image {
+  max-width: 100%;
+  width: 800px;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+  filter: drop-shadow(0 4px 20px rgba(25, 99, 150, 0.1));
+}
+
+/* --------------------------------------------------------------------------
+   Custom Footer - Completo e Impactante
+   -------------------------------------------------------------------------- */
+.custom-footer {
+  background: linear-gradient(135deg, #0d1b2a 0%, #1b3a4b 50%, #0d4a73 100%);
+  color: #ffffff;
+  padding: 0;
+  margin-top: 0;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 24px 40px;
+}
+
+.footer-brand {
+  text-align: center;
+  margin-bottom: 48px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-logo {
+  height: 60px;
+  width: auto;
+  margin-bottom: 16px;
+  filter: brightness(0) invert(1);
+}
+
+.footer-tagline {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.footer-links {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  margin-bottom: 48px;
+}
+
+.footer-column h4 {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--csv-green);
+  margin-bottom: 20px;
+}
+
+.footer-column a {
+  display: block;
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  font-size: 0.95rem;
+  padding: 8px 0;
+  transition: all 0.2s ease;
+  border-bottom: 1px solid transparent;
+}
+
+.footer-column a:hover {
+  color: #ffffff;
+  padding-left: 8px;
+  border-bottom-color: var(--csv-green);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 32px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-empresas {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.footer-empresas .separator {
+  color: var(--csv-green);
+}
+
+.footer-copyright {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 12px;
+}
+
+.footer-compliance {
+  font-size: 0.85rem;
+}
+
+.footer-compliance a {
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-compliance a:hover {
+  color: var(--csv-green);
+}
+
+/* Hide default VitePress footer */
+.VPFooter {
+  display: none !important;
 }
 
 /* --------------------------------------------------------------------------
@@ -264,62 +418,72 @@
 }
 
 /* --------------------------------------------------------------------------
-   Footer
-   -------------------------------------------------------------------------- */
-.VPFooter {
-  border-top: 1px solid var(--vp-c-divider);
-  padding: 32px 24px;
-}
-
-.VPFooter .message {
-  font-size: 14px;
-  color: var(--vp-c-text-2);
-}
-
-.VPFooter .copyright {
-  font-size: 13px;
-  color: var(--vp-c-text-3);
-}
-
-/* --------------------------------------------------------------------------
-   Custom Components
-   -------------------------------------------------------------------------- */
-
-/* Highlighted box for Grupo CSV */
-.vp-doc div[style*="text-align: center"] {
-  border: 1px solid var(--vp-c-divider);
-  border-radius: 16px;
-  background: linear-gradient(135deg, var(--vp-c-bg-soft) 0%, var(--vp-c-bg) 100%);
-}
-
-/* --------------------------------------------------------------------------
    Responsive Adjustments
    -------------------------------------------------------------------------- */
-@media (max-width: 768px) {
-  .VPHero .name {
-    font-size: 2.5rem;
+@media (max-width: 960px) {
+  .footer-links {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
   }
+}
 
-  .VPHero .text {
-    font-size: 1.5rem;
+@media (max-width: 768px) {
+  .VPHero .VPImage {
+    max-width: 280px;
   }
 
   .VPHero .tagline {
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
 
   .VPNavBar .logo {
     height: 28px;
   }
+
+  .ecosystem-title {
+    font-size: 1.5rem;
+  }
+
+  .ecosystem-image {
+    width: 100%;
+    max-width: 500px;
+  }
+
+  .footer-links {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    text-align: center;
+  }
+
+  .footer-column a:hover {
+    padding-left: 0;
+  }
+
+  .footer-empresas {
+    flex-wrap: wrap;
+    gap: 8px 16px;
+  }
 }
 
 @media (max-width: 480px) {
-  .VPHero .name {
-    font-size: 2rem;
+  .VPHero .VPImage {
+    max-width: 220px;
   }
 
   .VPHero .actions .VPButton {
-    padding: 10px 20px;
+    padding: 12px 24px;
     font-size: 14px;
+  }
+
+  .ecosystem-section {
+    padding: 40px 16px 60px;
+  }
+
+  .footer-container {
+    padding: 40px 16px 32px;
+  }
+
+  .footer-logo {
+    height: 48px;
   }
 }
