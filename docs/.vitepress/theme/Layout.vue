@@ -1,31 +1,33 @@
 <script setup>
 import DefaultTheme from 'vitepress/theme'
-import { useRoute } from 'vitepress'
+import { useData } from 'vitepress'
 import HomePage from './HomePage.vue'
 
 const { Layout } = DefaultTheme
-const route = useRoute()
-
-const isHome = () => route.path === '/'
+const { frontmatter } = useData()
 </script>
 
 <template>
-  <Layout>
-    <template #home-hero-before>
-      <HomePage v-if="isHome()" />
-    </template>
-  </Layout>
+  <template v-if="frontmatter.layout === 'custom-home'">
+    <Layout>
+      <template #doc-before>
+        <HomePage />
+      </template>
+    </Layout>
+  </template>
+  <template v-else>
+    <Layout />
+  </template>
 </template>
 
 <style>
-/* Hide default home content when using custom HomePage */
-.VPHome .VPHero,
-.VPHome .VPFeatures {
+/* Hide default footer */
+.VPFooter {
   display: none !important;
 }
 
-/* Hide default footer */
-.VPFooter {
+/* Hide doc content when using custom-home */
+.custom-home-layout .VPDoc .content-container {
   display: none !important;
 }
 </style>
