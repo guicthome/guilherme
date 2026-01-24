@@ -10,12 +10,12 @@ export default defineConfig({
     ['meta', { property: 'og:image', content: 'https://i.imgur.com/TKziJpD.png' }],
   ],
   themeConfig: {
-    logo: '/logos/marca_csv.png',
     siteTitle: 'Guilherme Thomé',
     nav: [
       { text: 'Início', link: '/' },
       { text: 'Currículo', link: '/cv' },
       { text: 'MedValor', link: '/medvalor/' },
+      { text: 'Grupo CSV', link: 'https://hub.grupocsv.com' },
     ],
     socialLinks: [
       { icon: 'linkedin', link: 'https://www.linkedin.com/in/gui-thome' }
