@@ -35,15 +35,20 @@
 }
 
 /* --------------------------------------------------------------------------
-   Header / Navigation
+   Header / Navigation - Logo maior
    -------------------------------------------------------------------------- */
 .VPNav {
   border-bottom: 1px solid var(--vp-c-divider);
 }
 
-.VPNavBar .logo {
-  height: 36px;
-  width: auto;
+.VPNavBar .VPNavBarTitle .logo {
+  height: 40px !important;
+  width: auto !important;
+}
+
+.VPNavBar .logo img {
+  height: 40px !important;
+  width: auto !important;
 }
 
 .VPNavBarTitle .title {
@@ -59,267 +64,6 @@
 
 .VPNavBarMenuLink:hover {
   color: var(--vp-c-brand-1);
-}
-
-/* --------------------------------------------------------------------------
-   Hero Section - Logo como imagem principal
-   -------------------------------------------------------------------------- */
-.VPHero {
-  padding: 60px 24px 48px;
-}
-
-.VPHero .VPImage {
-  max-width: 400px;
-  height: auto;
-  margin-bottom: 24px;
-}
-
-.VPHero .name {
-  display: none;
-}
-
-.VPHero .text {
-  display: none;
-}
-
-.VPHero .tagline {
-  font-size: 1.15rem;
-  color: var(--vp-c-text-2);
-  font-weight: 400;
-  max-width: 700px;
-  line-height: 1.7;
-  text-align: center;
-  margin: 0 auto;
-}
-
-/* Hero action buttons */
-.VPHero .actions {
-  margin-top: 32px;
-}
-
-.VPHero .actions .VPButton {
-  border-radius: 8px;
-  padding: 14px 32px;
-  font-weight: 600;
-  font-size: 15px;
-  transition: all 0.25s ease;
-}
-
-.VPHero .actions .VPButton.brand {
-  background: linear-gradient(135deg, var(--vp-c-brand-1) 0%, var(--vp-c-brand-3) 100%);
-  border: none;
-  box-shadow: 0 4px 14px rgba(25, 99, 150, 0.25);
-}
-
-.VPHero .actions .VPButton.brand:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(25, 99, 150, 0.35);
-}
-
-.VPHero .actions .VPButton.alt {
-  border: 1.5px solid var(--vp-c-brand-1);
-  color: var(--vp-c-brand-1);
-  background: transparent;
-}
-
-.VPHero .actions .VPButton.alt:hover {
-  background: var(--vp-c-brand-soft);
-}
-
-/* --------------------------------------------------------------------------
-   Feature Cards
-   -------------------------------------------------------------------------- */
-.VPFeatures {
-  padding: 48px 24px 60px;
-}
-
-.VPFeature {
-  border: 1px solid var(--vp-c-divider);
-  border-radius: 16px;
-  padding: 28px;
-  background: var(--vp-c-bg-soft);
-  transition: all 0.3s ease;
-}
-
-.VPFeature:hover {
-  border-color: var(--vp-c-brand-1);
-  box-shadow: 0 8px 30px rgba(25, 99, 150, 0.1);
-  transform: translateY(-4px);
-}
-
-.VPFeature .title {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: var(--vp-c-text-1);
-  margin-bottom: 8px;
-}
-
-.VPFeature .details {
-  font-size: 0.95rem;
-  color: var(--vp-c-text-2);
-  line-height: 1.6;
-}
-
-.VPFeature .link-text {
-  font-weight: 600;
-  color: var(--vp-c-brand-1);
-  margin-top: 16px;
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  transition: gap 0.2s ease;
-}
-
-.VPFeature:hover .link-text {
-  gap: 8px;
-}
-
-/* --------------------------------------------------------------------------
-   Ecosystem Section - Triângulo do Grupo CSV
-   -------------------------------------------------------------------------- */
-.ecosystem-section {
-  text-align: center;
-  padding: 60px 24px 80px;
-  background: linear-gradient(180deg, var(--vp-c-bg) 0%, var(--vp-c-bg-soft) 100%);
-  margin-top: 40px;
-}
-
-.ecosystem-title {
-  font-size: 2rem;
-  font-weight: 700;
-  color: var(--vp-c-brand-1);
-  margin-bottom: 8px;
-  letter-spacing: -0.02em;
-}
-
-.ecosystem-subtitle {
-  font-size: 1.1rem;
-  color: var(--vp-c-text-2);
-  margin-bottom: 40px;
-  font-weight: 400;
-}
-
-.ecosystem-image {
-  max-width: 100%;
-  width: 800px;
-  height: auto;
-  margin: 0 auto;
-  display: block;
-  filter: drop-shadow(0 4px 20px rgba(25, 99, 150, 0.1));
-}
-
-/* --------------------------------------------------------------------------
-   Custom Footer - Completo e Impactante
-   -------------------------------------------------------------------------- */
-.custom-footer {
-  background: linear-gradient(135deg, #0d1b2a 0%, #1b3a4b 50%, #0d4a73 100%);
-  color: #ffffff;
-  padding: 0;
-  margin-top: 0;
-}
-
-.footer-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 60px 24px 40px;
-}
-
-.footer-brand {
-  text-align: center;
-  margin-bottom: 48px;
-  padding-bottom: 40px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.footer-logo {
-  height: 60px;
-  width: auto;
-  margin-bottom: 16px;
-  filter: brightness(0) invert(1);
-}
-
-.footer-tagline {
-  font-size: 1rem;
-  color: rgba(255, 255, 255, 0.7);
-  line-height: 1.6;
-  margin: 0;
-}
-
-.footer-links {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
-  margin-bottom: 48px;
-}
-
-.footer-column h4 {
-  font-size: 0.85rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--csv-green);
-  margin-bottom: 20px;
-}
-
-.footer-column a {
-  display: block;
-  color: rgba(255, 255, 255, 0.8);
-  text-decoration: none;
-  font-size: 0.95rem;
-  padding: 8px 0;
-  transition: all 0.2s ease;
-  border-bottom: 1px solid transparent;
-}
-
-.footer-column a:hover {
-  color: #ffffff;
-  padding-left: 8px;
-  border-bottom-color: var(--csv-green);
-}
-
-.footer-bottom {
-  text-align: center;
-  padding-top: 32px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.footer-empresas {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 16px;
-  margin-bottom: 20px;
-  font-size: 1rem;
-  font-weight: 500;
-}
-
-.footer-empresas .separator {
-  color: var(--csv-green);
-}
-
-.footer-copyright {
-  font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.5);
-  margin-bottom: 12px;
-}
-
-.footer-compliance {
-  font-size: 0.85rem;
-}
-
-.footer-compliance a {
-  color: rgba(255, 255, 255, 0.6);
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-.footer-compliance a:hover {
-  color: var(--csv-green);
-}
-
-/* Hide default VitePress footer */
-.VPFooter {
-  display: none !important;
 }
 
 /* --------------------------------------------------------------------------
@@ -417,73 +161,17 @@
   border-radius: 50%;
 }
 
+/* Hide default footer */
+.VPFooter {
+  display: none !important;
+}
+
 /* --------------------------------------------------------------------------
    Responsive Adjustments
    -------------------------------------------------------------------------- */
-@media (max-width: 960px) {
-  .footer-links {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 32px;
-  }
-}
-
 @media (max-width: 768px) {
-  .VPHero .VPImage {
-    max-width: 280px;
-  }
-
-  .VPHero .tagline {
-    font-size: 1rem;
-  }
-
-  .VPNavBar .logo {
-    height: 28px;
-  }
-
-  .ecosystem-title {
-    font-size: 1.5rem;
-  }
-
-  .ecosystem-image {
-    width: 100%;
-    max-width: 500px;
-  }
-
-  .footer-links {
-    grid-template-columns: 1fr;
-    gap: 32px;
-    text-align: center;
-  }
-
-  .footer-column a:hover {
-    padding-left: 0;
-  }
-
-  .footer-empresas {
-    flex-wrap: wrap;
-    gap: 8px 16px;
-  }
-}
-
-@media (max-width: 480px) {
-  .VPHero .VPImage {
-    max-width: 220px;
-  }
-
-  .VPHero .actions .VPButton {
-    padding: 12px 24px;
-    font-size: 14px;
-  }
-
-  .ecosystem-section {
-    padding: 40px 16px 60px;
-  }
-
-  .footer-container {
-    padding: 40px 16px 32px;
-  }
-
-  .footer-logo {
-    height: 48px;
+  .VPNavBar .VPNavBarTitle .logo,
+  .VPNavBar .logo img {
+    height: 32px !important;
   }
 }

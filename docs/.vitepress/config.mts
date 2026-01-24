@@ -7,10 +7,13 @@ export default defineConfig({
   head: [
     ['link', { rel: 'icon', href: '/favicon.ico' }],
     ['meta', { property: 'og:title', content: 'Guilherme Thomé | Portal Digital' }],
-    ['meta', { property: 'og:image', content: 'https://i.imgur.com/TKziJpD.png' }],
+    ['meta', { property: 'og:image', content: '/logos/guithome_horizontal_positiva.png' }],
   ],
   themeConfig: {
-    logo: '/logos/guithome_horizontal_positiva.png',
+    logo: {
+      src: '/logos/guithome_horizontal_positiva.png',
+      alt: 'Guilherme Thomé'
+    },
     siteTitle: false,
     nav: [
       { text: 'Início', link: '/' },
@@ -20,10 +23,6 @@ export default defineConfig({
     ],
     socialLinks: [
       { icon: 'linkedin', link: 'https://www.linkedin.com/in/gui-thome' }
-    ],
-    footer: {
-      message: 'Médico Executivo e Consultor | Fundador Grupo CSV',
-      copyright: '© 2026 Guilherme Thomé'
-    }
+    ]
   }
 })
