@@ -10,7 +10,8 @@ export default defineConfig({
     ['meta', { property: 'og:image', content: 'https://i.imgur.com/TKziJpD.png' }],
   ],
   themeConfig: {
-    siteTitle: 'Guilherme Thomé',
+    logo: '/logos/guithome_horizontal_positiva.png',
+    siteTitle: false,
     nav: [
       { text: 'Início', link: '/' },
       { text: 'Currículo', link: '/cv' },
