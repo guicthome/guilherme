@@ -8,7 +8,7 @@ window.translations = {
       line1: "Médico Executivo, Consultor e Palestrante",
       line2: "Especialista em Value-Based Care",
       line3: "Superintendente Unimed e ICDS",
-      line4: "Grupo CSV | AxiaCare® • MedValor® • Thera®"
+      line4: "Grupo CSV | AxiaCare® • MedValor® • TheraTech®"
     },
     nav: {
       about: "Sobre",
@@ -46,7 +46,7 @@ window.translations = {
       slide1: "Atuo na interseção entre liderança executiva, negócios, VBHC e inovação, com foco em desfechos que importam para o paciente, sustentabilidade do sistema de saúde e uso inteligente de dados.",
       slide2: "Com formação médica em anestesiologia, destaquei-me na gestão de equipes e migrei para posições executivas, liderando operações hospitalares e, em seguida, estratégias de alto impacto em operadora, instituição filantrópica e no ecossistema empresarial da saúde. Minha trajetória conecta, de forma sinérgica e aplicada, o conhecimento e a execução integrados aos desafios dos principais stakeholders do sistema — pagadores, prestadores, profissionais, fornecedores e pacientes. Essa combinação me permite atuar com visão sistêmica, integrando saberes e perspectivas, orientado a resultados sustentáveis e centrados no paciente.",
       slide3: "Hoje atuo como médico executivo, consultor e empresário. Participo da alta gestão em uma aliança multiorganizacional, aplicação do modelo de Accountable Care Organizations (ACOs), transitando entre operadora, instituição filantrópica, cadeia de suprimentos, tecnologia e diferentes organizações prestadoras. Como consultor, apoio frentes da gestão em saúde com foco em práticas indutoras de valor e novos modelos de pagamento.",
-      slide4: "Como empreendedor, fundei o grupo CSV, com três frentes complementares: AxiaCare® (consultoria e gestão em saúde), MedValor® (ensino executivo e conteúdo) e Thera® (tecnologia e produtos digitais aplicados à saúde). Também sou palestrante em VBHC, governança clínica, modelos de pagamento e inovação em saúde.",
+      slide4: "Como empreendedor, fundei o grupo CSV, com três frentes complementares: AxiaCare® (consultoria e gestão em saúde), MedValor® (ensino executivo e conteúdo) e TheraTech® (tecnologia e produtos digitais aplicados à saúde). Também sou palestrante em VBHC, governança clínica, modelos de pagamento e inovação em saúde.",
       slide5: "Entre as principais entregas, destaco a reestruturação da Governança Clínica em hospital de alta complexidade, com criação de núcleos de inteligência de dados, desenvolvimento médico e segurança assistencial, além da implementação de um modelo de medicina hospitalista que reduziu desperdícios em mais de 2.600 diárias/ano e ampliou o cuidado em ambulatórios de egressos.",
       slide6: "Idealizei e implantei uma estratégia completa de atenção para uma carteira regional, estruturada pelo Escritório de Valor em Saúde (EVS) e pela integração da rede, mercado e novos modelos de remuneração médica. O resultado foi impacto direto a milhares de pessoas em linhas de cuidado como idosos, neurodesenvolvimento infantil e terapias de alto custo, com economias anuais de milhões de reais e fortalecimento da sustentabilidade do sistema.",
       slide7: "Meu propósito é ser parte daqueles que entendem que é necessário inverter a prática atual da saúde, entregando cuidado com base em valor."
@@ -68,9 +68,9 @@ window.translations = {
       },
       {
         role: "Fundador e Diretor Executivo",
-        company: "AxiaCare® • MedValor® • Thera®",
+        company: "AxiaCare® • MedValor® • TheraTech®",
         period: "jan 2024 – atual",
-        description: "Idealizador e líder do <strong>Grupo CSV</strong> (Cuidados em Saúde com Valor), formado por três empresas — AxiaCare®, MedValor® e Thera® — que unem gestão, educação e tecnologia em um mesmo propósito: gerar transformação real na saúde, com foco em eficiência, conhecimento e cuidado centrado nas pessoas.",
+        description: "Idealizador e líder do <strong>Grupo CSV</strong> (Cuidados em Saúde com Valor), formado por três empresas — AxiaCare®, MedValor® e TheraTech® — que unem gestão, educação e tecnologia em um mesmo propósito: gerar transformação real na saúde, com foco em eficiência, conhecimento e cuidado centrado nas pessoas.",
         current: true
       },
       {
@@ -201,7 +201,7 @@ window.translations = {
       externalLinks: "Links Externos",
       companies: "Empresas",
       privacy: "Privacidade",
-      copyright: "© 2025 Guilherme Thomé | Grupo CSV",
+      copyright: "© 2026 Guilherme Thomé | Grupo CSV",
       rights: "Todos os direitos reservados."
     }
   },
@@ -214,7 +214,7 @@ window.translations = {
       line1: "Chief Medical Officer, Consultant & Speaker",
       line2: "Value-Based Care Specialist",
       line3: "CMO Unimed and ICDS",
-      line4: "Grupo CSV | AxiaCare® • MedValor® • Thera®"
+      line4: "Grupo CSV | AxiaCare® • MedValor® • TheraTech®"
     },
     nav: {
       about: "About",
@@ -252,7 +252,7 @@ window.translations = {
       slide1: "I operate at the intersection of executive leadership, business, VBHC, and innovation, with a focus on patient-centered outcomes, healthcare system sustainability, and intelligent use of data.",
       slide2: "With a medical background in anesthesiology, I excelled in team management and transitioned to executive positions, leading hospital operations and then high-impact strategies in a health plan, philanthropic institution, and healthcare business ecosystem. My trajectory synergistically connects knowledge and execution integrated with the challenges of the system's key stakeholders — payers, providers, professionals, suppliers, and patients. This combination allows me to work with a systems-thinking approach, integrating knowledge and perspectives, oriented toward sustainable and patient-centered results.",
       slide3: "Today I work as a chief medical officer, consultant, and entrepreneur. I participate in senior management within a multi-organizational alliance, implementing the Accountable Care Organizations (ACOs) model, navigating between health plan, philanthropic institution, supply chain, technology, and various provider organizations. As a consultant, I support healthcare management initiatives focused on value-driving practices and new payment models.",
-      slide4: "As an entrepreneur, I founded CSV Group, with three complementary divisions: AxiaCare® (healthcare consulting and management), MedValor® (executive education and content), and Thera® (technology and digital health products). I am also a speaker on VBHC, clinical governance, payment models, and healthcare innovation.",
+      slide4: "As an entrepreneur, I founded CSV Group, with three complementary divisions: AxiaCare® (healthcare consulting and management), MedValor® (executive education and content), and TheraTech® (technology and digital health products). I am also a speaker on VBHC, clinical governance, payment models, and healthcare innovation.",
       slide5: "Among my key achievements, I highlight the restructuring of Clinical Governance in a high-complexity hospital, with the creation of data intelligence, physician development, and patient safety units, in addition to implementing a hospitalist medicine model that reduced waste by over 2,600 patient-days per year and expanded care in post-discharge outpatient clinics.",
       slide6: "I designed and implemented a comprehensive care strategy for a regional population, structured through the Value Management Office (VMO) and the integration of the network, market, and new physician payment models. The result was direct impact on thousands of people across care pathways such as elderly care, child neurodevelopment, and high-cost therapies, with annual savings of millions of reais and strengthening system sustainability.",
       slide7: "My purpose is to be part of those who understand that it is necessary to reverse current healthcare practices, delivering value-based care."
@@ -274,9 +274,9 @@ window.translations = {
       },
       {
         role: "Founder and Chief Executive Officer",
-        company: "AxiaCare® • MedValor® • Thera®",
+        company: "AxiaCare® • MedValor® • TheraTech®",
         period: "Jan 2024 – present",
-        description: "Creator and leader of <strong>Grupo CSV</strong> (Value-Based Healthcare Group), consisting of three companies — AxiaCare®, MedValor® and Thera® — that combine management, education and technology with a shared purpose: to generate real transformation in healthcare, focusing on efficiency, knowledge and people-centered care.",
+        description: "Creator and leader of <strong>Grupo CSV</strong> (Value-Based Healthcare Group), consisting of three companies — AxiaCare®, MedValor® and TheraTech® — that combine management, education and technology with a shared purpose: to generate real transformation in healthcare, focusing on efficiency, knowledge and people-centered care.",
         current: true
       },
       {
@@ -407,7 +407,7 @@ window.translations = {
       externalLinks: "External Links",
       companies: "Companies",
       privacy: "Privacy",
-      copyright: "© 2025 Guilherme Thomé | Grupo CSV",
+      copyright: "© 2026 Guilherme Thomé | Grupo CSV",
       rights: "All rights reserved."
     }
   }
