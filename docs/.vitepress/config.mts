@@ -15,7 +15,7 @@ export default defineConfig({
     nav: [
       { text: 'Início', link: '/' },
       { text: 'Currículo', link: '/cv' },
-      { text: 'MedValor', link: '/medvalor/' },
+      { text: 'Marketing', link: '/medvalor/' },
       { text: 'Grupo CSV', link: 'https://hub.grupocsv.com' },
     ],
     socialLinks: [
