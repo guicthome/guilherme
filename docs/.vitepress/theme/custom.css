@@ -167,6 +167,53 @@
 }
 
 /* --------------------------------------------------------------------------
+   Home Page - Full Width Centered Layout
+   -------------------------------------------------------------------------- */
+.VPDoc.has-aside .content-container {
+  max-width: 100% !important;
+}
+
+.VPDoc .container {
+  max-width: 100% !important;
+}
+
+.VPDoc .content {
+  max-width: 100% !important;
+  padding: 0 !important;
+}
+
+.VPDoc .content-container {
+  max-width: 100% !important;
+}
+
+/* Remove sidebar space on home */
+.VPDoc:not(.has-sidebar) .content {
+  max-width: 100% !important;
+}
+
+.VPDoc .aside {
+  display: none !important;
+}
+
+.VPSidebar {
+  display: none !important;
+}
+
+/* Center the main content */
+.VPContent {
+  padding-top: 0 !important;
+}
+
+.VPDoc {
+  padding: 0 !important;
+}
+
+.home-page {
+  width: 100vw !important;
+  margin-left: calc(-50vw + 50%) !important;
+}
+
+/* --------------------------------------------------------------------------
    Responsive Adjustments
    -------------------------------------------------------------------------- */
 @media (max-width: 768px) {
