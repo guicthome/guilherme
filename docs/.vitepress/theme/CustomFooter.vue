@@ -38,7 +38,7 @@
           <span class="separator">•</span>
           <span>MedValor®</span>
           <span class="separator">•</span>
-          <span>Thera®</span>
+          <span>TheraTech®</span>
         </div>
         <p class="footer-copyright">© 2026 Guilherme Thomé. Todos os direitos reservados.</p>
         <p class="footer-compliance">

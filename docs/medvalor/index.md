@@ -38,7 +38,7 @@ Materiais institucionais, landing pages e recursos para comunicação e marketin
 
 <div style="text-align: center; margin-top: 48px; padding: 24px; background: var(--vp-c-bg-soft); border-radius: 12px;">
 
-**Grupo CSV** — AxiaCare® • MedValor® • Thera®
+**Grupo CSV** — AxiaCare® • MedValor® • TheraTech®
 
 [Voltar ao Hub](/) | [Hub Grupo CSV](https://hub.grupocsv.com)
 
