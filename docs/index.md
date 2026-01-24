@@ -1,3 +1,4 @@
 ---
-layout: custom-home
+layout: doc
+customHome: true
 ---
