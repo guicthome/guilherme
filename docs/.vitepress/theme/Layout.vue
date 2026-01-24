@@ -8,26 +8,19 @@ const { frontmatter } = useData()
 </script>
 
 <template>
-  <template v-if="frontmatter.layout === 'custom-home'">
-    <Layout>
-      <template #doc-before>
-        <HomePage />
-      </template>
-    </Layout>
-  </template>
-  <template v-else>
-    <Layout />
-  </template>
+  <Layout>
+    <template #doc-before v-if="frontmatter.customHome">
+      <HomePage />
+    </template>
+  </Layout>
 </template>
 
 <style>
-/* Hide default footer */
 .VPFooter {
   display: none !important;
 }
 
-/* Hide doc content when using custom-home */
-.custom-home-layout .VPDoc .content-container {
-  display: none !important;
+.VPDoc .content-container .vp-doc {
+  display: none;
 }
 </style>
