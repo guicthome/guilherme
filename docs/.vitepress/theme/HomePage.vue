@@ -76,7 +76,7 @@
             <h4>Grupo CSV</h4>
             <a href="https://axiacare.com.br">AxiaCare - Consultoria</a>
             <a href="https://medvalor.com.br">MedValor - Educação</a>
-            <a href="https://thera.tech">Thera - Tecnologia</a>
+            <a href="https://theratech.com.br">TheraTech - Tecnologia</a>
           </div>
           
           <div class="footer-col">
