@@ -56,7 +56,10 @@
         <div class="footer-top">
           <div class="footer-brand">
             <img src="/logos/guithome_horizontal_monocromatica_negativa.png" alt="Guilherme Thomé" class="footer-logo">
-            <p>Médico Executivo e Consultor<br>Especialista em Value-Based Care</p>
+            <div class="footer-brand-text">
+              <p>Médico Executivo e Consultor</p>
+              <p>Especialista em Value-Based Care</p>
+            </div>
           </div>
         </div>
         
@@ -317,19 +320,24 @@
 }
 
 .footer-brand {
-  text-align: center;
+  display: flex;
+  align-items: center;
+  gap: 24px;
 }
 
 .footer-logo {
   height: 56px;
   width: auto;
-  margin-bottom: 18px;
 }
 
-.footer-brand p {
+.footer-brand-text {
+  text-align: left;
+}
+
+.footer-brand-text p {
   font-size: 1rem;
   color: rgba(255, 255, 255, 0.7);
-  line-height: 1.7;
+  line-height: 1.5;
   margin: 0;
 }
 

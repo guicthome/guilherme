@@ -16,11 +16,14 @@ const { frontmatter } = useData()
 </template>
 
 <style>
+/* Hide default footer on all pages - we use custom footer */
 .VPFooter {
   display: none !important;
 }
 
-.VPDoc .content-container .vp-doc {
+/* Hide doc content only on custom home page */
+.vp-doc:has(+ .home-page),
+[data-custom-home="true"] .vp-doc {
   display: none;
 }
 </style>
