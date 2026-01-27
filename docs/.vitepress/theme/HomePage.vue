@@ -5,46 +5,59 @@
   <div class="home-page">
     <!-- Hero Section -->
     <section class="hero">
-      <img src="/logos/guithome_horizontal_positiva.png" alt="Guilherme Thomé" class="hero-logo">
-      <p class="hero-tagline">Médico Executivo e Consultor | Especialista em Value-Based Care | Fundador Grupo CSV - AxiaCare® • MedValor® • Thera®</p>
-      <div class="hero-actions">
-        <a href="/cv" class="btn primary">Currículo</a>
-        <a href="https://www.linkedin.com/in/gui-thome" class="btn secondary" target="_blank" rel="noopener">LinkedIn</a>
+      <div class="hero-content">
+        <img src="/logos/guithome_horizontal_positiva.png" alt="Guilherme Thomé" class="hero-logo">
+        <p class="hero-tagline">
+          Médico Executivo e Consultor | Especialista em Value-Based Care<br>
+          Fundador Grupo CSV - AxiaCare® • MedValor® • TheraTech®
+        </p>
+        <div class="hero-actions">
+          <a href="/cv" class="btn primary">Currículo</a>
+          <a href="https://www.linkedin.com/in/gui-thome" class="btn secondary" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
       </div>
     </section>
 
     <!-- Features Section -->
     <section class="features">
-      <a href="https://hub.grupocsv.com" class="feature-card" target="_blank" rel="noopener">
-        <h3>Grupo CSV</h3>
-        <p>Ecossistema empresarial focado em Cuidados em Saúde com Valor. Consultoria, educação e tecnologia integradas.</p>
-        <span class="link">Acessar Hub →</span>
-      </a>
-      <a href="https://blog.guithome.com.br" class="feature-card" target="_blank" rel="noopener">
-        <h3>Blog</h3>
-        <p>Artigos e reflexões sobre gestão em saúde, value-based healthcare e liderança executiva.</p>
-        <span class="link">Ler artigos →</span>
-      </a>
-      <a href="/medvalor/" class="feature-card">
-        <h3>Marketing Digital</h3>
-        <p>Materiais institucionais, apresentações e recursos para comunicação e marketing.</p>
-        <span class="link">Acessar →</span>
-      </a>
+      <div class="features-container">
+        <a href="https://hub.grupocsv.com" class="feature-card" target="_blank" rel="noopener">
+          <h3>Grupo CSV</h3>
+          <p>Ecossistema empresarial focado em Cuidados em Saúde com Valor. Consultoria, educação e tecnologia integradas.</p>
+          <span class="link">Acessar Hub →</span>
+        </a>
+        <a href="https://blog.guithome.com.br" class="feature-card" target="_blank" rel="noopener">
+          <h3>Blog</h3>
+          <p>Artigos e reflexões sobre gestão em saúde, value-based healthcare e liderança executiva.</p>
+          <span class="link">Ler artigos →</span>
+        </a>
+        <a href="/medvalor/" class="feature-card">
+          <h3>Marketing Digital</h3>
+          <p>Materiais institucionais, apresentações e recursos para comunicação e marketing.</p>
+          <span class="link">Acessar →</span>
+        </a>
+      </div>
     </section>
 
     <!-- Ecosystem Section -->
     <section class="ecosystem">
-      <h2>Ecossistema Grupo CSV</h2>
-      <p class="subtitle">Cuidados em Saúde com Valor</p>
-      <img src="/triangulo_csv.png" alt="Triângulo do Grupo CSV" class="ecosystem-img">
+      <div class="ecosystem-content">
+        <h2>Ecossistema Grupo CSV</h2>
+        <p class="subtitle">Cuidados em Saúde com Valor</p>
+        <div class="ecosystem-img-wrapper">
+          <img src="/triangulo_csv.png" alt="Triângulo do Grupo CSV" class="ecosystem-img">
+        </div>
+      </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
       <div class="footer-container">
-        <div class="footer-brand">
-          <img src="/logos/guithome_horizontal_monocromatica_negativa.png" alt="Guilherme Thomé" class="footer-logo">
-          <p>Médico Executivo e Consultor<br>Especialista em Value-Based Care</p>
+        <div class="footer-top">
+          <div class="footer-brand">
+            <img src="/logos/guithome_horizontal_monocromatica_negativa.png" alt="Guilherme Thomé" class="footer-logo">
+            <p>Médico Executivo e Consultor<br>Especialista em Value-Based Care</p>
+          </div>
         </div>
         
         <div class="footer-grid">
@@ -66,7 +79,7 @@
           <div class="footer-col">
             <h4>Contato</h4>
             <a href="mailto:guilherme@guithome.com.br">guilherme@guithome.com.br</a>
-            <a href="https://www.linkedin.com/in/gui-thome">LinkedIn</a>
+            <a href="https://www.linkedin.com/in/gui-thome" target="_blank" rel="noopener">LinkedIn</a>
           </div>
         </div>
         
@@ -76,7 +89,7 @@
             <span class="dot">•</span>
             <span>MedValor®</span>
             <span class="dot">•</span>
-            <span>Thera®</span>
+            <span>TheraTech®</span>
           </div>
           <p class="copyright">© 2026 Guilherme Thomé. Todos os direitos reservados.</p>
           <p class="compliance">
@@ -90,113 +103,141 @@
 </template>
 
 <style scoped>
+/* Reset and Base */
 .home-page {
   width: 100%;
   overflow-x: hidden;
+  margin: 0;
+  padding: 0;
 }
 
-/* Hero */
+/* ========================================================================
+   HERO SECTION
+   ======================================================================== */
 .hero {
+  width: 100%;
+  padding: 80px 24px 70px;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-content {
+  max-width: 900px;
+  width: 100%;
   text-align: center;
-  padding: 80px 24px 60px;
-  background: linear-gradient(180deg, var(--vp-c-bg) 0%, var(--vp-c-bg-soft) 100%);
+  margin: 0 auto;
 }
 
 .hero-logo {
-  max-width: 450px;
-  width: 90%;
+  max-width: 420px;
+  width: 85%;
   height: auto;
-  margin-bottom: 32px;
+  margin: 0 auto 36px;
+  display: block;
 }
 
 .hero-tagline {
-  font-size: 1.15rem;
-  color: var(--vp-c-text-2);
-  max-width: 800px;
-  margin: 0 auto 40px;
-  line-height: 1.7;
-  padding: 0 16px;
+  font-size: 1.1rem;
+  color: #4a5568;
+  line-height: 1.8;
+  margin: 0 auto 44px;
+  max-width: 700px;
 }
 
 .hero-actions {
   display: flex;
   justify-content: center;
-  gap: 16px;
+  align-items: center;
+  gap: 20px;
   flex-wrap: wrap;
 }
 
 .btn {
-  display: inline-block;
-  padding: 14px 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 40px;
   border-radius: 8px;
   font-weight: 600;
   font-size: 15px;
   text-decoration: none;
   transition: all 0.25s ease;
-  min-width: 140px;
-  text-align: center;
+  min-width: 150px;
 }
 
 .btn.primary {
   background: linear-gradient(135deg, #196396 0%, #0d4a73 100%);
   color: #ffffff;
-  box-shadow: 0 4px 14px rgba(25, 99, 150, 0.25);
+  box-shadow: 0 4px 16px rgba(25, 99, 150, 0.3);
 }
 
 .btn.primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(25, 99, 150, 0.35);
+  box-shadow: 0 6px 24px rgba(25, 99, 150, 0.4);
 }
 
 .btn.secondary {
-  border: 1.5px solid #196396;
+  border: 2px solid #196396;
   color: #196396;
   background: transparent;
 }
 
 .btn.secondary:hover {
-  background: rgba(25, 99, 150, 0.08);
+  background: #196396;
+  color: #ffffff;
 }
 
-/* Features */
+/* ========================================================================
+   FEATURES SECTION
+   ======================================================================== */
 .features {
+  width: 100%;
+  padding: 60px 24px 70px;
+  background: #ffffff;
+  display: flex;
+  justify-content: center;
+}
+
+.features-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  max-width: 1200px;
+  gap: 28px;
+  max-width: 1100px;
+  width: 100%;
   margin: 0 auto;
-  padding: 48px 24px 60px;
 }
 
 .feature-card {
   display: flex;
   flex-direction: column;
-  border: 1px solid var(--vp-c-divider);
+  border: 1px solid #e2e8f0;
   border-radius: 16px;
-  padding: 28px;
-  background: var(--vp-c-bg-soft);
+  padding: 32px;
+  background: #f8fafc;
   text-decoration: none;
   transition: all 0.3s ease;
 }
 
 .feature-card:hover {
   border-color: #196396;
-  box-shadow: 0 8px 30px rgba(25, 99, 150, 0.1);
-  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(25, 99, 150, 0.12);
+  transform: translateY(-6px);
 }
 
 .feature-card h3 {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: var(--vp-c-text-1);
-  margin: 0 0 12px 0;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #1a202c;
+  margin: 0 0 14px 0;
 }
 
 .feature-card p {
   font-size: 0.95rem;
-  color: var(--vp-c-text-2);
-  line-height: 1.6;
-  margin: 0 0 16px 0;
+  color: #4a5568;
+  line-height: 1.65;
+  margin: 0 0 20px 0;
   flex-grow: 1;
 }
 
@@ -206,82 +247,107 @@
   font-size: 0.95rem;
 }
 
-/* Ecosystem */
+/* ========================================================================
+   ECOSYSTEM SECTION
+   ======================================================================== */
 .ecosystem {
+  width: 100%;
+  padding: 70px 24px 90px;
+  background: linear-gradient(180deg, #f8fafc 0%, #edf2f7 100%);
+  display: flex;
+  justify-content: center;
+}
+
+.ecosystem-content {
+  max-width: 1000px;
+  width: 100%;
   text-align: center;
-  padding: 60px 24px 80px;
-  background: linear-gradient(180deg, var(--vp-c-bg) 0%, var(--vp-c-bg-soft) 100%);
+  margin: 0 auto;
 }
 
 .ecosystem h2 {
-  font-size: 2rem;
+  font-size: 2.2rem;
   font-weight: 700;
   color: #196396;
-  margin: 0 0 8px 0;
+  margin: 0 0 12px 0;
   letter-spacing: -0.02em;
-  border: none;
 }
 
 .ecosystem .subtitle {
-  font-size: 1.1rem;
-  color: var(--vp-c-text-2);
-  margin: 0 0 40px 0;
+  font-size: 1.15rem;
+  color: #4a5568;
+  margin: 0 0 50px 0;
+}
+
+.ecosystem-img-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 .ecosystem-img {
-  max-width: 800px;
-  width: 95%;
+  max-width: 750px;
+  width: 90%;
   height: auto;
-  filter: drop-shadow(0 4px 20px rgba(25, 99, 150, 0.1));
 }
 
-/* Footer */
+/* ========================================================================
+   FOOTER
+   ======================================================================== */
 .footer {
+  width: 100%;
   background: linear-gradient(135deg, #0d1b2a 0%, #1b3a4b 50%, #0d4a73 100%);
   color: #ffffff;
 }
 
 .footer-container {
-  max-width: 1200px;
+  max-width: 1100px;
+  width: 100%;
   margin: 0 auto;
-  padding: 60px 24px 40px;
+  padding: 70px 24px 50px;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+  padding-bottom: 50px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .footer-brand {
   text-align: center;
-  margin-bottom: 48px;
-  padding-bottom: 40px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .footer-logo {
-  height: 60px;
+  height: 56px;
   width: auto;
-  max-width: 90%;
-  margin-bottom: 16px;
+  margin-bottom: 18px;
 }
 
 .footer-brand p {
   font-size: 1rem;
   color: rgba(255, 255, 255, 0.7);
-  line-height: 1.6;
+  line-height: 1.7;
   margin: 0;
 }
 
 .footer-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
-  margin-bottom: 48px;
+  gap: 48px;
+  margin-bottom: 50px;
+  text-align: center;
 }
 
 .footer-col h4 {
-  font-size: 0.85rem;
-  font-weight: 600;
+  font-size: 0.8rem;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
   color: #2DBF7F;
-  margin: 0 0 20px 0;
+  margin: 0 0 22px 0;
 }
 
 .footer-col a {
@@ -289,18 +355,17 @@
   color: rgba(255, 255, 255, 0.8);
   text-decoration: none;
   font-size: 0.95rem;
-  padding: 8px 0;
-  transition: all 0.2s ease;
+  padding: 9px 0;
+  transition: color 0.2s ease;
 }
 
 .footer-col a:hover {
   color: #ffffff;
-  padding-left: 8px;
 }
 
 .footer-bottom {
   text-align: center;
-  padding-top: 32px;
+  padding-top: 40px;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -308,11 +373,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 16px;
-  margin-bottom: 20px;
+  gap: 18px;
+  margin-bottom: 22px;
   font-size: 1rem;
-  font-weight: 500;
-  flex-wrap: wrap;
+  font-weight: 600;
 }
 
 .brands .dot {
@@ -322,7 +386,7 @@
 .copyright {
   font-size: 0.9rem;
   color: rgba(255, 255, 255, 0.5);
-  margin: 0 0 12px 0;
+  margin: 0 0 14px 0;
 }
 
 .compliance {
@@ -333,6 +397,7 @@
 .compliance a {
   color: rgba(255, 255, 255, 0.6);
   text-decoration: none;
+  transition: color 0.2s ease;
 }
 
 .compliance a:hover {
@@ -343,13 +408,13 @@
    RESPONSIVE - TABLET (max-width: 960px)
    ======================================================================== */
 @media (max-width: 960px) {
-  .features {
+  .features-container {
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    gap: 24px;
   }
   
   .footer-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 32px;
   }
   
@@ -363,81 +428,80 @@
    ======================================================================== */
 @media (max-width: 768px) {
   .hero {
-    padding: 60px 20px 50px;
+    padding: 60px 20px 55px;
   }
   
   .hero-logo {
-    max-width: 300px;
+    max-width: 320px;
+    margin-bottom: 28px;
   }
   
   .hero-tagline {
-    font-size: 0.95rem;
-    line-height: 1.6;
-    margin-bottom: 32px;
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 36px;
   }
   
   .hero-actions {
-    gap: 12px;
+    gap: 14px;
   }
   
   .btn {
-    padding: 12px 28px;
+    padding: 13px 32px;
     font-size: 14px;
-    min-width: 120px;
+    min-width: 130px;
   }
   
   .features {
+    padding: 50px 20px 55px;
+  }
+  
+  .features-container {
     grid-template-columns: 1fr;
-    gap: 16px;
-    padding: 40px 20px 50px;
+    gap: 18px;
   }
   
   .feature-card {
-    padding: 24px;
+    padding: 26px;
   }
   
   .ecosystem {
-    padding: 50px 20px 60px;
+    padding: 55px 20px 70px;
   }
   
   .ecosystem h2 {
-    font-size: 1.5rem;
+    font-size: 1.7rem;
   }
   
   .ecosystem .subtitle {
-    font-size: 1rem;
-    margin-bottom: 32px;
+    font-size: 1.05rem;
+    margin-bottom: 40px;
   }
   
   .ecosystem-img {
-    max-width: 100%;
+    width: 95%;
   }
   
   .footer-container {
-    padding: 50px 20px 36px;
+    padding: 55px 20px 40px;
   }
   
-  .footer-brand {
+  .footer-top {
     margin-bottom: 40px;
-    padding-bottom: 32px;
+    padding-bottom: 40px;
   }
   
   .footer-logo {
-    height: 50px;
+    height: 48px;
   }
   
   .footer-grid {
     grid-template-columns: 1fr;
-    gap: 32px;
-    text-align: center;
-  }
-  
-  .footer-col a:hover {
-    padding-left: 0;
+    gap: 36px;
   }
   
   .footer-bottom {
-    padding-top: 28px;
+    padding-top: 32px;
   }
 }
 
@@ -446,45 +510,46 @@
    ======================================================================== */
 @media (max-width: 480px) {
   .hero {
-    padding: 48px 16px 40px;
+    padding: 48px 16px 45px;
   }
   
   .hero-logo {
-    max-width: 240px;
+    max-width: 260px;
     margin-bottom: 24px;
   }
   
   .hero-tagline {
-    font-size: 0.9rem;
-    line-height: 1.5;
-    margin-bottom: 28px;
-    padding: 0 8px;
+    font-size: 0.92rem;
+    line-height: 1.65;
+    margin-bottom: 32px;
   }
   
   .hero-actions {
     flex-direction: column;
-    align-items: center;
     gap: 12px;
   }
   
   .btn {
     width: 100%;
-    max-width: 220px;
-    padding: 14px 24px;
+    max-width: 240px;
+    padding: 14px 28px;
   }
   
   .features {
-    padding: 32px 16px 40px;
+    padding: 40px 16px 45px;
+  }
+  
+  .features-container {
     gap: 14px;
   }
   
   .feature-card {
-    padding: 20px;
+    padding: 22px;
     border-radius: 12px;
   }
   
   .feature-card h3 {
-    font-size: 1rem;
+    font-size: 1.05rem;
   }
   
   .feature-card p {
@@ -492,29 +557,29 @@
   }
   
   .ecosystem {
-    padding: 40px 16px 50px;
+    padding: 45px 16px 60px;
   }
   
   .ecosystem h2 {
-    font-size: 1.35rem;
+    font-size: 1.45rem;
   }
   
   .ecosystem .subtitle {
     font-size: 0.95rem;
-    margin-bottom: 24px;
+    margin-bottom: 32px;
   }
   
   .footer-container {
-    padding: 40px 16px 32px;
+    padding: 45px 16px 35px;
   }
   
-  .footer-brand {
-    margin-bottom: 32px;
-    padding-bottom: 28px;
+  .footer-top {
+    margin-bottom: 35px;
+    padding-bottom: 35px;
   }
   
   .footer-logo {
-    height: 44px;
+    height: 42px;
   }
   
   .footer-brand p {
@@ -522,21 +587,21 @@
   }
   
   .footer-grid {
-    gap: 28px;
+    gap: 30px;
   }
   
   .footer-col h4 {
-    font-size: 0.8rem;
-    margin-bottom: 16px;
+    font-size: 0.75rem;
+    margin-bottom: 18px;
   }
   
   .footer-col a {
     font-size: 0.9rem;
-    padding: 6px 0;
+    padding: 7px 0;
   }
   
   .brands {
-    gap: 10px 14px;
+    gap: 12px;
     font-size: 0.9rem;
   }
   
@@ -554,11 +619,11 @@
    ======================================================================== */
 @media (max-width: 360px) {
   .hero {
-    padding: 40px 12px 32px;
+    padding: 40px 12px 38px;
   }
   
   .hero-logo {
-    max-width: 200px;
+    max-width: 220px;
   }
   
   .hero-tagline {
@@ -566,23 +631,57 @@
   }
   
   .features {
-    padding: 28px 12px 36px;
+    padding: 35px 12px 40px;
   }
   
   .feature-card {
-    padding: 16px;
+    padding: 18px;
   }
   
   .ecosystem {
-    padding: 36px 12px 44px;
+    padding: 38px 12px 50px;
   }
   
   .footer-container {
-    padding: 36px 12px 28px;
+    padding: 38px 12px 30px;
   }
   
   .footer-logo {
-    height: 40px;
+    height: 38px;
   }
+}
+
+/* Dark mode adjustments */
+.dark .hero {
+  background: linear-gradient(180deg, var(--vp-c-bg) 0%, var(--vp-c-bg-soft) 100%);
+}
+
+.dark .hero-tagline {
+  color: var(--vp-c-text-2);
+}
+
+.dark .features {
+  background: var(--vp-c-bg);
+}
+
+.dark .feature-card {
+  background: var(--vp-c-bg-soft);
+  border-color: var(--vp-c-divider);
+}
+
+.dark .feature-card h3 {
+  color: var(--vp-c-text-1);
+}
+
+.dark .feature-card p {
+  color: var(--vp-c-text-2);
+}
+
+.dark .ecosystem {
+  background: linear-gradient(180deg, var(--vp-c-bg-soft) 0%, var(--vp-c-bg-alt) 100%);
+}
+
+.dark .ecosystem .subtitle {
+  color: var(--vp-c-text-2);
 }
 </style>
