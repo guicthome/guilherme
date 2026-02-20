@@ -22,7 +22,7 @@
   <meta property="og:locale:alternate" content="en_US" />
   <meta property="og:title" content="Guilherme Thomé | Currículo Digital" />
   <meta property="og:description" content="Médico Executivo e Consultor | Especialista em VBHC | Superintendente Unimed/ICDS | Fundador Grupo CSV (AxiaCare® • MedValor® • TheraTech®)" />
-  <meta property="og:image" content="https://i.imgur.com/TKziJpD.png" />
+  <meta property="og:image" content="https://hub.guithome.com.br/assets/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Guilherme Thomé - Currículo Digital" />
@@ -31,10 +31,10 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Guilherme Thomé | Currículo Digital" />
   <meta name="twitter:description" content="Médico Executivo e Consultor | Especialista em VBHC | Superintendente Unimed/ICDS | Fundador Grupo CSV" />
-  <meta name="twitter:image" content="https://i.imgur.com/TKziJpD.png" />
+  <meta name="twitter:image" content="https://hub.guithome.com.br/assets/og-image.png" />
 
   <!-- Favicon -->
-  <link rel="icon" href="https://guithome.com.br/favicon.ico" />
+  <link rel="icon" href="/assets/icons/favicon.ico" />
 
   <!-- Fonte editorial -->
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -98,47 +98,48 @@
     [data-theme="dark"] .edu-item, [data-theme="dark"] .cert-item{ background:rgba(24,29,38,.6); border-left-color:#5ba3dc; }
     [data-theme="dark"] .edu-item:hover, [data-theme="dark"] .cert-item:hover{ background:rgba(30,36,46,.75); box-shadow:0 4px 16px rgba(91,163,220,.1); }
     
+    /* Auto dark mode: aplica as mesmas regras do [data-theme="dark"] quando o sistema prefere escuro e o usuário não forçou light */
     @media (prefers-color-scheme: dark){
       :root:not([data-theme="light"]){
         --branco:#1e242e; --texto:#e4e6eb; --borda:#343b4a; --off:#181d26;
         --grafite:#f0f2f5; --shadow:0 12px 40px rgba(0,0,0,.6);
         --chip:#1a3a5c; --azul:#5ba3dc;
       }
-      body:not([data-theme="light"]){ background:linear-gradient(180deg,#141923 0%,#0d1117 100%) }
-      .card:not([data-theme="light"]){ background:rgba(30,36,46,.85); border-color:#3a4252; backdrop-filter:blur(10px); }
-      .slide:not([data-theme="light"]){ background:linear-gradient(135deg,rgba(30,36,46,.9) 0%, rgba(24,29,38,.95) 100%); border-color:#3a4252; }
-      .footer:not([data-theme="light"]){ background:rgba(24,29,38,.9); border-color:#3a4252; }
-      .btn.ghost:not([data-theme="light"]){ background:rgba(36,43,56,.8); color:#5ba3dc; border-color:#3a4252; }
-      .logo-pill:not([data-theme="light"]){ background:rgba(30,36,46,.8); border-color:#3a4252; }
-      .skill:not([data-theme="light"]){ background:rgba(26,58,92,.85); border-color:#2d4f7a; color:#8dc5f0; }
-      .badge:not([data-theme="light"]){ background:linear-gradient(135deg,#2d6047,#1f4935); color:#96dbb0; border-color:#2d6047; box-shadow:0 2px 8px rgba(45,96,71,.3); }
-      .nav-btn:not([data-theme="light"]){ background:rgba(30,36,46,.7); border-color:#3a4252; }
-      .dot:not([data-theme="light"]){ background:#3a4252; }
-      .dot.active:not([data-theme="light"]){ background:#5ba3dc; box-shadow:0 0 8px rgba(91,163,220,.5); }
-      .share-btn:not([data-theme="light"]){ background:rgba(30,36,46,.7); border-color:#3a4252; }
-      .modal:not([data-theme="light"]){ background:#1e242e; box-shadow:0 20px 60px rgba(0,0,0,.8); }
-      .qr-container:not([data-theme="light"]){ background:#181d26; border:1px solid #3a4252; }
-      .footer:not([data-theme="light"]){ background:rgba(24,29,38,.9); border-color:#3a4252; }
-      .foot-note:not([data-theme="light"]){ background:#141923; color:#8a92a3; }
-      .foot-note .company:not([data-theme="light"]){ color:#c8cdd8; }
-      .edu-item:not([data-theme="light"]), .cert-item:not([data-theme="light"]){ background:rgba(24,29,38,.6); border-left-color:#5ba3dc; }
-      .edu-item:hover:not([data-theme="light"]), .cert-item:hover:not([data-theme="light"]){ background:rgba(30,36,46,.75); box-shadow:0 4px 16px rgba(91,163,220,.1); }
-      .brands-footer a:not([data-theme="light"]){
+      html:not([data-theme="light"]) body{ background:linear-gradient(180deg,#141923 0%,#0d1117 100%) }
+      html:not([data-theme="light"]) .card{ background:rgba(30,36,46,.85); border-color:#3a4252; backdrop-filter:blur(10px); }
+      html:not([data-theme="light"]) .slide{ background:linear-gradient(135deg,rgba(30,36,46,.9) 0%, rgba(24,29,38,.95) 100%); border-color:#3a4252; }
+      html:not([data-theme="light"]) .footer{ background:rgba(24,29,38,.9); border-color:#3a4252; }
+      html:not([data-theme="light"]) .btn.ghost{ background:rgba(36,43,56,.8); color:#5ba3dc; border-color:#3a4252; }
+      html:not([data-theme="light"]) .logo-pill{ background:rgba(30,36,46,.8); border-color:#3a4252; }
+      html:not([data-theme="light"]) .skill{ background:rgba(26,58,92,.85); border-color:#2d4f7a; color:#8dc5f0; }
+      html:not([data-theme="light"]) .badge{ background:linear-gradient(135deg,#2d6047,#1f4935); color:#96dbb0; border-color:#2d6047; box-shadow:0 2px 8px rgba(45,96,71,.3); }
+      html:not([data-theme="light"]) .nav-btn{ background:rgba(30,36,46,.7); border-color:#3a4252; }
+      html:not([data-theme="light"]) .dot{ background:#3a4252; }
+      html:not([data-theme="light"]) .dot.active{ background:#5ba3dc; box-shadow:0 0 8px rgba(91,163,220,.5); }
+      html:not([data-theme="light"]) .share-btn{ background:rgba(30,36,46,.7); border-color:#3a4252; }
+      html:not([data-theme="light"]) .modal{ background:#1e242e; box-shadow:0 20px 60px rgba(0,0,0,.8); }
+      html:not([data-theme="light"]) .qr-container{ background:#181d26; border:1px solid #3a4252; }
+      html:not([data-theme="light"]) .foot-note{ background:#141923; color:#8a92a3; }
+      html:not([data-theme="light"]) .foot-note .company{ color:#c8cdd8; }
+      html:not([data-theme="light"]) .edu-item, html:not([data-theme="light"]) .cert-item{ background:rgba(24,29,38,.6); border-left-color:#5ba3dc; }
+      html:not([data-theme="light"]) .edu-item:hover, html:not([data-theme="light"]) .cert-item:hover{ background:rgba(30,36,46,.75); box-shadow:0 4px 16px rgba(91,163,220,.1); }
+      html:not([data-theme="light"]) .brands-footer a, html:not([data-theme="light"]) .brands-footer-sub a{
         background:linear-gradient(135deg, #1e232d 0%, #232930 100%);
         border-color:#2d3544;
         box-shadow:0 2px 8px rgba(0,0,0,.3), inset 0 1px 0 rgba(255,255,255,.03);
       }
-      .brands-footer a:hover:not([data-theme="light"]){
+      html:not([data-theme="light"]) .brands-footer a:hover, html:not([data-theme="light"]) .brands-footer-sub a:hover{
         box-shadow:0 8px 24px rgba(0,0,0,.4), 0 4px 12px rgba(74,159,216,.15), inset 0 1px 0 rgba(255,255,255,.05);
         border-color:#3d4a5f;
       }
-      .brands-footer img:not([data-theme="light"]){
+      html:not([data-theme="light"]) .brands-footer img, html:not([data-theme="light"]) .brands-footer-sub img{
         filter:drop-shadow(0 1px 3px rgba(0,0,0,.4)) brightness(.92) contrast(1.1);
         width:auto; max-width:100%; object-fit:contain;
       }
-      .brands-footer a:hover img:not([data-theme="light"]){ 
+      html:not([data-theme="light"]) .brands-footer a:hover img, html:not([data-theme="light"]) .brands-footer-sub a:hover img{ 
         filter:drop-shadow(0 2px 6px rgba(74,159,216,.3)) brightness(1.05) contrast(1.15);
       }
+      html:not([data-theme="light"]) .breadcrumb{ background:rgba(26,31,40,.95); }
     }
 
     /* Base */
@@ -147,7 +148,7 @@
     body{ min-height:100%; }
     html,body{ overflow-x:hidden }
     body{
-      margin:0; font-family:Aptos, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      margin:0; font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       color:var(--texto); background:linear-gradient(180deg,#fff 0%,#fafafa 100%);
       -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
       padding-top:60px;
@@ -223,7 +224,8 @@
     .grid{ display:grid; grid-template-columns:2fr 1fr; gap:22px; margin-top:16px }
 
     /* Header */
-    .header{ display:grid; grid-template-columns:auto 1fr; gap:18px; align-items:center; margin-bottom:18px }
+    .header{ display:grid; grid-template-columns:auto 1fr; gap:22px; align-items:center; margin-bottom:18px; position:relative; overflow:hidden; }
+    .header::before{ content:""; position:absolute; left:0; right:0; top:0; height:4px; background:linear-gradient(90deg, var(--azul), #3ea3d3, var(--azul)); border-top-left-radius:var(--radius); border-top-right-radius:var(--radius); opacity:.8; }
     .brand-frame{ 
       width:270px; height:270px; border-radius:24px; overflow:hidden; 
       position:relative; flex:0 0 auto; background:#fff;
@@ -231,7 +233,7 @@
     }
     .brand-frame::after{ content:""; position:absolute; inset:0; box-shadow:0 0 0 2px var(--borda) inset; border-radius:24px }
     .brand-frame img{ width:100%; height:100%; object-fit:cover }
-    .subtitle{ font-size:.95rem; color:#3a4452; opacity:.95 }
+    .subtitle{ font-size:.95rem; color:#3a4452; opacity:.95; margin-top:4px; }
     .subtitle .line{ display:block }
 
     .cta-bar{ display:flex; flex-wrap:wrap; gap:10px; margin-top:10px }
@@ -249,8 +251,7 @@
     .btn.success:hover{ background:#059669; border-color:#059669; }
     .btn:hover{ transform:translateY(-1px); box-shadow:0 6px 16px rgba(0,0,0,.08) }
     .btn img{ height:var(--icon); width:var(--icon); object-fit:contain }
-    #btnContato img{ filter:invert(1) }
-    .btn[href*="blog"] img{ height:20px; width:20px; }
+    .btn svg{ flex-shrink:0; }
 
     .brandbar{ display:flex; gap:10px; align-items:center; margin-top:10px; flex-wrap:wrap }
     .logo-pill{
@@ -285,7 +286,7 @@
       transition:all .2s ease;
     }
     .lang-toggle:hover{ transform:scale(1.1); box-shadow:0 6px 16px rgba(0,0,0,.2); }
-    .lang-flag{ font-size:20px; line-height:1; }
+    .lang-flag{ font-size:20px; line-height:1; display:flex; align-items:center; justify-content:center; }
     .lang-code{ font-size:9px; font-weight:700; color:var(--azul); letter-spacing:.5px; }
 
     /* Botão voltar ao topo */
@@ -332,9 +333,9 @@
       display:flex; align-items:center; position:relative;
     }
     .slide::before{
-      content:""; position:absolute; left:0; right:0; top:0; height:6px;
-      background:linear-gradient(90deg, var(--azul), #3ea3d3);
-      border-top-left-radius:16px; border-top-right-radius:16px; opacity:.7;
+      content:""; position:absolute; left:0; right:0; top:0; height:4px;
+      background:linear-gradient(90deg, var(--azul), #3ea3d3, var(--azul));
+      border-top-left-radius:16px; border-top-right-radius:16px; opacity:.6;
     }
     .slide p{ text-align:justify; margin:0; text-wrap:pretty; hyphens:auto; font-size:clamp(.96rem, 1rem, 1.02rem); line-height:1.7; }
 
@@ -416,8 +417,9 @@
     }
 
     /* Sidebar */
-    .brand-divider{ display:flex; align-items:center; justify-content:center; padding:18px }
-    .brand-divider img{ max-width:140px; height:auto; display:block }
+    .brand-divider{ display:flex; align-items:center; justify-content:center; padding:20px; position:relative; }
+    .brand-divider img{ max-width:160px; height:auto; display:block; filter:drop-shadow(0 1px 3px rgba(0,0,0,.08)); transition:filter .3s ease; }
+    .brand-divider:hover img{ filter:drop-shadow(0 2px 6px rgba(25,99,150,.15)); }
 
     /* Linktree */
     #em-alta-btn .btn{ width:100%; justify-content:center; border:1px solid var(--azul); font-weight:800; letter-spacing:.2px; border-radius:14px; padding:12px 16px }
@@ -441,60 +443,66 @@
     }
     .footer-section a:hover{ color:var(--azul); text-decoration:none; transform:translateX(4px); opacity:1; }
     
-    /* Logos empilhadas verticalmente - DESIGN PREMIUM COM EFEITOS PROFISSIONAIS */
+    /* Logos footer - HIERARQUIA CSV + SUB-MARCAS */
     .brands-footer{ 
-      display:flex; flex-direction:column; gap:24px; align-items:center; 
+      display:flex; flex-direction:column; gap:20px; align-items:center; 
       padding:16px 0; width:100%;
     }
-    .brands-footer a{ 
+    .brands-footer a, .brands-footer-sub a{ 
       display:flex; align-items:center; justify-content:center;
-      padding:16px 24px; border-radius:12px; 
+      padding:14px 22px; border-radius:12px; 
       background:linear-gradient(135deg, var(--off) 0%, var(--branco) 100%);
       border:1px solid var(--borda);
       box-shadow:0 2px 8px rgba(0,0,0,.04), inset 0 1px 0 rgba(255,255,255,.8);
       transition:all .35s cubic-bezier(.4,0,.2,1); 
-      position:relative; overflow:hidden; min-width:180px;
+      position:relative; overflow:hidden;
     }
-    .brands-footer a::before{
+    .brands-footer a::before, .brands-footer-sub a::before{
       content:''; position:absolute; inset:0; 
       background:linear-gradient(135deg, rgba(25,99,150,.03) 0%, rgba(25,99,150,.08) 100%);
       opacity:0; transition:opacity .35s ease;
     }
-    .brands-footer a:hover::before{ opacity:1; }
-    .brands-footer a:hover{ 
-      transform:translateY(-4px) scale(1.02); 
+    .brands-footer a:hover::before, .brands-footer-sub a:hover::before{ opacity:1; }
+    .brands-footer a:hover, .brands-footer-sub a:hover{ 
+      transform:translateY(-3px) scale(1.02); 
       box-shadow:0 8px 24px rgba(25,99,150,.15), 0 4px 12px rgba(0,0,0,.08), inset 0 1px 0 rgba(255,255,255,.9);
       border-color:#b8d4e8;
     }
-    .brands-footer img{
-      height:44px; width:auto; max-width:100%; display:block; position:relative; z-index:1;
+    .brand-csv-main{ padding:18px 28px !important; }
+    .brand-csv-main img{ height:48px !important; }
+    .brands-footer-sub{
+      display:flex; gap:12px; flex-wrap:wrap; justify-content:center; width:100%;
+    }
+    .brands-footer-sub a{ flex:1; min-width:80px; max-width:160px; padding:10px 14px; }
+    .brands-footer img, .brands-footer-sub img{
+      height:36px; width:auto; max-width:100%; display:block; position:relative; z-index:1;
       filter:drop-shadow(0 1px 2px rgba(0,0,0,.1)) brightness(1.02) contrast(1.05);
       transition:all .35s cubic-bezier(.4,0,.2,1);
       object-fit:contain;
     }
-    .brands-footer a:hover img{ 
+    .brands-footer a:hover img, .brands-footer-sub a:hover img{ 
       filter:drop-shadow(0 2px 4px rgba(25,99,150,.2)) brightness(1.08) contrast(1.1);
       transform:scale(1.05);
     }
     
     /* Dark mode para logos - EFEITOS REFINADOS */
-    [data-theme="dark"] .brands-footer a{
+    [data-theme="dark"] .brands-footer a, [data-theme="dark"] .brands-footer-sub a{
       background:linear-gradient(135deg, #1e232d 0%, #232930 100%);
       border-color:#2d3544;
       box-shadow:0 2px 8px rgba(0,0,0,.3), inset 0 1px 0 rgba(255,255,255,.03);
     }
-    [data-theme="dark"] .brands-footer a::before{
+    [data-theme="dark"] .brands-footer a::before, [data-theme="dark"] .brands-footer-sub a::before{
       background:linear-gradient(135deg, rgba(74,159,216,.05) 0%, rgba(74,159,216,.12) 100%);
     }
-    [data-theme="dark"] .brands-footer a:hover{
+    [data-theme="dark"] .brands-footer a:hover, [data-theme="dark"] .brands-footer-sub a:hover{
       box-shadow:0 8px 24px rgba(0,0,0,.4), 0 4px 12px rgba(74,159,216,.15), inset 0 1px 0 rgba(255,255,255,.05);
       border-color:#3d4a5f;
     }
-    [data-theme="dark"] .brands-footer img{
+    [data-theme="dark"] .brands-footer img, [data-theme="dark"] .brands-footer-sub img{
       filter:drop-shadow(0 1px 3px rgba(0,0,0,.4)) brightness(.92) contrast(1.1);
       width:auto; max-width:100%; object-fit:contain;
     }
-    [data-theme="dark"] .brands-footer a:hover img{ 
+    [data-theme="dark"] .brands-footer a:hover img, [data-theme="dark"] .brands-footer-sub a:hover img{ 
       filter:drop-shadow(0 2px 6px rgba(74,159,216,.3)) brightness(1.05) contrast(1.15);
     }
     
@@ -607,9 +615,11 @@
       
       /* Footer mobile */
       .footer-inner{ grid-template-columns:1fr; gap:32px; padding:32px 20px; }
-      .brands-footer{ gap:20px; }
-      .brands-footer a{ min-width:160px; padding:14px 20px; }
-      .brands-footer img{ height:42px; width:auto; max-width:100%; object-fit:contain; }
+      .brands-footer{ gap:16px; }
+      .brands-footer-sub{ gap:10px; }
+      .brands-footer-sub a{ min-width:100px; padding:10px 14px; }
+      .brands-footer img, .brands-footer-sub img{ height:34px; width:auto; max-width:100%; object-fit:contain; }
+      .brand-csv-main img{ height:42px !important; }
       .foot-note{ padding:20px 16px; }
     }
     
@@ -660,9 +670,11 @@
       .footer-section{ overflow-x:hidden; }
       .footer-section h4{ font-size:1rem; word-break:break-word; }
       .footer-section a{ font-size:.92rem; word-break:break-word; }
-      .brands-footer{ gap:18px; }
-      .brands-footer a{ min-width:150px; padding:12px 18px; }
-      .brands-footer img{ height:40px; width:auto; max-width:100%; object-fit:contain; }
+      .brands-footer{ gap:14px; }
+      .brands-footer-sub{ gap:8px; }
+      .brands-footer-sub a{ min-width:90px; padding:8px 12px; }
+      .brands-footer img, .brands-footer-sub img{ height:30px; width:auto; max-width:100%; object-fit:contain; }
+      .brand-csv-main img{ height:38px !important; }
       .foot-note{ padding:20px 12px; }
       .foot-note .company{ font-size:.9rem; }
       .foot-note .rights{ font-size:.85rem; }
@@ -985,7 +997,14 @@
 
   <!-- Language toggle - NOVO -->
   <button class="lang-toggle" id="langToggle" aria-label="Alternar idioma">
-    <span class="lang-flag" id="langFlag">🇧🇷</span>
+    <span class="lang-flag" id="langFlag">
+      <svg width="22" height="16" viewBox="0 0 22 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="22" height="16" rx="2" fill="#009B3A"/>
+        <path d="M11 2L20 8L11 14L2 8L11 2Z" fill="#FEDF00"/>
+        <circle cx="11" cy="8" r="3.5" fill="#002776"/>
+        <path d="M8 7.2C9.2 6.4 10.8 6.4 12 7.2" stroke="white" stroke-width="0.5" fill="none"/>
+      </svg>
+    </span>
     <span class="lang-code" id="langCode">PT</span>
   </button>
 
@@ -1020,16 +1039,16 @@
         </p>
         <div class="cta-bar">
           <button class="btn primary" id="btnContato" type="button">
-            <img src="https://cdn-icons-png.flaticon.com/512/455/455705.png" alt="" loading="lazy"><span data-i18n="buttons.contact">Contato</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span data-i18n="buttons.contact">Contato</span>
           </button>
           <a class="btn ghost" href="https://www.linkedin.com/in/gui-thome" target="_blank" rel="noopener">
-            <img src="https://cdn-icons-png.flaticon.com/256/174/174857.png" alt="" loading="lazy">LinkedIn
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn
           </a>
           <a class="btn ghost" href="https://www.guithome.com.br" target="_blank" rel="noopener">
-            <img src="https://guithome.com.br/favicon.ico" alt="" loading="lazy"><span data-i18n="buttons.website">Site pessoal</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span data-i18n="buttons.website">Site pessoal</span>
           </a>
           <a class="btn ghost" href="https://blog.guithome.com.br" target="_blank" rel="noopener">
-            <img src="/assets/logos/marca_thera.png" alt="" loading="lazy">Blog
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>Blog
           </a>
         </div>
         <div class="brandbar" aria-label="Marcas">
@@ -1155,15 +1174,20 @@
         <div class="footer-section brands-section">
           <h4 data-i18n="footer.companies">Empresas</h4>
           <div class="brands-footer">
-            <a href="https://thera.grupocsv.com" target="_blank" rel="noopener">
-              <img src="./assets/logos/horizontal_theratech.png" alt="TheraTech" loading="lazy">
+            <a href="https://grupocsv.com" target="_blank" rel="noopener" class="brand-csv-main">
+              <img src="./assets/logos/marca_csv.png" alt="Grupo CSV" loading="lazy">
             </a>
-            <a href="https://axcare.com.br" target="_blank" rel="noopener">
-              <img src="./assets/logos/horizontal_axiacare.png" alt="AxiaCare" loading="lazy">
-            </a>
-            <a href="https://medvalor.med.br" target="_blank" rel="noopener">
-              <img src="./assets/logos/horizontal_medvalor.png" alt="MedValor" loading="lazy">
-            </a>
+            <div class="brands-footer-sub">
+              <a href="https://axcare.com.br" target="_blank" rel="noopener">
+                <img src="./assets/logos/horizontal_axiacare.png" alt="AxiaCare" loading="lazy">
+              </a>
+              <a href="https://medvalor.med.br" target="_blank" rel="noopener">
+                <img src="./assets/logos/horizontal_medvalor.png" alt="MedValor" loading="lazy">
+              </a>
+              <a href="https://thera.grupocsv.com" target="_blank" rel="noopener">
+                <img src="./assets/logos/horizontal_theratech.png" alt="Thera" loading="lazy">
+              </a>
+            </div>
           </div>
         </div>
         
@@ -1186,14 +1210,14 @@
   <div class="overlay" id="overlay" aria-hidden="true">
     <div class="modal" role="dialog" aria-modal="true" aria-labelledby="ttlContato">
       <h2 id="ttlContato" data-i18n="modal.contactTitle">Fale com Guilherme Thomé</h2>
-      <div class="item"><img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="" loading="lazy"><a href="https://wa.me/5533999399959" target="_blank" rel="noopener">WhatsApp: (33) 99939-9959</a></div>
-      <div class="item"><img src="https://cdn-icons-png.flaticon.com/512/561/561127.png" alt="" loading="lazy"><a href="mailto:guilherme@grupocsv.com">guilherme@grupocsv.com</a> <span style="color:#6b7280;font-style:italic;font-size:.9em">(B2B / B2G)</span></div>
-      <div class="item"><img src="https://cdn-icons-png.flaticon.com/512/561/561127.png" alt="" loading="lazy"><a href="mailto:guilherme@guithome.com.br">guilherme@guithome.com.br</a> <span style="color:#6b7280;font-style:italic;font-size:.9em">(B2C)</span></div>
-      <div class="item"><img src="https://cdn-icons-png.flaticon.com/512/561/561127.png" alt="" loading="lazy"><a href="mailto:guilherme.thome@unimedgv.coop.br">guilherme.thome@unimedgv.coop.br</a></div>
-      <div class="item"><img src="https://cdn-icons-png.flaticon.com/512/561/561127.png" alt="" loading="lazy"><a href="mailto:guilherme.thome@unihealthgv.org.br">guilherme.thome@unihealthgv.org.br</a></div>
-      <div class="item"><img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="" loading="lazy"><a href="https://www.linkedin.com/in/gui-thome" target="_blank" rel="noopener">linkedin.com/in/gui-thome</a></div>
-      <div class="item"><img src="https://guithome.com.br/favicon.ico" alt="" loading="lazy"><a href="https://www.guithome.com.br" target="_blank" rel="noopener">guithome.com.br</a></div>
-      <div class="item"><img src="/assets/logos/marca_thera.png" alt="" loading="lazy"><a href="https://blog.guithome.com.br" target="_blank" rel="noopener">blog.guithome.com.br</a></div>
+      <div class="item"><svg width="20" height="20" viewBox="0 0 24 24" fill="#25D366" stroke="none"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg><a href="https://wa.me/5533999399959" target="_blank" rel="noopener">WhatsApp: (33) 99939-9959</a></div>
+      <div class="item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--azul)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><a href="mailto:guilherme@grupocsv.com">guilherme@grupocsv.com</a> <span style="color:#6b7280;font-style:italic;font-size:.9em">(B2B / B2G)</span></div>
+      <div class="item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--azul)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><a href="mailto:guilherme@guithome.com.br">guilherme@guithome.com.br</a> <span style="color:#6b7280;font-style:italic;font-size:.9em">(B2C)</span></div>
+      <div class="item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--azul)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><a href="mailto:guilherme.thome@unimedgv.coop.br">guilherme.thome@unimedgv.coop.br</a></div>
+      <div class="item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--azul)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><a href="mailto:guilherme.thome@unihealthgv.org.br">guilherme.thome@unihealthgv.org.br</a></div>
+      <div class="item"><svg width="20" height="20" viewBox="0 0 24 24" fill="var(--azul)" stroke="none"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg><a href="https://www.linkedin.com/in/gui-thome" target="_blank" rel="noopener">linkedin.com/in/gui-thome</a></div>
+      <div class="item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--azul)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><a href="https://www.guithome.com.br" target="_blank" rel="noopener">guithome.com.br</a></div>
+      <div class="item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--azul)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><a href="https://blog.guithome.com.br" target="_blank" rel="noopener">blog.guithome.com.br</a></div>
       <button class="close-btn" id="closeContato" type="button" data-i18n="buttons.close">Fechar</button>
     </div>
   </div>
@@ -1355,7 +1379,7 @@
         const t = window.translations[lang];
         
         // Atualiza flag
-        document.getElementById('langFlag').textContent = lang === 'pt' ? '🇧🇷' : '🇺🇸';
+        document.getElementById('langFlag').innerHTML = lang === 'pt' ? '<svg width="22" height="16" viewBox="0 0 22 16" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="22" height="16" rx="2" fill="#009B3A"/><path d="M11 2L20 8L11 14L2 8L11 2Z" fill="#FEDF00"/><circle cx="11" cy="8" r="3.5" fill="#002776"/><path d="M8 7.2C9.2 6.4 10.8 6.4 12 7.2" stroke="white" stroke-width="0.5" fill="none"/></svg>' : '<svg width="22" height="16" viewBox="0 0 22 16" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="22" height="16" rx="2" fill="#B22234"/><rect y="1.23" width="22" height="1.23" fill="white"/><rect y="3.69" width="22" height="1.23" fill="white"/><rect y="6.15" width="22" height="1.23" fill="white"/><rect y="8.62" width="22" height="1.23" fill="white"/><rect y="11.08" width="22" height="1.23" fill="white"/><rect y="13.54" width="22" height="1.23" fill="white"/><rect width="9" height="8.62" fill="#3C3B6E"/></svg>';
         document.getElementById('langCode').textContent = lang.toUpperCase();
         
         // Atualiza elementos com data-i18n
