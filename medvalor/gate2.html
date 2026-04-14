@@ -121,7 +121,8 @@
 (function(){
   // ====== PARAMETRIZAÇÃO (replicável) ======
   const qs = new URLSearchParams(location.search);
-  const WEBHOOK_URL = 'https:\/\/hook.us2.make.com\/wv7igcf7f1b2guv3bal4h8xjkcfeykx8';
+  // >>> DIGITAL DECK API (substitui o webhook do Make) <<<
+  const API_URL = 'https://api-digital.guithome.com.br/api/leads';
   const REDIRECT_URL = qs.get('r') || 'https://hub.guithome.com.br/medvalor/masterclass-processos.html';
   const TITLE        = qs.get('t') || 'Abrir conteúdo agora';
   const DESC         = qs.get('d') || 'Digite seu e‑mail para liberar o link. É simples e direto.';
@@ -129,11 +130,11 @@
 
   // ===== CAMPANHA (EDITE AQUI) =====
   // Substitua o valor abaixo sempre que mudar a campanha. Formato: AAA###-MM-YY
-  const CAMPAIGN_CODE = 'VIDEOPROCESSOS-12-25';
+  const CAMPAIGN_CODE = 'VIDEOPROCESSOS-04-26';
   const CAMPAIGN_TAG  = 'MedValor_Content_Gate';
 
   const APPEND_UTM_TO_REDIRECT = true;
-  const TIMEOUT_MS   = 4000;
+  const TIMEOUT_MS   = 5000;
 
   // ====== ELEMENTOS ======
   const page = document.getElementById('page');
@@ -208,32 +209,39 @@
     }
     disableForm(true); setStatus('Enviando…');
 
-const now = new Date(); // <- 1) crie uma única referência de tempo
-
 const payload = {
-  email,
-  ts: now.toISOString(), // UTC p/ auditoria
-  data_hora: now.toLocaleString('sv-SE', { timeZone: 'America/Sao_Paulo', hour12: false }), // YYYY-MM-DD HH:mm:ss
+  email: email,
   source: 'instagram',
-  campaign: CAMPAIGN_TAG,
-  campaign_code: CAMPAIGN_CODE,
-  page: location.href,
-  referrer: document.referrer || null,
-  utm: Object.fromEntries(new URLSearchParams(location.search)),
-  context: { brand: 'MedValor' }
+  campaign: CAMPAIGN_TAG
 };
 
     const controller = new AbortController();
     const t = setTimeout(()=> controller.abort(), TIMEOUT_MS);
 
     try{
-      const res = await fetch(WEBHOOK_URL, {
-        method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(payload), signal:controller.signal, keepalive:true
+      const res = await fetch(API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+        signal: controller.signal,
+        keepalive: true
       });
       clearTimeout(t);
-      if(!res || !('ok' in res) || res.ok){ setStatus('Tudo certo. Abrindo…', 'ok'); saveLocal(email); redirect(); }
-      else { setStatus('Não consegui confirmar o envio, mas vou abrir o link mesmo assim.', 'ok'); saveLocal(email); redirect(); }
-    }catch(_){ setStatus('Conexão instável. Abrindo…', 'ok'); saveLocal(email); redirect(); }
+      if(res.ok){
+        setStatus('Tudo certo. Abrindo...', 'ok');
+        saveLocal(email);
+        redirect();
+      } else {
+        setStatus('Não consegui confirmar o envio, mas vou abrir o link mesmo assim.', 'ok');
+        saveLocal(email);
+        redirect();
+      }
+    }catch(_){
+      clearTimeout(t);
+      setStatus('Conexão instável. Abrindo...', 'ok');
+      saveLocal(email);
+      redirect();
+    }
   });
 })();
 </script>
