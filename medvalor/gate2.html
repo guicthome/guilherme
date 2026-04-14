@@ -122,7 +122,7 @@
   // ====== PARAMETRIZAÇÃO (replicável) ======
   const qs = new URLSearchParams(location.search);
   // >>> DIGITAL DECK API (substitui o webhook do Make) <<<
-  const API_URL = 'https://api-digital.guithome.com.br/api/leads';
+  const API_URL = 'https://api-digital.guithome.com.br/public/leads';
   const REDIRECT_URL = qs.get('r') || 'https://hub.guithome.com.br/medvalor/masterclass-processos.html';
   const TITLE        = qs.get('t') || 'Abrir conteúdo agora';
   const DESC         = qs.get('d') || 'Digite seu e‑mail para liberar o link. É simples e direto.';
